@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29a235df-1b5b-4223-98ba-cfd0770a5870" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Warmup/a_very_big_sum.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Search/ice_cream_parlour.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Greedy/flowers.py" afterPath="$PROJECT_DIR$/Greedy/flowers.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Implementation/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Implementation/song_of_pi.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Hackerrank_problems.iws" />
@@ -26,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ice_cream_parlour.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Search/ice_cream_parlour.py">
+      <file leaf-file-name="song_of_pi.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Implementation/song_of_pi.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41262135">
-              <caret line="10" column="21" selection-start-line="2" selection-start-column="0" selection-end-line="10" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.49514562">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -81,6 +80,7 @@
         <option value="$PROJECT_DIR$/Greedy/flowers.py" />
         <option value="$PROJECT_DIR$/Warmup/a_very_big_sum.py" />
         <option value="$PROJECT_DIR$/Search/ice_cream_parlour.py" />
+        <option value="$PROJECT_DIR$/Implementation/song_of_pi.py" />
       </list>
     </option>
   </component>
@@ -145,7 +145,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Search" />
+              <option name="myItemId" value="Implementation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -161,7 +161,7 @@
     <property name="FullScreen" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GitHub/PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad/bin/git.exe" />
   </component>
-  <component name="RunManager" selected="Python.ice_cream_parlour">
+  <component name="RunManager" selected="Python.song_of_pi">
     <configuration default="false" name="flowers" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -175,23 +175,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Hackerrank_problems" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Greedy/flowers.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="isfibo" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Warmup" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Hackerrank_problems" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Warmup/isfibo.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -243,6 +226,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Hackerrank_problems" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Search/ice_cream_parlour.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="song_of_pi" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Implementation" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Hackerrank_problems" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Implementation/song_of_pi.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -371,18 +371,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.flowers" />
-      <item index="1" class="java.lang.String" itemvalue="Python.isfibo" />
-      <item index="2" class="java.lang.String" itemvalue="Python.diagonal_difference" />
-      <item index="3" class="java.lang.String" itemvalue="Python.a_very_big_sum" />
-      <item index="4" class="java.lang.String" itemvalue="Python.ice_cream_parlour" />
+      <item index="1" class="java.lang.String" itemvalue="Python.diagonal_difference" />
+      <item index="2" class="java.lang.String" itemvalue="Python.a_very_big_sum" />
+      <item index="3" class="java.lang.String" itemvalue="Python.ice_cream_parlour" />
+      <item index="4" class="java.lang.String" itemvalue="Python.song_of_pi" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.ice_cream_parlour" />
-        <item index="1" class="java.lang.String" itemvalue="Python.a_very_big_sum" />
-        <item index="2" class="java.lang.String" itemvalue="Python.flowers" />
-        <item index="3" class="java.lang.String" itemvalue="Python.diagonal_difference" />
-        <item index="4" class="java.lang.String" itemvalue="Python.isfibo" />
+        <item index="0" class="java.lang.String" itemvalue="Python.song_of_pi" />
+        <item index="1" class="java.lang.String" itemvalue="Python.ice_cream_parlour" />
+        <item index="2" class="java.lang.String" itemvalue="Python.a_very_big_sum" />
+        <item index="3" class="java.lang.String" itemvalue="Python.flowers" />
+        <item index="4" class="java.lang.String" itemvalue="Python.diagonal_difference" />
       </list>
     </recent_temporary>
   </component>
@@ -400,14 +400,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17410715" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32822084" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32515338" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -451,13 +451,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Warmup/angry_professor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Warmup/find_digits.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -808,7 +801,15 @@
     <entry file="file://$PROJECT_DIR$/Search/ice_cream_parlour.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.41262135">
-          <caret line="10" column="21" selection-start-line="2" selection-start-column="0" selection-end-line="10" selection-end-column="21" />
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Implementation/song_of_pi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49514562">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>

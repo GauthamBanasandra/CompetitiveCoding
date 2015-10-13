@@ -1,5 +1,3 @@
-/*Have to variables 'five' and 'three'. Initialize 'five' to the number given as input. Decrement 'five' and increment 'three' as long as
-the number isn't divisible by both 'five' and 'three'.*/
 #include <stdio.h>
 int main()
 {

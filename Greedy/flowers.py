@@ -1,6 +1,8 @@
 __author__ = 'gauth_000'
 import math
 
+# Please refer flowers2.py for the right solution.
+
 n, k=map(int, str(input()).strip().split())
 flo=sorted(map(int, str(input()).strip().split()))
 print('sorted flo: ', flo)

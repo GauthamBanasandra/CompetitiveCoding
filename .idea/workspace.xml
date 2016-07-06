@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29a235df-1b5b-4223-98ba-cfd0770a5870" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Algorithms/Dynamic_programming/nikita_and_the_game.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Algorithms/Dynamic_programming/nikita_and_the_game_input.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Hackerrank_problems.iml" afterPath="$PROJECT_DIR$/.idea/Hackerrank_problems.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Algorithms/Dynamic_programming/mandragora_forest.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Algorithms/Dynamic_programming/mandragora_forest_input.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Hackerrank_problems.iws" />
@@ -23,6 +20,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Hackerrank_problems$nikita_and_the_game.coverage" NAME="nikita_and_the_game Coverage Results" MODIFIED="1467653500316" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Algorithms/Dynamic_programming" />
     <SUITE FILE_PATH="coverage/Hackerrank_problems$compare_the_triplets.coverage" NAME="compare the triplets Coverage Results" MODIFIED="1463930738157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/May world codesprint" />
+    <SUITE FILE_PATH="coverage/Hackerrank_problems$mandragora_forest.coverage" NAME="mandragora_forest Coverage Results" MODIFIED="1467827954138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Algorithms/Dynamic_programming" />
     <SUITE FILE_PATH="coverage/Hackerrank_problems$luck_balance.coverage" NAME="luck_balance Coverage Results" MODIFIED="1467561685436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Week_of_code_21" />
     <SUITE FILE_PATH="coverage/Hackerrank_problems$Kangaroo.coverage" NAME="Kangaroo Coverage Results" MODIFIED="1467557377541" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Week_of_code_21" />
   </component>
@@ -35,21 +33,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="nikita_and_the_game.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Algorithms/Dynamic_programming/nikita_and_the_game.py">
+      <file leaf-file-name="mandragora_forest.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Algorithms/Dynamic_programming/mandragora_forest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5151515">
-              <caret line="11" column="62" selection-start-line="11" selection-start-column="62" selection-end-line="11" selection-end-column="62" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="4" column="47" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nikita_and_the_game_input.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Algorithms/Dynamic_programming/nikita_and_the_game_input.txt">
+      <file leaf-file-name="mandragora_forest_input.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Algorithms/Dynamic_programming/mandragora_forest_input.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.14049587">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -70,8 +68,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Strings/bigger_is_greater.py" />
-        <option value="$PROJECT_DIR$/Warmup/simple_array_sum.py" />
         <option value="$PROJECT_DIR$/Warmup/time_conversion.py" />
         <option value="$PROJECT_DIR$/Strings/game_of_thrones_1.py" />
         <option value="$PROJECT_DIR$/Strings/gemstones.py" />
@@ -121,6 +117,8 @@
         <option value="$PROJECT_DIR$/Week_of_code_21/luck_balance.py" />
         <option value="$PROJECT_DIR$/Algorithms/Dynamic_programming/nikita_and_the_game_input.txt" />
         <option value="$PROJECT_DIR$/Algorithms/Dynamic_programming/nikita_and_the_game.py" />
+        <option value="$PROJECT_DIR$/Algorithms/Dynamic_programming/mandragora_forest.py" />
+        <option value="$PROJECT_DIR$/Algorithms/Dynamic_programming/mandragora_forest_input.txt" />
       </list>
     </option>
   </component>
@@ -160,7 +158,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -241,6 +238,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -261,25 +259,7 @@
       <recent name="C:\Users\gauth_000\OneDrive\Documents\Programs\Python\Hackerrank_problems\Hackerrank_Solutions\Strings\Expert" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.nikita_and_the_game">
-    <configuration default="false" name="compress_the_string" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Algorithms/Contest/Pythonist_3" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Hackerrank_problems" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Algorithms/Contest/Pythonist_3/compress_the_string.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.mandragora_forest">
     <configuration default="false" name="validating_credit_card_numbers" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -349,6 +329,24 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/May world codesprint/compare the triplets.py" />
       <option name="PARAMETERS" value="5 6 7 \n 3 6 10" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="mandragora_forest" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Algorithms/Dynamic_programming" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Hackerrank_problems" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Algorithms/Dynamic_programming/mandragora_forest.py" />
+      <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
@@ -603,19 +601,19 @@
       <item index="0" class="java.lang.String" itemvalue="Python.Kangaroo" />
       <item index="1" class="java.lang.String" itemvalue="Python.luck_balance" />
       <item index="2" class="java.lang.String" itemvalue="Python.nikita_and_the_game" />
-      <item index="3" class="java.lang.String" itemvalue="Python.compress_the_string" />
-      <item index="4" class="java.lang.String" itemvalue="Python.validating_credit_card_numbers" />
-      <item index="5" class="java.lang.String" itemvalue="Python.validating_postal_codes" />
-      <item index="6" class="java.lang.String" itemvalue="Python.mystery_number" />
-      <item index="7" class="java.lang.String" itemvalue="Python.compare the triplets" />
+      <item index="3" class="java.lang.String" itemvalue="Python.validating_credit_card_numbers" />
+      <item index="4" class="java.lang.String" itemvalue="Python.validating_postal_codes" />
+      <item index="5" class="java.lang.String" itemvalue="Python.mystery_number" />
+      <item index="6" class="java.lang.String" itemvalue="Python.compare the triplets" />
+      <item index="7" class="java.lang.String" itemvalue="Python.mandragora_forest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.compare the triplets" />
-        <item index="1" class="java.lang.String" itemvalue="Python.mystery_number" />
-        <item index="2" class="java.lang.String" itemvalue="Python.validating_postal_codes" />
-        <item index="3" class="java.lang.String" itemvalue="Python.validating_credit_card_numbers" />
-        <item index="4" class="java.lang.String" itemvalue="Python.compress_the_string" />
+        <item index="0" class="java.lang.String" itemvalue="Python.mandragora_forest" />
+        <item index="1" class="java.lang.String" itemvalue="Python.compare the triplets" />
+        <item index="2" class="java.lang.String" itemvalue="Python.mystery_number" />
+        <item index="3" class="java.lang.String" itemvalue="Python.validating_postal_codes" />
+        <item index="4" class="java.lang.String" itemvalue="Python.validating_credit_card_numbers" />
       </list>
     </recent_temporary>
   </component>
@@ -636,19 +634,24 @@
       <option name="project" value="LOCAL" />
       <updated>1467650699880</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="A dynamic programming problem. Beware of test cases where all inputs are 0.">
+      <created>1467653651564</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1467653651564</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18910742" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19818456" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38336053" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38297874" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36006546" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -656,6 +659,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3964111" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -678,7 +682,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Week of code 21" />
-    <option name="LAST_COMMIT_MESSAGE" value="Week of code 21" />
+    <MESSAGE value="A dynamic programming problem. Beware of test cases where all inputs are 0." />
+    <option name="LAST_COMMIT_MESSAGE" value="A dynamic programming problem. Beware of test cases where all inputs are 0." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -702,20 +707,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Algorithms/Contest/World_cup/world_cup_team_formation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Algorithms/Regex/find_hackerrank.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46059114">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Algorithms/Greedy/mark_and_toys.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1023,7 +1014,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14049587">
           <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1031,7 +1021,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.046831954">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1039,7 +1028,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23327616">
           <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1047,22 +1035,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17495711">
           <caret line="6" column="3" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/Dynamic_programming/nikita_and_the_game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3207547">
+          <caret line="11" column="62" selection-start-line="11" selection-start-column="62" selection-end-line="11" selection-end-column="62" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Algorithms/Dynamic_programming/nikita_and_the_game_input.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.20411664">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Algorithms/Dynamic_programming/nikita_and_the_game.py">
+    <entry file="file://$PROJECT_DIR$/Algorithms/Dynamic_programming/mandragora_forest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5151515">
-          <caret line="11" column="62" selection-start-line="11" selection-start-column="62" selection-end-line="11" selection-end-column="62" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="47" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/Dynamic_programming/mandragora_forest_input.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14049587">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>

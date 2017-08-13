@@ -1,0 +1,8 @@
+﻿  main.cpp
+c:\users\gautham\projects\github\hackerrank_solutions\algorithms\sorting\lily's homework\lily's homework\main.cpp(49): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\gautham\projects\github\hackerrank_solutions\algorithms\sorting\lily's homework\lily's homework\main.cpp(36): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.14393.0\ucrt\stdio.h(1269): note: see declaration of 'scanf'
+c:\users\gautham\projects\github\hackerrank_solutions\algorithms\sorting\lily's homework\lily's homework\main.cpp(42): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.14393.0\ucrt\stdio.h(1269): note: see declaration of 'scanf'
+  Lily's Homework.vcxproj -> C:\Users\Gautham\Projects\Github\Hackerrank_Solutions\Algorithms\Sorting\Lily's Homework\Debug\Lily's Homework.exe
+  Lily's Homework.vcxproj -> C:\Users\Gautham\Projects\Github\Hackerrank_Solutions\Algorithms\Sorting\Lily's Homework\Debug\Lily's Homework.pdb (Partial PDB)

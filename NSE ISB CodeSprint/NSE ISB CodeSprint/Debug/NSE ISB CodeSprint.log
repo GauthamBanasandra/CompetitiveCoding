@@ -1,0 +1,4 @@
+﻿  CrossOver.cpp
+c:\users\gautham\projects\github\hackerrank_solutions\nse isb codesprint\nse isb codesprint\crossover.cpp(47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  NSE ISB CodeSprint.vcxproj -> C:\Users\Gautham\Projects\Github\Hackerrank_Solutions\NSE ISB CodeSprint\Debug\NSE ISB CodeSprint.exe
+  NSE ISB CodeSprint.vcxproj -> C:\Users\Gautham\Projects\Github\Hackerrank_Solutions\NSE ISB CodeSprint\Debug\NSE ISB CodeSprint.pdb (Partial PDB)

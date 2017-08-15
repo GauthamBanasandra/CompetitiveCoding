@@ -24,6 +24,9 @@
     <ClCompile Include="Monk and the box of cookies.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Subham and binary strings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="problems.h">

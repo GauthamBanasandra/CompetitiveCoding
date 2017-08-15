@@ -142,6 +142,7 @@
     <ClCompile Include="Count the bits.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Monk and the box of cookies.cpp" />
+    <ClCompile Include="Subham and binary strings.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="problems.h" />

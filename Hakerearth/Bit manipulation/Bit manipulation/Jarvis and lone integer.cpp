@@ -1,39 +1,32 @@
-#include <iostream>
-#include <string>
-#include <set>
-#include <cstdint>
+#include <stdio.h>
+#include <ios>
 
 void JarvisAndLoneInteger()
 {
+	std::ios::sync_with_stdio(false);
+
 	int test_cases;
-	std::cin >> test_cases;
+	scanf("%d", &test_cases);
 	while (test_cases--)
 	{
 		int n_len;
-		std::cin >> n_len;
-		std::set<uint_fast64_t> n_set;
-		for (int i = 0; i < n_len; ++i)
+		scanf("%d", &n_len);
+		unsigned long long store;
+		scanf("%llu", &store);
+		while (--n_len)
 		{
-			uint_fast64_t n;
-			std::cin >> n;
-			auto key = n_set.find(n);
-			if (key == n_set.end())
-			{
-				n_set.insert(n);
-			}
-			else
-			{
-				n_set.erase(key);
-			}
+			unsigned long long n;
+			scanf("%llu", &n);
+			store ^= n;
 		}
 
-		if (n_set.size())
+		if (store)
 		{
-			std::cout << *n_set.begin() << '\n';
+			printf("%llu\n", store);
 		}
 		else
 		{
-			std::cout << -1 << '\n';
+			printf("-1\n");
 		}
 	}
 }

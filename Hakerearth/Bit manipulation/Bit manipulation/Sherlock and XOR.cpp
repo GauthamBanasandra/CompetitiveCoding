@@ -2,6 +2,8 @@
 #include <ios>
 #define SIZE 100000
 
+unsigned long long nums[SIZE], odd_counts[SIZE], even_counts[SIZE];
+
 void SherlockAndXor()
 {
 	std::ios::sync_with_stdio(false);
@@ -10,27 +12,38 @@ void SherlockAndXor()
 	scanf("%d", &test_cases);
 	while (test_cases--)
 	{
-		int size;
-		scanf("%d", &size);
-		unsigned long long nums[SIZE];
+		unsigned long long size, odd = 0, even = 0;
+		scanf("%llu", &size);
 
-		for (int i = 0; i < size; ++i)
+		for (unsigned long long i = 0; i < size; ++i)
 		{
 			scanf("%llu", &nums[i]);
+			if (nums[i] & 1)
+			{
+				++odd;
+			}
+			else
+			{
+				++even;
+			}
+
+			odd_counts[i] = odd;
+			even_counts[i] = even;
 		}
 
-		int count = 0;
-		for (int i = 0; i < size; ++i)
+		unsigned long long count = 0;
+		for (unsigned long long i = 0; i < size; ++i)
 		{
-			for (int j = i + 1; j < size; ++j)
+			if (nums[i] & 1)
 			{
-				if ((nums[i] ^ nums[j]) & 1)
-				{
-					++count;
-				}
+				count += even - even_counts[i];
+			}
+			else
+			{
+				count += odd - odd_counts[i];
 			}
 		}
 
-		printf("%d\n", count);
+		printf("%llu\n", count);
 	}
 }

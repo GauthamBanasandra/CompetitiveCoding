@@ -143,6 +143,7 @@
     <ClCompile Include="Jarvis and lone integer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Monk and the box of cookies.cpp" />
+    <ClCompile Include="Sherlock and XOR.cpp" />
     <ClCompile Include="Subham and binary strings.cpp" />
   </ItemGroup>
   <ItemGroup>

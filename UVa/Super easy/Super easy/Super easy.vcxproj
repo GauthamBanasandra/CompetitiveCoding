@@ -143,12 +143,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Text Include="Division of nlogonia.txt" />
     <Text Include="Relational operators.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="problems.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Division of nlogonia.cpp" />
     <ClCompile Include="Relational operators.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>

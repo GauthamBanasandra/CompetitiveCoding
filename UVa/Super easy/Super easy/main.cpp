@@ -2,6 +2,7 @@
 
 int main()
 {
-	RelationalOperators();
+	//RelationalOperators();
+	DivisionOfNlogonia();
     return 0;
 }

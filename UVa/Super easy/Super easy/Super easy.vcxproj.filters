@@ -18,6 +18,9 @@
     <Text Include="Relational operators.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="Division of nlogonia.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="problems.h">
@@ -29,6 +32,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Relational operators.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Division of nlogonia.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

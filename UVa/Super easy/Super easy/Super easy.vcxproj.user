@@ -5,7 +5,7 @@
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LocalDebuggerCommandArguments>&lt; "c:\Users\Gautham\Projects\Github\CompetitiveCoding\UVa\Super easy\Super easy\Division of nlogonia.txt"</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>&lt; "c:\Users\Gautham\Projects\Github\CompetitiveCoding\UVa\Super easy\Super easy\Cost cutting.txt"</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>

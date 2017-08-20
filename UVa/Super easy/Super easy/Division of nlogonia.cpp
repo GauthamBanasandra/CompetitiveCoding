@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <ios>
 
-int main()
+void DivisionOfNlogonia()
 {
 	std::ios::sync_with_stdio(false);
 

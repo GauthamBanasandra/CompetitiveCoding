@@ -3,6 +3,7 @@
 int main()
 {
 	//RelationalOperators();
-	DivisionOfNlogonia();
+	//DivisionOfNlogonia();
+	CostCutting();
     return 0;
 }

@@ -21,9 +21,15 @@
     <ClCompile Include="Event planning.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Horror dash.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Event planning.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Horror dash.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

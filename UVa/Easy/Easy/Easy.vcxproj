@@ -144,10 +144,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Event planning.cpp" />
+    <ClCompile Include="Horror dash.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Event planning.txt" />
+    <Text Include="Horror dash.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="problems.h" />

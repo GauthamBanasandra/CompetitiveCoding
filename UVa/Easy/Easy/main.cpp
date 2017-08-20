@@ -2,7 +2,8 @@
 
 int main()
 {
-	EventPlanning();
+	//EventPlanning();
+	HorrorDash();
     return 0;
 }
 

@@ -21,6 +21,9 @@
     <ClCompile Include="The snail.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Request for proposal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="problems.h">
@@ -29,6 +32,12 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="The snail.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Request for proposal1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Request for proposal.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

@@ -21,6 +21,9 @@
     <ClCompile Include="..\..\August circuits %2717\August circuits %2717\K devices.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\August circuits %2717\August circuits %2717\Gary and queries.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\August circuits %2717\August circuits %2717\problems.h">
@@ -29,6 +32,9 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\August circuits %2717\August circuits %2717\K devices.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Gary and queries.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

@@ -2,7 +2,8 @@
 
 int main()
 {
-	KDevices();
+	//KDevices();
+	GaryAndQueries();
     return 0;
 }
 

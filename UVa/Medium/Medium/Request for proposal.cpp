@@ -4,6 +4,8 @@
 
 #define MAX_STRLEN 85
 
+void ReadWord(char* word);
+
 void RequestForProposal()
 {
 	std::ios::sync_with_stdio(false);
@@ -25,14 +27,15 @@ void RequestForProposal()
 		// Skip the words.
 		for (int i = 0; i < n; ++i)
 		{
-			fgets(word, MAX_STRLEN, stdin);
+			ReadWord(word);
 		}
 
 		// For each proposal -
 		for (int i = 0; i < p; ++i)
 		{
 			// Proposal name.
-			fgets(word, MAX_STRLEN, stdin);
+			ReadWord(word);
+
 			// Cost and met requirements.
 			scanf("%lf%d\n", &d, &r);
 
@@ -57,18 +60,30 @@ void RequestForProposal()
 			// Consume the words.
 			for (int j = 0; j < r; ++j)
 			{
-				fgets(word, MAX_STRLEN, stdin);
+				ReadWord(word);
 			}
 		}
 
 		printf("RFP #%d\n", ++rfp);
 		if (req_count_name[max_req].size() == 1)
 		{
-			printf("%s", req_count_name[max_req][0].c_str());
+			printf("%s\n", req_count_name[max_req][0].c_str());
 		}
 		else
 		{
-			printf("%s", req_count_cost[max_req].first.c_str());
+			printf("%s\n", req_count_cost[max_req].first.c_str());
 		}
 	}
+}
+
+void ReadWord(char* word)
+{
+	char ch;
+	int i = 0;
+	while ((ch=getchar())!='\n')
+	{
+		word[i++] = ch;
+	}
+
+	word[i] = '\0';
 }

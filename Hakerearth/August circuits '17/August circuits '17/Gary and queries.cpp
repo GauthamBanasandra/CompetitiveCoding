@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <ios>
+#include <map>
 #include <math.h>
 
 #define MAX_LIMIT 600000
 unsigned long long nums[MAX_LIMIT];
-unsigned long long f[MAX_LIMIT];
 
 void GaryAndQueries()
 {
@@ -12,6 +12,7 @@ void GaryAndQueries()
 
 	int op;
 	unsigned long long n, q, max = 0, x, y;
+	std::map<unsigned long long, unsigned long long> f_map;
 	scanf("%llu%llu", &n, &q);
 	for (unsigned long long i = 0; i < n; ++i)
 	{
@@ -21,7 +22,7 @@ void GaryAndQueries()
 			max = nums[i];
 		}
 
-		++f[nums[i]];
+		++f_map[nums[i]];
 	}
 
 	for (unsigned long long i = 0; i < q; ++i)
@@ -30,25 +31,15 @@ void GaryAndQueries()
 		switch (op)
 		{
 		case 1:
-			scanf("%llu%llu", &x, &y);
-			--f[nums[x - 1]];
-			++f[y];
-			if (y >= max)
+			scanf("%llu%llu", &x, &y);			
+			++f_map[y];
+			--f_map[nums[x - 1]];
+			if (f_map[nums[x - 1]] <= 0)
 			{
-				max = y;
-			}
-			else if (nums[x - 1] == max)
-			{
-				for (unsigned long long j = max; j != 0; --j)
-				{
-					if (f[j])
-					{
-						max = j;
-						break;
-					}
-				}
+				f_map.erase(nums[x - 1]);
 			}
 
+			max = f_map.rbegin()->first;
 			nums[x - 1] = y;
 			break;
 		case 2:
@@ -60,11 +51,24 @@ void GaryAndQueries()
 			else
 			{
 				unsigned long long sum = 0;
-				for (unsigned long long j = 0; j <= max; ++j)
+				auto it = f_map.find(x);
+				if (it == f_map.end())
 				{
-					sum += f[j] * static_cast<unsigned long long>(floor(j / x));
-				}
+					f_map[x] = 0;
+					for (auto j = f_map.find(x); j != f_map.end(); ++j)
+					{
+						sum += j->second * static_cast<unsigned long long>(floor(j->first / x));
+					}
 
+					f_map.erase(x);
+				}
+				else
+				{
+					for (auto j = it; j != f_map.end(); ++j)
+					{
+						sum += j->second * static_cast<unsigned long long>(floor(j->first / x));
+					}
+				}
 				printf("%llu\n", sum);
 			}
 			break;

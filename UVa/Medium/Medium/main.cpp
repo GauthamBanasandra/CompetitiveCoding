@@ -3,7 +3,9 @@
 int main()
 {
 	//TheSnail();
-	RequestForProposal();
-    return 0;
+	//RequestForProposal();
+	BenderBRodriguezProblem();
+
+	return 0;
 }
 

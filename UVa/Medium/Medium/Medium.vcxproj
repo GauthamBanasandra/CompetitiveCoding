@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bender B Rodriguez.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Request for proposal.cpp" />
     <ClCompile Include="The snail.cpp" />
@@ -151,6 +152,8 @@
     <ClInclude Include="problems.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Bender B. Rodriguez problem.txt" />
+    <Text Include="Bender B. Rodriguez problem1.txt" />
     <Text Include="Request for proposal1.txt" />
     <Text Include="Request for proposal.txt" />
     <Text Include="The snail.txt" />

@@ -2,7 +2,8 @@
 
 int main()
 {
-	BridgeHandEvaluator();
+	//BridgeHandEvaluator();
+	WhatIsTheCard();
 
 	return 0;
 }

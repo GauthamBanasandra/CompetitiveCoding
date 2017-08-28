@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Bridge hand evaluator.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="What is the card.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="problems.h" />
@@ -29,6 +30,10 @@
     <Text Include="Bridge hand evaluator.txt" />
     <Text Include="Bridge hand evaluator1.txt" />
     <Text Include="Bridge hand evaluator2.txt" />
+    <Text Include="What is the card.txt" />
+    <Text Include="What is the card1.txt" />
+    <Text Include="What is the card2.txt" />
+    <Text Include="What is the card3.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bridge hand evaluator.cpp" />
+    <ClCompile Include="Chess.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="What is the card.cpp" />
   </ItemGroup>
@@ -30,6 +31,9 @@
     <Text Include="Bridge hand evaluator.txt" />
     <Text Include="Bridge hand evaluator1.txt" />
     <Text Include="Bridge hand evaluator2.txt" />
+    <Text Include="Chess.txt" />
+    <Text Include="Chess1.txt" />
+    <Text Include="Chess2.txt" />
     <Text Include="What is the card.txt" />
     <Text Include="What is the card1.txt" />
     <Text Include="What is the card2.txt" />

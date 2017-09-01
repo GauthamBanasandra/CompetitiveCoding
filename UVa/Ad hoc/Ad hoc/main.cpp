@@ -3,7 +3,8 @@
 int main()
 {
 	//BridgeHandEvaluator();
-	WhatIsTheCard();
+	//WhatIsTheCard();
+	Chess();
 
 	return 0;
 }

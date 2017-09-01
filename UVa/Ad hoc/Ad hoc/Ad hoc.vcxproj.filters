@@ -24,6 +24,9 @@
     <ClCompile Include="Bridge hand evaluator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Chess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="problems.h">
@@ -50,6 +53,15 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="What is the card3.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Chess.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Chess1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Chess2.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

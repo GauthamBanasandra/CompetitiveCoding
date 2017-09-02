@@ -2,7 +2,6 @@
 
 int main()
 {
-	//BridgeHandEvaluator();
 	//WhatIsTheCard();
 	//Chess();
 	HowManyKnights();

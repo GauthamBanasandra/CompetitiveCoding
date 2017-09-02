@@ -1,4 +1,0 @@
-BID H
-BID H
-PASS
-PASS

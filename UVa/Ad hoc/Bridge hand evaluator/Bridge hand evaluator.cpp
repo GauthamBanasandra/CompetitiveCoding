@@ -9,7 +9,7 @@ char card[MAX_CARD_CHAR];
 bool stopped[MAX_STOP_SIZE];
 char suit_order[SUITS_SIZE] = { 'S', 'H', 'D', 'C' };
 
-void BridgeHandEvaluator()
+int main()
 {
 	std::ios::sync_with_stdio(false);
 

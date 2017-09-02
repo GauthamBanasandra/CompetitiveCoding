@@ -21,9 +21,6 @@
     <ClCompile Include="What is the card.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Bridge hand evaluator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Chess.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -37,15 +34,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Bridge hand evaluator.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="Bridge hand evaluator1.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="Bridge hand evaluator2.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
     <Text Include="What is the card.txt">
       <Filter>Resource Files</Filter>
     </Text>

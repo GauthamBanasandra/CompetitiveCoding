@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.8
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Bridge hand evaluator", "Bridge hand evaluator\Bridge hand evaluator.vcxproj", "{9A037B30-DAE8-49E8-938B-8EF5FA76C914}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Chess", "Chess\Chess.vcxproj", "{1969EF21-4D9E-463C-AC73-6C4E69B64CC3}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "How many  knights", "How many  knights\How many  knights.vcxproj", "{0A2DF4C5-9971-4757-90DC-EBF5DADB3243}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Chessboard in FEN", "Chessboard in FEN\Chessboard in FEN.vcxproj", "{EE25DA8F-C26C-4D03-82F6-BE64A098E286}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,14 @@ Global
 		{0A2DF4C5-9971-4757-90DC-EBF5DADB3243}.Release|x64.Build.0 = Release|x64
 		{0A2DF4C5-9971-4757-90DC-EBF5DADB3243}.Release|x86.ActiveCfg = Release|Win32
 		{0A2DF4C5-9971-4757-90DC-EBF5DADB3243}.Release|x86.Build.0 = Release|Win32
+		{EE25DA8F-C26C-4D03-82F6-BE64A098E286}.Debug|x64.ActiveCfg = Debug|x64
+		{EE25DA8F-C26C-4D03-82F6-BE64A098E286}.Debug|x64.Build.0 = Debug|x64
+		{EE25DA8F-C26C-4D03-82F6-BE64A098E286}.Debug|x86.ActiveCfg = Debug|Win32
+		{EE25DA8F-C26C-4D03-82F6-BE64A098E286}.Debug|x86.Build.0 = Debug|Win32
+		{EE25DA8F-C26C-4D03-82F6-BE64A098E286}.Release|x64.ActiveCfg = Release|x64
+		{EE25DA8F-C26C-4D03-82F6-BE64A098E286}.Release|x64.Build.0 = Release|x64
+		{EE25DA8F-C26C-4D03-82F6-BE64A098E286}.Release|x86.ActiveCfg = Release|Win32
+		{EE25DA8F-C26C-4D03-82F6-BE64A098E286}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +74,7 @@ Global
 		{8F21720A-8F17-40BF-A830-7F40F7E69E18} = {0ED9E092-0E8A-4104-A647-C28223A0E87E}
 		{1969EF21-4D9E-463C-AC73-6C4E69B64CC3} = {A66F1D32-2953-4EB6-8FE7-146804C9C607}
 		{0A2DF4C5-9971-4757-90DC-EBF5DADB3243} = {A66F1D32-2953-4EB6-8FE7-146804C9C607}
+		{EE25DA8F-C26C-4D03-82F6-BE64A098E286} = {A66F1D32-2953-4EB6-8FE7-146804C9C607}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8A563FDC-FC16-4174-BDE1-390C37489B7B}

@@ -9,6 +9,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Bridge hand evaluator", "Br
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "What is the card", "What is the card\What is the card.vcxproj", "{8F21720A-8F17-40BF-A830-7F40F7E69E18}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Card", "Card", "{0ED9E092-0E8A-4104-A647-C28223A0E87E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chess", "Chess", "{A66F1D32-2953-4EB6-8FE7-146804C9C607}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Chess", "Chess\Chess.vcxproj", "{1969EF21-4D9E-463C-AC73-6C4E69B64CC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,9 +47,22 @@ Global
 		{8F21720A-8F17-40BF-A830-7F40F7E69E18}.Release|x64.Build.0 = Release|x64
 		{8F21720A-8F17-40BF-A830-7F40F7E69E18}.Release|x86.ActiveCfg = Release|Win32
 		{8F21720A-8F17-40BF-A830-7F40F7E69E18}.Release|x86.Build.0 = Release|Win32
+		{1969EF21-4D9E-463C-AC73-6C4E69B64CC3}.Debug|x64.ActiveCfg = Debug|x64
+		{1969EF21-4D9E-463C-AC73-6C4E69B64CC3}.Debug|x64.Build.0 = Debug|x64
+		{1969EF21-4D9E-463C-AC73-6C4E69B64CC3}.Debug|x86.ActiveCfg = Debug|Win32
+		{1969EF21-4D9E-463C-AC73-6C4E69B64CC3}.Debug|x86.Build.0 = Debug|Win32
+		{1969EF21-4D9E-463C-AC73-6C4E69B64CC3}.Release|x64.ActiveCfg = Release|x64
+		{1969EF21-4D9E-463C-AC73-6C4E69B64CC3}.Release|x64.Build.0 = Release|x64
+		{1969EF21-4D9E-463C-AC73-6C4E69B64CC3}.Release|x86.ActiveCfg = Release|Win32
+		{1969EF21-4D9E-463C-AC73-6C4E69B64CC3}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9A037B30-DAE8-49E8-938B-8EF5FA76C914} = {0ED9E092-0E8A-4104-A647-C28223A0E87E}
+		{8F21720A-8F17-40BF-A830-7F40F7E69E18} = {0ED9E092-0E8A-4104-A647-C28223A0E87E}
+		{1969EF21-4D9E-463C-AC73-6C4E69B64CC3} = {A66F1D32-2953-4EB6-8FE7-146804C9C607}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8A563FDC-FC16-4174-BDE1-390C37489B7B}

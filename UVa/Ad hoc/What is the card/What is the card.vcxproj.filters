@@ -15,20 +15,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="What is the card.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Chess.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="How many knights.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="problems.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="What is the card.txt">
@@ -41,30 +30,6 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="What is the card3.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="Chess.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="Chess1.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="Chess2.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="How many knights.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="How many knights1.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="How many knights2.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="How many knights3.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="How many knights4.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

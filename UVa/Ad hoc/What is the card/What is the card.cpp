@@ -13,7 +13,7 @@ namespace what_is_the_card
 
 using namespace what_is_the_card;
 
-void WhatIsTheCard()
+int main()
 {
 	std::ios::sync_with_stdio(false);
 

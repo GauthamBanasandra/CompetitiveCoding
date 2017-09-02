@@ -2,7 +2,6 @@
 
 int main()
 {
-	//WhatIsTheCard();
 	//Chess();
 	HowManyKnights();
 

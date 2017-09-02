@@ -18,33 +18,11 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Chess.cpp" />
-    <ClCompile Include="How many knights.cpp" />
-    <ClCompile Include="main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="problems.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="Chess.txt" />
-    <Text Include="Chess1.txt" />
-    <Text Include="Chess2.txt" />
-    <Text Include="How many knights.txt" />
-    <Text Include="How many knights1.txt" />
-    <Text Include="How many knights2.txt" />
-    <Text Include="How many knights3.txt" />
-    <Text Include="How many knights4.txt" />
-    <Text Include="What is the card.txt" />
-    <Text Include="What is the card1.txt" />
-    <Text Include="What is the card2.txt" />
-    <Text Include="What is the card3.txt" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{098B0195-6E71-4A2C-A89F-39DECB147D88}</ProjectGuid>
+    <ProjectGuid>{8F21720A-8F17-40BF-A830-7F40F7E69E18}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Adhoc</RootNamespace>
+    <RootNamespace>Whatisthecard</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -164,6 +142,15 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="What is the card.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="What is the card.txt" />
+    <Text Include="What is the card1.txt" />
+    <Text Include="What is the card2.txt" />
+    <Text Include="What is the card3.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

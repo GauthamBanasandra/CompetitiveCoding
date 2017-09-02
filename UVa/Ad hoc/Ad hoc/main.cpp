@@ -4,7 +4,8 @@ int main()
 {
 	//BridgeHandEvaluator();
 	//WhatIsTheCard();
-	Chess();
+	//Chess();
+	HowManyKnights();
 
 	return 0;
 }

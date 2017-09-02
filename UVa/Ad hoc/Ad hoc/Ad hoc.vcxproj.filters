@@ -27,6 +27,9 @@
     <ClCompile Include="Chess.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="How many knights.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="problems.h">
@@ -62,6 +65,21 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="Chess2.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="How many knights.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="How many knights1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="How many knights2.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="How many knights3.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="How many knights4.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

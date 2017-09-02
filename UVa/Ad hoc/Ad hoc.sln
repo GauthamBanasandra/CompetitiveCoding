@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ad hoc", "Ad hoc\Ad hoc.vcxproj", "{098B0195-6E71-4A2C-A89F-39DECB147D88}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Bridge hand evaluator", "Bridge hand evaluator\Bridge hand evaluator.vcxproj", "{9A037B30-DAE8-49E8-938B-8EF5FA76C914}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "What is the card", "What is the card\What is the card.vcxproj", "{8F21720A-8F17-40BF-A830-7F40F7E69E18}"
@@ -15,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chess", "Chess", "{A66F1D32
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Chess", "Chess\Chess.vcxproj", "{1969EF21-4D9E-463C-AC73-6C4E69B64CC3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "How many  knights", "How many  knights\How many  knights.vcxproj", "{0A2DF4C5-9971-4757-90DC-EBF5DADB3243}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -23,14 +23,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{098B0195-6E71-4A2C-A89F-39DECB147D88}.Debug|x64.ActiveCfg = Debug|x64
-		{098B0195-6E71-4A2C-A89F-39DECB147D88}.Debug|x64.Build.0 = Debug|x64
-		{098B0195-6E71-4A2C-A89F-39DECB147D88}.Debug|x86.ActiveCfg = Debug|Win32
-		{098B0195-6E71-4A2C-A89F-39DECB147D88}.Debug|x86.Build.0 = Debug|Win32
-		{098B0195-6E71-4A2C-A89F-39DECB147D88}.Release|x64.ActiveCfg = Release|x64
-		{098B0195-6E71-4A2C-A89F-39DECB147D88}.Release|x64.Build.0 = Release|x64
-		{098B0195-6E71-4A2C-A89F-39DECB147D88}.Release|x86.ActiveCfg = Release|Win32
-		{098B0195-6E71-4A2C-A89F-39DECB147D88}.Release|x86.Build.0 = Release|Win32
 		{9A037B30-DAE8-49E8-938B-8EF5FA76C914}.Debug|x64.ActiveCfg = Debug|x64
 		{9A037B30-DAE8-49E8-938B-8EF5FA76C914}.Debug|x64.Build.0 = Debug|x64
 		{9A037B30-DAE8-49E8-938B-8EF5FA76C914}.Debug|x86.ActiveCfg = Debug|Win32
@@ -55,6 +47,14 @@ Global
 		{1969EF21-4D9E-463C-AC73-6C4E69B64CC3}.Release|x64.Build.0 = Release|x64
 		{1969EF21-4D9E-463C-AC73-6C4E69B64CC3}.Release|x86.ActiveCfg = Release|Win32
 		{1969EF21-4D9E-463C-AC73-6C4E69B64CC3}.Release|x86.Build.0 = Release|Win32
+		{0A2DF4C5-9971-4757-90DC-EBF5DADB3243}.Debug|x64.ActiveCfg = Debug|x64
+		{0A2DF4C5-9971-4757-90DC-EBF5DADB3243}.Debug|x64.Build.0 = Debug|x64
+		{0A2DF4C5-9971-4757-90DC-EBF5DADB3243}.Debug|x86.ActiveCfg = Debug|Win32
+		{0A2DF4C5-9971-4757-90DC-EBF5DADB3243}.Debug|x86.Build.0 = Debug|Win32
+		{0A2DF4C5-9971-4757-90DC-EBF5DADB3243}.Release|x64.ActiveCfg = Release|x64
+		{0A2DF4C5-9971-4757-90DC-EBF5DADB3243}.Release|x64.Build.0 = Release|x64
+		{0A2DF4C5-9971-4757-90DC-EBF5DADB3243}.Release|x86.ActiveCfg = Release|Win32
+		{0A2DF4C5-9971-4757-90DC-EBF5DADB3243}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +63,7 @@ Global
 		{9A037B30-DAE8-49E8-938B-8EF5FA76C914} = {0ED9E092-0E8A-4104-A647-C28223A0E87E}
 		{8F21720A-8F17-40BF-A830-7F40F7E69E18} = {0ED9E092-0E8A-4104-A647-C28223A0E87E}
 		{1969EF21-4D9E-463C-AC73-6C4E69B64CC3} = {A66F1D32-2953-4EB6-8FE7-146804C9C607}
+		{0A2DF4C5-9971-4757-90DC-EBF5DADB3243} = {A66F1D32-2953-4EB6-8FE7-146804C9C607}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8A563FDC-FC16-4174-BDE1-390C37489B7B}

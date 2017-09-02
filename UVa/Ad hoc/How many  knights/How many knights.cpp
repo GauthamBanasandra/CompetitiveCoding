@@ -2,7 +2,7 @@
 #include <ios>
 #include <math.h>
 
-void HowManyKnights()
+int main()
 {
 	std::ios::sync_with_stdio(false);
 

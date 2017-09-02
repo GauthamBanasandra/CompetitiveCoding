@@ -15,43 +15,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Chess.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="How many knights.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="problems.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="What is the card.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="What is the card1.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="What is the card2.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="What is the card3.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="Chess.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="Chess1.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="Chess2.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
     <Text Include="How many knights.txt">
       <Filter>Resource Files</Filter>
     </Text>

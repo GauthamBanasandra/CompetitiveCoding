@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Others", "Others", "{C9F0A4
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hangman judge", "Hangman judge\Hangman judge.vcxproj", "{860E8C58-4377-4B3B-9FDA-724A4C0B81A5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Minesweeper", "Minesweeper\Minesweeper.vcxproj", "{65F4BAFA-988F-426E-990A-E3F9B84CA869}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -77,6 +79,14 @@ Global
 		{860E8C58-4377-4B3B-9FDA-724A4C0B81A5}.Release|x64.Build.0 = Release|x64
 		{860E8C58-4377-4B3B-9FDA-724A4C0B81A5}.Release|x86.ActiveCfg = Release|Win32
 		{860E8C58-4377-4B3B-9FDA-724A4C0B81A5}.Release|x86.Build.0 = Release|Win32
+		{65F4BAFA-988F-426E-990A-E3F9B84CA869}.Debug|x64.ActiveCfg = Debug|x64
+		{65F4BAFA-988F-426E-990A-E3F9B84CA869}.Debug|x64.Build.0 = Debug|x64
+		{65F4BAFA-988F-426E-990A-E3F9B84CA869}.Debug|x86.ActiveCfg = Debug|Win32
+		{65F4BAFA-988F-426E-990A-E3F9B84CA869}.Debug|x86.Build.0 = Debug|Win32
+		{65F4BAFA-988F-426E-990A-E3F9B84CA869}.Release|x64.ActiveCfg = Release|x64
+		{65F4BAFA-988F-426E-990A-E3F9B84CA869}.Release|x64.Build.0 = Release|x64
+		{65F4BAFA-988F-426E-990A-E3F9B84CA869}.Release|x86.ActiveCfg = Release|Win32
+		{65F4BAFA-988F-426E-990A-E3F9B84CA869}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -88,6 +98,7 @@ Global
 		{0A2DF4C5-9971-4757-90DC-EBF5DADB3243} = {A66F1D32-2953-4EB6-8FE7-146804C9C607}
 		{EE25DA8F-C26C-4D03-82F6-BE64A098E286} = {A66F1D32-2953-4EB6-8FE7-146804C9C607}
 		{860E8C58-4377-4B3B-9FDA-724A4C0B81A5} = {C9F0A4D5-431D-437A-B3C6-3D4F734D6D34}
+		{65F4BAFA-988F-426E-990A-E3F9B84CA869} = {C9F0A4D5-431D-437A-B3C6-3D4F734D6D34}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8A563FDC-FC16-4174-BDE1-390C37489B7B}

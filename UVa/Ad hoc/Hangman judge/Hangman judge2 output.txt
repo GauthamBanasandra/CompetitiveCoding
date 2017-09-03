@@ -1,0 +1,28 @@
+Round 1
+You win.
+Round 2
+You chickened out.
+Round 3
+You lose.
+Round 4
+You win.
+Round 5
+You chickened out.
+Round 6
+You win.
+Round 7
+You win.
+Round 8
+You win.
+Round 9
+You lose.
+Round 10
+You chickened out.
+Round 11
+You win.
+Round 12
+You lose.
+Round 13
+You win.
+Round 14
+You win.

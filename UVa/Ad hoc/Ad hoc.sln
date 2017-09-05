@@ -25,6 +25,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Minesweeper", "Minesweeper\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Snakes and ladders", "Snakes and ladders\Snakes and ladders.vcxproj", "{B567076B-079D-4FBA-95E6-81F285A9039F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Bowling", "Bowling\Bowling.vcxproj", "{3F6117C7-2F46-42BA-BD2A-75083E0962C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -97,6 +99,14 @@ Global
 		{B567076B-079D-4FBA-95E6-81F285A9039F}.Release|x64.Build.0 = Release|x64
 		{B567076B-079D-4FBA-95E6-81F285A9039F}.Release|x86.ActiveCfg = Release|Win32
 		{B567076B-079D-4FBA-95E6-81F285A9039F}.Release|x86.Build.0 = Release|Win32
+		{3F6117C7-2F46-42BA-BD2A-75083E0962C4}.Debug|x64.ActiveCfg = Debug|x64
+		{3F6117C7-2F46-42BA-BD2A-75083E0962C4}.Debug|x64.Build.0 = Debug|x64
+		{3F6117C7-2F46-42BA-BD2A-75083E0962C4}.Debug|x86.ActiveCfg = Debug|Win32
+		{3F6117C7-2F46-42BA-BD2A-75083E0962C4}.Debug|x86.Build.0 = Debug|Win32
+		{3F6117C7-2F46-42BA-BD2A-75083E0962C4}.Release|x64.ActiveCfg = Release|x64
+		{3F6117C7-2F46-42BA-BD2A-75083E0962C4}.Release|x64.Build.0 = Release|x64
+		{3F6117C7-2F46-42BA-BD2A-75083E0962C4}.Release|x86.ActiveCfg = Release|Win32
+		{3F6117C7-2F46-42BA-BD2A-75083E0962C4}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -110,6 +120,7 @@ Global
 		{860E8C58-4377-4B3B-9FDA-724A4C0B81A5} = {C9F0A4D5-431D-437A-B3C6-3D4F734D6D34}
 		{65F4BAFA-988F-426E-990A-E3F9B84CA869} = {C9F0A4D5-431D-437A-B3C6-3D4F734D6D34}
 		{B567076B-079D-4FBA-95E6-81F285A9039F} = {C9F0A4D5-431D-437A-B3C6-3D4F734D6D34}
+		{3F6117C7-2F46-42BA-BD2A-75083E0962C4} = {C9F0A4D5-431D-437A-B3C6-3D4F734D6D34}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8A563FDC-FC16-4174-BDE1-390C37489B7B}

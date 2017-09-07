@@ -8,6 +8,8 @@ char rev[REV_MAP_SIZE];
 
 int main(int argc, char* argv[])
 {
+	std::ios::sync_with_stdio(false);
+
 	rev['A'] = 'A';
 	rev['E'] = '3';
 	rev['H'] = 'H';

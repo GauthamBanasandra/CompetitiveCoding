@@ -4,4 +4,8 @@
     <LocalDebuggerCommandArguments>&lt; "$(ProjectDir)Traditional BINGO1.txt" | clip</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LocalDebuggerCommandArguments>&lt; "$(ProjectDir)Traditional BINGO.txt"</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
 </Project>

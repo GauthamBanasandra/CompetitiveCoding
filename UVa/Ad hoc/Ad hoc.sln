@@ -35,6 +35,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Palindromes", "Palindromes\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Mother bear", "Mother bear\Mother bear.vcxproj", "{BA0730F4-8E50-444E-80D3-1B32C3A0335B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Magic square palindromes", "Magic square palindromes\Magic square palindromes.vcxproj", "{706EECAD-1CF3-4033-ABA7-E45A86186DBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -139,6 +141,14 @@ Global
 		{BA0730F4-8E50-444E-80D3-1B32C3A0335B}.Release|x64.Build.0 = Release|x64
 		{BA0730F4-8E50-444E-80D3-1B32C3A0335B}.Release|x86.ActiveCfg = Release|Win32
 		{BA0730F4-8E50-444E-80D3-1B32C3A0335B}.Release|x86.Build.0 = Release|Win32
+		{706EECAD-1CF3-4033-ABA7-E45A86186DBF}.Debug|x64.ActiveCfg = Debug|x64
+		{706EECAD-1CF3-4033-ABA7-E45A86186DBF}.Debug|x64.Build.0 = Debug|x64
+		{706EECAD-1CF3-4033-ABA7-E45A86186DBF}.Debug|x86.ActiveCfg = Debug|Win32
+		{706EECAD-1CF3-4033-ABA7-E45A86186DBF}.Debug|x86.Build.0 = Debug|Win32
+		{706EECAD-1CF3-4033-ABA7-E45A86186DBF}.Release|x64.ActiveCfg = Release|x64
+		{706EECAD-1CF3-4033-ABA7-E45A86186DBF}.Release|x64.Build.0 = Release|x64
+		{706EECAD-1CF3-4033-ABA7-E45A86186DBF}.Release|x86.ActiveCfg = Release|Win32
+		{706EECAD-1CF3-4033-ABA7-E45A86186DBF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -156,6 +166,7 @@ Global
 		{A18B2535-52CE-41FE-BD62-661883F3E1F9} = {C9F0A4D5-431D-437A-B3C6-3D4F734D6D34}
 		{B3082B0F-EF16-4D6D-90DF-7A31B4835C79} = {0418AA88-7089-428B-B4B7-986306B61251}
 		{BA0730F4-8E50-444E-80D3-1B32C3A0335B} = {0418AA88-7089-428B-B4B7-986306B61251}
+		{706EECAD-1CF3-4033-ABA7-E45A86186DBF} = {0418AA88-7089-428B-B4B7-986306B61251}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8A563FDC-FC16-4174-BDE1-390C37489B7B}

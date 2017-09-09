@@ -7,6 +7,8 @@
 
 int main(int argc, char* argv[])
 {
+	std::ios::sync_with_stdio(false);
+
 	unsigned long long test_cases, c = 1;
 	std::string line;
 	std::string input;

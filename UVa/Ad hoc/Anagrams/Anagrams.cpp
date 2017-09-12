@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
 	std::unordered_map<std::string, std::vector<std::string>> an;
 	std::unordered_set<std::string> an_keys;
 	std::set<std::string> op_sorted;
-
+	
 	scanf("%llu\n", &test_cases);
 	while (test_cases--)
 	{
@@ -41,7 +41,8 @@ int main(int argc, char* argv[])
 				transform(word.begin(), word.end(), word.begin(), toupper);
 				key += word;
 			}
-
+			
+			
 			sort(key.begin(), key.end());
 			if (an.find(key) != an.end())
 			{

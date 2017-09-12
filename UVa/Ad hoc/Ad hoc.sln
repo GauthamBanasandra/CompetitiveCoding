@@ -45,6 +45,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Anagram", "Anagram\Anagram.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Anagrams", "Anagrams\Anagrams.vcxproj", "{31195158-BE33-450A-BFAA-B8560BB22D92}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Real life problems", "Real life problems", "{302736F1-29B8-42FD-B63D-749BB048CC6E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Booklet printing", "Booklet printing\Booklet printing.vcxproj", "{E39B1053-EB23-42AC-9D0F-EF10035C9205}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -181,6 +185,14 @@ Global
 		{31195158-BE33-450A-BFAA-B8560BB22D92}.Release|x64.Build.0 = Release|x64
 		{31195158-BE33-450A-BFAA-B8560BB22D92}.Release|x86.ActiveCfg = Release|Win32
 		{31195158-BE33-450A-BFAA-B8560BB22D92}.Release|x86.Build.0 = Release|Win32
+		{E39B1053-EB23-42AC-9D0F-EF10035C9205}.Debug|x64.ActiveCfg = Debug|x64
+		{E39B1053-EB23-42AC-9D0F-EF10035C9205}.Debug|x64.Build.0 = Debug|x64
+		{E39B1053-EB23-42AC-9D0F-EF10035C9205}.Debug|x86.ActiveCfg = Debug|Win32
+		{E39B1053-EB23-42AC-9D0F-EF10035C9205}.Debug|x86.Build.0 = Debug|Win32
+		{E39B1053-EB23-42AC-9D0F-EF10035C9205}.Release|x64.ActiveCfg = Release|x64
+		{E39B1053-EB23-42AC-9D0F-EF10035C9205}.Release|x64.Build.0 = Release|x64
+		{E39B1053-EB23-42AC-9D0F-EF10035C9205}.Release|x86.ActiveCfg = Release|Win32
+		{E39B1053-EB23-42AC-9D0F-EF10035C9205}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -202,6 +214,7 @@ Global
 		{DB312608-72CE-4101-A2C4-EF5A77568392} = {80464037-0977-4FD4-B4AF-888F105B6E7F}
 		{51D185C3-2780-4A43-BD08-571766F03C1A} = {80464037-0977-4FD4-B4AF-888F105B6E7F}
 		{31195158-BE33-450A-BFAA-B8560BB22D92} = {80464037-0977-4FD4-B4AF-888F105B6E7F}
+		{E39B1053-EB23-42AC-9D0F-EF10035C9205} = {302736F1-29B8-42FD-B63D-749BB048CC6E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8A563FDC-FC16-4174-BDE1-390C37489B7B}

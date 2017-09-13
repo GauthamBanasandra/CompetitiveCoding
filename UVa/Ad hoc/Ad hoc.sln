@@ -51,6 +51,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Booklet printing", "Booklet
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Beat the spread", "Beat the spread\Beat the spread.vcxproj", "{B3DC5C1C-4989-4476-9FFA-558F1A0686FA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Traffic lights", "Traffic lights\Traffic lights.vcxproj", "{4FEB98C5-41D7-4E86-92C0-4F97513BE20D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -203,6 +205,14 @@ Global
 		{B3DC5C1C-4989-4476-9FFA-558F1A0686FA}.Release|x64.Build.0 = Release|x64
 		{B3DC5C1C-4989-4476-9FFA-558F1A0686FA}.Release|x86.ActiveCfg = Release|Win32
 		{B3DC5C1C-4989-4476-9FFA-558F1A0686FA}.Release|x86.Build.0 = Release|Win32
+		{4FEB98C5-41D7-4E86-92C0-4F97513BE20D}.Debug|x64.ActiveCfg = Debug|x64
+		{4FEB98C5-41D7-4E86-92C0-4F97513BE20D}.Debug|x64.Build.0 = Debug|x64
+		{4FEB98C5-41D7-4E86-92C0-4F97513BE20D}.Debug|x86.ActiveCfg = Debug|Win32
+		{4FEB98C5-41D7-4E86-92C0-4F97513BE20D}.Debug|x86.Build.0 = Debug|Win32
+		{4FEB98C5-41D7-4E86-92C0-4F97513BE20D}.Release|x64.ActiveCfg = Release|x64
+		{4FEB98C5-41D7-4E86-92C0-4F97513BE20D}.Release|x64.Build.0 = Release|x64
+		{4FEB98C5-41D7-4E86-92C0-4F97513BE20D}.Release|x86.ActiveCfg = Release|Win32
+		{4FEB98C5-41D7-4E86-92C0-4F97513BE20D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -226,6 +236,7 @@ Global
 		{31195158-BE33-450A-BFAA-B8560BB22D92} = {80464037-0977-4FD4-B4AF-888F105B6E7F}
 		{E39B1053-EB23-42AC-9D0F-EF10035C9205} = {302736F1-29B8-42FD-B63D-749BB048CC6E}
 		{B3DC5C1C-4989-4476-9FFA-558F1A0686FA} = {302736F1-29B8-42FD-B63D-749BB048CC6E}
+		{4FEB98C5-41D7-4E86-92C0-4F97513BE20D} = {302736F1-29B8-42FD-B63D-749BB048CC6E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8A563FDC-FC16-4174-BDE1-390C37489B7B}

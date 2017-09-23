@@ -59,6 +59,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Counterfeit dollar", "Count
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Consanguine calculations", "Consanguine calculations\Consanguine calculations.vcxproj", "{ECD6EC3D-AF1C-45AE-A985-F564CF59AF53}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Time", "Time", "{CC67CBA8-48BE-4C3B-B1B4-B7064B19CEE7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Clock hands", "Clock hands\Clock hands.vcxproj", "{0F3A40DC-F150-4F5E-ADE1-3B6EA7B28F48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -243,6 +247,14 @@ Global
 		{ECD6EC3D-AF1C-45AE-A985-F564CF59AF53}.Release|x64.Build.0 = Release|x64
 		{ECD6EC3D-AF1C-45AE-A985-F564CF59AF53}.Release|x86.ActiveCfg = Release|Win32
 		{ECD6EC3D-AF1C-45AE-A985-F564CF59AF53}.Release|x86.Build.0 = Release|Win32
+		{0F3A40DC-F150-4F5E-ADE1-3B6EA7B28F48}.Debug|x64.ActiveCfg = Debug|x64
+		{0F3A40DC-F150-4F5E-ADE1-3B6EA7B28F48}.Debug|x64.Build.0 = Debug|x64
+		{0F3A40DC-F150-4F5E-ADE1-3B6EA7B28F48}.Debug|x86.ActiveCfg = Debug|Win32
+		{0F3A40DC-F150-4F5E-ADE1-3B6EA7B28F48}.Debug|x86.Build.0 = Debug|Win32
+		{0F3A40DC-F150-4F5E-ADE1-3B6EA7B28F48}.Release|x64.ActiveCfg = Release|x64
+		{0F3A40DC-F150-4F5E-ADE1-3B6EA7B28F48}.Release|x64.Build.0 = Release|x64
+		{0F3A40DC-F150-4F5E-ADE1-3B6EA7B28F48}.Release|x86.ActiveCfg = Release|Win32
+		{0F3A40DC-F150-4F5E-ADE1-3B6EA7B28F48}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -270,6 +282,7 @@ Global
 		{11AEDC33-827C-4A3D-A507-6D3742BEE15B} = {302736F1-29B8-42FD-B63D-749BB048CC6E}
 		{C19E5E91-FB0B-4CD5-A1DA-45D3285B0445} = {302736F1-29B8-42FD-B63D-749BB048CC6E}
 		{ECD6EC3D-AF1C-45AE-A985-F564CF59AF53} = {302736F1-29B8-42FD-B63D-749BB048CC6E}
+		{0F3A40DC-F150-4F5E-ADE1-3B6EA7B28F48} = {CC67CBA8-48BE-4C3B-B1B4-B7064B19CEE7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8A563FDC-FC16-4174-BDE1-390C37489B7B}

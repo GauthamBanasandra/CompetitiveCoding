@@ -176,7 +176,7 @@ int main(int argc, char* argv[])
 		Pos(0, 0), Pos(0, 4),
 		Pos(1, 0), Pos(1, 1), Pos(1, 4),
 		Pos(2, 0), Pos(2, 2), Pos(2, 4),
-		Pos(3, 0), Pos(3, 3),  Pos(3, 4),
+		Pos(3, 0), Pos(3, 3), Pos(3, 4),
 		Pos(4, 0), Pos(4, 4)
 	});
 
@@ -248,7 +248,7 @@ int main(int argc, char* argv[])
 		Pos(0, 0), Pos(0, 4),
 		Pos(1, 0), Pos(1, 4),
 		Pos(2, 0), Pos(2, 2), Pos(2, 4),
-		Pos(3, 0), Pos(3, 1), Pos(3, 3),  Pos(3, 4),
+		Pos(3, 0), Pos(3, 1), Pos(3, 3), Pos(3, 4),
 		Pos(4, 0), Pos(4, 4)
 	});
 
@@ -388,7 +388,6 @@ int main(int argc, char* argv[])
 
 				col += C5_COL_LEN;
 			}
-
 		}
 		else { assert(false); }
 	}

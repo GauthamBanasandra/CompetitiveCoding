@@ -57,6 +57,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Postscript", "Postscript\Po
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Counterfeit dollar", "Counterfeit dollar\Counterfeit dollar.vcxproj", "{C19E5E91-FB0B-4CD5-A1DA-45D3285B0445}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Consanguine calculations", "Consanguine calculations\Consanguine calculations.vcxproj", "{ECD6EC3D-AF1C-45AE-A985-F564CF59AF53}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -233,6 +235,14 @@ Global
 		{C19E5E91-FB0B-4CD5-A1DA-45D3285B0445}.Release|x64.Build.0 = Release|x64
 		{C19E5E91-FB0B-4CD5-A1DA-45D3285B0445}.Release|x86.ActiveCfg = Release|Win32
 		{C19E5E91-FB0B-4CD5-A1DA-45D3285B0445}.Release|x86.Build.0 = Release|Win32
+		{ECD6EC3D-AF1C-45AE-A985-F564CF59AF53}.Debug|x64.ActiveCfg = Debug|x64
+		{ECD6EC3D-AF1C-45AE-A985-F564CF59AF53}.Debug|x64.Build.0 = Debug|x64
+		{ECD6EC3D-AF1C-45AE-A985-F564CF59AF53}.Debug|x86.ActiveCfg = Debug|Win32
+		{ECD6EC3D-AF1C-45AE-A985-F564CF59AF53}.Debug|x86.Build.0 = Debug|Win32
+		{ECD6EC3D-AF1C-45AE-A985-F564CF59AF53}.Release|x64.ActiveCfg = Release|x64
+		{ECD6EC3D-AF1C-45AE-A985-F564CF59AF53}.Release|x64.Build.0 = Release|x64
+		{ECD6EC3D-AF1C-45AE-A985-F564CF59AF53}.Release|x86.ActiveCfg = Release|Win32
+		{ECD6EC3D-AF1C-45AE-A985-F564CF59AF53}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -259,6 +269,7 @@ Global
 		{4FEB98C5-41D7-4E86-92C0-4F97513BE20D} = {302736F1-29B8-42FD-B63D-749BB048CC6E}
 		{11AEDC33-827C-4A3D-A507-6D3742BEE15B} = {302736F1-29B8-42FD-B63D-749BB048CC6E}
 		{C19E5E91-FB0B-4CD5-A1DA-45D3285B0445} = {302736F1-29B8-42FD-B63D-749BB048CC6E}
+		{ECD6EC3D-AF1C-45AE-A985-F564CF59AF53} = {302736F1-29B8-42FD-B63D-749BB048CC6E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8A563FDC-FC16-4174-BDE1-390C37489B7B}

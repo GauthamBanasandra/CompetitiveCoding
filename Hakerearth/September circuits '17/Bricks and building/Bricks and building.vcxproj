@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\September circuits %2717\Bricks and building\Bricks and building.cpp" />
+    <ClCompile Include="bin search.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\September circuits %2717\Bricks and building\Bricks and building.txt" />

@@ -18,6 +18,9 @@
     <ClCompile Include="..\..\September circuits %2717\Bricks and building\Bricks and building.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="bin search.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\September circuits %2717\Bricks and building\Bricks and building.txt">

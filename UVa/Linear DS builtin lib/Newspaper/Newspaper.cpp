@@ -7,8 +7,6 @@ using big_int = unsigned long long;
 
 int main(int argc, char* argv[])
 {
-	std::ios::sync_with_stdio(false);
-
 	int n, k, cost;
 	char ch;
 	big_int total_cost, m;

@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Jolly jumpers", "Jolly jump
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1D array manipulation", "1D array manipulation", "{D29296F4-6154-49FF-BB50-9C92098B7D6C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Newspaper", "Newspaper\Newspaper.vcxproj", "{3C67C53D-7F1E-4EB8-A67F-00F7D6C32CE4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -23,12 +25,21 @@ Global
 		{8CB52218-B2C6-401F-92F8-2602F91E5C4C}.Release|x64.Build.0 = Release|x64
 		{8CB52218-B2C6-401F-92F8-2602F91E5C4C}.Release|x86.ActiveCfg = Release|Win32
 		{8CB52218-B2C6-401F-92F8-2602F91E5C4C}.Release|x86.Build.0 = Release|Win32
+		{3C67C53D-7F1E-4EB8-A67F-00F7D6C32CE4}.Debug|x64.ActiveCfg = Debug|x64
+		{3C67C53D-7F1E-4EB8-A67F-00F7D6C32CE4}.Debug|x64.Build.0 = Debug|x64
+		{3C67C53D-7F1E-4EB8-A67F-00F7D6C32CE4}.Debug|x86.ActiveCfg = Debug|Win32
+		{3C67C53D-7F1E-4EB8-A67F-00F7D6C32CE4}.Debug|x86.Build.0 = Debug|Win32
+		{3C67C53D-7F1E-4EB8-A67F-00F7D6C32CE4}.Release|x64.ActiveCfg = Release|x64
+		{3C67C53D-7F1E-4EB8-A67F-00F7D6C32CE4}.Release|x64.Build.0 = Release|x64
+		{3C67C53D-7F1E-4EB8-A67F-00F7D6C32CE4}.Release|x86.ActiveCfg = Release|Win32
+		{3C67C53D-7F1E-4EB8-A67F-00F7D6C32CE4}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8CB52218-B2C6-401F-92F8-2602F91E5C4C} = {D29296F4-6154-49FF-BB50-9C92098B7D6C}
+		{3C67C53D-7F1E-4EB8-A67F-00F7D6C32CE4} = {D29296F4-6154-49FF-BB50-9C92098B7D6C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {30B47C5A-14EC-4837-A6AF-18842103B098}

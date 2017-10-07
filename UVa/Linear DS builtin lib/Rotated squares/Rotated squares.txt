@@ -1,0 +1,8 @@
+4 2
+ABCD
+EFGH
+IJKL
+MNOP
+AB
+CD
+0 0

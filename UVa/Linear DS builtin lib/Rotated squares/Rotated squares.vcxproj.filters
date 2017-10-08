@@ -23,5 +23,17 @@
     <Text Include="Rotated squares.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="Rotated squares1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Rotated squares2.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Rotated squares3.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Rotated squares4.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

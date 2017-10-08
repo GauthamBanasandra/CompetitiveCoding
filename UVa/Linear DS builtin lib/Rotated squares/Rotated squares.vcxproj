@@ -151,6 +151,10 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Rotated squares.txt" />
+    <Text Include="Rotated squares1.txt" />
+    <Text Include="Rotated squares2.txt" />
+    <Text Include="Rotated squares3.txt" />
+    <Text Include="Rotated squares4.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -19,6 +19,7 @@ public:
 	void PrintMatrix();
 	void Rotate90Clk();
 	big_int FindMatchF(const SqMatrix &n) const;
+	const std::string& operator[](big_int i) const { return m[i]; }
 
 private:
 	big_int dim;
@@ -97,7 +98,7 @@ bool SqMatrix::MatchSubMatrix(const SqMatrix& n, big_int m_i, big_int m_j) const
 	{
 		for (auto n_j = 0; n_j < n.dim; ++n_j)
 		{
-			if (m[m_i + n_i][m_j + n_j] != n.m[n_i][n_j])
+			if (m[m_i + n_i][m_j + n_j] != n[n_i][n_j])
 			{
 				return false;
 			}

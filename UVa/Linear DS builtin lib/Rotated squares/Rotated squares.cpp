@@ -12,6 +12,11 @@ inline void Swap(char *a, char *b)
 
 class SqMatrix
 {
+private:
+	big_int dim;
+	std::vector<std::string> m;
+	bool MatchSubMatrix(const SqMatrix &n, big_int m_i, big_int m_j) const;
+
 public:
 	SqMatrix(big_int dim);
 	~SqMatrix();
@@ -19,12 +24,7 @@ public:
 	void PrintMatrix();
 	void Rotate90Clk();
 	big_int FindMatchF(const SqMatrix &n) const;
-	const std::string& operator[](big_int i) const { return m[i]; }
-
-private:
-	big_int dim;
-	std::vector<std::string> m;
-	bool MatchSubMatrix(const SqMatrix &n, big_int m_i, big_int m_j) const;
+	auto operator[](big_int i) const ->decltype(m[i]) { return m[i]; }
 };
 
 SqMatrix::SqMatrix(big_int dim)

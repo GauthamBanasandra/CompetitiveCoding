@@ -15,33 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Relational operators.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="Division of nlogonia.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="Cost cutting.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="problems.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Relational operators.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Division of nlogonia.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Cost cutting.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Division of nlogonia.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

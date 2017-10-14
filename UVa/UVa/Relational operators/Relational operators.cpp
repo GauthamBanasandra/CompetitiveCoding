@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <ios>
 
-void RelationalOperators()
+int main()
 {
 	std::ios::sync_with_stdio(false);
 
@@ -24,4 +24,6 @@ void RelationalOperators()
 			printf("=\n");
 		}
 	}
+
+	return 0;
 }

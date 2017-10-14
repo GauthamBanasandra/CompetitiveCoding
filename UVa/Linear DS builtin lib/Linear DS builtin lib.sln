@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2D array manipulation", "2D
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Rotated squares", "Rotated squares\Rotated squares.vcxproj", "{2EA3B5CE-2787-420D-A6BF-E9BB45154E35}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Grid successor", "Grid successor\Grid successor.vcxproj", "{0F3C491D-1D2B-4D04-B61F-FAEB71BB6B97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -55,6 +57,14 @@ Global
 		{2EA3B5CE-2787-420D-A6BF-E9BB45154E35}.Release|x64.Build.0 = Release|x64
 		{2EA3B5CE-2787-420D-A6BF-E9BB45154E35}.Release|x86.ActiveCfg = Release|Win32
 		{2EA3B5CE-2787-420D-A6BF-E9BB45154E35}.Release|x86.Build.0 = Release|Win32
+		{0F3C491D-1D2B-4D04-B61F-FAEB71BB6B97}.Debug|x64.ActiveCfg = Debug|x64
+		{0F3C491D-1D2B-4D04-B61F-FAEB71BB6B97}.Debug|x64.Build.0 = Debug|x64
+		{0F3C491D-1D2B-4D04-B61F-FAEB71BB6B97}.Debug|x86.ActiveCfg = Debug|Win32
+		{0F3C491D-1D2B-4D04-B61F-FAEB71BB6B97}.Debug|x86.Build.0 = Debug|Win32
+		{0F3C491D-1D2B-4D04-B61F-FAEB71BB6B97}.Release|x64.ActiveCfg = Release|x64
+		{0F3C491D-1D2B-4D04-B61F-FAEB71BB6B97}.Release|x64.Build.0 = Release|x64
+		{0F3C491D-1D2B-4D04-B61F-FAEB71BB6B97}.Release|x86.ActiveCfg = Release|Win32
+		{0F3C491D-1D2B-4D04-B61F-FAEB71BB6B97}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +74,7 @@ Global
 		{3C67C53D-7F1E-4EB8-A67F-00F7D6C32CE4} = {D29296F4-6154-49FF-BB50-9C92098B7D6C}
 		{443EA3C6-0D48-41AE-90F9-B79A4CD2AFF3} = {D29296F4-6154-49FF-BB50-9C92098B7D6C}
 		{2EA3B5CE-2787-420D-A6BF-E9BB45154E35} = {3689B005-CCCD-4114-B25E-60FE6972C83C}
+		{0F3C491D-1D2B-4D04-B61F-FAEB71BB6B97} = {3689B005-CCCD-4114-B25E-60FE6972C83C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {30B47C5A-14EC-4837-A6AF-18842103B098}

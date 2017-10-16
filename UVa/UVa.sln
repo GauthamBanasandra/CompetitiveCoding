@@ -117,6 +117,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ID codes", "ID codes\ID cod
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "What is the median", "What is the median\What is the median.vcxproj", "{140194C9-B322-411B-B532-D31E40357CC4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Contest scoreboard", "Contest scoreboard\Contest scoreboard.vcxproj", "{0140069A-4E35-43AB-8716-E79259A3F0B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -453,6 +455,14 @@ Global
 		{140194C9-B322-411B-B532-D31E40357CC4}.Release|x64.Build.0 = Release|x64
 		{140194C9-B322-411B-B532-D31E40357CC4}.Release|x86.ActiveCfg = Release|Win32
 		{140194C9-B322-411B-B532-D31E40357CC4}.Release|x86.Build.0 = Release|Win32
+		{0140069A-4E35-43AB-8716-E79259A3F0B2}.Debug|x64.ActiveCfg = Debug|x64
+		{0140069A-4E35-43AB-8716-E79259A3F0B2}.Debug|x64.Build.0 = Debug|x64
+		{0140069A-4E35-43AB-8716-E79259A3F0B2}.Debug|x86.ActiveCfg = Debug|Win32
+		{0140069A-4E35-43AB-8716-E79259A3F0B2}.Debug|x86.Build.0 = Debug|Win32
+		{0140069A-4E35-43AB-8716-E79259A3F0B2}.Release|x64.ActiveCfg = Release|x64
+		{0140069A-4E35-43AB-8716-E79259A3F0B2}.Release|x64.Build.0 = Release|x64
+		{0140069A-4E35-43AB-8716-E79259A3F0B2}.Release|x86.ActiveCfg = Release|Win32
+		{0140069A-4E35-43AB-8716-E79259A3F0B2}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -510,6 +520,7 @@ Global
 		{70780E92-F3D2-4FF5-A720-CD065B5FFC9B} = {D4966F97-1393-4791-AC36-1F79F91CA296}
 		{F14906E4-C58A-4EA2-9BCA-51DDADA45C35} = {70780E92-F3D2-4FF5-A720-CD065B5FFC9B}
 		{140194C9-B322-411B-B532-D31E40357CC4} = {70780E92-F3D2-4FF5-A720-CD065B5FFC9B}
+		{0140069A-4E35-43AB-8716-E79259A3F0B2} = {70780E92-F3D2-4FF5-A720-CD065B5FFC9B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C8B9151B-58F2-4FBF-AB9C-68FDFB747B25}

@@ -23,7 +23,7 @@
     <ProjectGuid>{1969EF21-4D9E-463C-AC73-6C4E69B64CC3}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Chess</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

@@ -23,7 +23,7 @@
     <ProjectGuid>{E39B1053-EB23-42AC-9D0F-EF10035C9205}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Bookletprinting</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

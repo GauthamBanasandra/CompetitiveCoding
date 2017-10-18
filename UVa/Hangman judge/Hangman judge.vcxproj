@@ -23,7 +23,7 @@
     <ProjectGuid>{860E8C58-4377-4B3B-9FDA-724A4C0B81A5}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Hangmanjudge</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

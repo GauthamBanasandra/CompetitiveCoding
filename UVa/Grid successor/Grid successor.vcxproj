@@ -23,7 +23,7 @@
     <ProjectGuid>{0F3C491D-1D2B-4D04-B61F-FAEB71BB6B97}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Gridsuccessor</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

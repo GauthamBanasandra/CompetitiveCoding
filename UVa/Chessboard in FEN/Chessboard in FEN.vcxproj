@@ -23,7 +23,7 @@
     <ProjectGuid>{EE25DA8F-C26C-4D03-82F6-BE64A098E286}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>ChessboardinFEN</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

@@ -23,7 +23,7 @@
     <ProjectGuid>{14394E4A-F8A5-41FC-B156-FB66280A620A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Eventplanning</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

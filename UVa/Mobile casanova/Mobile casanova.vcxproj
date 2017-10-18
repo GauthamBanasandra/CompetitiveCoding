@@ -23,7 +23,7 @@
     <ProjectGuid>{B0C155AA-1F96-4C3E-8E9C-B6A5099E9CB1}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Mobilecasanova</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

@@ -23,7 +23,7 @@
     <ProjectGuid>{2EA3B5CE-2787-420D-A6BF-E9BB45154E35}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Rotatedsquares</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

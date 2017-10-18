@@ -23,7 +23,7 @@
     <ProjectGuid>{4FEB98C5-41D7-4E86-92C0-4F97513BE20D}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Trafficlights</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

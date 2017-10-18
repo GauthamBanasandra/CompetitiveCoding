@@ -23,7 +23,7 @@
     <ProjectGuid>{C19E5E91-FB0B-4CD5-A1DA-45D3285B0445}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Counterfeitdollar</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

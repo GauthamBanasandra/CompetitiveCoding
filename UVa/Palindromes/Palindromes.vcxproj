@@ -23,7 +23,7 @@
     <ProjectGuid>{B3082B0F-EF16-4D6D-90DF-7A31B4835C79}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Palindromes</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

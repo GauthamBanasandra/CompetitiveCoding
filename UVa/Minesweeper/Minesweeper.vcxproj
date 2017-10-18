@@ -23,7 +23,7 @@
     <ProjectGuid>{65F4BAFA-988F-426E-990A-E3F9B84CA869}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Minesweeper</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

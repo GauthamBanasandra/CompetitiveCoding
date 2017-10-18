@@ -23,7 +23,7 @@
     <ProjectGuid>{8CB52218-B2C6-401F-92F8-2602F91E5C4C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Jollyjumpers</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

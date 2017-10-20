@@ -123,6 +123,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bit manipulation", "Bit man
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Multitasking", "Multitasking\Multitasking.vcxproj", "{759E1B18-96F5-4E28-8419-A050A75A2A52}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Splitting numbers", "Splitting numbers\Splitting numbers.vcxproj", "{9BD19B41-1E14-4445-9CBE-9F0EA4111CEB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -475,6 +477,14 @@ Global
 		{759E1B18-96F5-4E28-8419-A050A75A2A52}.Release|x64.Build.0 = Release|x64
 		{759E1B18-96F5-4E28-8419-A050A75A2A52}.Release|x86.ActiveCfg = Release|Win32
 		{759E1B18-96F5-4E28-8419-A050A75A2A52}.Release|x86.Build.0 = Release|Win32
+		{9BD19B41-1E14-4445-9CBE-9F0EA4111CEB}.Debug|x64.ActiveCfg = Debug|x64
+		{9BD19B41-1E14-4445-9CBE-9F0EA4111CEB}.Debug|x64.Build.0 = Debug|x64
+		{9BD19B41-1E14-4445-9CBE-9F0EA4111CEB}.Debug|x86.ActiveCfg = Debug|Win32
+		{9BD19B41-1E14-4445-9CBE-9F0EA4111CEB}.Debug|x86.Build.0 = Debug|Win32
+		{9BD19B41-1E14-4445-9CBE-9F0EA4111CEB}.Release|x64.ActiveCfg = Release|x64
+		{9BD19B41-1E14-4445-9CBE-9F0EA4111CEB}.Release|x64.Build.0 = Release|x64
+		{9BD19B41-1E14-4445-9CBE-9F0EA4111CEB}.Release|x86.ActiveCfg = Release|Win32
+		{9BD19B41-1E14-4445-9CBE-9F0EA4111CEB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -535,6 +545,7 @@ Global
 		{0140069A-4E35-43AB-8716-E79259A3F0B2} = {70780E92-F3D2-4FF5-A720-CD065B5FFC9B}
 		{3B7697F7-E39A-4BE1-9823-4A2DADB4ABDF} = {D4966F97-1393-4791-AC36-1F79F91CA296}
 		{759E1B18-96F5-4E28-8419-A050A75A2A52} = {3B7697F7-E39A-4BE1-9823-4A2DADB4ABDF}
+		{9BD19B41-1E14-4445-9CBE-9F0EA4111CEB} = {3B7697F7-E39A-4BE1-9823-4A2DADB4ABDF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C8B9151B-58F2-4FBF-AB9C-68FDFB747B25}

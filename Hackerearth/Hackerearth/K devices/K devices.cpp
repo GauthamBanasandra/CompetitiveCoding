@@ -7,7 +7,7 @@ long long distx[MAX_DEVICES];
 long long disty[MAX_DEVICES];
 long long dist[MAX_DEVICES];
 
-void KDevices()
+int main()
 {
 	std::ios::sync_with_stdio(false);
 

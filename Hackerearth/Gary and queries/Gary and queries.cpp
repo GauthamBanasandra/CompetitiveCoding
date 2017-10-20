@@ -6,7 +6,7 @@
 #define MAX_LIMIT 600000
 unsigned long long nums[MAX_LIMIT];
 
-void GaryAndQueries()
+int main()
 {
 	std::ios::sync_with_stdio(false);
 
@@ -31,7 +31,7 @@ void GaryAndQueries()
 		switch (op)
 		{
 		case 1:
-			scanf("%llu%llu", &x, &y);			
+			scanf("%llu%llu", &x, &y);
 			++f_map[y];
 			--f_map[nums[x - 1]];
 			if (f_map[nums[x - 1]] <= 0)

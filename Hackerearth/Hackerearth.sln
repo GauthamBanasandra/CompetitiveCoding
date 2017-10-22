@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2002
+VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "August circuits '17", "August circuits '17", "{F57DBDDD-61B1-4ED7-80FA-CC2AC82BA501}"
 EndProject
@@ -30,6 +30,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Jarvis and lone integer", "Jarvis and lone integer\Jarvis and lone integer.vcxproj", "{E0D7F13F-81B4-4000-A75B-169C03788F19}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sherlock and XOR", "Sherlock and XOR\Sherlock and XOR.vcxproj", "{F91ED106-757D-47FB-9D90-FCE142E08A24}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "October circuits '17", "October circuits '17", "{C66B7E51-7EDD-4737-8755-9580B5F4E891}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Card game", "Card game\Card game.vcxproj", "{8C5B73E6-E2EF-4EAC-BD98-A1FDC2193B5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -131,6 +135,14 @@ Global
 		{F91ED106-757D-47FB-9D90-FCE142E08A24}.Release|x64.Build.0 = Release|x64
 		{F91ED106-757D-47FB-9D90-FCE142E08A24}.Release|x86.ActiveCfg = Release|Win32
 		{F91ED106-757D-47FB-9D90-FCE142E08A24}.Release|x86.Build.0 = Release|Win32
+		{8C5B73E6-E2EF-4EAC-BD98-A1FDC2193B5F}.Debug|x64.ActiveCfg = Debug|x64
+		{8C5B73E6-E2EF-4EAC-BD98-A1FDC2193B5F}.Debug|x64.Build.0 = Debug|x64
+		{8C5B73E6-E2EF-4EAC-BD98-A1FDC2193B5F}.Debug|x86.ActiveCfg = Debug|Win32
+		{8C5B73E6-E2EF-4EAC-BD98-A1FDC2193B5F}.Debug|x86.Build.0 = Debug|Win32
+		{8C5B73E6-E2EF-4EAC-BD98-A1FDC2193B5F}.Release|x64.ActiveCfg = Release|x64
+		{8C5B73E6-E2EF-4EAC-BD98-A1FDC2193B5F}.Release|x64.Build.0 = Release|x64
+		{8C5B73E6-E2EF-4EAC-BD98-A1FDC2193B5F}.Release|x86.ActiveCfg = Release|Win32
+		{8C5B73E6-E2EF-4EAC-BD98-A1FDC2193B5F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -147,6 +159,7 @@ Global
 		{93194901-8C16-4F9D-B1A3-8418C4616767} = {8F92EF18-A6A1-4B14-8B1B-AF58960933AF}
 		{E0D7F13F-81B4-4000-A75B-169C03788F19} = {8F92EF18-A6A1-4B14-8B1B-AF58960933AF}
 		{F91ED106-757D-47FB-9D90-FCE142E08A24} = {8F92EF18-A6A1-4B14-8B1B-AF58960933AF}
+		{8C5B73E6-E2EF-4EAC-BD98-A1FDC2193B5F} = {C66B7E51-7EDD-4737-8755-9580B5F4E891}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BF4659AF-2246-4E02-843C-40DEAB7C5998}

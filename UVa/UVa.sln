@@ -135,6 +135,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Rails", "Rails\Rails.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Anagrams by stack", "Anagrams by stack\Anagrams by stack.vcxproj", "{1866FD6E-CFCB-4751-823E-4A80E3F9CAD6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "C++ STL queue and deque", "C++ STL queue and deque", "{0140A294-A2AB-43C6-936A-012F523D4E6D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "The lonesome cargo distributor", "The lonesome cargo distributor\The lonesome cargo distributor.vcxproj", "{C72BE208-F541-4965-8424-031E443EB600}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -519,6 +523,14 @@ Global
 		{1866FD6E-CFCB-4751-823E-4A80E3F9CAD6}.Release|x64.Build.0 = Release|x64
 		{1866FD6E-CFCB-4751-823E-4A80E3F9CAD6}.Release|x86.ActiveCfg = Release|Win32
 		{1866FD6E-CFCB-4751-823E-4A80E3F9CAD6}.Release|x86.Build.0 = Release|Win32
+		{C72BE208-F541-4965-8424-031E443EB600}.Debug|x64.ActiveCfg = Debug|x64
+		{C72BE208-F541-4965-8424-031E443EB600}.Debug|x64.Build.0 = Debug|x64
+		{C72BE208-F541-4965-8424-031E443EB600}.Debug|x86.ActiveCfg = Debug|Win32
+		{C72BE208-F541-4965-8424-031E443EB600}.Debug|x86.Build.0 = Debug|Win32
+		{C72BE208-F541-4965-8424-031E443EB600}.Release|x64.ActiveCfg = Release|x64
+		{C72BE208-F541-4965-8424-031E443EB600}.Release|x64.Build.0 = Release|x64
+		{C72BE208-F541-4965-8424-031E443EB600}.Release|x86.ActiveCfg = Release|Win32
+		{C72BE208-F541-4965-8424-031E443EB600}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -585,6 +597,8 @@ Global
 		{57B362E2-A23A-4CFB-86D8-EF09C858615F} = {D4966F97-1393-4791-AC36-1F79F91CA296}
 		{8DCC5FB0-536C-4263-B279-4E4C1DD1F99F} = {57B362E2-A23A-4CFB-86D8-EF09C858615F}
 		{1866FD6E-CFCB-4751-823E-4A80E3F9CAD6} = {57B362E2-A23A-4CFB-86D8-EF09C858615F}
+		{0140A294-A2AB-43C6-936A-012F523D4E6D} = {D4966F97-1393-4791-AC36-1F79F91CA296}
+		{C72BE208-F541-4965-8424-031E443EB600} = {0140A294-A2AB-43C6-936A-012F523D4E6D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C8B9151B-58F2-4FBF-AB9C-68FDFB747B25}

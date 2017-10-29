@@ -141,6 +141,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "The lonesome cargo distribu
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ferry loading III", "Ferry loading III\Ferry loading III.vcxproj", "{FDEF8E6A-4CB9-498B-8405-8545746C2B65}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ferry loading IV", "Ferry loading IV\Ferry loading IV.vcxproj", "{F2B0A868-4973-495B-A8BA-D16BD69C6359}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -541,6 +543,14 @@ Global
 		{FDEF8E6A-4CB9-498B-8405-8545746C2B65}.Release|x64.Build.0 = Release|x64
 		{FDEF8E6A-4CB9-498B-8405-8545746C2B65}.Release|x86.ActiveCfg = Release|Win32
 		{FDEF8E6A-4CB9-498B-8405-8545746C2B65}.Release|x86.Build.0 = Release|Win32
+		{F2B0A868-4973-495B-A8BA-D16BD69C6359}.Debug|x64.ActiveCfg = Debug|x64
+		{F2B0A868-4973-495B-A8BA-D16BD69C6359}.Debug|x64.Build.0 = Debug|x64
+		{F2B0A868-4973-495B-A8BA-D16BD69C6359}.Debug|x86.ActiveCfg = Debug|Win32
+		{F2B0A868-4973-495B-A8BA-D16BD69C6359}.Debug|x86.Build.0 = Debug|Win32
+		{F2B0A868-4973-495B-A8BA-D16BD69C6359}.Release|x64.ActiveCfg = Release|x64
+		{F2B0A868-4973-495B-A8BA-D16BD69C6359}.Release|x64.Build.0 = Release|x64
+		{F2B0A868-4973-495B-A8BA-D16BD69C6359}.Release|x86.ActiveCfg = Release|Win32
+		{F2B0A868-4973-495B-A8BA-D16BD69C6359}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -610,6 +620,7 @@ Global
 		{0140A294-A2AB-43C6-936A-012F523D4E6D} = {D4966F97-1393-4791-AC36-1F79F91CA296}
 		{C72BE208-F541-4965-8424-031E443EB600} = {0140A294-A2AB-43C6-936A-012F523D4E6D}
 		{FDEF8E6A-4CB9-498B-8405-8545746C2B65} = {0140A294-A2AB-43C6-936A-012F523D4E6D}
+		{F2B0A868-4973-495B-A8BA-D16BD69C6359} = {0140A294-A2AB-43C6-936A-012F523D4E6D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C8B9151B-58F2-4FBF-AB9C-68FDFB747B25}

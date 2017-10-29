@@ -247,6 +247,7 @@ int main(int argc, char* argv[])
 			case 'l':
 				left_bank.add_car(car);
 				break;
+
 			case 'r':
 				right_bank.add_car(car);
 				break;

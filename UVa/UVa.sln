@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2005
+VisualStudioVersion = 15.0.27130.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ad hoc", "Ad hoc", "{23FA5C8F-E6A4-4601-BA04-5FB3DAE29841}"
 EndProject
@@ -148,6 +148,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hardwood species", "Hardwood species\Hardwood species.vcxproj", "{46ABA9E7-7459-46D3-A05C-01FDCF25EF74}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "C++ STL map", "C++ STL map", "{9449C6C2-D4CB-4FFF-9DE1-A3FC539430BD}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Conformity", "Conformity\Conformity.vcxproj", "{E40242DB-8353-4ECD-974B-6C994784BD83}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -565,6 +567,14 @@ Global
 		{46ABA9E7-7459-46D3-A05C-01FDCF25EF74}.Release|x64.Build.0 = Release|x64
 		{46ABA9E7-7459-46D3-A05C-01FDCF25EF74}.Release|x86.ActiveCfg = Release|Win32
 		{46ABA9E7-7459-46D3-A05C-01FDCF25EF74}.Release|x86.Build.0 = Release|Win32
+		{E40242DB-8353-4ECD-974B-6C994784BD83}.Debug|x64.ActiveCfg = Debug|x64
+		{E40242DB-8353-4ECD-974B-6C994784BD83}.Debug|x64.Build.0 = Debug|x64
+		{E40242DB-8353-4ECD-974B-6C994784BD83}.Debug|x86.ActiveCfg = Debug|Win32
+		{E40242DB-8353-4ECD-974B-6C994784BD83}.Debug|x86.Build.0 = Debug|Win32
+		{E40242DB-8353-4ECD-974B-6C994784BD83}.Release|x64.ActiveCfg = Release|x64
+		{E40242DB-8353-4ECD-974B-6C994784BD83}.Release|x64.Build.0 = Release|x64
+		{E40242DB-8353-4ECD-974B-6C994784BD83}.Release|x86.ActiveCfg = Release|Win32
+		{E40242DB-8353-4ECD-974B-6C994784BD83}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -637,6 +647,7 @@ Global
 		{F2B0A868-4973-495B-A8BA-D16BD69C6359} = {0140A294-A2AB-43C6-936A-012F523D4E6D}
 		{46ABA9E7-7459-46D3-A05C-01FDCF25EF74} = {9449C6C2-D4CB-4FFF-9DE1-A3FC539430BD}
 		{9449C6C2-D4CB-4FFF-9DE1-A3FC539430BD} = {EB33ABF9-3009-41EA-B94B-D4B23B2CDCF9}
+		{E40242DB-8353-4ECD-974B-6C994784BD83} = {9449C6C2-D4CB-4FFF-9DE1-A3FC539430BD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C8B9151B-58F2-4FBF-AB9C-68FDFB747B25}

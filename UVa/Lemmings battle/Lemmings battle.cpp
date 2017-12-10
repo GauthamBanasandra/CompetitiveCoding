@@ -64,13 +64,14 @@ struct battle
 class deadly_war
 {
 public:
-	deadly_war(const std::multiset<lemmings, lemmings_comparator>& blue_lemmings, const std::multiset<lemmings, lemmings_comparator>& green_lemmings,
+	deadly_war(std::multiset<lemmings, lemmings_comparator> &&blue_lemmings, std::multiset<lemmings, lemmings_comparator> &&green_lemmings,
 		const long battle_grounds)
-		: blue_lemmings(blue_lemmings),
-		green_lemmings(green_lemmings),
+		: blue_lemmings(move(blue_lemmings)),
+		green_lemmings(move(green_lemmings)),
 		battle_grounds_(battle_grounds)
 	{
 	}
+
 
 	bool is_war_over();
 	bool next_round();
@@ -140,11 +141,11 @@ bool deadly_war::next_round()
 		switch (battle.blue_lemming.fight(battle.green_lemming))
 		{
 		case outcome::live:
-			blue_lemmings.insert(battle.blue_lemming);
+			blue_lemmings.insert(std::move(battle.blue_lemming));
 			break;
 
 		case outcome::die:
-			green_lemmings.insert(battle.green_lemming);
+			green_lemmings.insert(std::move(battle.green_lemming));
 			break;
 
 		case outcome::both_die:;
@@ -206,7 +207,7 @@ int main(int argc, char* argv[])
 			std::cout << std::endl;
 		}
 
-		deadly_war war(blue_lemmings, green_lemmings, b);
+		deadly_war war(move(blue_lemmings), move(green_lemmings), b);
 		while (war.next_round())
 		{
 		}

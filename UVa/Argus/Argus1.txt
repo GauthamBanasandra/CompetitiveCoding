@@ -1,0 +1,6 @@
+Register 1050  50
+Register 2010  10
+Register 2555   5
+Register 2345   5
+#
+8

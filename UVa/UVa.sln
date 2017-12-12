@@ -159,6 +159,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lemmings battle", "Lemmings
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hoax or what", "Hoax or what\Hoax or what.vcxproj", "{179F51F1-0085-4831-BCA7-AB47D59BC048}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CD", "..\Books\Competitive Programming 3\chapter-2\exercises\CD\CD.vcxproj", "{B8AF12EA-D3D0-473D-8B06-38DC95076C24}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -607,6 +609,14 @@ Global
 		{179F51F1-0085-4831-BCA7-AB47D59BC048}.Release|x64.Build.0 = Release|x64
 		{179F51F1-0085-4831-BCA7-AB47D59BC048}.Release|x86.ActiveCfg = Release|Win32
 		{179F51F1-0085-4831-BCA7-AB47D59BC048}.Release|x86.Build.0 = Release|Win32
+		{B8AF12EA-D3D0-473D-8B06-38DC95076C24}.Debug|x64.ActiveCfg = Debug|x64
+		{B8AF12EA-D3D0-473D-8B06-38DC95076C24}.Debug|x64.Build.0 = Debug|x64
+		{B8AF12EA-D3D0-473D-8B06-38DC95076C24}.Debug|x86.ActiveCfg = Debug|Win32
+		{B8AF12EA-D3D0-473D-8B06-38DC95076C24}.Debug|x86.Build.0 = Debug|Win32
+		{B8AF12EA-D3D0-473D-8B06-38DC95076C24}.Release|x64.ActiveCfg = Release|x64
+		{B8AF12EA-D3D0-473D-8B06-38DC95076C24}.Release|x64.Build.0 = Release|x64
+		{B8AF12EA-D3D0-473D-8B06-38DC95076C24}.Release|x86.ActiveCfg = Release|Win32
+		{B8AF12EA-D3D0-473D-8B06-38DC95076C24}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -684,6 +694,7 @@ Global
 		{61278400-18F3-4062-8DF6-6A16EE1F96D4} = {EB33ABF9-3009-41EA-B94B-D4B23B2CDCF9}
 		{C4BA4B63-6DFE-4CC6-858F-6B594B2D4D86} = {61278400-18F3-4062-8DF6-6A16EE1F96D4}
 		{179F51F1-0085-4831-BCA7-AB47D59BC048} = {61278400-18F3-4062-8DF6-6A16EE1F96D4}
+		{B8AF12EA-D3D0-473D-8B06-38DC95076C24} = {61278400-18F3-4062-8DF6-6A16EE1F96D4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C8B9151B-58F2-4FBF-AB9C-68FDFB747B25}

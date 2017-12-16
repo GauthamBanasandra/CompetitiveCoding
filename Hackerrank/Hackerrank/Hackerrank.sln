@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hour rank", "Hour rank", "{
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Strong password", "Strong password\Strong password.vcxproj", "{A978FB31-CBE9-4AC3-A42B-5E0956319379}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "December world codesprint", "December world codesprint", "{3E545B36-3467-482C-9261-E48C0BD38EA1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "World codesprint 12", "World codesprint 12", "{3E545B36-3467-482C-9261-E48C0BD38EA1}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "The salesman", "The salesman\The salesman.vcxproj", "{E5B942A2-6EB6-4D3C-9DDB-F9095C06B4A2}"
 EndProject

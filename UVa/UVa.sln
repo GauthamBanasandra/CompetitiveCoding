@@ -169,6 +169,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Add all", "Add all\Add all.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "I can guess the data structure", "I can guess the data structure\I can guess the data structure.vcxproj", "{1D625778-74F9-4ADF-9E99-32BD28B73E1A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DS with our own lib", "DS with our own lib", "{811D469A-7D29-4132-9055-2837D8007246}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Graph", "Graph", "{79F42D8D-BDE8-4654-9EAF-F63466FD5B08}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "The forest for the trees", "The forest for the trees\The forest for the trees.vcxproj", "{71EB4506-0927-464F-822A-074DD5D71819}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -649,6 +655,14 @@ Global
 		{1D625778-74F9-4ADF-9E99-32BD28B73E1A}.Release|x64.Build.0 = Release|x64
 		{1D625778-74F9-4ADF-9E99-32BD28B73E1A}.Release|x86.ActiveCfg = Release|Win32
 		{1D625778-74F9-4ADF-9E99-32BD28B73E1A}.Release|x86.Build.0 = Release|Win32
+		{71EB4506-0927-464F-822A-074DD5D71819}.Debug|x64.ActiveCfg = Debug|x64
+		{71EB4506-0927-464F-822A-074DD5D71819}.Debug|x64.Build.0 = Debug|x64
+		{71EB4506-0927-464F-822A-074DD5D71819}.Debug|x86.ActiveCfg = Debug|Win32
+		{71EB4506-0927-464F-822A-074DD5D71819}.Debug|x86.Build.0 = Debug|Win32
+		{71EB4506-0927-464F-822A-074DD5D71819}.Release|x64.ActiveCfg = Release|x64
+		{71EB4506-0927-464F-822A-074DD5D71819}.Release|x64.Build.0 = Release|x64
+		{71EB4506-0927-464F-822A-074DD5D71819}.Release|x86.ActiveCfg = Release|Win32
+		{71EB4506-0927-464F-822A-074DD5D71819}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -731,6 +745,8 @@ Global
 		{6E989B82-78F3-44A4-97F0-49FA4893F21C} = {6D40DC3C-3F85-48B3-99ED-4741FB3902EA}
 		{1221B625-949E-4EC9-89A1-389398102C26} = {6D40DC3C-3F85-48B3-99ED-4741FB3902EA}
 		{1D625778-74F9-4ADF-9E99-32BD28B73E1A} = {6D40DC3C-3F85-48B3-99ED-4741FB3902EA}
+		{79F42D8D-BDE8-4654-9EAF-F63466FD5B08} = {811D469A-7D29-4132-9055-2837D8007246}
+		{71EB4506-0927-464F-822A-074DD5D71819} = {79F42D8D-BDE8-4654-9EAF-F63466FD5B08}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C8B9151B-58F2-4FBF-AB9C-68FDFB747B25}

@@ -76,7 +76,7 @@ void adjacency_list::print_sparse_matrix() const
 		}
 
 		std::cout << std::endl;
-		if (values_line.length()>0)
+		if (values_line.length() > 0)
 		{
 			values_line.erase(values_line.length() - 1);
 		}

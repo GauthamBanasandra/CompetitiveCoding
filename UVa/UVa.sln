@@ -179,6 +179,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Matrix transpose", "Matrix 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Easy problem from rujia liu", "Easy problem from rujia liu\Easy problem from rujia liu.vcxproj", "{465913F5-7534-4854-B846-3BC847C077D2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Union-Find Disjoin Sets", "Union-Find Disjoin Sets", "{6E14AC47-1C2C-4339-918B-518F8A925113}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Network connections", "Network connections\Network connections.vcxproj", "{AC3B1C74-4375-481C-B846-8FCC63D52E23}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -683,6 +687,14 @@ Global
 		{465913F5-7534-4854-B846-3BC847C077D2}.Release|x64.Build.0 = Release|x64
 		{465913F5-7534-4854-B846-3BC847C077D2}.Release|x86.ActiveCfg = Release|Win32
 		{465913F5-7534-4854-B846-3BC847C077D2}.Release|x86.Build.0 = Release|Win32
+		{AC3B1C74-4375-481C-B846-8FCC63D52E23}.Debug|x64.ActiveCfg = Debug|x64
+		{AC3B1C74-4375-481C-B846-8FCC63D52E23}.Debug|x64.Build.0 = Debug|x64
+		{AC3B1C74-4375-481C-B846-8FCC63D52E23}.Debug|x86.ActiveCfg = Debug|Win32
+		{AC3B1C74-4375-481C-B846-8FCC63D52E23}.Debug|x86.Build.0 = Debug|Win32
+		{AC3B1C74-4375-481C-B846-8FCC63D52E23}.Release|x64.ActiveCfg = Release|x64
+		{AC3B1C74-4375-481C-B846-8FCC63D52E23}.Release|x64.Build.0 = Release|x64
+		{AC3B1C74-4375-481C-B846-8FCC63D52E23}.Release|x86.ActiveCfg = Release|Win32
+		{AC3B1C74-4375-481C-B846-8FCC63D52E23}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -769,6 +781,8 @@ Global
 		{71EB4506-0927-464F-822A-074DD5D71819} = {79F42D8D-BDE8-4654-9EAF-F63466FD5B08}
 		{62CA1FA6-BAE8-4F49-A5AE-3A861B5E4482} = {79F42D8D-BDE8-4654-9EAF-F63466FD5B08}
 		{465913F5-7534-4854-B846-3BC847C077D2} = {79F42D8D-BDE8-4654-9EAF-F63466FD5B08}
+		{6E14AC47-1C2C-4339-918B-518F8A925113} = {811D469A-7D29-4132-9055-2837D8007246}
+		{AC3B1C74-4375-481C-B846-8FCC63D52E23} = {6E14AC47-1C2C-4339-918B-518F8A925113}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C8B9151B-58F2-4FBF-AB9C-68FDFB747B25}

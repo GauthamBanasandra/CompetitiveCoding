@@ -1,0 +1,13 @@
+6
+10
+ABC
+AD
+BD
+CD
+AE
+BE
+CE
+AF
+BF
+DE
+EF

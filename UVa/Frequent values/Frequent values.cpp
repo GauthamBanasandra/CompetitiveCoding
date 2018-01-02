@@ -247,14 +247,14 @@ namespace ds
 		// Memory - Calls merge_node with the value provided with the node's value
 		enum class update_mode { k_memory, k_memoryless };
 
-		template<class T>
+		template<class C, class T>
 		class seg_tree : public binary_tree<T>
 		{
 		public:
-			// container_cookie is a void pointer to the container
+			// container is a void pointer to the container
 			// access_data - function pointer which returns the data from the container for the given index
 			// merge_nodes - function pointer which performs the operation on 2 data points (min, max, sum etc.) and returns the result
-			explicit seg_tree(const void* container_cookie, std::size_t size, T(*access_data)(const void*, std::size_t), T(*merge_nodes)(const T&, const T&));
+			explicit seg_tree(const C& container, std::size_t size, T(*access_data)(const C&, std::size_t), T(*merge_nodes)(T, T));
 
 			// Returns the result of the operation on the specified segment
 			response<T> query(const range& query_segment);
@@ -262,10 +262,10 @@ namespace ds
 			// Updates the values in the specified segment
 			void update_range(const range& update_segment, const T data, const update_mode mode);
 
-			const void* container_cookie;
+			C container;
 			std::size_t size;
-			T(*merge_nodes)(const T&, const T&);
-			T(*access_data)(const void*, std::size_t);
+			T(*merge_nodes)(T, T);
+			T(*access_data)(const C&, std::size_t);
 
 		private:
 			node<T>* build_tree(node_type type, const range& segment) const;
@@ -278,35 +278,35 @@ namespace ds
 			std::unordered_map<node<T>*, T> lazy_store_;
 		};
 
-		template<class T>
-		seg_tree<T>::seg_tree(const void* container_cookie, const std::size_t size, T(*access_data)(const void*, std::size_t), T(*merge_nodes)(const T&, const T&)) : container_cookie(container_cookie), size(size), merge_nodes(merge_nodes), access_data(access_data)
+		template<class C, class T>
+		seg_tree<C, T>::seg_tree(const C& container, const std::size_t size, T(*access_data)(const C&, const std::size_t), T(*merge_nodes)(T, T)) : container(container), size(size), merge_nodes(merge_nodes), access_data(access_data)
 		{
 			const range segment{ 0, size - 1 };
 			this->root = build_tree(node_type::k_root, segment);
 		}
 
-		template<class T>
-		response<T> seg_tree<T>::query(const range& query_segment)
+		template<class C, class T>
+		response<T> seg_tree<C, T>::query(const range& query_segment)
 		{
 			const range segment{ 0, size - 1 };
 			return query(this->root, segment, query_segment);
 		}
 
-		template <class T>
-		void seg_tree<T>::update_range(const range& update_segment, const T data, const update_mode mode)
+		template <class C, class T>
+		void seg_tree<C, T>::update_range(const range& update_segment, const T data, const update_mode mode)
 		{
 			const range segment{ 0, size - 1 };
 			return update_range(this->root, segment, update_segment, data, mode);
 		}
 
-		template<class T>
-		node<T>* seg_tree<T>::build_tree(const node_type type, const range& segment) const
+		template<class C, class T>
+		node<T>* seg_tree<C, T>::build_tree(const node_type type, const range& segment) const
 		{
 			// Leaf node
 			if (segment.lower_bound == segment.upper_bound)
 			{
 				// Store the c[i] value in the leaf node
-				return new node<T>(access_data(container_cookie, segment.lower_bound), type);
+				return new node<T>(access_data(container, segment.lower_bound), type);
 			}
 
 			range new_segment;
@@ -330,8 +330,8 @@ namespace ds
 		}
 
 
-		template<class T>
-		response<T> seg_tree<T>::query(node<T>* n, const range& segment, const range& query_segment)
+		template<class C, class T>
+		response<T> seg_tree<C, T>::query(node<T>* n, const range& segment, const range& query_segment)
 		{
 			// Outside query range
 			if (query_segment.lower_bound > segment.upper_bound || query_segment.upper_bound < segment.lower_bound)
@@ -383,8 +383,8 @@ namespace ds
 		}
 
 		// Update the node's data with the one provided according to the mode
-		template <class T>
-		void seg_tree<T>::update_node(node<T>* n, const T data, const update_mode mode)
+		template <class C, class T>
+		void seg_tree<C, T>::update_node(node<T>* n, const T data, const update_mode mode)
 		{
 			switch (mode)
 			{
@@ -402,8 +402,8 @@ namespace ds
 			}
 		}
 
-		template <class T>
-		void seg_tree<T>::update_range(node<T>* n, const range& segment, const range& update_segment, const T data, const update_mode mode)
+		template <class C, class T>
+		void seg_tree<C, T>::update_range(node<T>* n, const range& segment, const range& update_segment, const T data, const update_mode mode)
 		{
 			auto find = lazy_store_.find(n);
 			if (find != lazy_store_.end())
@@ -446,9 +446,10 @@ namespace ds
 		}
 
 		// Induces/updates the laziness associated with the current node to its children
-		template <class T>
-		void seg_tree<T>::propagate_laziness(node<T>* n, T data)
+		template <class C, class T>
+		void seg_tree<C, T>::propagate_laziness(node<T>* n, T data)
 		{
+			// TODO : Verify this - outcome is that it's a leaf node. Change || to &&
 			if (n->left_child != nullptr || n->right_child != nullptr)
 			{
 				return;
@@ -479,53 +480,33 @@ namespace ds
 }
 
 template<class T>
-T merge_nodes(const T& d1, const T& d2)
+T merge_nodes(T d1, T d2)
 {
-	frequency f(d1);
-	for (const auto& kv : d2)
-	{
-		f[kv.first] += kv.second;
-	}
-
-	return f;
+	return std::max(d1, d2);
 }
 
-template<class T, class E>
-T access_data(const void* container_cookie, std::size_t index)
+template<class C, class T>
+T access_data(const C& container, std::size_t index)
 {
-	const auto container = static_cast<const std::vector<E>*>(container_cookie);
-	frequency f;
-	f[(*container)[index]] = 1;
-	return f;
-}
-
-int max_value(const frequency &f)
-{
-	auto i = f.begin();
-	auto max = i->second;
-	while (i != f.end())
-	{
-		if (i->second > max)
-		{
-			max = i->second;
-		}
-
-		++i;
-	}
-
-	return max;
+	return container[index];
 }
 
 int main(int argc, char* argv[])
 {
 	int n, q;
 	std::string line;
-	std::vector<int> data;
+	std::vector<int> data, t_data, t_res;
+	std::unordered_map<int, int> f;
+	std::unordered_map<int, std::pair<int, int>>p;
 
 	while (std::cin >> n, n)
 	{
 		data.clear();
+		t_data.clear();
+		f.clear();
+		p.clear();
 		data.resize(n);
+		t_data.resize(n);
 		std::cin >> q;
 		std::cin.ignore();
 		std::getline(std::cin, line);
@@ -534,17 +515,71 @@ int main(int argc, char* argv[])
 		for (auto i = 0; i < n; ++i)
 		{
 			tokens >> data[i];
+			++f[data[i]];
+
+			auto find = p.find(data[i]);
+			if (find == p.end())
+			{
+				p[data[i]] = std::make_pair(i, i);
+			}
+			else
+			{
+				++find->second.second;
+			}
 		}
 
-		ds::bin_tree::seg_tree<frequency> seg_tree(&data, data.size(), access_data<frequency, int>, merge_nodes);
-		ds::bin_tree::range segment;
+		for (const auto& kv : p)
+		{
+			for (auto i = kv.second.first; i <= kv.second.second; ++i)
+			{
+				t_data[i] = f[kv.first];
+			}
+		}
+		ds::bin_tree::seg_tree<std::vector<int>, int> seg_tree(t_data, t_data.size(), access_data, merge_nodes);
+		ds::bin_tree::range s;
 		while (q--)
 		{
-			std::cin >> segment.lower_bound >> segment.upper_bound;
-			--segment.lower_bound;
-			--segment.upper_bound;
-			const auto res = seg_tree.query(segment);
-			std::cout << max_value(res.data) << std::endl;
+			auto x = 0, y = 0;
+			std::cin >> x >> y;
+			--x;
+			--y;
+
+			t_res.clear();
+			if (data[x] == data[y])
+			{
+				std::cout << y - x + 1 << std::endl;
+				continue;
+			}
+
+			if (x == p[data[x]].first)
+			{
+				s.lower_bound = x;
+			}
+			else
+			{
+				s.lower_bound = p[data[x]].second + 1;
+				t_res.push_back(p[data[x]].second - x + 1);
+			}
+
+			if (y == p[data[y]].second)
+			{
+				s.upper_bound = y;
+			}
+			else
+			{
+				assert(p[data[y]].first > 0);
+
+				s.upper_bound = p[data[y]].first - 1;
+				t_res.push_back(y - p[data[y]].first + 1);
+			}
+
+			if (s.lower_bound < s.upper_bound)
+			{
+				const auto res = seg_tree.query(s);
+				t_res.push_back(res.data);
+			}
+
+			std::cout << *std::max_element(t_res.begin(), t_res.end()) << std::endl;
 		}
 	}
 

@@ -6,7 +6,7 @@ void print(const std::vector<int>& data)
 {
 	for (const auto& value : data)
 	{
-		std::cout << value << "\t";
+		std::cout << value << " ";
 	}
 
 	std::cout << std::endl;

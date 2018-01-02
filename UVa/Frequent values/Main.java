@@ -1,7 +1,4 @@
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 enum NodeType {
     LEFT_CHILD,
@@ -244,11 +241,24 @@ class SegmentTree<C, T> extends BinaryTree<T> {
     private HashMap<Node<T>, T> lazyStore;
 }
 
+class Pair {
+    public Pair(int first, int second) {
+        this.first = first;
+        this.second = second;
+    }
+
+    public int first;
+    public int second;
+}
+
 class Main {
     public static void main(String[] args) {
         int n, q;
-        int[] data;
+        int[] data, t_data;
         Scanner in = new Scanner(System.in);
+        HashMap<Integer, Integer> f = new HashMap<>();
+        HashMap<Integer, Pair> p = new HashMap<>();
+        Vector<Integer> t_res = new Vector<>();
 
         while (true) {
             n = in.nextInt();
@@ -257,37 +267,73 @@ class Main {
             }
 
             q = in.nextInt();
+            f.clear();
+            p.clear();
 
             data = new int[n];
+            t_data = new int[n];
             for (int i = 0; i < n; i++) {
                 data[i] = in.nextInt();
+
+                f.put(data[i], f.getOrDefault(data[i], 0) + 1);
+
+                if (p.containsKey(data[i])) {
+                    ++p.get(data[i]).second;
+                } else {
+                    p.put(data[i], new Pair(i, i));
+                }
             }
 
-            SegmentTree<int[], HashMap<Integer, Integer>> segTree = new SegmentTree<>(data, data.length,
-                    (collection, index) -> {
-                        HashMap<Integer, Integer> f = new HashMap<>();
-                        f.put(collection[index], 1);
-                        return f;
-                    },
-                    (d1, d2) -> {
-                        HashMap<Integer, Integer> f = new HashMap<>();
-                        for (Map.Entry<Integer, Integer> entry : d1.entrySet()) {
-                            f.put(entry.getKey(), entry.getValue());
-                        }
+            for (Map.Entry<Integer, Pair> entry : p.entrySet()) {
+                for (int i = entry.getValue().first; i <= entry.getValue().second; i++) {
+                    t_data[i] = f.get(entry.getKey());
+                }
+            }
 
-                        for (Map.Entry<Integer, Integer> entry : d2.entrySet()) {
-                            Integer key = entry.getKey();
-                            f.put(key, f.getOrDefault(key, 0) + entry.getValue());
-                        }
-
-                        return f;
-                    });
-
+            SegmentTree<int[], Integer> segTree = new SegmentTree<>(t_data, t_data.length,
+                    (collection, index) -> collection[index],
+                    Math::max);
             while (q-- > 0) {
-                Range querySegment = new Range(in.nextInt() - 1, in.nextInt() - 1);
-                Response<HashMap<Integer, Integer>> response = segTree.query(querySegment);
-                System.out.println(Collections.max(response.data.values()));
+                int x = in.nextInt() - 1;
+                int y = in.nextInt() - 1;
+                t_res.clear();
+
+                Range s = new Range(x, y);
+                if (data[x] == data[y]) {
+                    System.out.println(y - x + 1);
+                    continue;
+                }
+
+                if (x == p.get(data[x]).first) {
+                    s.lowerBound = x;
+                } else {
+                    s.lowerBound = p.get(data[x]).second + 1;
+                    t_res.add(p.get(data[x]).second - x + 1);
+                }
+
+                if (y == p.get(data[y]).second) {
+                    s.upperBound = y;
+                } else {
+                    assert p.get(data[y]).first > 0;
+                    s.upperBound = p.get(data[y]).first - 1;
+                    t_res.add(y - p.get(data[y]).first + 1);
+                }
+
+                if (s.lowerBound < s.upperBound) {
+                    Response<Integer> res = segTree.query(s);
+                    t_res.add(res.data);
+                }
+
+                System.out.println(Collections.max(t_res));
             }
         }
+    }
+
+    private static void print(int[] data) {
+        for (int i = 0; i < data.length; i++) {
+            System.out.print(data[i] + " ");
+        }
+
+        System.out.println();
     }
 }

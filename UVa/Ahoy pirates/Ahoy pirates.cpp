@@ -5,8 +5,8 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
-#include <ios>
 #include <iostream>
+#include <sstream>
 
 namespace ds
 {
@@ -554,20 +554,21 @@ T update_data(const ds::bin_tree::range& segment, const T& node_data, const U& d
 
 int main(int argc, char* argv[])
 {
-	std::ios::sync_with_stdio(false);
-
-	std::string pirates = "", pat = "";
+	std::string pirates, pat, line;
 	std::size_t t, n, m, a, b, q;
 	char q_type;
 	std::cin >> t;
+	std::cin.ignore();
 	for (std::size_t c = 0; c < t; ++c)
 	{
-		pirates = pat = "";
+		pirates.clear();
+		pat.clear();
 		std::cin >> m;
 		while (m--)
 		{
 			std::cin >> n;
-			std::cin >> pat;
+			std::cin.ignore();
+			std::getline(std::cin, pat);
 			while (n--)
 			{
 				pirates += pat;
@@ -581,11 +582,14 @@ int main(int argc, char* argv[])
 
 		std::cout << "Case " << c + 1 << ":" << std::endl;
 		std::cin >> q;
+		std::cin.ignore();
 		std::size_t i = 0;
 		ds::bin_tree::range segment;
 		while (q--)
 		{
-			std::cin >> q_type >> a >> b;
+			std::getline(std::cin, line);
+			std::istringstream tokenizer(line);
+			tokenizer >> q_type >> a >> b;
 			segment.lower_bound = a;
 			segment.upper_bound = b;
 

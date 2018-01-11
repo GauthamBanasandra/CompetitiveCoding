@@ -1,0 +1,1 @@
+cmake-build-debug\Expert_enough.exe < "Iterative - linear scan/Expert enough/Expert enough1.txt" | clip

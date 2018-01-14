@@ -3,10 +3,9 @@ project(UVa)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(Integer_sequence_from "Iterative - linear scan/Integer sequence from/Integer sequence from.cpp")
-add_executable(Expert_enough "Iterative - linear scan/Expert enough/Expert enough.cpp")
-add_executable(Fractions_again "Iterative - linear scan/Fractions again/Fractions again.cpp")
-
+add_executable(Integer_sequence_from "Complete search/Iterative - linear scan/Integer sequence from/Integer sequence from.cpp")
+add_executable(Expert_enough "Complete search/Iterative - linear scan/Expert enough/Expert enough.cpp")
+add_executable(Fractions_again "Complete search/Iterative - linear scan/Fractions again/Fractions again.cpp")
 
 add_executable(Anagram "Ad hoc/Anagram/Anagram/Anagram.cpp")
 add_executable(Anagrams "Ad hoc/Anagram/Anagrams/Anagrams.cpp")

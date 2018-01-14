@@ -1,0 +1,1 @@
+cmake-build-debug\Fractions_again.exe < "Iterative - linear scan\Fractions again\Fractions again5.txt" | clip

@@ -6,13 +6,13 @@
 #include <list>
 
 using ui = unsigned int;
-using ull = unsigned long long;
+using ll = unsigned long long;
 
 int main() {
   ui k;
-  ull x, y;
+  ll x, y;
   std::string line;
-  std::list<std::pair<ull, ull>> xy_list;
+  std::list<std::pair<ll, ll>> xy_list;
 
   while (true) {
     std::getline(std::cin, line);
@@ -24,8 +24,8 @@ int main() {
     k = static_cast<ui>(std::stoi(line));
     x = k + 1;
     while (true) {
-      ull nr = k * x;
-      ull dr = x - k;
+      ll nr = k * x;
+      ll dr = x - k;
       if (nr % dr == 0) {
         y = nr / dr;
         xy_list.emplace_back(x, y);

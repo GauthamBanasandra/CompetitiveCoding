@@ -6,10 +6,10 @@
 #include <sstream>
 #include <vector>
 
-using ull = unsigned long long;
+using ll = unsigned long long;
 
 int main() {
-  ull t, s;
+  ll t, s;
   int n;
   std::string line;
   std::vector<int> sales;

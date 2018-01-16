@@ -1,0 +1,1 @@
+cmake-build-debug\Closest_sums.exe < "Complete search\Iterative - two nested loops\Closest sums\Closest sums4.txt" | clip

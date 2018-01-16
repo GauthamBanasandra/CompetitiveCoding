@@ -7,11 +7,11 @@
 #include <list>
 
 using ui = unsigned int;
-using ull = unsigned long long;
+using ll = unsigned long long;
 
-ull pow(ull b, ull e) {
-  ull p = 1;
-  for (ull i = 0; i < e; ++i) {
+ll pow(ll b, ll e) {
+  ll p = 1;
+  for (ll i = 0; i < e; ++i) {
     p *= b;
   }
 
@@ -21,7 +21,7 @@ ull pow(ull b, ull e) {
 int main() {
   int c;
   ui i, cf, d;
-  ull k, n, t;
+  ll k, n, t;
   std::string line;
   std::list<std::pair<ui, ui>> p;
 

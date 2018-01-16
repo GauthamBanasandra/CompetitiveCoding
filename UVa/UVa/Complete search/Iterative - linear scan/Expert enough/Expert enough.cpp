@@ -8,12 +8,12 @@
 #include <tuple>
 #include <list>
 
-using ull = unsigned long long;
-using mlh = std::tuple<std::string, ull, ull>;
+using ll = unsigned long long;
+using mlh = std::tuple<std::string, ll, ll>;
 
 int main() {
   int t, d, q, c = 0, d_;
-  ull l, h, p;
+  ll l, h, p;
   std::string line, m;
   std::list<mlh> database;
 

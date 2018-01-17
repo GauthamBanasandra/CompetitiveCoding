@@ -1,0 +1,1 @@
+cmake-build-debug\Tour_de_france.exe < "Complete search\Iterative - two nested loops\Tour de france\Tour de france1.txt" | clip

@@ -9,6 +9,7 @@ add_executable(Fractions_again "Complete search/Iterative - linear scan/Fraction
 add_executable(Sales "Complete search/Iterative - two nested loops/Sales/Sales.cpp")
 add_executable(Closest_sums "Complete search/Iterative - two nested loops/Closest sums/Closest sums.cpp")
 add_executable(Tour_de_france "Complete search/Iterative - two nested loops/Tour de france/Tour de france.cpp" "Complete search/Iterative - two nested loops/Tour de france/utils.cpp")
+add_executable(Lotto "Complete search/Iterative - Three or more nested loops - easy/Lotto/Lotto.cpp" "Complete search/Iterative - Three or more nested loops - easy/Lotto/utils.cpp")
 
 add_executable(Anagram "Ad hoc/Anagram/Anagram/Anagram.cpp")
 add_executable(Anagrams "Ad hoc/Anagram/Anagrams/Anagrams.cpp")

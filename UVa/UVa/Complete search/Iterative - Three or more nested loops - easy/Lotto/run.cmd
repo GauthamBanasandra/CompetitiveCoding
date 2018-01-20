@@ -1,0 +1,1 @@
+cmake-build-debug\Lotto.exe < "Complete search\Iterative - Three or more nested loops - easy\Lotto\Lotto2.txt" | clip

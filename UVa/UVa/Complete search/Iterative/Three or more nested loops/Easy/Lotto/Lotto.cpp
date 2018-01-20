@@ -61,6 +61,7 @@ void PrintSubsets(const int k, const std::vector<int> &numbers) {
     subsets[m++] = subset;
   }
 
+  // Lib uses '<' as the default comparator, so no need to provide a custom comparator
   std::sort(subsets.begin(), subsets.end());
   std::string str;
   for (const auto &s : subsets) {

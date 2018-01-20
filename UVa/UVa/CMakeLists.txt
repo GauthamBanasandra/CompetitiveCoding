@@ -10,6 +10,7 @@ add_executable(Sales "Complete search/Iterative/Two nested loops/Sales/Sales.cpp
 add_executable(Closest_sums "Complete search/Iterative/Two nested loops/Closest sums/Closest sums.cpp")
 add_executable(Tour_de_france "Complete search/Iterative/Two nested loops/Tour de france/Tour de france.cpp" "Complete search/Iterative/Two nested loops/Tour de france/utils.cpp")
 add_executable(Lotto "Complete search/Iterative/Three or more nested loops/Easy/Lotto/Lotto.cpp" "Complete search/Iterative/Three or more nested loops/Easy/Lotto/utils.cpp")
+add_executable(Dart_a_mania "Complete search/Iterative/Three or more nested loops/Easy/Dart-a-mania/Dart-a-mania.cpp" "Complete search/Iterative/Three or more nested loops/Easy/Dart-a-mania/utils.cpp")
 
 add_executable(Anagram "Ad hoc/Anagram/Anagram/Anagram.cpp")
 add_executable(Anagrams "Ad hoc/Anagram/Anagrams/Anagrams.cpp")

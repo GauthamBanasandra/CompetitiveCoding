@@ -1,0 +1,1 @@
+cmake-build-debug\The_path_in_the_colored_field.exe < "Complete search\Iterative\Three or more nested loops\Easy\The path in the colored field\The path in the colored field3.txt" | clip

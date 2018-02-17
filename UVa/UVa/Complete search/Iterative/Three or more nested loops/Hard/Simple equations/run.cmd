@@ -1,0 +1,1 @@
+cmake-build-debug\Simple_equations.exe < "Complete search\Iterative\Three or more nested loops\Hard\Simple equations\Simple equations2.txt" | clip

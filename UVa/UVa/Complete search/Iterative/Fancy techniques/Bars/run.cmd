@@ -1,0 +1,1 @@
+cmake-build-debug\Bars.exe < "Complete search\Iterative\Fancy techniques\Bars\Bars2.txt" | clip

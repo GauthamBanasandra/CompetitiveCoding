@@ -13,6 +13,7 @@ add_executable(Lotto "Complete search/Iterative/Three or more nested loops/Easy/
 add_executable(Dart_a_mania "Complete search/Iterative/Three or more nested loops/Easy/Dart-a-mania/Dart-a-mania.cpp" "Complete search/Iterative/Three or more nested loops/Easy/Dart-a-mania/utils.cpp")
 add_executable(The_path_in_the_colored_field "Complete search/Iterative/Three or more nested loops/Easy/The path in the colored field/The path in the colored field.cpp" "Complete search/Iterative/Three or more nested loops/Easy/The path in the colored field/utils.cpp")
 add_executable(Simple_equations "Complete search/Iterative/Three or more nested loops/Hard/Simple equations/Simple equations.cpp")
+add_executable(Bars "Complete search/Iterative/Fancy techniques/Bars/Bars.cpp")
 
 add_executable(Anagram "Ad hoc/Anagram/Anagram/Anagram.cpp")
 add_executable(Anagrams "Ad hoc/Anagram/Anagrams/Anagrams.cpp")

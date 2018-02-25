@@ -9,3 +9,4 @@ add_executable(Minimum_scalar_product "2008/Round 1A/Minimum scalar product/Mini
 
 add_executable(GBus_count "Kickstart/2018/Practice round/GBus count/GBus count.cpp")
 add_executable(Sort_a_scrambled_itinerary "Kickstart/2018/Practice round/Sort a scrambled itinerary/Sort a scrambled itinerary.cpp")
+add_executable(Sums_of_sums "Kickstart/2018/Practice round/Sums of sums/Sums of sums.cpp")

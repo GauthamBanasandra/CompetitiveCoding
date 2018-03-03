@@ -1,0 +1,1 @@
+cmake-build-debug\Zones.exe < "Complete search\Iterative\Fancy techniques\Zones\Zones3.txt" | clip

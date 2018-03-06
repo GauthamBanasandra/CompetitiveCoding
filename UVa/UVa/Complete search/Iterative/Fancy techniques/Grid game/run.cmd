@@ -1,0 +1,1 @@
+cmake-build-debug\Grid_game.exe < "Complete search\Iterative\Fancy techniques\Grid game\Grid game2.txt" | clip

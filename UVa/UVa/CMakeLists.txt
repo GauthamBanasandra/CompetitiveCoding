@@ -15,6 +15,7 @@ add_executable(The_path_in_the_colored_field "Complete search/Iterative/Three or
 add_executable(Simple_equations "Complete search/Iterative/Three or more nested loops/Hard/Simple equations/Simple equations.cpp")
 add_executable(Bars "Complete search/Iterative/Fancy techniques/Bars/Bars.cpp")
 add_executable(Zones "Complete search/Iterative/Fancy techniques/Zones/Zones.cpp")
+add_executable(Grid_game "Complete search/Iterative/Fancy techniques/Grid game/Grid game.cpp" "Complete search/Iterative/Fancy techniques/Grid game/util.cpp")
 
 add_executable(Anagram "Ad hoc/Anagram/Anagram/Anagram.cpp")
 add_executable(Anagrams "Ad hoc/Anagram/Anagrams/Anagrams.cpp")
@@ -22,4 +23,3 @@ add_executable(Ananagrams "Ad hoc/Anagram/Ananagrams/Ananagrams.cpp")
 add_executable(Bridge_hand_evaluator "Ad hoc/Card/Bridge hand evaluator/Bridge hand evaluator.cpp")
 add_executable(What_is_the_card "Ad hoc/Card/What is the card/What is the card.cpp")
 add_executable(Jollo "Ad hoc/Card/Jollo/Jollo.cpp")
-

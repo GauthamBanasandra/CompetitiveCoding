@@ -1,3 +1,4 @@
+// TLE
 #include <iostream>
 #include <stack>
 #include <list>
@@ -7,7 +8,7 @@
 void GetAnagramicStackOps(const std::string &source, const std::string &target, std::list<std::string> &o_stack_ops)
 {
 	std::string stack_ops;
-	for (auto i = 0; i < target.length(); ++i)
+	for (auto i = 1; i < target.length(); ++i)
 	{
 		stack_ops += "i";
 	}
@@ -22,9 +23,10 @@ void GetAnagramicStackOps(const std::string &source, const std::string &target, 
 		std::stack<char> anagram_stack;
 		std::string anagram;
 		auto source_top = 0;
-		for (auto i = 0; i < stack_ops.length(); ++i)
+		std::string temp_stack_ops = "i" + stack_ops;
+		for (auto i = 0; i < temp_stack_ops.length(); ++i)
 		{
-			if (stack_ops[i] == 'i')
+			if (temp_stack_ops[i] == 'i')
 			{
 				anagram_stack.push(source[source_top++]);
 			}
@@ -47,7 +49,7 @@ void GetAnagramicStackOps(const std::string &source, const std::string &target, 
 
 		if (anagram == target)
 		{
-			o_stack_ops.push_back(stack_ops);
+			o_stack_ops.push_back(temp_stack_ops);
 		}
 	} while (next_permutation(stack_ops.begin(), stack_ops.end()));
 }
@@ -90,7 +92,7 @@ int main(int argc, char* argv[])
 		GetAnagramicStackOps(source, target, stack_ops);
 		for (auto &op : stack_ops)
 		{
-			auto const len = op.length();
+			auto const len = op.length();			
 			for (auto i = 1; i < 2 * (len - 1); i += 2)
 			{
 				op.insert(i, 1, ' ');

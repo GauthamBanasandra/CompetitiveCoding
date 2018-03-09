@@ -1,0 +1,1 @@
+cmake-build-debug\The_sultans_successor.exe < "Complete search\Recursive backtracking\Easy\The sultans successor\The sultans successor1.txt" | clip

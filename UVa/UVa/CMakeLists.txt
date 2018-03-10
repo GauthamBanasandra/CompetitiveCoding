@@ -17,6 +17,7 @@ add_executable(Bars "Complete search/Iterative/Fancy techniques/Bars/Bars.cpp")
 add_executable(Zones "Complete search/Iterative/Fancy techniques/Zones/Zones.cpp")
 add_executable(Grid_game "Complete search/Iterative/Fancy techniques/Grid game/Grid game.cpp" "Complete search/Iterative/Fancy techniques/Grid game/util.cpp")
 add_executable(The_sultans_successor "Complete search/Recursive backtracking/Easy/The sultans successor/The sultans successor.cpp" "Complete search/Recursive backtracking/Easy/The sultans successor/utils.cpp")
+add_executable(Call_forwarding "Complete search/Recursive backtracking/Easy/Call forwarding/Call forwarding.cpp" "Complete search/Recursive backtracking/Easy/Call forwarding/utils.cpp")
 
 add_executable(Anagram "Ad hoc/Anagram/Anagram/Anagram.cpp")
 add_executable(Anagrams "Ad hoc/Anagram/Anagrams/Anagrams.cpp")

@@ -1,0 +1,1 @@
+cmake-build-debug\Call_forwarding.exe < "Complete search\Recursive backtracking\Easy\Call forwarding\Call forwarding2.txt" | clip

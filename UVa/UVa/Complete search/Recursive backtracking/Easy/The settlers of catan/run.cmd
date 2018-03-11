@@ -1,0 +1,1 @@
+cmake-build-debug\The_settlers_of_catan.exe < "Complete search\Recursive backtracking\Easy\The settlers of catan\The settlers of catan1.txt"

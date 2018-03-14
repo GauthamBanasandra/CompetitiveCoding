@@ -1,0 +1,1 @@
+cmake-build-debug\CD.exe < "Complete search\Recursive backtracking\Easy\CD\CD.txt"

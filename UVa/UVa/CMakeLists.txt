@@ -19,6 +19,7 @@ add_executable(Grid_game "Complete search/Iterative/Fancy techniques/Grid game/G
 add_executable(The_sultans_successor "Complete search/Recursive backtracking/Easy/The sultans successor/The sultans successor.cpp" "Complete search/Recursive backtracking/Easy/The sultans successor/utils.cpp")
 add_executable(Call_forwarding "Complete search/Recursive backtracking/Easy/Call forwarding/Call forwarding.cpp" "Complete search/Recursive backtracking/Easy/Call forwarding/utils.cpp")
 add_executable(The_settlers_of_catan "Complete search/Recursive backtracking/Easy/The settlers of catan/The settlers of catan.cpp" "Complete search/Recursive backtracking/Easy/The settlers of catan/utils.cpp")
+add_executable(CD "Complete search/Recursive backtracking/Easy/CD/CD.cpp")
 
 add_executable(Anagram "Ad hoc/Anagram/Anagram/Anagram.cpp")
 add_executable(Anagrams "Ad hoc/Anagram/Anagrams/Anagrams.cpp")

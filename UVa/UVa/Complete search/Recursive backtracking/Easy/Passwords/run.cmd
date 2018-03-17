@@ -1,0 +1,1 @@
+cmake-build-debug\Passwords.exe < "Complete search\Recursive backtracking\Easy\Passwords\Passwords1.txt" | clip

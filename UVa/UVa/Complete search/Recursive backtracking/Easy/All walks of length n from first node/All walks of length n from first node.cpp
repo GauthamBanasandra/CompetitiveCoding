@@ -89,8 +89,6 @@ std::vector<std::string> Graph::Walk() {
   WalkEdges walk_edges;
 
   Walk(0, 1, walk_edges, walk_n);
-  std::sort(walk_n.begin(), walk_n.end());
-
   return walk_n;
 }
 
@@ -114,9 +112,89 @@ void Graph::CollectWalk(const WalkEdges &walk_edges, std::vector<std::string> &n
 }
 };
 
+namespace unique_node {
+class Graph {
+ public:
+  Graph(int max_walk_length, AdjacencyList adj_list)
+      : max_walk_length(max_walk_length), adj_list(std::move(adj_list)) {}
+
+  std::vector<std::string> Walk();
+
+  int max_walk_length;
+  AdjacencyList adj_list;
+
+ private:
+  void Walk(int walk_length, int node, std::unordered_map<int, int> &walk_nodes, std::vector<std::string> &n_walks);
+  void CollectWalk(const std::unordered_map<int, int> &walk_nodes, std::vector<std::string> &n_walks);
+  bool Visited(int node, const std::unordered_map<int, int> &walk_nodes) const;
+  void AddVisit(int node, int walk_sequence, std::unordered_map<int, int> &walk_nodes);
+  void RemoveVisit(int node, std::unordered_map<int, int> &walk_nodes);
+};
+
+std::vector<std::string> Graph::Walk() {
+  std::vector<std::string> n_walks;
+  std::unordered_map<int, int> walk_nodes;
+  walk_nodes[1] = 0;
+
+  Walk(0, 1, walk_nodes, n_walks);
+  return n_walks;
+}
+
+void Graph::Walk(int walk_length,
+                 int node,
+                 std::unordered_map<int, int> &walk_nodes,
+                 std::vector<std::string> &n_walks) {
+  if (walk_length == max_walk_length) {
+    CollectWalk(walk_nodes, n_walks);
+    return;
+  }
+
+  for (const auto n : adj_list[node]) {
+    if (Visited(n, walk_nodes)) {
+      continue;
+    }
+
+    AddVisit(n, walk_length, walk_nodes);
+    Walk(walk_length + 1, n, walk_nodes, n_walks);
+    RemoveVisit(n, walk_nodes);
+  }
+}
+
+bool Graph::Visited(int node, const std::unordered_map<int, int> &walk_nodes) const {
+  return walk_nodes.find(node) != walk_nodes.end();
+}
+
+void Graph::AddVisit(int node, int walk_sequence, std::unordered_map<int, int> &walk_nodes) {
+  walk_nodes[node] = walk_sequence;
+}
+
+void Graph::RemoveVisit(int node, std::unordered_map<int, int> &walk_nodes) {
+  walk_nodes.erase(node);
+}
+
+void Graph::CollectWalk(const std::unordered_map<int, int> &walk_nodes, std::vector<std::string> &n_walks) {
+  std::vector<int> walk_sequence(max_walk_length + 1, 0);
+  for (const auto &k : walk_nodes) {
+    if (k.first == 1) {
+      walk_sequence[k.second] = k.first;
+    } else {
+      walk_sequence[k.second + 1] = k.first;
+    }
+  }
+
+  std::string walk_str = "(";
+  for (const auto &seq : walk_sequence) {
+    walk_str += std::to_string(seq) + ",";
+  }
+
+  walk_str[walk_str.length() - 1] = ')';
+  n_walks.emplace_back(walk_str);
+}
+};
+
 int main() {
   AdjacencyList adj_list;
-  int n_nodes, max_walk_len, x;
+  int n_nodes, max_walk_len, x, c = 0;
   std::string line;
 
   while (std::getline(std::cin, line), !std::cin.eof()) {
@@ -135,13 +213,11 @@ int main() {
       }
     }
 
-    if (max_walk_len >= 5) {
-      std::cout << "no walk of length " << max_walk_len << std::endl << std::endl;
-      std::getline(std::cin, line);
-      continue;
+    if (++c > 1) {
+      std::cout << std::endl;
     }
 
-    unique_edge::Graph graph(max_walk_len, adj_list);
+    unique_node::Graph graph(max_walk_len, adj_list);
     auto unique_n_walks = graph.Walk();
     if (unique_n_walks.empty()) {
       std::cout << "no walk of length " << max_walk_len << std::endl;
@@ -151,7 +227,6 @@ int main() {
       }
     }
 
-    std::cout << std::endl;
     std::getline(std::cin, line);
   }
 

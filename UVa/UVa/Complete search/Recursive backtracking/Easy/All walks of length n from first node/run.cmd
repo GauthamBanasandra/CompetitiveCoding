@@ -1,1 +1,1 @@
-cmake-build-debug\All_walks_of_length_n_from_first_node.exe < "Complete search\Recursive backtracking\Easy\All walks of length n from first node\All walks of length n from first node2.txt" | clip
+cmake-build-debug\All_walks_of_length_n_from_first_node.exe < "Complete search\Recursive backtracking\Easy\All walks of length n from first node\All walks of length n from first node3.txt" | clip

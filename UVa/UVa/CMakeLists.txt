@@ -30,4 +30,6 @@ add_executable(Ananagrams "Ad hoc/Anagram/Ananagrams/Ananagrams.cpp")
 add_executable(Bridge_hand_evaluator "Ad hoc/Card/Bridge hand evaluator/Bridge hand evaluator.cpp")
 add_executable(What_is_the_card "Ad hoc/Card/What is the card/What is the card.cpp")
 add_executable(Jollo "Ad hoc/Card/Jollo/Jollo.cpp")
-
+add_executable(Chess "Ad hoc/Chess/Chess/Chess.cpp")
+add_executable(Chessboard_in_fen "Ad hoc/Chess/Chessboard in FEN/Chessboard in FEN.cpp")
+add_executable(How_many_knights "Ad hoc/Chess/How many knights/How many knights.cpp")

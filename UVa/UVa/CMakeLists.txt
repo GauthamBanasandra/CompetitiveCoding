@@ -23,6 +23,7 @@ add_executable(CD "Complete search/Recursive backtracking/Easy/CD/CD.cpp")
 add_executable(Passwords "Complete search/Recursive backtracking/Easy/Passwords/Passwords.cpp")
 add_executable(All_walks_of_length_n_from_first_node "Complete search/Recursive backtracking/Easy/All walks of length n from first node/All walks of length n from first node.cpp" "Complete search/Recursive backtracking/Easy/All walks of length n from first node/utils.cpp")
 add_executable(The_hamming_distance_problem "Complete search/Recursive backtracking/Easy/The hamming distance problem/The hamming distance problem.cpp")
+add_executable(8_queens_chess_problem "Complete search/Recursive backtracking/Easy/8 queens chess problem/8 queens chess problem.cpp")
 
 add_executable(Anagram "Ad hoc/Anagram/Anagram/Anagram.cpp")
 add_executable(Anagrams "Ad hoc/Anagram/Anagrams/Anagrams.cpp")

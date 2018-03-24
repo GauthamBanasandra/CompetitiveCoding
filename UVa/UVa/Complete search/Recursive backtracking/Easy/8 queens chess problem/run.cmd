@@ -1,0 +1,1 @@
+cmake-build-debug\8_queens_chess_problem.exe < "Complete search\Recursive backtracking\Easy\8 queens chess problem\8 queens chess problem3.txt" | clip

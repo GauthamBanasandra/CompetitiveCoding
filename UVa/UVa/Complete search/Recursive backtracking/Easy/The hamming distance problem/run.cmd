@@ -1,0 +1,1 @@
+cmake-build-debug\The_hamming_distance_problem.exe < "Complete search\Recursive backtracking\Easy\The hamming distance problem\The hamming distance problem2.txt" | clip

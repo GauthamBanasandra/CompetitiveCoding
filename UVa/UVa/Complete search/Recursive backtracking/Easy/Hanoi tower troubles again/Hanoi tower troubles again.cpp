@@ -26,18 +26,17 @@ class HanoiTowers {
 
  private:
   int GetPole(int v, const std::vector<std::stack<int>> &poles);
-  void Solve(int v, int &max_balls, std::vector<std::stack<int>> &poles);
+  int Solve(int v, std::vector<std::stack<int>> &poles);
 };
 
-void HanoiTowers::Solve(int v, int &max_balls, std::vector<std::stack<int>> &poles) {
+int HanoiTowers::Solve(int v, std::vector<std::stack<int>> &poles) {
   auto p = GetPole(v, poles);
   if (p == -1) {
-    return;
+    return v - 1;
   }
 
   poles[p].emplace(v);
-  max_balls = std::max(max_balls, v);
-  Solve(v + 1, max_balls, poles);
+  return std::max(v, Solve(v + 1, poles));
 }
 
 int HanoiTowers::GetPole(int v, const std::vector<std::stack<int>> &poles) {
@@ -52,9 +51,7 @@ int HanoiTowers::GetPole(int v, const std::vector<std::stack<int>> &poles) {
 
 int HanoiTowers::Solve() {
   std::vector<std::stack<int>> poles(static_cast<ui>(n_towers), std::stack<int>());
-  int max_balls = 0;
-  Solve(1, max_balls, poles);
-  return max_balls;
+  return Solve(1, poles);
 }
 
 int main() {

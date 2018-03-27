@@ -32,6 +32,7 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(All_walks_of_length_n_from_first_node "Complete search/Recursive backtracking/Easy/All walks of length n from first node/All walks of length n from first node.cpp" "Complete search/Recursive backtracking/Easy/All walks of length n from first node/utils.cpp")
         add_executable(The_hamming_distance_problem "Complete search/Recursive backtracking/Easy/The hamming distance problem/The hamming distance problem.cpp")
         add_executable(8_queens_chess_problem "Complete search/Recursive backtracking/Easy/8 queens chess problem/8 queens chess problem.cpp")
+        add_executable(Hanoi_tower_troubles_again "Complete search/Recursive backtracking/Easy/Hanoi tower troubles again/Hanoi tower troubles again.cpp")
 # Adhoc
     # Anagram
     add_executable(Anagram "Ad hoc/Anagram/Anagram/Anagram.cpp")

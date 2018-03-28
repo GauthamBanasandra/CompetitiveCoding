@@ -1,0 +1,1 @@
+cmake-build-debug\23_out_of_5.exe < "Complete search/Recursive backtracking/Easy/23 out of 5/23 out of 52.txt" | clip

@@ -5,6 +5,7 @@
 #include <utility>
 #include <vector>
 #include <iostream>
+#include <algorithm>
 
 enum class Operators { k_add, k_multiply, k_subtract };
 
@@ -15,34 +16,23 @@ class ExpressionConstructor {
 
   bool Construct();
 
-  int count = 0;
   int expression_result;
   std::vector<int> numbers;
   std::vector<Operators> operators;
 
  private:
+  int PerformOperation(int left_operand, int right_operand, Operators op);
   bool Construct(int i_opr, int i_num, int result);
 };
 
 bool ExpressionConstructor::Construct(int i_opr, int i_num, int result) {
   if (i_opr > operators.size()) {
-    std::cout << ++count << " : " << result << std::endl;
     return result == expression_result;
   }
 
   for (auto &i : operators) {
-    switch (i) {
-      case Operators::k_add:result += numbers[i_num + 1];
-        break;
-
-      case Operators::k_multiply:result *= numbers[i_num + 1];
-        break;
-
-      case Operators::k_subtract:result -= numbers[i_num + 1];
-        break;
-    }
-
-    if (Construct(i_opr + 1, i_num + 1, result)) {
+    auto operation = PerformOperation(result, numbers[i_num + 1], i);
+    if (Construct(i_opr + 1, i_num + 1, operation)) {
       return true;
     }
   }
@@ -54,13 +44,46 @@ bool ExpressionConstructor::Construct() {
   return Construct(0, 0, numbers[0]);
 }
 
+inline int ExpressionConstructor::PerformOperation(int left_operand,
+                                                   int right_operand,
+                                                   Operators op) {
+  switch (op) {
+    case Operators::k_add: return left_operand + right_operand;
+    case Operators::k_multiply:return left_operand * right_operand;
+    case Operators::k_subtract:return left_operand - right_operand;
+  }
+}
+
 int main() {
-  std::vector<int> numbers{1, 2, 3, 4, 5};
+  std::vector<int> numbers;
   std::vector<Operators> operators{Operators::k_add, Operators::k_multiply, Operators::k_subtract};
-  if (ExpressionConstructor(23, numbers, operators).Construct()) {
-    std::cout << "Possible" << std::endl;
-  } else {
-    std::cout << "Impossible" << std::endl;
+
+  while (true) {
+    numbers.clear();
+    bool all_zero = true;
+    for (int i = 0; i < 5; ++i) {
+      static int number = 0;
+      std::cin >> number;
+      numbers.emplace_back(number);
+      if (number) {
+        all_zero = false;
+      }
+    }
+
+    if (all_zero) {
+      break;
+    }
+
+    std::sort(numbers.begin(), numbers.end());
+    bool is_possible = false;
+    do {
+      if (ExpressionConstructor(23, numbers, operators).Construct()) {
+        is_possible = true;
+        break;
+      }
+    } while (std::next_permutation(numbers.begin(), numbers.end()));
+
+    std::cout << (is_possible ? "Possible" : "Impossible") << std::endl;
   }
 
   return 0;

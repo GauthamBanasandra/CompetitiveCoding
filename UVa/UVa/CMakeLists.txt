@@ -33,6 +33,7 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(The_hamming_distance_problem "Complete search/Recursive backtracking/Easy/The hamming distance problem/The hamming distance problem.cpp")
         add_executable(8_queens_chess_problem "Complete search/Recursive backtracking/Easy/8 queens chess problem/8 queens chess problem.cpp")
         add_executable(Hanoi_tower_troubles_again "Complete search/Recursive backtracking/Easy/Hanoi tower troubles again/Hanoi tower troubles again.cpp")
+        add_executable(23_out_of_5 "Complete search/Recursive backtracking/Easy/23 out of 5/23 out of 5.cpp")
 # Adhoc
     # Anagram
     add_executable(Anagram "Ad hoc/Anagram/Anagram/Anagram.cpp")

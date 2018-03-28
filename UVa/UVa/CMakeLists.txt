@@ -53,3 +53,7 @@ set(CMAKE_CXX_STANDARD 11)
     add_executable(Minesweeper "Ad hoc/Others/Minesweeper/Minesweeper.cpp")
     add_executable(Snakes_and_ladders "Ad hoc/Others/Snakes and ladders/Snakes and ladders.cpp")
     add_executable(Traditional_BINGO "Ad hoc/Others/Traditional BINGO/Traditional BINGO.cpp")
+    # Palindrome
+    add_executable(Magic_square_palindromes "Ad hoc/Palindrome/Magic square palindromes/Magic square palindromes.cpp")
+    add_executable(Mother_bear "Ad hoc/Palindrome/Mother bear/Mother bear.cpp")
+    add_executable(Palindromes "Ad hoc/Palindrome/Palindromes/Palindromes.cpp")

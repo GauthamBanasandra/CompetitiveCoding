@@ -39,7 +39,7 @@ inline bool CobbleStonePath::CheckLeft(int i_word, int row, int column) {
 }
 
 inline bool CobbleStonePath::CheckRight(int i_word, int row, int column) {
-  if (column >= word.length() - 1) {
+  if (column >= path[row].length() - 1) {
     return false;
   }
 

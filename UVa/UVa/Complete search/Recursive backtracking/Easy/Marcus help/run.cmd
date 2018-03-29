@@ -1,0 +1,1 @@
+cmake-build-debug\Marcus_help.exe < "Complete search/Recursive backtracking/Easy/Marcus help/Marcus help2.txt" | clip

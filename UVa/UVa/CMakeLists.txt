@@ -66,3 +66,5 @@ set(CMAKE_CXX_STANDARD 11)
     add_executable(Counterfeit_dollar "Ad hoc/Real life problems/Counterfeit dollar/Counterfeit dollar.cpp")
     add_executable(Postscript "Ad hoc/Real life problems/Postscript/Postscript.cpp" "Ad hoc/Real life problems/Postscript/util.cpp")
     add_executable(Traffic_lights "Ad hoc/Real life problems/Traffic lights/Traffic lights.cpp" "Ad hoc/Real life problems/Traffic lights/utils.cpp")
+    # Time
+    add_executable(Clock_hands "Ad hoc/Time/Clock hands/Clock hands.cpp")

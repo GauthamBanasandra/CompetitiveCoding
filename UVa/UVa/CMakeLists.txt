@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.9)
+cmake_minimum_required(VERSION 3.8)
 project(UVa)
 
 set(CMAKE_CXX_STANDARD 11)
@@ -35,6 +35,7 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Hanoi_tower_troubles_again "Complete search/Recursive backtracking/Easy/Hanoi tower troubles again/Hanoi tower troubles again.cpp")
         add_executable(23_out_of_5 "Complete search/Recursive backtracking/Easy/23 out of 5/23 out of 5.cpp")
         add_executable(Marcus_help "Complete search/Recursive backtracking/Easy/Marcus help/Marcus help.cpp")
+        add_executable(Back_to_the_8_queens "Complete search/Recursive backtracking/Easy/Back to the 8 queens/Back to the 8 queens.cpp")
 # Adhoc
     # Anagram
     add_executable(Anagram "Ad hoc/Anagram/Anagram/Anagram.cpp")

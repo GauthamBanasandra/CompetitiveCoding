@@ -1,0 +1,1 @@
+cmake-build-debug\Back_to_the_8_queens.exe < "Complete search/Recursive backtracking/Easy/Back to the 8 queens/Back to the 8 queens.txt"

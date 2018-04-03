@@ -31,25 +31,12 @@ public:
     std::vector<Order> orders;
 
 private:
-    ll Estimate(ll amount, ll vacancy, int orders_accepted);
+    ll Estimate(std::size_t i, int combination);
+
+    ll GetAmount(int combination);
 
     bool CanFit(ll vacancy, const Order &order, int orders_accepted);
 };
-
-ll Estimator::Estimate(ll amount, ll vacancy, int orders_accepted) {
-    ll max_amount = 0;
-    for (std::size_t i = 0; i < orders.size(); ++i) {
-        const auto &order = orders[i];
-        if ((orders_accepted & (1 << i)) || !CanFit(vacancy, order, orders_accepted)) {
-            continue;
-        }
-
-        ll b = Estimate(amount + order.amount, vacancy - order.n_passengers, orders_accepted | (1 << i));
-        max_amount = std::max(max_amount, b);
-    }
-
-    return std::max(max_amount, amount);
-}
 
 bool Estimator::CanFit(ll vacancy, const Order &order, int orders_accepted) {
     if (vacancy - order.n_passengers >= 0) {
@@ -57,7 +44,8 @@ bool Estimator::CanFit(ll vacancy, const Order &order, int orders_accepted) {
     }
 
     for (std::size_t i = 0; i < orders.size(); ++i) {
-        if ((orders_accepted & (1 << i)) && (orders[i].to_station <= order.from_station)) {
+        if ((orders_accepted & (1 << i)) &&
+            ((orders[i].to_station <= order.from_station) || order.to_station <= orders[i].from_station)) {
             vacancy += orders[i].n_passengers;
         }
     }
@@ -66,7 +54,34 @@ bool Estimator::CanFit(ll vacancy, const Order &order, int orders_accepted) {
 }
 
 inline ll Estimator::Estimate() {
-    return Estimate(0, capacity, 0);
+    return Estimate(0, 0);
+}
+
+ll Estimator::Estimate(std::size_t i, int combination) {
+    if (i >= orders.size()) {
+        return GetAmount(combination);
+    }
+
+    auto with = Estimate(i + 1, combination | (1 << i));
+    auto without = Estimate(i + 1, combination);
+    return std::max(with, without);
+}
+
+ll Estimator::GetAmount(int combination) {
+    int orders_accepted = 0;
+    ll vacancy = capacity, amount = 0;
+    for (std::size_t i = 0; i < orders.size(); ++i) {
+        const auto &order = orders[i];
+        if (!(combination & (1 << i)) || !CanFit(vacancy, order, orders_accepted)) {
+            continue;
+        }
+
+        vacancy -= order.n_passengers;
+        amount += order.amount;
+        orders_accepted |= (1 << i);
+    }
+
+    return amount;
 }
 
 int main() {

@@ -36,6 +36,8 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(23_out_of_5 "Complete search/Recursive backtracking/Easy/23 out of 5/23 out of 5.cpp")
         add_executable(Marcus_help "Complete search/Recursive backtracking/Easy/Marcus help/Marcus help.cpp")
         add_executable(Back_to_the_8_queens "Complete search/Recursive backtracking/Easy/Back to the 8 queens/Back to the 8 queens.cpp")
+        # Medium
+        add_executable(Transportation "Complete search/Recursive backtracking/Medium/Transportation/Transportation.cpp")
 # Adhoc
     # Anagram
     add_executable(Anagram "Ad hoc/Anagram/Anagram/Anagram.cpp")

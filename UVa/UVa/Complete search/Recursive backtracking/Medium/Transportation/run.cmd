@@ -1,0 +1,1 @@
+cmake-build-debug\Transportation.exe < "Complete search/Recursive backtracking/Medium/Transportation/Transportation1.txt" | clip

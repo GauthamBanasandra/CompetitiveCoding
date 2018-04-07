@@ -1,0 +1,1 @@
+cmake-build-debug\Trouble_sort.exe < "2018/Qualification round/Trouble sort/Trouble sort.txt"

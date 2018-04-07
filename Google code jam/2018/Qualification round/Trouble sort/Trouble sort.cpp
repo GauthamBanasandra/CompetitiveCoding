@@ -19,17 +19,15 @@ struct SortInfo {
 };
 
 void TroubleSort(std::vector<ll> &numbers) {
-    auto done = false;
-    while (!done) {
-        done = true;
-        for (std::size_t i = 0; i < numbers.size() - 2; ++i) {
-            if (numbers[i] > numbers[i + 2]) {
-                done = false;
-                auto t = numbers[i];
-                numbers[i] = numbers[i + 2];
-                numbers[i + 2] = t;
-            }
-        }
+    std::vector<ll> i_even_num, i_odd_num;
+    for (std::size_t i = 0; i < numbers.size(); ++i) {
+        (i & 1 ? i_odd_num : i_even_num).emplace_back(numbers[i]);
+    }
+
+    std::sort(i_even_num.begin(), i_even_num.end());
+    std::sort(i_odd_num.begin(), i_odd_num.end());
+    for (std::size_t i = 0, i_odd = 0, i_even = 0; i < numbers.size(); ++i) {
+        numbers[i] = (i & 1 ? i_odd_num[i_odd++] : i_even_num[i_even++]);
     }
 }
 

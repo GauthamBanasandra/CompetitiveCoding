@@ -14,3 +14,5 @@ add_executable(Googol_string "Kickstart/2018/Practice round/Googol string/Googol
 
 add_executable(Trouble_sort "2018/Qualification round/Trouble sort/Trouble sort.cpp" "2018/Qualification round/Trouble sort/utils.cpp")
 add_executable(Saving_the_universe_again "2018/Qualification round/Saving the universe again/Saving the universe again.cpp")
+
+add_executable(Waffle_choppers "2018/Round 1A/Waffle choppers/Waffle choppers.cpp")

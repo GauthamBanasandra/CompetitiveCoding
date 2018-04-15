@@ -75,3 +75,9 @@ set(CMAKE_CXX_STANDARD 11)
     # Time waster problems
     add_executable(All_integer_average "Ad hoc/Time waster problems/All integer average/All integer average.cpp")
     add_executable(Mobile_casanova "Ad hoc/Time waster problems/Mobile casanova/Mobile casanova.cpp")
+
+# DS with our own lib
+    # Graph
+    add_executable(Easy_problem_from_rujia_liu "DS with our own lib/Graph/Easy problem from rujia liu/Easy problem from rujia liu.cpp")
+    add_executable(Matrix_transpose "DS with our own lib/Graph/Matrix transpose/Matrix transpose.cpp" "DS with our own lib/Graph/Matrix transpose/utils.cpp")
+    add_executable(The_forest_for_the_trees "DS with our own lib/Graph/The forest for the trees/The forest for the trees.cpp")

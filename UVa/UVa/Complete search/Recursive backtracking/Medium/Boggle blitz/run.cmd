@@ -1,0 +1,1 @@
+cmake-build-debug\Boggle_blitz.exe < "Complete search/Recursive backtracking/Medium/Boggle blitz/Boggle blitz3.txt" | clip

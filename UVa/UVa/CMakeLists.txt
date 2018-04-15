@@ -38,6 +38,8 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Back_to_the_8_queens "Complete search/Recursive backtracking/Easy/Back to the 8 queens/Back to the 8 queens.cpp")
         # Medium
         add_executable(Transportation "Complete search/Recursive backtracking/Medium/Transportation/Transportation.cpp")
+        add_executable(Boggle_blitz "Complete search/Recursive backtracking/Medium/Boggle blitz/Boggle blitz.cpp")
+
 # Adhoc
     # Anagram
     add_executable(Anagram "Ad hoc/Anagram/Anagram/Anagram.cpp")

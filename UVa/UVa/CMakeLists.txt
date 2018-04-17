@@ -39,6 +39,7 @@ set(CMAKE_CXX_STANDARD 11)
         # Medium
         add_executable(Transportation "Complete search/Recursive backtracking/Medium/Transportation/Transportation.cpp")
         add_executable(Boggle_blitz "Complete search/Recursive backtracking/Medium/Boggle blitz/Boggle blitz.cpp")
+        add_executable(Prime_ring_problem "Complete search/Recursive backtracking/Medium/Prime ring problem/Prime ring problem.cpp")
 
 # Adhoc
     # Anagram

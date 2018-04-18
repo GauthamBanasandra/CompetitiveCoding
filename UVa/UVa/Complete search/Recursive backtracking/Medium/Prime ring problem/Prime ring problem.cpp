@@ -6,7 +6,6 @@
 #include <vector>
 #include <string>
 #include <sstream>
-#include <queue>
 #include <cassert>
 #include <unordered_set>
 #include <iostream>
@@ -40,45 +39,18 @@ struct RingUsageTracker {
 
 using Ring = std::vector<int>;
 
-struct RingArrangement {
-    void AddArrangement(const Ring &ring);
-
-    void PrintAndEmptyArrangements();
-
-    std::priority_queue<Ring, std::vector<Ring>, std::greater<Ring>> arrangements;
-};
-
-inline void RingArrangement::AddArrangement(const Ring &ring) {
-    assert(!ring.empty());
-    arrangements.emplace(ring);
-}
-
-void RingArrangement::PrintAndEmptyArrangements() {
-    while (!arrangements.empty()) {
-        const auto &arrangement = arrangements.top();
-        assert(!arrangement.empty());
-
-        std::ostringstream arrangement_stream;
-        arrangement_stream << arrangement[0];
-        for (std::size_t i = 1; i < arrangement.size(); ++i) {
-            arrangement_stream << " " << arrangement[i];
-        }
-
-        std::cout << arrangement_stream.str() << std::endl;
-        arrangements.pop();
-    }
-}
-
 class PrimeRing {
 public:
     explicit PrimeRing(int n) : n(n) {}
 
-    RingArrangement Solve();
+    void Solve();
 
 private:
     bool IsPrime(int number);
 
-    void FillNextRing(Ring &ring, int i_ring, RingUsageTracker &tracker, RingArrangement &arrangement);
+    void FillNextRing(Ring &ring, int i_ring, RingUsageTracker &tracker);
+
+    void PrintRing(const std::vector<int> &ring) const;
 
     int n;
     static std::unordered_set<int> prime_numbers;
@@ -93,13 +65,13 @@ inline bool PrimeRing::IsPrime(int number) {
 }
 
 void
-PrimeRing::FillNextRing(Ring &ring, int i_ring, RingUsageTracker &tracker, RingArrangement &arrangement) {
+PrimeRing::FillNextRing(Ring &ring, int i_ring, RingUsageTracker &tracker) {
     if (i_ring >= n) {
         if (!IsPrime(ring[0] + ring[i_ring - 1])) {
             return;
         }
 
-        arrangement.AddArrangement(ring);
+        PrintRing(ring);
         return;
     }
 
@@ -111,20 +83,30 @@ PrimeRing::FillNextRing(Ring &ring, int i_ring, RingUsageTracker &tracker, RingA
         tracker.Use(i);
         ring[i_ring] = i;
 
-        FillNextRing(ring, i_ring + 1, tracker, arrangement);
+        FillNextRing(ring, i_ring + 1, tracker);
 
         tracker.UndoUse(i);
     }
 }
 
-RingArrangement PrimeRing::Solve() {
-    RingArrangement arrangement;
+void PrimeRing::Solve() {
     Ring ring(n, 1);
     RingUsageTracker tracker;
 
     tracker.Use(1);
-    FillNextRing(ring, 1, tracker, arrangement);
-    return arrangement;
+    FillNextRing(ring, 1, tracker);
+}
+
+void PrimeRing::PrintRing(const std::vector<int> &ring) const {
+    assert(!ring.empty());
+    std::ostringstream arrangement;
+
+    arrangement << ring[0];
+    for (std::size_t i = 1; i < n; ++i) {
+        arrangement << " " << ring[i];
+    }
+
+    std::cout << arrangement.str() << std::endl;
 }
 
 int main() {
@@ -137,7 +119,7 @@ int main() {
         }
 
         printf("Case %d:\n", t++);
-        PrimeRing(atoi(line.c_str())).Solve().PrintAndEmptyArrangements();
+        PrimeRing(atoi(line.c_str())).Solve();
     }
 
     return 0;

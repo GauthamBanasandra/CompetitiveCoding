@@ -83,3 +83,7 @@ set(CMAKE_CXX_STANDARD 11)
     add_executable(Easy_problem_from_rujia_liu "DS with our own lib/Graph/Easy problem from rujia liu/Easy problem from rujia liu.cpp")
     add_executable(Matrix_transpose "DS with our own lib/Graph/Matrix transpose/Matrix transpose.cpp" "DS with our own lib/Graph/Matrix transpose/utils.cpp")
     add_executable(The_forest_for_the_trees "DS with our own lib/Graph/The forest for the trees/The forest for the trees.cpp")
+    # Tree-related DS
+    add_executable(Ahoy_pirates "DS with our own lib/Tree-related DS/Ahoy pirates/Ahoy pirates.cpp")
+    add_executable(Frequent_values "DS with our own lib/Tree-related DS/Frequent values/Frequent values.cpp" "DS with our own lib/Tree-related DS/Frequent values/utils.cpp")
+    add_executable(Interval_product "DS with our own lib/Tree-related DS/Interval product/Interval product.cpp")

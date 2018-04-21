@@ -220,8 +220,7 @@ private:
 
     Instruction GetInstruction(Action action, JugType jug_type) const;
 
-    void Mix(Jug &jug_a, Jug &jug_b, Tracker &tracker, std::list<Instruction> &instructions,
-             std::list<Instruction> &min_instructions) const;
+    bool Mix(Jug &jug_a, Jug &jug_b, Tracker &tracker, std::list<Instruction> &instructions) const;
 
     const int n_;
     mutable std::unordered_map<JugState, std::list<Action>> transition_;
@@ -261,14 +260,9 @@ Instruction Mixer::GetInstruction(Action action, JugType jug_type) const {
     }
 }
 
-void Mixer::Mix(Jug &jug_a, Jug &jug_b, Tracker &tracker, std::list<Instruction> &instructions,
-                std::list<Instruction> &min_instructions) const {
+bool Mixer::Mix(Jug &jug_a, Jug &jug_b, Tracker &tracker, std::list<Instruction> &instructions) const {
     if (jug_a.GetLevel() == n_ || jug_b.GetLevel() == n_) {
-        if (min_instructions.empty() || (instructions.size() < min_instructions.size())) {
-            min_instructions = instructions;
-        }
-
-        return;
+        return true;
     }
 
     for (const auto action : transition_[jug_a.GetState()]) {
@@ -287,7 +281,9 @@ void Mixer::Mix(Jug &jug_a, Jug &jug_b, Tracker &tracker, std::list<Instruction>
         tracker.Add(temp_jug_a, temp_jug_b);
         instructions.emplace_back(GetInstruction(action, JugType::k_type_a));
 
-        Mix(temp_jug_a, temp_jug_b, tracker, instructions, min_instructions);
+        if (Mix(temp_jug_a, temp_jug_b, tracker, instructions)) {
+            return true;
+        }
 
         tracker.Remove(temp_jug_a, temp_jug_b);
         instructions.pop_back();
@@ -309,11 +305,15 @@ void Mixer::Mix(Jug &jug_a, Jug &jug_b, Tracker &tracker, std::list<Instruction>
         tracker.Add(temp_jug_a, temp_jug_b);
         instructions.emplace_back(GetInstruction(action, JugType::k_type_b));
 
-        Mix(temp_jug_a, temp_jug_b, tracker, instructions, min_instructions);
+        if (Mix(temp_jug_a, temp_jug_b, tracker, instructions)) {
+            return true;
+        }
 
         tracker.Remove(temp_jug_a, temp_jug_b);
         instructions.pop_back();
     }
+
+    return false;
 }
 
 Mixer::Mixer(const int n_) : n_(n_) {
@@ -327,12 +327,11 @@ void Mixer::PrintInstructions(const int capacity_jug_a, const int capacity_jug_b
     Jug jug_b(capacity_jug_b);
     Tracker tracker;
     std::list<Instruction> instructions;
-    std::list<Instruction> min_instructions;
 
     tracker.Add(jug_a, jug_b);
-    Mix(jug_a, jug_b, tracker, instructions, min_instructions);
+    Mix(jug_a, jug_b, tracker, instructions);
 
-    for (const auto instruction : min_instructions) {
+    for (const auto instruction : instructions) {
         std::cout << GetStrInstruction(instruction) << std::endl;
     }
 

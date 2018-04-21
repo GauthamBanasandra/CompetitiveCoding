@@ -1,1 +1,1 @@
-cmake-build-debug\Jugs < "Complete search/Recursive backtracking/Medium/Jugs/Jugs1.txt"
+cmake-build-debug\Jugs < "Complete search/Recursive backtracking/Medium/Jugs/Jugs1.txt" | clip

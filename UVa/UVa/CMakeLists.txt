@@ -88,3 +88,7 @@ set(CMAKE_CXX_STANDARD 11)
     add_executable(Ahoy_pirates "DS with our own lib/Tree-related DS/Ahoy pirates/Ahoy pirates.cpp")
     add_executable(Frequent_values "DS with our own lib/Tree-related DS/Frequent values/Frequent values.cpp" "DS with our own lib/Tree-related DS/Frequent values/utils.cpp")
     add_executable(Interval_product "DS with our own lib/Tree-related DS/Interval product/Interval product.cpp")
+    # Union-find disjoint sets
+    add_executable(Network_connections "DS with our own lib/Union-find disjoint sets/Network connections/Network connections.cpp")
+    add_executable(Virtual_friends "DS with our own lib/Union-find disjoint sets/Virtual friends/Virtual friends.cpp" "DS with our own lib/Union-find disjoint sets/Virtual friends/utils.cpp")
+    add_executable(Waking_up_brain "DS with our own lib/Union-find disjoint sets/Waking up brain/Waking up brain.cpp" "DS with our own lib/Union-find disjoint sets/Virtual friends/utils.cpp")

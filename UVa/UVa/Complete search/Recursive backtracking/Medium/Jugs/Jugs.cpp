@@ -94,9 +94,6 @@ void Jug::PourIn(Jug &other) {
     level_ += quantity;
     other.level_ -= quantity;
 
-    assert(level_ <= capacity_);
-    assert(other.level_ <= other.capacity_);
-
     UpdateState();
     other.UpdateState();
 }
@@ -107,9 +104,6 @@ void Jug::PourOut(Jug &other) {
     const auto quantity = std::min(other.capacity_ - other.level_, level_);
     level_ -= quantity;
     other.level_ += quantity;
-
-    assert(level_ <= capacity_);
-    assert(other.level_ <= other.capacity_);
 
     UpdateState();
     other.UpdateState();
@@ -180,17 +174,13 @@ struct Tracker {
     using ull = unsigned long long;
 
 public:
-    /*inline ull Hash(const Jug &jug_a, const Jug &jug_b) const {
-        assert(jug_a.GetLevel() < 10000 && jug_b.GetLevel() < 10000);
+    inline ull Hash(const Jug &jug_a, const Jug &jug_b) const {
+        assert(jug_a.GetLevel() <= 1000 && jug_b.GetLevel() <= 1000);
 
         ull hash = 0;
-        hash += jug_a.GetLevel() * 10000;
+        hash += jug_a.GetLevel() * 10000000;
         hash += jug_b.GetLevel();
         return hash;
-    }*/
-
-    inline std::string Hash(const Jug &jug_a, const Jug &jug_b) const {
-        return std::to_string(jug_a.GetLevel()) + " " + std::to_string(jug_b.GetLevel());
     }
 
     inline bool IsCycle(const Jug &jug_a, const Jug &jug_b) const {
@@ -206,7 +196,7 @@ public:
     }
 
 private:
-    std::unordered_set<std::string> jugs_level;
+    std::unordered_set<ull> jugs_level;
 };
 
 class Mixer {

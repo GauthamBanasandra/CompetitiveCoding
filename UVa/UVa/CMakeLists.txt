@@ -41,6 +41,7 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Boggle_blitz "Complete search/Recursive backtracking/Medium/Boggle blitz/Boggle blitz.cpp")
         add_executable(Prime_ring_problem "Complete search/Recursive backtracking/Medium/Prime ring problem/Prime ring problem.cpp")
         add_executable(Mapping_the_swaps "Complete search/Recursive backtracking/Medium/Mapping the swaps/Mapping the swaps.cpp")
+        add_executable(Jugs "Complete search/Recursive backtracking/Medium/Jugs/Jugs.cpp")
 
 # Adhoc
     # Anagram

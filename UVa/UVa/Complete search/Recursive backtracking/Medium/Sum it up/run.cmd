@@ -1,0 +1,1 @@
+cmake-build-debug\Sum_it_up.exe < "Complete search/Recursive backtracking/Medium/Sum it up/Sum it up3.txt" | clip

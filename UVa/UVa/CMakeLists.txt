@@ -42,6 +42,7 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Prime_ring_problem "Complete search/Recursive backtracking/Medium/Prime ring problem/Prime ring problem.cpp")
         add_executable(Mapping_the_swaps "Complete search/Recursive backtracking/Medium/Mapping the swaps/Mapping the swaps.cpp")
         add_executable(Jugs "Complete search/Recursive backtracking/Medium/Jugs/Jugs.cpp")
+        add_executable(Sum_it_up "Complete search/Recursive backtracking/Medium/Sum it up/Sum it up.cpp")
 
 # Adhoc
     # Anagram

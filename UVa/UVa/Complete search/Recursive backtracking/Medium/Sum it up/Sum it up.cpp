@@ -92,10 +92,9 @@ void CombinationGenerator::Print(const DescendingNumbersList &numbers_total) con
         return;
     }
 
-    for (auto numbers : numbers_total) {
+    for (const auto &numbers : numbers_total) {
         assert(!numbers.empty());
 
-        std::sort(numbers.begin(), numbers.end(), std::greater<int>());
         std::cout << numbers[0];
         for (std::size_t i = 1; i < numbers.size(); ++i) {
             std::cout << "+" << numbers[i];

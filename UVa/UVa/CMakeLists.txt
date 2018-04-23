@@ -93,3 +93,7 @@ set(CMAKE_CXX_STANDARD 11)
     add_executable(Network_connections "DS with our own lib/Union-find disjoint sets/Network connections/Network connections.cpp")
     add_executable(Virtual_friends "DS with our own lib/Union-find disjoint sets/Virtual friends/Virtual friends.cpp" "DS with our own lib/Union-find disjoint sets/Virtual friends/utils.cpp")
     add_executable(Waking_up_brain "DS with our own lib/Union-find disjoint sets/Waking up brain/Waking up brain.cpp" "DS with our own lib/Union-find disjoint sets/Virtual friends/utils.cpp")
+
+# Easy
+    add_executable(Event_planning "Easy/Event planning/Event planning.cpp")
+    add_executable(Horror_dash "Easy/Horror dash/Horror dash.cpp")

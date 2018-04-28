@@ -1,0 +1,1 @@
+cmake-build-debug\Bundling_newspapers.exe < "Complete search/Recursive backtracking/Medium/Bundling newspapers/Bundling newspapers.txt"

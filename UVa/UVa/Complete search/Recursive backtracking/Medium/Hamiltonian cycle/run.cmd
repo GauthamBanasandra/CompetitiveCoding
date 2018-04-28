@@ -1,0 +1,1 @@
+cmake-build-debug\Hamiltonian_cycle.exe < "Complete search/Recursive backtracking/Medium/Hamiltonian cycle/Hamiltonian cycle3.txt" | clip

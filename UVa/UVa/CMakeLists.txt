@@ -44,6 +44,7 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Jugs "Complete search/Recursive backtracking/Medium/Jugs/Jugs.cpp")
         add_executable(Sum_it_up "Complete search/Recursive backtracking/Medium/Sum it up/Sum it up.cpp")
         add_executable(Bundling_newspapers "Complete search/Recursive backtracking/Medium/Bundling newspapers/Bundling newspapers.cpp")
+        add_executable(Hamiltonian_cycle "Complete search/Recursive backtracking/Medium/Hamiltonian cycle/Hamiltonian cycle.cpp")
 
 # Adhoc
     # Anagram

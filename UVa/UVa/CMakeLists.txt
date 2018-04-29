@@ -99,3 +99,9 @@ set(CMAKE_CXX_STANDARD 11)
 # Easy
     add_executable(Event_planning "Easy/Event planning/Event planning.cpp")
     add_executable(Horror_dash "Easy/Horror dash/Horror dash.cpp")
+
+# Linear DS builtin lib
+    # 1D array manipulation
+        add_executable(Army_buddies "Linear DS builtin lib/1D array manipulation/Army buddies/Army buddies.cpp")
+        add_executable(Jolly_jumpers "Linear DS builtin lib/1D array manipulation/Jolly jumpers/Jolly jumpers.cpp")
+        add_executable(Newspaper "Linear DS builtin lib/1D array manipulation/Newspaper/Newspaper.cpp")

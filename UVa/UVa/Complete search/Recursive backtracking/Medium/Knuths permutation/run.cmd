@@ -1,0 +1,1 @@
+cmake-build-debug\Knuths_permutation.exe < "Complete search/Recursive backtracking/Medium/Knuths permutation/Knuths permutation.txt"

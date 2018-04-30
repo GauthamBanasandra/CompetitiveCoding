@@ -2,13 +2,13 @@
 // Created by gauth on 30-04-2018.
 //
 
-// WA
-
 #include <algorithm>
 #include <string>
 #include <deque>
 #include <iostream>
 #include <cassert>
+
+std::string output;
 
 class KnuthsPermutation {
 public:
@@ -49,13 +49,12 @@ void KnuthsPermutation::Print(const std::deque<char> &permutation) const {
         permutation_str += c;
     }
 
-    std::cout << permutation_str << std::endl;
+    output += permutation_str + "\n";
 }
 
 void KnuthsPermutation::Generate() const {
     std::deque<char> permutation;
     Generate(0, permutation);
-    std::cout << std::endl;
 }
 
 int main() {
@@ -63,7 +62,15 @@ int main() {
 
     while (std::getline(std::cin, line), !std::cin.eof()) {
         KnuthsPermutation(line).Generate();
+        output += "\n";
     }
 
+    if (!line.empty()) {
+        KnuthsPermutation(line).Generate();
+        output += "\n";
+    }
+
+    output.pop_back();
+    std::cout << output;
     return 0;
 }

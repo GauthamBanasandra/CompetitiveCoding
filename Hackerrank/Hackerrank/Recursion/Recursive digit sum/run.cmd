@@ -1,0 +1,1 @@
+cmake-build-debug\Recursive_digit_sum.exe < "Recursion/Recursive digit sum/recursive-digit-sum-testcases/input/input00.txt"

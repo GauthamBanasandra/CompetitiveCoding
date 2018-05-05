@@ -111,3 +111,6 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Grid_successor "Linear DS builtin lib/2D array manipulation/Grid successor/Grid successor.cpp")
         add_executable(Rotated_squares "Linear DS builtin lib/2D array manipulation/Rotated squares/Rotated squares.cpp")
         add_executable(Spiral_tap "Linear DS builtin lib/2D array manipulation/Spiral tap/Spiral tap.cpp")
+    # Bit manipulation
+        add_executable(Multitasking "Linear DS builtin lib/Bit manipulation/Multitasking/Multitasking.cpp")
+        add_executable(Splitting_numbers "Linear DS builtin lib/Bit manipulation/Splitting numbers/Splitting numbers.cpp")

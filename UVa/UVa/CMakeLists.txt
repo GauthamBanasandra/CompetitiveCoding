@@ -107,3 +107,7 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Army_buddies "Linear DS builtin lib/1D array manipulation/Army buddies/Army buddies.cpp")
         add_executable(Jolly_jumpers "Linear DS builtin lib/1D array manipulation/Jolly jumpers/Jolly jumpers.cpp")
         add_executable(Newspaper "Linear DS builtin lib/1D array manipulation/Newspaper/Newspaper.cpp")
+    # 2D array manipulation
+        add_executable(Grid_successor "Linear DS builtin lib/2D array manipulation/Grid successor/Grid successor.cpp")
+        add_executable(Rotated_squares "Linear DS builtin lib/2D array manipulation/Rotated squares/Rotated squares.cpp")
+        add_executable(Spiral_tap "Linear DS builtin lib/2D array manipulation/Spiral tap/Spiral tap.cpp")

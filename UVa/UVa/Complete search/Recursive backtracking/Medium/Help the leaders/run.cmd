@@ -1,0 +1,1 @@
+cmake-build-debug\Help_the_leaders.exe < "Complete search/Recursive backtracking/Medium/Help the leaders/Help the leaders2.txt" | clip

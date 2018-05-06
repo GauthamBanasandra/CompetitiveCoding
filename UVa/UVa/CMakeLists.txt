@@ -47,6 +47,7 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Hamiltonian_cycle "Complete search/Recursive backtracking/Medium/Hamiltonian cycle/Hamiltonian cycle.cpp")
         add_executable(Knuths_permutation "Complete search/Recursive backtracking/Medium/Knuths permutation/Knuths permutation.cpp")
         add_executable(Help_the_leaders "Complete search/Recursive backtracking/Medium/Help the leaders/Help the leaders.cpp")
+        add_executable(The_dominoes_solitaire "Complete search/Recursive backtracking/Medium/The dominoes solitaire/The dominoes solitaire.cpp")
 
 # Adhoc
     # Anagram

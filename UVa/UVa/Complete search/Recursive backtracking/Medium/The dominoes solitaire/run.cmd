@@ -1,0 +1,1 @@
+cmake-build-debug\The_dominoes_solitaire.exe < "Complete search/Recursive backtracking/Medium/The dominoes solitaire/The dominoes solitaire1.txt" | clip

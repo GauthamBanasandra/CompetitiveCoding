@@ -120,3 +120,5 @@ set(CMAKE_CXX_STANDARD 11)
     add_executable(Content_scoreboard "Linear DS builtin lib/C++ STL algorithm/Contest scoreboard/Contest scoreboard.cpp")
     add_executable(ID_codes "Linear DS builtin lib/C++ STL algorithm/ID codes/ID codes.cpp")
     add_executable(What_is_the_median "Linear DS builtin lib/C++ STL algorithm/What is the median/What is the median.cpp")
+    # C++ STL list
+    add_executable(Broken_keyboard "Linear DS builtin lib/C++ STL list/Broken keyboard/Broken keyboard.cpp")

@@ -123,3 +123,7 @@ set(CMAKE_CXX_STANDARD 11)
     add_executable(What_is_the_median "Linear DS builtin lib/C++ STL algorithm/What is the median/What is the median.cpp")
     # C++ STL list
     add_executable(Broken_keyboard "Linear DS builtin lib/C++ STL list/Broken keyboard/Broken keyboard.cpp")
+    # C++ STL queue and deque
+    add_executable(Frerry_loading_III "Linear DS builtin lib/C++ STL queue and deque/Ferry loading III/Ferry loading III.cpp")
+    add_executable(Ferry_loading_IV "Linear DS builtin lib/C++ STL queue and deque/Ferry loading IV/Ferry loading IV.cpp")
+    add_executable(The_lonesome_cargo_distributor "Linear DS builtin lib/C++ STL queue and deque/The lonesome cargo distributor/The lonesome cargo distributor.cpp")

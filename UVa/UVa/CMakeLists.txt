@@ -49,6 +49,7 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Help_the_leaders "Complete search/Recursive backtracking/Medium/Help the leaders/Help the leaders.cpp")
         add_executable(The_dominoes_solitaire "Complete search/Recursive backtracking/Medium/The dominoes solitaire/The dominoes solitaire.cpp")
         add_executable(Bad_code "Complete search/Recursive backtracking/Medium/Bad code/Bad code.cpp")
+        add_executable(The_problem_of_the_crazy_linguist "Complete search/Recursive backtracking/Medium/The problem of the crazy linguist/The problem of the crazy linguist.cpp")
 
 # Adhoc
     # Anagram

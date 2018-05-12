@@ -128,3 +128,6 @@ set(CMAKE_CXX_STANDARD 11)
     add_executable(Frerry_loading_III "Linear DS builtin lib/C++ STL queue and deque/Ferry loading III/Ferry loading III.cpp")
     add_executable(Ferry_loading_IV "Linear DS builtin lib/C++ STL queue and deque/Ferry loading IV/Ferry loading IV.cpp")
     add_executable(The_lonesome_cargo_distributor "Linear DS builtin lib/C++ STL queue and deque/The lonesome cargo distributor/The lonesome cargo distributor.cpp")
+    # C++ STL stack
+    add_executable(Anagrams_by_stack "Linear DS builtin lib/C++ STL stack/Anagrams by stack/Anagrams by stack.cpp")
+    add_executable(Rails "Linear DS builtin lib/C++ STL stack/Rails/Rails.cpp")

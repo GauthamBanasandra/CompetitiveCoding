@@ -51,6 +51,8 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Bad_code "Complete search/Recursive backtracking/Medium/Bad code/Bad code.cpp")
         add_executable(The_problem_of_the_crazy_linguist "Complete search/Recursive backtracking/Medium/The problem of the crazy linguist/The problem of the crazy linguist.cpp")
         add_executable(DNA "Complete search/Recursive backtracking/Medium/DNA/DNA.cpp")
+        # Hard
+        add_executable(Graph_coloring "Complete search/Recursive backtracking/Hard/Graph coloring/Graph coloring.cpp")
 
 # Adhoc
     # Anagram

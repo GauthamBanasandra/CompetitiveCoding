@@ -18,44 +18,28 @@ enum class Colour {
 
 class Graph {
 public:
-    explicit Graph(const std::vector<std::pair<int, int>> &edge_list);
+    explicit Graph(std::size_t n_nodes, const std::vector<std::pair<int, int>> &edge_list);
 
     void ColourNodes();
 
 private:
-    void InitializeNodeColours(std::unordered_map<int, Colour> &node_colour);
+    std::vector<int> GetBlackNodes(const std::vector<std::pair<int, Colour>> &nodes);
 
-    void PrintColouredNodes(const std::unordered_map<int, Colour> &node_colour) const;
+    void ColourNode(std::size_t i_node, std::vector<std::pair<int, Colour>> &nodes, std::size_t n_black_nodes,
+                    std::vector<int> &black_nodes);
 
-    void ColourNode(int node, std::unordered_map<int, Colour> &node_colour, std::unordered_set<int> &visited_nodes);
+    void PrintNodes(std::vector<int> &nodes) const;
 
-    bool AreAllNeighboursWhite(int node, std::unordered_map<int, Colour> &node_colour);
+    bool AreAllNeighboursWhite(int node, std::vector<std::pair<int, Colour>> &nodes);
 
+    std::size_t n_nodes_;
     std::unordered_map<int, std::vector<int>> adj_list_;
+    std::unordered_map<int, std::size_t> node_i_;
 };
 
-void Graph::ColourNode(int node, std::unordered_map<int, Colour> &node_colour, std::unordered_set<int> &visited_nodes) {
-    /*if (visited_nodes.size() >= adj_list_.size()) {
-        return;
-    }*/
-
-    if (AreAllNeighboursWhite(node, node_colour)) {
-        node_colour[node] = Colour::kBlack;
-    }
-
-    for (const auto neighbour : adj_list_[node]) {
-        if (visited_nodes.find(neighbour) != visited_nodes.end()) {
-            continue;
-        }
-
-        visited_nodes.insert(neighbour);
-        ColourNode(neighbour, node_colour, visited_nodes);
-    }
-}
-
-bool Graph::AreAllNeighboursWhite(int node, std::unordered_map<int, Colour> &node_colour) {
+bool Graph::AreAllNeighboursWhite(int node, std::vector<std::pair<int, Colour>> &nodes) {
     for (const auto &neighbour : adj_list_[node]) {
-        if (node_colour[neighbour] == Colour::kBlack) {
+        if (nodes[node_i_[neighbour]].second == Colour::kBlack) {
             return false;
         }
     }
@@ -63,7 +47,12 @@ bool Graph::AreAllNeighboursWhite(int node, std::unordered_map<int, Colour> &nod
     return true;
 }
 
-Graph::Graph(const std::vector<std::pair<int, int>> &edge_list) {
+Graph::Graph(const std::size_t n_nodes, const std::vector<std::pair<int, int>> &edge_list) : n_nodes_(n_nodes) {
+    for (std::size_t i = 1; i <= n_nodes_; ++i) {
+        adj_list_[i];
+        node_i_[i] = i - 1;
+    }
+
     for (const auto &edge : edge_list) {
         adj_list_[edge.first].emplace_back(edge.second);
         adj_list_[edge.second].emplace_back(edge.first);
@@ -71,69 +60,65 @@ Graph::Graph(const std::vector<std::pair<int, int>> &edge_list) {
 }
 
 void Graph::ColourNodes() {
-    std::unordered_map<int, Colour> node_colour, max_node_colour;
-    std::unordered_set<int> visited_nodes;
+    std::vector<std::pair<int, Colour>> nodes(node_i_.size());
+    std::vector<int> black_nodes;
 
-    auto count_black = [](std::pair<const int, Colour> &item) -> bool {
-        return item.second == Colour::kBlack;
-    };
-
-    for (const auto &node : adj_list_) {
-        InitializeNodeColours(node_colour);
-        visited_nodes.clear();
-
-        visited_nodes.insert(node.first);
-        ColourNode(node.first, node_colour, visited_nodes);
-
-        if (std::count_if(node_colour.begin(), node_colour.end(), count_black) >
-            std::count_if(max_node_colour.begin(), max_node_colour.end(), count_black)) {
-            max_node_colour = node_colour;
-        }
+    for (const auto &node_i : node_i_) {
+        nodes[node_i.second].first = node_i.first;
+        nodes[node_i.second].second = Colour::kWhite;
     }
 
-    PrintColouredNodes(max_node_colour);
+    ColourNode(0, nodes, 0, black_nodes);
+    PrintNodes(black_nodes);
 }
 
-void Graph::PrintColouredNodes(const std::unordered_map<int, Colour> &node_colour) const {
-    std::vector<int> black_nodes;
-    assert(!node_colour.empty());
+void Graph::PrintNodes(std::vector<int> &nodes) const {
+    assert(!nodes.empty());
 
-    for (const auto &node : node_colour) {
+    std::sort(nodes.begin(), nodes.end());
+
+    std::string nodes_str = std::to_string(nodes[0]);
+    for (std::size_t i = 1; i < nodes.size(); ++i) {
+        nodes_str += " " + std::to_string(nodes[i]);
+    }
+
+    std::cout << nodes.size() << std::endl;
+    std::cout << nodes_str << std::endl;
+}
+
+std::vector<int> Graph::GetBlackNodes(const std::vector<std::pair<int, Colour>> &nodes) {
+    std::vector<int> black_nodes;
+    for (const auto &node : nodes) {
         if (node.second == Colour::kBlack) {
             black_nodes.emplace_back(node.first);
         }
     }
 
-    std::sort(black_nodes.begin(), black_nodes.end());
-
-    std::string black_nodes_str = std::to_string(black_nodes[0]);
-    for (std::size_t i = 1; i < black_nodes.size(); ++i) {
-        black_nodes_str += " " + std::to_string(black_nodes[i]);
-    }
-
-    std::cout << black_nodes.size() << std::endl;
-    std::cout << black_nodes_str << std::endl;
+    return black_nodes;
 }
 
-void Graph::InitializeNodeColours(std::unordered_map<int, Colour> &node_colour) {
-    for (const auto &node : adj_list_) {
-        node_colour[node.first] = Colour::kWhite;
+void Graph::ColourNode(std::size_t i_node, std::vector<std::pair<int, Colour>> &nodes, std::size_t n_black_nodes,
+                       std::vector<int> &black_nodes) {
+    if (i_node >= n_nodes_) {
+        if (n_black_nodes > black_nodes.size()) {
+            black_nodes = GetBlackNodes(nodes);
+        }
+
+        return;
     }
+
+    if (AreAllNeighboursWhite(nodes[i_node].first, nodes)) {
+        nodes[i_node].second = Colour::kBlack;
+        ColourNode(i_node + 1, nodes, n_black_nodes + 1, black_nodes);
+    }
+
+    nodes[i_node].second = Colour::kWhite;
+    ColourNode(i_node + 1, nodes, n_black_nodes, black_nodes);
 }
 
 int main() {
-    std::vector<std::pair<int, int>> edge_list{
-            /*{1, 2},
-            {1, 3},
-            {2, 4},
-            {2, 5},
-            {3, 4},
-            {3, 6},
-            {4, 6},
-            {5, 6}*/
-    };
+    std::vector<std::pair<int, int>> edge_list;
 
-//    Graph(edge_list).ColourNodes();
     ll m, k;
     int p, q, n;
 
@@ -147,7 +132,7 @@ int main() {
             edge_list.emplace_back(p, q);
         }
 
-        Graph(edge_list).ColourNodes();
+        Graph(n, edge_list).ColourNodes();
     }
 
     return 0;

@@ -53,6 +53,7 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(DNA "Complete search/Recursive backtracking/Medium/DNA/DNA.cpp")
         # Hard
         add_executable(Graph_coloring "Complete search/Recursive backtracking/Hard/Graph coloring/Graph coloring.cpp")
+        add_executable(Firetruck "Complete search/Recursive backtracking/Hard/Firetruck/Firetruck.cpp" "Complete search/Recursive backtracking/Hard/Firetruck/utils.cpp")
 
 # Adhoc
     # Anagram

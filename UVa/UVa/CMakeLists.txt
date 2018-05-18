@@ -133,3 +133,8 @@ set(CMAKE_CXX_STANDARD 11)
     # C++ STL stack
     add_executable(Anagrams_by_stack "Linear DS builtin lib/C++ STL stack/Anagrams by stack/Anagrams by stack.cpp")
     add_executable(Rails "Linear DS builtin lib/C++ STL stack/Rails/Rails.cpp")
+
+# Medium
+add_executable(Bender_B_Rodriguez "Medium/Bender B Rodriguez/Bender B Rodriguez.cpp")
+add_executable(Request_for_proposal "Medium/Request for proposal/Request for proposal.cpp")
+add_executable(The_snail "Medium/The snail/The snail.cpp")

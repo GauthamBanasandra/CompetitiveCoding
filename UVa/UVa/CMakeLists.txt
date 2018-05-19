@@ -139,3 +139,9 @@ set(CMAKE_CXX_STANDARD 11)
 add_executable(Bender_B_Rodriguez "Medium/Bender B Rodriguez/Bender B Rodriguez.cpp")
 add_executable(Request_for_proposal "Medium/Request for proposal/Request for proposal.cpp")
 add_executable(The_snail "Medium/The snail/The snail.cpp")
+
+# Non linear DS builtin lib
+    # C++ STL map
+        add_executable(Conformity "Non linear DS builtin lib/C++ STL map/Conformity/Conformity.cpp")
+        add_executable(Hardwood_species "Non linear DS builtin lib/C++ STL map/Hardwood species/Hardwood species.cpp")
+        add_executable(Unique_snowflakes "Non linear DS builtin lib/C++ STL map/Unique snowflakes/Unique snowflakes.cpp")

@@ -3,6 +3,7 @@
 //
 
 #include <algorithm>
+#include <limits>
 #include <vector>
 #include <list>
 #include <string>
@@ -10,7 +11,6 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <iostream>
-#include <limits>
 #include <cassert>
 
 void PrintCostMap(const std::vector<std::vector<int>> &cost_map);
@@ -90,10 +90,7 @@ City::City(int destination, const std::list<std::pair<int, int>> &adj_corners) :
 
 void City::InitializeCostMap(std::size_t max_corner) {
     std::vector<int> row(max_corner, infinity);
-    cost_map_.reserve(max_corner);
-    for (std::size_t i = 0; i < max_corner; ++i) {
-        cost_map_.emplace_back(row);
-    }
+    cost_map_ = std::vector<std::vector<int>>(max_corner, row);
 
     for (const auto &corner : city_map_) {
         for (const auto neighbour : corner.second) {

@@ -2,6 +2,8 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
+/UVa/UVa/.idea
+/UVa/UVa/cmake-build-debug
 /Hakerearth/Bit manipulation/.vs/Bit manipulation/v15
 /Hakerearth/Bit manipulation/Bit manipulation/Release
 /Hakerearth/Bit manipulation/Bit manipulation/Debug

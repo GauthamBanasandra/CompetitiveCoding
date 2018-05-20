@@ -54,6 +54,7 @@ set(CMAKE_CXX_STANDARD 11)
         # Hard
         add_executable(Graph_coloring "Complete search/Recursive backtracking/Hard/Graph coloring/Graph coloring.cpp")
         add_executable(Firetruck "Complete search/Recursive backtracking/Hard/Firetruck/Firetruck.cpp" "Complete search/Recursive backtracking/Hard/Firetruck/utils.cpp")
+        add_executable(LED_test "Complete search/Recursive backtracking/Hard/LED test/LED test.cpp" "Complete search/Recursive backtracking/Hard/LED test/utils.cpp")
 
 # Adhoc
     # Anagram

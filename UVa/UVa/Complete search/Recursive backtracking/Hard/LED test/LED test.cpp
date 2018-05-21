@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <list>
+#include <unordered_map>
 #include <unordered_set>
 #include <cassert>
 #include <iostream>
@@ -12,36 +13,38 @@
 using Digit = int;
 using Illumination = int;
 
-void PrintPossibilities(const std::vector<std::unordered_set<int>> &possibilities);
+void PrintPossibilities(const std::vector<std::pair<int, std::unordered_set<int>>> &possibilities);
 
 class Display {
 public:
     Display();
 
-    bool IsCountDown(const std::list<std::string> &sequences) const;
+    bool IsCountDown(const std::list<std::string> &sequences);
 
 private:
-    bool IsCountDown(std::size_t i_possibilities, const std::vector<std::unordered_set<Digit>> &possibilities,
-                     Digit expected) const;
+    bool IsCountDown(std::size_t i_possibilities,
+                     const std::vector<std::pair<Illumination, std::unordered_set<Digit>>> &possibilities,
+                     Digit expected, Illumination burnout);
 
-    std::vector<std::unordered_set<Digit>> GetPossibleDigits(const std::list<Illumination> &illuminations) const;
+    std::vector<std::pair<Illumination, std::unordered_set<Digit>>>
+    GetPossibleDigits(const std::list<Illumination> &illuminations) const;
 
     Illumination GetIllumination(const std::string &segments) const;
 
-    std::list<std::pair<Digit, Illumination>> digits_;
+    std::unordered_map<Digit, Illumination> digits_;
 };
 
 Display::Display() {
-    digits_.emplace_back(0, GetIllumination("YYYYYYN"));
-    digits_.emplace_back(1, GetIllumination("NYYNNNN"));
-    digits_.emplace_back(2, GetIllumination("YYNYYNY"));
-    digits_.emplace_back(3, GetIllumination("YYYYNNY"));
-    digits_.emplace_back(4, GetIllumination("NYYNNYY"));
-    digits_.emplace_back(5, GetIllumination("YNYYNYY"));
-    digits_.emplace_back(6, GetIllumination("YNYYYYY"));
-    digits_.emplace_back(7, GetIllumination("YYYNNNN"));
-    digits_.emplace_back(8, GetIllumination("YYYYYYY"));
-    digits_.emplace_back(9, GetIllumination("YYYYNYY"));
+    digits_[0] = GetIllumination("YYYYYYN");
+    digits_[1] = GetIllumination("NYYNNNN");
+    digits_[2] = GetIllumination("YYNYYNY");
+    digits_[3] = GetIllumination("YYYYNNY");
+    digits_[4] = GetIllumination("NYYNNYY");
+    digits_[5] = GetIllumination("YNYYNYY");
+    digits_[6] = GetIllumination("YNYYYYY");
+    digits_[7] = GetIllumination("YYYNNNN");
+    digits_[8] = GetIllumination("YYYYYYY");
+    digits_[9] = GetIllumination("YYYYNYY");
 }
 
 Illumination Display::GetIllumination(const std::string &segments) const {
@@ -59,8 +62,9 @@ Illumination Display::GetIllumination(const std::string &segments) const {
     return illumination;
 }
 
-std::vector<std::unordered_set<Digit>> Display::GetPossibleDigits(const std::list<Illumination> &illuminations) const {
-    std::vector<std::unordered_set<Digit>> possibilities;
+std::vector<std::pair<Illumination, std::unordered_set<Digit>>>
+Display::GetPossibleDigits(const std::list<Illumination> &illuminations) const {
+    std::vector<std::pair<Illumination, std::unordered_set<Digit>>> possibilities;
     possibilities.reserve(illuminations.size());
 
     for (const auto illumination : illuminations) {
@@ -71,13 +75,13 @@ std::vector<std::unordered_set<Digit>> Display::GetPossibleDigits(const std::lis
             }
         }
 
-        possibilities.emplace_back(digits);
+        possibilities.emplace_back(illumination, digits);
     }
 
     return possibilities;
 }
 
-bool Display::IsCountDown(const std::list<std::string> &sequences) const {
+bool Display::IsCountDown(const std::list<std::string> &sequences) {
     std::list<Illumination> illuminations;
     for (const auto &sequence : sequences) {
         illuminations.emplace_back(GetIllumination(sequence));
@@ -85,11 +89,11 @@ bool Display::IsCountDown(const std::list<std::string> &sequences) const {
 
     auto possibilities = GetPossibleDigits(illuminations);
     assert(!possibilities.empty());
-    assert(!possibilities[0].empty());
+    assert(!possibilities[0].second.empty());
 
     PrintPossibilities(possibilities);
-    for (const auto &digit : possibilities[0]) {
-        if (IsCountDown(1, possibilities, digit - 1)) {
+    for (const auto &digit : possibilities[0].second) {
+        if (IsCountDown(1, possibilities, digit - 1, digits_[digit] ^ possibilities[0].first)) {
             return true;
         }
     }
@@ -97,25 +101,39 @@ bool Display::IsCountDown(const std::list<std::string> &sequences) const {
     return false;
 }
 
-bool Display::IsCountDown(std::size_t i_possibilities, const std::vector<std::unordered_set<Digit>> &possibilities,
-                          Digit expected) const {
+bool Display::IsCountDown(std::size_t i_possibilities,
+                          const std::vector<std::pair<Illumination, std::unordered_set<Digit>>> &possibilities,
+                          Digit expected, Illumination burnout) {
     if (i_possibilities >= possibilities.size()) {
         return true;
     }
 
-    if (possibilities[i_possibilities].find(expected) == possibilities[i_possibilities].end()) {
+    const auto &possible_digits = possibilities[i_possibilities].second;
+    if (possible_digits.find(expected) == possible_digits.end()) {
         return false;
     }
 
-    return IsCountDown(i_possibilities + 1, possibilities, expected - 1);
+    const auto illumination = possibilities[i_possibilities].first;
+    const auto expected_digit_burnout = illumination ^digits_[expected];
+    if ((burnout & expected_digit_burnout) != burnout) {
+        return false;
+    }
+
+    return IsCountDown(i_possibilities + 1, possibilities, expected - 1, burnout | expected_digit_burnout);
 }
 
 int main() {
     int n;
     std::string sequence;
-    std::list<std::string> sequences;
+    std::list<std::string> sequences{
+            "NNNNNNN",
+            "YNNNNNN",
+            "NNNNYNN"
+    };
 
-    while (std::cin >> n, n) {
+    std::cout << (Display().IsCountDown(sequences) ? "MATCH" : "MISMATCH") << std::endl;
+
+    /*while (std::cin >> n, n) {
         sequences.clear();
         while (n-- > 0) {
             std::cin >> sequence;
@@ -123,7 +141,7 @@ int main() {
         }
 
         std::cout << (Display().IsCountDown(sequences) ? "MATCH" : "MISMATCH") << std::endl;
-    }
+    }*/
 
     return 0;
 }

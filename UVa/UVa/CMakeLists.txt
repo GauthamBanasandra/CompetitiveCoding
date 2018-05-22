@@ -146,3 +146,7 @@ add_executable(The_snail "Medium/The snail/The snail.cpp")
         add_executable(Conformity "Non linear DS builtin lib/C++ STL map/Conformity/Conformity.cpp")
         add_executable(Hardwood_species "Non linear DS builtin lib/C++ STL map/Hardwood species/Hardwood species.cpp")
         add_executable(Unique_snowflakes "Non linear DS builtin lib/C++ STL map/Unique snowflakes/Unique snowflakes.cpp")
+    # C++ STL priority_queue
+        add_executable(Add_all "Non linear DS builtin lib/C++ STL priority_queue/Add all/Add all.cpp")
+        add_executable(Argus "Non linear DS builtin lib/C++ STL priority_queue/Argus/Argus.cpp")
+        add_executable(I_can_guess_the_data_structure "Non linear DS builtin lib/C++ STL priority_queue/I can guess the data structure/I can guess the data structure.cpp")

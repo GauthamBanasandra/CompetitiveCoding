@@ -77,12 +77,13 @@ Display::GetPossibleDigits(const std::list<Illumination> &illuminations) const {
 
     for (const auto illumination : illuminations) {
         std::unordered_set<Digit> digits;
-        for (const auto &digit : digits_) {
+        const auto filter = [&digits, illumination](std::pair<const Digit, Illumination> digit) {
             if ((digit.second & illumination) == illumination) {
                 digits.insert(digit.first);
             }
-        }
+        };
 
+        std::for_each(digits_.begin(), digits_.end(), filter);
         possibilities.emplace_back(illumination, digits);
     }
 

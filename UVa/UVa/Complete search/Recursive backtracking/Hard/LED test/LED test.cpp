@@ -2,6 +2,8 @@
 // Created by gauth on 19-05-2018.
 //
 
+#include <algorithm>
+#include <bitset>
 #include <string>
 #include <vector>
 #include <list>
@@ -11,7 +13,7 @@
 #include <iostream>
 
 using Digit = int;
-using Illumination = int;
+using Illumination = std::bitset<7>;
 
 void PrintPossibilities(const std::vector<std::pair<int, std::unordered_set<int>>> &possibilities);
 
@@ -21,7 +23,10 @@ public:
 
     bool IsCountDown(const std::list<std::string> &sequences);
 
+    static std::unordered_map<Digit, Illumination> digits_;
+
 private:
+
     bool IsCountDown(std::size_t i_possibilities,
                      const std::vector<std::pair<Illumination, std::unordered_set<Digit>>> &possibilities,
                      Digit expected, Illumination burnout);
@@ -29,31 +34,34 @@ private:
     std::vector<std::pair<Illumination, std::unordered_set<Digit>>>
     GetPossibleDigits(const std::list<Illumination> &illuminations) const;
 
-    Illumination GetIllumination(const std::string &segments) const;
-
-    std::unordered_map<Digit, Illumination> digits_;
+    static Illumination GetIllumination(const std::string &segments);
 };
 
+std::unordered_map<Digit, Illumination> Display::digits_;
+
 Display::Display() {
-    digits_[0] = GetIllumination("YYYYYYN");
-    digits_[1] = GetIllumination("NYYNNNN");
-    digits_[2] = GetIllumination("YYNYYNY");
-    digits_[3] = GetIllumination("YYYYNNY");
-    digits_[4] = GetIllumination("NYYNNYY");
-    digits_[5] = GetIllumination("YNYYNYY");
-    digits_[6] = GetIllumination("YNYYYYY");
-    digits_[7] = GetIllumination("YYYNNNN");
-    digits_[8] = GetIllumination("YYYYYYY");
-    digits_[9] = GetIllumination("YYYYNYY");
+    if (digits_.empty()) {
+        digits_[0] = GetIllumination("YYYYYYN");
+        digits_[1] = GetIllumination("NYYNNNN");
+        digits_[2] = GetIllumination("YYNYYNY");
+        digits_[3] = GetIllumination("YYYYNNY");
+        digits_[4] = GetIllumination("NYYNNYY");
+        digits_[5] = GetIllumination("YNYYNYY");
+        digits_[6] = GetIllumination("YNYYYYY");
+        digits_[7] = GetIllumination("YYYNNNN");
+        digits_[8] = GetIllumination("YYYYYYY");
+        digits_[9] = GetIllumination("YYYYNYY");
+    }
 }
 
-Illumination Display::GetIllumination(const std::string &segments) const {
-    assert(segments.length() == 7);
+Illumination Display::GetIllumination(const std::string &segments) {
+    const auto num_segments = segments.length();
+    assert(num_segments == 7);
 
     Illumination illumination = 0;
-    for (auto i = static_cast<int>(segments.length() - 1); i >= 0; --i) {
+    for (std::size_t i = 0; i < num_segments; ++i) {
         if (segments[i] == 'Y') {
-            illumination |= (1 << i);
+            illumination |= (1 << (num_segments - i - 1));
         } else {
             assert(segments[i] == 'N');
         }
@@ -83,15 +91,12 @@ Display::GetPossibleDigits(const std::list<Illumination> &illuminations) const {
 
 bool Display::IsCountDown(const std::list<std::string> &sequences) {
     std::list<Illumination> illuminations;
-    for (const auto &sequence : sequences) {
-        illuminations.emplace_back(GetIllumination(sequence));
-    }
+    std::transform(sequences.begin(), sequences.end(), std::back_inserter(illuminations), GetIllumination);
 
     auto possibilities = GetPossibleDigits(illuminations);
     assert(!possibilities.empty());
     assert(!possibilities[0].second.empty());
 
-    PrintPossibilities(possibilities);
     for (const auto &digit : possibilities[0].second) {
         if (IsCountDown(1, possibilities, digit - 1, digits_[digit] ^ possibilities[0].first)) {
             return true;
@@ -114,26 +119,20 @@ bool Display::IsCountDown(std::size_t i_possibilities,
     }
 
     const auto illumination = possibilities[i_possibilities].first;
-    const auto expected_digit_burnout = illumination ^digits_[expected];
-    if ((burnout & expected_digit_burnout) != burnout) {
+    if ((burnout & illumination) != 0) {
         return false;
     }
 
+    const auto expected_digit_burnout = illumination ^digits_[expected];
     return IsCountDown(i_possibilities + 1, possibilities, expected - 1, burnout | expected_digit_burnout);
 }
 
 int main() {
     int n;
     std::string sequence;
-    std::list<std::string> sequences{
-            "NNNNNNN",
-            "YNNNNNN",
-            "NNNNYNN"
-    };
+    std::list<std::string> sequences;
 
-    std::cout << (Display().IsCountDown(sequences) ? "MATCH" : "MISMATCH") << std::endl;
-
-    /*while (std::cin >> n, n) {
+    while (std::cin >> n, n) {
         sequences.clear();
         while (n-- > 0) {
             std::cin >> sequence;
@@ -141,7 +140,7 @@ int main() {
         }
 
         std::cout << (Display().IsCountDown(sequences) ? "MATCH" : "MISMATCH") << std::endl;
-    }*/
+    }
 
     return 0;
 }

@@ -2,6 +2,8 @@
 // Created by gauth on 20-01-2018.
 //
 
+#include <array>
+#include <string>
 #include <unordered_set>
 #include <vector>
 #include <iostream>

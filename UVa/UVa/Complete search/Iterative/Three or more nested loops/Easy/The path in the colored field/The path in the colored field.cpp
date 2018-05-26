@@ -6,6 +6,7 @@
 #include <sstream>
 #include <cassert>
 #include <list>
+#include <algorithm>
 
 using ull = unsigned long long;
 void Print(const std::list<std::pair<ull, ull>> &one, const std::list<std::pair<ull, ull>> &three);

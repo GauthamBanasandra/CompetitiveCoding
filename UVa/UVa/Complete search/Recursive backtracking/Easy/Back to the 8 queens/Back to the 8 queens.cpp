@@ -4,10 +4,10 @@
 
 #include <string>
 #include <sstream>
-#include <utility>
 #include <vector>
 #include <iostream>
 #include <cmath>
+#include <algorithm>
 
 class NQueens {
 public:

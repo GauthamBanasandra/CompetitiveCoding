@@ -5,6 +5,7 @@
 #include <limits>
 #include <iostream>
 #include <vector>
+#include <string>
 
 void PrintCostMap(const std::vector<std::vector<int>> &cost_map) {
     for (const auto &row : cost_map) {

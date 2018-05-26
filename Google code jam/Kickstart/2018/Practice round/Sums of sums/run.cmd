@@ -1,1 +1,0 @@
-cmake-build-debug\Sums_of_sums.exe < "C:\Users\gauth\source\repos\CompetitiveCoding\Google code jam\Kickstart\2018\Practice round\Sums of sums\D-small-practice.in" > "C:\Users\gauth\source\repos\CompetitiveCoding\Google code jam\Kickstart\2018\Practice round\Sums of sums\D-small-practice.out"

@@ -1,1 +1,0 @@
-cmake-build-debug\Saving_the_universe_again.exe < "2018/Qualification round/Saving the universe again/Saving the universe again.txt"

@@ -1,0 +1,1 @@
+cmake-build-debug\Googol_string.exe < "C:\Users\gauth\source\repos\CompetitiveCoding\Google code jam\Kickstart\2018\Practice round\Googol string\B-small-attempt0.in" > "C:\Users\gauth\source\repos\CompetitiveCoding\Google code jam\Kickstart\2018\Practice round\Googol string\B-small-attempt0.out"

@@ -2,6 +2,9 @@
 // Created by gauth on 26-05-2018.
 //
 
+// WA
+
+#include <algorithm>
 #include <string>
 #include <vector>
 #include <list>
@@ -34,11 +37,10 @@ struct DigitsInfo {
 };
 
 struct RecognitionInfo {
-    RecognitionInfo() : status(RecognitionStatus::kFailure), checksum(0) {}
+    RecognitionInfo() : status(RecognitionStatus::kFailure) {}
 
     RecognitionStatus status;
     std::string account_num;
-    ll checksum;
 };
 
 void Print(const DigitsInfo &info);
@@ -48,18 +50,25 @@ Print(std::unordered_map<Illumination, Number> &standard, const std::vector<Illu
 
 class OCR {
 public:
-    OCR();
+    OCR(const std::vector<Illumination> &illuminations);
 
-    static DigitsInfo GetDigits(const std::vector<Illumination> &illuminations);
+    std::string Recognize();
 
     static std::vector<Illumination> Scan(std::size_t num_digits);
 
     static std::unordered_map<Illumination, Number> standard_;
+    std::vector<Digit> digits_;
+
 private:
+    void
+    RecognizeNext(std::size_t i_digit, RecognitionInfo &info, std::string &account_num, size_t checksum,
+                  bool use_exact);
 
-    static bool IsPowerOf2(const Illumination &illumination);
+    DigitsInfo GetDigits(const std::vector<Illumination> &illuminations);
 
-    static std::list<Number> GetGarbledNumbers(const Illumination &illumination);
+    bool IsPowerOf2(const Illumination &illumination);
+
+    std::list<Number> GetGarbledNumbers(const Illumination &illumination);
 
     static void InitializeStandard();
 
@@ -151,8 +160,12 @@ std::size_t OCR::GetSegmentIndex(std::size_t row, std::size_t column) {
     return 0;
 }
 
-OCR::OCR() {
+OCR::OCR(const std::vector<Illumination> &illuminations) {
     InitializeStandard();
+    auto info = GetDigits(illuminations);
+    if (info.is_valid) {
+        std::reverse_copy(info.digits.begin(), info.digits.end(), std::back_inserter(digits_));
+    }
 }
 
 void OCR::NormalizeInput(std::string &line) {
@@ -227,10 +240,82 @@ bool OCR::IsPowerOf2(const Illumination &illumination) {
     return (x > 0) && !(x & (x - 1));
 }
 
+void OCR::RecognizeNext(std::size_t i_digit, RecognitionInfo &info, std::string &account_num, size_t checksum,
+                        bool use_exact) {
+    if (i_digit == digits_.size()) {
+        assert(info.status != RecognitionStatus::kAmbiguous);
+
+        if (checksum % 11 == 0) {
+            if (info.status == RecognitionStatus::kValid) {
+                info.status = RecognitionStatus::kAmbiguous;
+                return;
+            }
+
+            info.status = RecognitionStatus::kValid;
+            info.account_num = account_num;
+        }
+
+        return;
+    }
+
+    if (info.status == RecognitionStatus::kAmbiguous) {
+        return;
+    }
+
+    const auto &digit = digits_[i_digit];
+    if (!digit.is_garbled) {
+        account_num.push_back(static_cast<char>(digit.exact + '0'));
+        RecognizeNext(i_digit + 1, info, account_num, ((i_digit + 1) * digit.exact) + checksum, use_exact);
+        account_num.pop_back();
+    }
+
+    if (use_exact) {
+        return;
+    }
+
+    for (const auto number : digit.garbled) {
+        if (info.status == RecognitionStatus::kAmbiguous) {
+            return;
+        }
+
+        account_num.push_back(static_cast<char>(number + '0'));
+        RecognizeNext(i_digit + 1, info, account_num, ((i_digit + 1) * number) + checksum, true);
+        account_num.pop_back();
+    }
+}
+
+std::string OCR::Recognize() {
+    if (digits_.empty()) {
+        return "failure";
+    }
+
+    std::string account_num;
+    RecognitionInfo info;
+    RecognizeNext(0, info, account_num, 0, false);
+
+    switch (info.status) {
+        case RecognitionStatus::kValid:
+            return std::string(info.account_num.crbegin(), info.account_num.crend());
+
+        case RecognitionStatus::kFailure:
+            return "failure";
+
+        case RecognitionStatus::kAmbiguous:
+            return "ambiguous";
+    }
+}
+
 int main() {
-    auto illuminations = OCR::Scan(9);
+    ll t;
+
+    std::cin >> t;
+    std::cin.ignore();
+    while (t-- > 0) {
+        auto illuminations = OCR::Scan(9);
 //    Print(OCR::standard_, illuminations);
-    auto digits = OCR::GetDigits(illuminations);
-    Print(digits);
+        OCR ocr(illuminations);
+        std::cout << ocr.Recognize() << std::endl;
+    }
+
     return 0;
 }

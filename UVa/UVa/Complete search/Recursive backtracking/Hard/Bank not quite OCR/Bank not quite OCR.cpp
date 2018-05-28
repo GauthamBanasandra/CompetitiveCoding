@@ -14,18 +14,23 @@ using Illumination = std::bitset<7>;
 using Number = int;
 using ll = long long;
 
-void
-Print(std::unordered_map<Illumination, Number> &standard, const std::vector<Illumination> &illuminations);
-
 enum class RecognitionStatus {
     kValid, kFailure, kAmbiguous
 };
 
 struct Digit {
-    Digit() : exact(0) {}
+    Digit() : is_garbled(false), exact(-1) {}
 
+    bool is_garbled;
     Number exact;
     std::list<Number> garbled;
+};
+
+struct DigitsInfo {
+    DigitsInfo() : is_valid(false) {}
+
+    bool is_valid;
+    std::vector<Digit> digits;
 };
 
 struct RecognitionInfo {
@@ -36,15 +41,26 @@ struct RecognitionInfo {
     ll checksum;
 };
 
+void Print(const DigitsInfo &info);
+
+void
+Print(std::unordered_map<Illumination, Number> &standard, const std::vector<Illumination> &illuminations);
+
 class OCR {
 public:
     OCR();
 
+    static DigitsInfo GetDigits(const std::vector<Illumination> &illuminations);
+
     static std::vector<Illumination> Scan(std::size_t num_digits);
 
     static std::unordered_map<Illumination, Number> standard_;
-
 private:
+
+    static bool IsPowerOf2(const Illumination &illumination);
+
+    static std::list<Number> GetGarbledNumbers(const Illumination &illumination);
+
     static void InitializeStandard();
 
     static void NormalizeInput(std::string &line);
@@ -167,8 +183,54 @@ void OCR::InitializeStandard() {
     }
 }
 
+DigitsInfo OCR::GetDigits(const std::vector<Illumination> &illuminations) {
+    DigitsInfo info;
+
+    auto garbled_digit_seen = false;
+    for (const auto &illumination : illuminations) {
+        Digit digit;
+        auto num_it = standard_.find(illumination);
+        if (num_it != standard_.end()) {
+            digit.exact = num_it->second;
+        } else {
+            if (garbled_digit_seen) {
+                return info;
+            }
+
+            digit.is_garbled = true;
+            garbled_digit_seen = true;
+        }
+
+        digit.garbled = GetGarbledNumbers(illumination);
+        info.digits.emplace_back(digit);
+    }
+
+    info.is_valid = true;
+    return info;
+}
+
+std::list<Number> OCR::GetGarbledNumbers(const Illumination &illumination) {
+    std::list<Number> garbled_nums;
+
+    for (const auto &item : standard_) {
+        auto burnout = item.first ^illumination;
+        if (IsPowerOf2(burnout) && ((burnout & item.first) == burnout)) {
+            garbled_nums.emplace_back(item.second);
+        }
+    }
+
+    return garbled_nums;
+}
+
+bool OCR::IsPowerOf2(const Illumination &illumination) {
+    auto x = illumination.to_ulong();
+    return (x > 0) && !(x & (x - 1));
+}
+
 int main() {
     auto illuminations = OCR::Scan(9);
-    Print(OCR::standard_, illuminations);
+//    Print(OCR::standard_, illuminations);
+    auto digits = OCR::GetDigits(illuminations);
+    Print(digits);
     return 0;
 }

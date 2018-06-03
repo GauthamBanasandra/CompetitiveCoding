@@ -153,3 +153,7 @@ add_executable(The_snail "Medium/The snail/The snail.cpp")
         add_executable(Add_all "Non linear DS builtin lib/C++ STL priority_queue/Add all/Add all.cpp")
         add_executable(Argus "Non linear DS builtin lib/C++ STL priority_queue/Argus/Argus.cpp")
         add_executable(I_can_guess_the_data_structure "Non linear DS builtin lib/C++ STL priority_queue/I can guess the data structure/I can guess the data structure.cpp")
+    # C++ STL set
+        add_executable(CD_stl_set "Non linear DS builtin lib/C++ STL set/CD/CD.cpp")
+        add_executable(Hoax_or_what "Non linear DS builtin lib/C++ STL set/Hoax or what/Hoax or what.cpp")
+        add_executable(Lemmings_battle "Non linear DS builtin lib/C++ STL set/Lemmings battle/Lemmings battle.cpp")

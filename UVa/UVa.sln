@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Super easy", "Super easy", "{7DB5BB28-D6F7-4E11-9AC9-173BABAEB06F}"
 EndProject
@@ -10,16 +10,6 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Relational operators", "Relational operators\Relational operators.vcxproj", "{97CFB7E4-5000-4AB6-88EB-D6C9B253FE53}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cost cutting", "Cost cutting\Cost cutting.vcxproj", "{A4A625BE-E95E-45D3-A259-10A4EA12D9CC}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Non linear DS builtin lib", "Non linear DS builtin lib", "{EB33ABF9-3009-41EA-B94B-D4B23B2CDCF9}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "C++ STL set", "C++ STL set", "{61278400-18F3-4062-8DF6-6A16EE1F96D4}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lemmings battle", "Lemmings battle\Lemmings battle.vcxproj", "{C4BA4B63-6DFE-4CC6-858F-6B594B2D4D86}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hoax or what", "Hoax or what\Hoax or what.vcxproj", "{179F51F1-0085-4831-BCA7-AB47D59BC048}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CD", "..\Books\Competitive Programming 3\chapter-2\exercises\CD\CD.vcxproj", "{B8AF12EA-D3D0-473D-8B06-38DC95076C24}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,30 +43,6 @@ Global
 		{A4A625BE-E95E-45D3-A259-10A4EA12D9CC}.Release|x64.Build.0 = Release|x64
 		{A4A625BE-E95E-45D3-A259-10A4EA12D9CC}.Release|x86.ActiveCfg = Release|Win32
 		{A4A625BE-E95E-45D3-A259-10A4EA12D9CC}.Release|x86.Build.0 = Release|Win32
-		{C4BA4B63-6DFE-4CC6-858F-6B594B2D4D86}.Debug|x64.ActiveCfg = Debug|x64
-		{C4BA4B63-6DFE-4CC6-858F-6B594B2D4D86}.Debug|x64.Build.0 = Debug|x64
-		{C4BA4B63-6DFE-4CC6-858F-6B594B2D4D86}.Debug|x86.ActiveCfg = Debug|Win32
-		{C4BA4B63-6DFE-4CC6-858F-6B594B2D4D86}.Debug|x86.Build.0 = Debug|Win32
-		{C4BA4B63-6DFE-4CC6-858F-6B594B2D4D86}.Release|x64.ActiveCfg = Release|x64
-		{C4BA4B63-6DFE-4CC6-858F-6B594B2D4D86}.Release|x64.Build.0 = Release|x64
-		{C4BA4B63-6DFE-4CC6-858F-6B594B2D4D86}.Release|x86.ActiveCfg = Release|Win32
-		{C4BA4B63-6DFE-4CC6-858F-6B594B2D4D86}.Release|x86.Build.0 = Release|Win32
-		{179F51F1-0085-4831-BCA7-AB47D59BC048}.Debug|x64.ActiveCfg = Debug|x64
-		{179F51F1-0085-4831-BCA7-AB47D59BC048}.Debug|x64.Build.0 = Debug|x64
-		{179F51F1-0085-4831-BCA7-AB47D59BC048}.Debug|x86.ActiveCfg = Debug|Win32
-		{179F51F1-0085-4831-BCA7-AB47D59BC048}.Debug|x86.Build.0 = Debug|Win32
-		{179F51F1-0085-4831-BCA7-AB47D59BC048}.Release|x64.ActiveCfg = Release|x64
-		{179F51F1-0085-4831-BCA7-AB47D59BC048}.Release|x64.Build.0 = Release|x64
-		{179F51F1-0085-4831-BCA7-AB47D59BC048}.Release|x86.ActiveCfg = Release|Win32
-		{179F51F1-0085-4831-BCA7-AB47D59BC048}.Release|x86.Build.0 = Release|Win32
-		{B8AF12EA-D3D0-473D-8B06-38DC95076C24}.Debug|x64.ActiveCfg = Debug|x64
-		{B8AF12EA-D3D0-473D-8B06-38DC95076C24}.Debug|x64.Build.0 = Debug|x64
-		{B8AF12EA-D3D0-473D-8B06-38DC95076C24}.Debug|x86.ActiveCfg = Debug|Win32
-		{B8AF12EA-D3D0-473D-8B06-38DC95076C24}.Debug|x86.Build.0 = Debug|Win32
-		{B8AF12EA-D3D0-473D-8B06-38DC95076C24}.Release|x64.ActiveCfg = Release|x64
-		{B8AF12EA-D3D0-473D-8B06-38DC95076C24}.Release|x64.Build.0 = Release|x64
-		{B8AF12EA-D3D0-473D-8B06-38DC95076C24}.Release|x86.ActiveCfg = Release|Win32
-		{B8AF12EA-D3D0-473D-8B06-38DC95076C24}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,10 +51,6 @@ Global
 		{0A4836D6-C56F-4ECA-8217-B6495554DE07} = {7DB5BB28-D6F7-4E11-9AC9-173BABAEB06F}
 		{97CFB7E4-5000-4AB6-88EB-D6C9B253FE53} = {7DB5BB28-D6F7-4E11-9AC9-173BABAEB06F}
 		{A4A625BE-E95E-45D3-A259-10A4EA12D9CC} = {7DB5BB28-D6F7-4E11-9AC9-173BABAEB06F}
-		{61278400-18F3-4062-8DF6-6A16EE1F96D4} = {EB33ABF9-3009-41EA-B94B-D4B23B2CDCF9}
-		{C4BA4B63-6DFE-4CC6-858F-6B594B2D4D86} = {61278400-18F3-4062-8DF6-6A16EE1F96D4}
-		{179F51F1-0085-4831-BCA7-AB47D59BC048} = {61278400-18F3-4062-8DF6-6A16EE1F96D4}
-		{B8AF12EA-D3D0-473D-8B06-38DC95076C24} = {61278400-18F3-4062-8DF6-6A16EE1F96D4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C8B9151B-58F2-4FBF-AB9C-68FDFB747B25}

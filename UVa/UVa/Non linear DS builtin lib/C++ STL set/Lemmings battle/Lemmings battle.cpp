@@ -39,11 +39,7 @@ inline outcome lemmings::fight(lemmings &other) {
 
 struct lemmings_comparator {
     bool operator()(const lemmings &lem1, const lemmings &lem2) const {
-        if (lem1.power > lem2.power) {
-            return true;
-        }
-
-        return false;
+        return lem1.power > lem2.power;
     }
 };
 
@@ -134,8 +130,6 @@ bool deadly_war::next_round() {
                 break;
 
             case outcome::both_die:;
-            default:
-                break;
         }
 
         battles_.pop();

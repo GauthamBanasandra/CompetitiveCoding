@@ -56,6 +56,8 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Firetruck "Complete search/Recursive backtracking/Hard/Firetruck/Firetruck.cpp" "Complete search/Recursive backtracking/Hard/Firetruck/utils.cpp")
         add_executable(LED_test "Complete search/Recursive backtracking/Hard/LED test/LED test.cpp" "Complete search/Recursive backtracking/Hard/LED test/utils.cpp")
         add_executable(Bank_not_quite_OCR "Complete search/Recursive backtracking/Hard/Bank not quite OCR/Bank not quite OCR.cpp" "Complete search/Recursive backtracking/Hard/Bank not quite OCR/utils.cpp")
+# Binary search
+    add_executable(Dropping_balls "Divide and conquer/Binary search/Dropping balls/Dropping balls.cpp")
 
 # Adhoc
     # Anagram

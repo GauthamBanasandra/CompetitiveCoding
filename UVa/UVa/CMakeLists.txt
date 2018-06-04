@@ -58,6 +58,7 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Bank_not_quite_OCR "Complete search/Recursive backtracking/Hard/Bank not quite OCR/Bank not quite OCR.cpp" "Complete search/Recursive backtracking/Hard/Bank not quite OCR/utils.cpp")
 # Binary search
     add_executable(Dropping_balls "Divide and conquer/Binary search/Dropping balls/Dropping balls.cpp")
+    add_executable(Popes "Divide and conquer/Binary search/Popes/Popes.cpp")
 
 # Adhoc
     # Anagram

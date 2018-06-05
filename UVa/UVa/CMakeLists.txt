@@ -92,6 +92,8 @@ set(CMAKE_CXX_STANDARD 11)
     add_executable(Traffic_lights "Ad hoc/Real life problems/Traffic lights/Traffic lights.cpp" "Ad hoc/Real life problems/Traffic lights/utils.cpp")
     # Time
     add_executable(Clock_hands "Ad hoc/Time/Clock hands/Clock hands.cpp")
+    # Solved in Java - Clock hands
+    # Solved in Java - Y3K
     # Time waster problems
     add_executable(All_integer_average "Ad hoc/Time waster problems/All integer average/All integer average.cpp")
     add_executable(Mobile_casanova "Ad hoc/Time waster problems/Mobile casanova/Mobile casanova.cpp")

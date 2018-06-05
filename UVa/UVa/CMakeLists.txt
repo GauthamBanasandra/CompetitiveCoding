@@ -158,3 +158,8 @@ add_executable(The_snail "Medium/The snail/The snail.cpp")
         add_executable(CD_stl_set "Non linear DS builtin lib/C++ STL set/CD/CD.cpp")
         add_executable(Hoax_or_what "Non linear DS builtin lib/C++ STL set/Hoax or what/Hoax or what.cpp")
         add_executable(Lemmings_battle "Non linear DS builtin lib/C++ STL set/Lemmings battle/Lemmings battle.cpp")
+
+# Super easy
+    add_executable(Cost_cutting "Super easy/Cost cutting/Cost cutting.cpp")
+    add_executable(Division_of_nlogonia "Super easy/Division of nlogonia/Division of nlogonia.cpp")
+    add_executable(Relational_operators "Super easy/Relational operators/Relational operators.cpp")

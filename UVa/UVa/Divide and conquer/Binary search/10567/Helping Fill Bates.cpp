@@ -67,7 +67,7 @@ CandidatesInfo CandidatesSelection::GetCandidates(const std::string &pattern) {
 }
 
 int main() {
-//    std::ios::sync_with_stdio(false);
+  std::ios::sync_with_stdio(false);
 
   int q;
   std::string candidates_line, pattern;
@@ -81,7 +81,7 @@ int main() {
     auto info = selection.GetCandidates(pattern);
 
     if (info.matched) {
-      printf("Matched %lli %lli\n", info.begin_serial, info.end_serial);
+      std::cout << "Matched " << info.begin_serial << " " << info.end_serial << std::endl;
     } else {
       std::cout << "Not matched" << std::endl;
     }

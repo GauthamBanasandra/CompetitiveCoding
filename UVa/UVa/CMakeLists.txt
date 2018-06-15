@@ -63,6 +63,7 @@ add_executable(The_stern_brocot_number_system "Divide and conquer/Binary search/
 add_executable(Where_is_the_marble "Divide and conquer/Binary search/10474/Where is the marble.cpp" "Divide and conquer/Binary search/10474/utils.cpp")
 add_executable(Helping_fill_bates "Divide and conquer/Binary search/10567/Helping Fill Bates.cpp")
 add_executable(The_playboy_chimp "Divide and conquer/Binary search/10611/The playboy chimp.cpp")
+add_executable(Number_sequence "Divide and conquer/Binary search/10706/Number sequence.cpp")
 
 # Adhoc
     # Anagram

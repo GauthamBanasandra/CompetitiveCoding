@@ -56,11 +56,12 @@ PaymentOptions::PaymentOptions() {
 
 ul PaymentOptions::Count(ul n) {
   ul num_ways = 0;
-  auto gc = std::lower_bound(primes_.rbegin(), primes_.rend(), n, std::greater<ul>());
-  auto mid = std::lower_bound(gc, primes_.rend(), n / 2, std::greater<ul>());
-  for (auto it = mid; it != primes_.rend(); ++it) {
-    auto c = std::lower_bound(gc, it, n - *it, std::greater<ul>());
-    auto distance = std::distance(c, it);
+  auto greatest_coin_it = std::lower_bound(primes_.rbegin(), primes_.rend(), n, std::greater<ul>());
+  auto half_it = std::lower_bound(greatest_coin_it, primes_.rend(), n / 2, std::greater<ul>());
+
+  for (auto it = half_it; it != primes_.rend(); ++it) {
+    auto coin_it = std::lower_bound(greatest_coin_it, it, n - *it, std::greater<ul>());
+    auto distance = std::distance(coin_it, it);
     assert(distance >= 0);
     num_ways += distance;
   }

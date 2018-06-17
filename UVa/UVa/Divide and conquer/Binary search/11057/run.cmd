@@ -1,0 +1,1 @@
+cmake-build-debug\Exact_sum.exe < "Divide and conquer/Binary search/11057/Exact sum.txt"

@@ -4,73 +4,81 @@
 
 #include <string>
 #include <sstream>
-#include <limits>
-#include <algorithm>
-#include <unordered_set>
+#include <unordered_map>
 #include <iostream>
+#include <cassert>
 
 using ul = unsigned long;
 
-std::pair<ul, ul> GetBooks(const std::unordered_set<ul> &books_price, ul m) {
-    auto books_init = false;
-    std::pair<ul, ul> books{std::numeric_limits<ul>::max(), std::numeric_limits<ul>::max()};
+std::pair<ul, ul> GetBooks(std::unordered_map<ul, int> &price_frequency, ul m) {
+  auto books_init = false;
+  std::pair<ul, ul> books;
 
-    for (const auto &price : books_price) {
-        if (price > m) {
-            continue;
-        }
+  auto start_size = price_frequency.size();
 
-        const auto second_book_price = books_price.find(m - price);
-        if (second_book_price == books_price.end()) {
-            continue;
-        }
-
-        const auto first = std::min(price, *second_book_price);
-        const auto second = std::max(price, *second_book_price);
-
-        if (!books_init) {
-            books.first = first;
-            books.second = second;
-            books_init = true;
-            continue;
-        }
-
-        if ((second - first) < (books.second - books.first)) {
-            books.first = first;
-            books.second = second;
-        }
+  for (auto &first_book : price_frequency) {
+    if (first_book.first > m) {
+      continue;
     }
 
-    return books;
+    --first_book.second;
+    auto second_book = price_frequency.find(m - first_book.first);
+    if (second_book == price_frequency.end() || second_book->second == 0) {
+      ++first_book.second;
+      continue;
+    }
+
+    ++first_book.second;
+    const auto first = std::min(first_book.first, second_book->first);
+    const auto second = std::max(first_book.first, second_book->first);
+
+    if (!books_init) {
+      books.first = first;
+      books.second = second;
+      books_init = true;
+      continue;
+    }
+
+    if ((second - first) < (books.second - books.first)) {
+      books.first = first;
+      books.second = second;
+    }
+  }
+
+  assert(start_size == price_frequency.size());
+
+  return books;
 }
 
 int main() {
-    int n;
-    ul m = 0, price = 0;
-    std::string line;
-    std::unordered_set<ul> books_price{40, 40};
+  std::ios::sync_with_stdio(false);
 
-    while (std::getline(std::cin, line), !std::cin.eof()) {
-        std::istringstream tokenizer(line);
-        tokenizer >> n;
+  int n;
+  ul m = 0, price = 0;
+  std::string line;
+  std::unordered_map<ul, int> price_frequency;
 
-        std::getline(std::cin, line);
-        std::istringstream price_tokenizer(line);
-        books_price.clear();
-        for (int i = 0; i < n; ++i) {
-            price_tokenizer >> price;
-            books_price.insert(price);
-        }
+  while (std::getline(std::cin, line), !std::cin.eof()) {
+    std::istringstream tokenizer(line);
+    tokenizer >> n;
 
-        std::getline(std::cin, line);
-        std::istringstream money_tokenizer(line);
-        money_tokenizer >> m;
-        std::cin.ignore();
-
-        auto books = GetBooks(books_price, m);
-        std::cout << "Peter should buy books whose prices are " << books.first << " and " << books.second << "."
-                  << std::endl << std::endl;
+    std::getline(std::cin, line);
+    std::istringstream price_tokenizer(line);
+    price_frequency.clear();
+    for (int i = 0; i < n; ++i) {
+      price_tokenizer >> price;
+      ++price_frequency[price];
     }
 
-    return 0;
+    std::getline(std::cin, line);
+    std::istringstream money_tokenizer(line);
+    money_tokenizer >> m;
+    std::cin.ignore();
+
+    auto books = GetBooks(price_frequency, m);
+    std::cout << "Peter should buy books whose prices are " << books.first << " and " << books.second << "."
+              << std::endl << std::endl;
+  }
+
+  return 0;
 }

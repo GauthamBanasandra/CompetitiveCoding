@@ -66,6 +66,7 @@ add_executable(The_playboy_chimp "Divide and conquer/Binary search/10611/The pla
 add_executable(Number_sequence "Divide and conquer/Binary search/10706/Number sequence.cpp")
 add_executable(The_new_rule_in_euphomia "Divide and conquer/Binary search/10742/The new rule in Euphomia.cpp" "Divide and conquer/Binary search/10742/utils.cpp")
 add_executable(Exact_sum "Divide and conquer/Binary search/11057/Exact sum.cpp")
+add_executable(Small_factors "Divide and conquer/Binary search/11621/Small factors.cpp" "Divide and conquer/Binary search/11621/utils.cpp")
 
 # Adhoc
     # Anagram

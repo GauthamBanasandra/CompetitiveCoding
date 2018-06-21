@@ -2,16 +2,21 @@
 // Created by Gautham Banasandra on 20/06/18.
 //
 
+#include <cmath>
 #include <string>
 #include <sstream>
 #include <iostream>
+
+inline bool IsEqual(long double a, long double b, long double epsilon = 0.00000000001) {
+  return std::abs(a - b) < epsilon;
+}
 
 bool IsMember(long double p) {
   long double l = 0.0, h = 1.0, p1 = 0.0, p2 = 0.0;
   auto is_member = false;
 
   while (l <= p && p <= h) {
-    if (l == p || p == h) {
+    if (IsEqual(l, p) || IsEqual(p, h)) {
       is_member = true;
       break;
     }

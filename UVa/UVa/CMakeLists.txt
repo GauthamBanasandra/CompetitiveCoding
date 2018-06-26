@@ -57,24 +57,6 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(LED_test "Complete search/Recursive backtracking/Hard/LED test/LED test.cpp" "Complete search/Recursive backtracking/Hard/LED test/utils.cpp")
         add_executable(Bank_not_quite_OCR "Complete search/Recursive backtracking/Hard/Bank not quite OCR/Bank not quite OCR.cpp" "Complete search/Recursive backtracking/Hard/Bank not quite OCR/utils.cpp")
 
-# Divide and conquer
-# Binary search
-    add_executable(Dropping_balls "Divide and conquer/Binary search/Dropping balls/Dropping balls.cpp")
-    add_executable(Popes "Divide and conquer/Binary search/Popes/Popes.cpp")
-add_executable(The_stern_brocot_number_system "Divide and conquer/Binary search/10077/The Stern Brocot number system.cpp")
-add_executable(Where_is_the_marble "Divide and conquer/Binary search/10474/Where is the marble.cpp" "Divide and conquer/Binary search/10474/utils.cpp")
-add_executable(Helping_fill_bates "Divide and conquer/Binary search/10567/Helping Fill Bates.cpp")
-add_executable(The_playboy_chimp "Divide and conquer/Binary search/10611/The playboy chimp.cpp")
-add_executable(Number_sequence "Divide and conquer/Binary search/10706/Number sequence.cpp")
-add_executable(The_new_rule_in_euphomia "Divide and conquer/Binary search/10742/The new rule in Euphomia.cpp" "Divide and conquer/Binary search/10742/utils.cpp")
-add_executable(Exact_sum "Divide and conquer/Binary search/11057/Exact sum.cpp")
-add_executable(Small_factors "Divide and conquer/Binary search/11621/Small factors.cpp" "Divide and conquer/Binary search/11621/utils.cpp")
-add_executable(Cantor "Divide and conquer/Binary search/11701/Cantor.cpp")
-add_executable(N_nod_n "Divide and conquer/Binary search/11876/N nod n.cpp" "Divide and conquer/Binary search/11876/utils.cpp")
-add_executable(Grapevine "Divide and conquer/Binary search/12192/Grapevine.cpp" "Divide and conquer/Binary search/12192/utils.cpp")
-# Bisection method or binary search the answer
-add_executable(Solve_it "Divide and conquer/Bisection method or binary search the answer/10341/Solve it.cpp")
-
 # Adhoc
     # Anagram
     add_executable(Anagram "Ad hoc/Anagram/Anagram/Anagram.cpp")
@@ -180,3 +162,22 @@ add_executable(The_snail "Medium/The snail/The snail.cpp")
     add_executable(Cost_cutting "Super easy/Cost cutting/Cost cutting.cpp")
     add_executable(Division_of_nlogonia "Super easy/Division of nlogonia/Division of nlogonia.cpp")
     add_executable(Relational_operators "Super easy/Relational operators/Relational operators.cpp")
+
+# Divide and conquer
+    # Binary search
+    add_executable(Dropping_balls "Divide and conquer/Binary search/Dropping balls/Dropping balls.cpp")
+    add_executable(Popes "Divide and conquer/Binary search/Popes/Popes.cpp")
+    add_executable(The_stern_brocot_number_system "Divide and conquer/Binary search/10077/The Stern Brocot number system.cpp")
+    add_executable(Where_is_the_marble "Divide and conquer/Binary search/10474/Where is the marble.cpp" "Divide and conquer/Binary search/10474/utils.cpp")
+    add_executable(Helping_fill_bates "Divide and conquer/Binary search/10567/Helping Fill Bates.cpp")
+    add_executable(The_playboy_chimp "Divide and conquer/Binary search/10611/The playboy chimp.cpp")
+    add_executable(Number_sequence "Divide and conquer/Binary search/10706/Number sequence.cpp")
+    add_executable(The_new_rule_in_euphomia "Divide and conquer/Binary search/10742/The new rule in Euphomia.cpp" "Divide and conquer/Binary search/10742/utils.cpp")
+    add_executable(Exact_sum "Divide and conquer/Binary search/11057/Exact sum.cpp")
+    add_executable(Small_factors "Divide and conquer/Binary search/11621/Small factors.cpp" "Divide and conquer/Binary search/11621/utils.cpp")
+    add_executable(Cantor "Divide and conquer/Binary search/11701/Cantor.cpp")
+    add_executable(N_nod_n "Divide and conquer/Binary search/11876/N nod n.cpp" "Divide and conquer/Binary search/11876/utils.cpp")
+    add_executable(Grapevine "Divide and conquer/Binary search/12192/Grapevine.cpp" "Divide and conquer/Binary search/12192/utils.cpp")
+    # Bisection method or binary search the answer
+    add_executable(Solve_it "Divide and conquer/Bisection method or binary search the answer/10341/Solve it.cpp")
+    add_executable(The_monkey_and_the_oiled_bamboo "Divide and conquer/Bisection method or binary search the answer/12032/The monkey and the oiled bamboo.cpp")

@@ -5,9 +5,9 @@ set(CMAKE_CXX_STANDARD 11)
 
 # Introduction
     # Super easy
-    add_executable(Cost_cutting "Introduction/Super easy/Cost cutting/Cost cutting.cpp")
-    add_executable(Division_of_nlogonia "Introduction/Super easy/Division of nlogonia/Division of nlogonia.cpp")
-    add_executable(Relational_operators "Introduction/Super easy/Relational operators/Relational operators.cpp")
+    add_executable(Cost_cutting "Introduction/Super easy/11727/Cost cutting.cpp")
+    add_executable(Division_of_nlogonia "Introduction/Super easy/11498/Division of nlogonia.cpp")
+    add_executable(Relational_operators "Introduction/Super easy/11172/Relational operators.cpp")
     # Easy
     add_executable(Event_planning "Introduction/Easy/Event planning/Event planning.cpp")
     add_executable(Horror_dash "Introduction/Easy/Horror dash/Horror dash.cpp")

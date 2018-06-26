@@ -56,6 +56,8 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Firetruck "Complete search/Recursive backtracking/Hard/Firetruck/Firetruck.cpp" "Complete search/Recursive backtracking/Hard/Firetruck/utils.cpp")
         add_executable(LED_test "Complete search/Recursive backtracking/Hard/LED test/LED test.cpp" "Complete search/Recursive backtracking/Hard/LED test/utils.cpp")
         add_executable(Bank_not_quite_OCR "Complete search/Recursive backtracking/Hard/Bank not quite OCR/Bank not quite OCR.cpp" "Complete search/Recursive backtracking/Hard/Bank not quite OCR/utils.cpp")
+
+# Divide and conquer
 # Binary search
     add_executable(Dropping_balls "Divide and conquer/Binary search/Dropping balls/Dropping balls.cpp")
     add_executable(Popes "Divide and conquer/Binary search/Popes/Popes.cpp")
@@ -70,6 +72,8 @@ add_executable(Small_factors "Divide and conquer/Binary search/11621/Small facto
 add_executable(Cantor "Divide and conquer/Binary search/11701/Cantor.cpp")
 add_executable(N_nod_n "Divide and conquer/Binary search/11876/N nod n.cpp" "Divide and conquer/Binary search/11876/utils.cpp")
 add_executable(Grapevine "Divide and conquer/Binary search/12192/Grapevine.cpp" "Divide and conquer/Binary search/12192/utils.cpp")
+# Bisection method or binary search the answer
+add_executable(Solve_it "Divide and conquer/Bisection method or binary search the answer/10341/Solve it.cpp")
 
 # Adhoc
     # Anagram

@@ -4,6 +4,7 @@
 #include <sstream>
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
 using big_int = unsigned long long;
 

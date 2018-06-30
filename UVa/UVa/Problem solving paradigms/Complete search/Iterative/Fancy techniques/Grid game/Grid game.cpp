@@ -6,6 +6,7 @@
 
 #include <vector>
 #include <iostream>
+#include <algorithm>
 
 using ui = unsigned int;
 using ll = long long;

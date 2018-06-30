@@ -10,6 +10,7 @@
 #include <unordered_map>
 #include <iostream>
 #include <cassert>
+#include <algorithm>
 
 using BundledNewspapers = std::unordered_map<std::size_t, std::set<std::string>>;
 

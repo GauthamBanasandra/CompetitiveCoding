@@ -5,6 +5,7 @@
 #include <iostream>
 #include <sstream>
 #include <list>
+#include <tuple>
 
 using ll = unsigned long long;
 using mlh = std::tuple<std::string, ll, ll>;

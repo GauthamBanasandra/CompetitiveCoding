@@ -1,4 +1,5 @@
 #include <iostream>
+#include <bitset>
 
 int main(int argc, char *argv[]) {
     unsigned long long n, edges = 0, acorns = 0, vertices = 0;

@@ -7,6 +7,7 @@
 #include <vector>
 #include <math.h>
 #include <iomanip>
+#include <algorithm>
 
 void print(const std::vector<float> &drive_ratio);
 

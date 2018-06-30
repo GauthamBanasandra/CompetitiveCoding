@@ -5,6 +5,7 @@
 #include <utility>
 #include <vector>
 #include <iostream>
+#include <algorithm>
 
 enum class Operators { k_add, k_multiply, k_subtract };
 

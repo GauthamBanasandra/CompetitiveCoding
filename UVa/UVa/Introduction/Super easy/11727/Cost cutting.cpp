@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <ios>
+#include <algorithm>
 
 #define MAX_SIZE 3
 int salaries[MAX_SIZE];

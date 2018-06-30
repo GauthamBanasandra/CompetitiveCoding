@@ -8,6 +8,7 @@
 #include <unordered_set>
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
 void Print(const std::string &p1, const std::string &p2, const std::unordered_set<std::string> &child_types);
 

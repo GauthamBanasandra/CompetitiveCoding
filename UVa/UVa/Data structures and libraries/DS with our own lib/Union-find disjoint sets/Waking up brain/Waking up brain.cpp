@@ -2,6 +2,7 @@
 #include <unordered_set>
 #include <vector>
 #include <unordered_map>
+#include <bitset>
 
 #define N_AREAS 26
 #define REQ_LINKS_AWAKE 3

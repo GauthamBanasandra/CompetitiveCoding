@@ -7,6 +7,7 @@
 #include <unordered_set>
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
 class DNA {
 public:

@@ -5,6 +5,7 @@
 #include <unordered_map>
 #include <sstream>
 #include <vector>
+#include <algorithm>
 
 void print(const std::vector<int> &data);
 

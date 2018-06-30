@@ -6,6 +6,7 @@
 #include <sstream>
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
 void Print(const std::vector<std::string> &subsets);
 void Print(const std::vector<int> &subset);

@@ -5,6 +5,7 @@
 #include <iostream>
 #include <vector>
 #include <list>
+#include <bitset>
 #include <unordered_map>
 
 using Illumination = std::bitset<7>;

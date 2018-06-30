@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 
 #define MAX_ALPHA 200
 char alphabets[MAX_ALPHA];

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <sstream>
+#include <bitset>
 
 #define MAX_N 3010
 

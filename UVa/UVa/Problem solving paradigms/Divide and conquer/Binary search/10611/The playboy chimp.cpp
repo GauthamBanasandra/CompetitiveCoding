@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <algorithm>
 
 struct ChimpInfo {
   ChimpInfo() : shorter_height(-1), taller_height(-1) {}

@@ -4,6 +4,7 @@
 #include <vector>
 #include <unordered_map>
 #include <forward_list>
+#include <cmath>
 
 #define PAGE_ROW 60
 #define PAGE_COL 60
@@ -18,7 +19,7 @@ std::forward_list<std::pair<int, int>> pos_dirty;
 inline int Col(char cmd, int n) {
     switch (cmd) {
         case 'C':
-            return n & 1 ? MID_ODD - static_cast<int>(floor(n / 2.0)) - 1 : MID_EVEN - n / 2;
+            return n & 1 ? MID_ODD - static_cast<int>(std::floor(n / 2.0)) - 1 : MID_EVEN - n / 2;
 
         case 'R':
             return PAGE_COL - n;

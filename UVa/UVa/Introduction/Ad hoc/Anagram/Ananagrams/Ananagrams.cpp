@@ -4,6 +4,7 @@
 #include <sstream>
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
 int main(int argc, char *argv[]) {
   std::ios::sync_with_stdio(false);

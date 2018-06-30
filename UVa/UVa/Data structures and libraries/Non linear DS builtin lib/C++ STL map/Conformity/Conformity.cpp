@@ -2,6 +2,7 @@
 #include <sstream>
 #include <vector>
 #include <unordered_map>
+#include <algorithm>
 
 using big_int = long long;
 

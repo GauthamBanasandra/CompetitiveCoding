@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 #define MAX_N 10010
 
@@ -11,9 +12,9 @@ int main(int argc, char *argv[]) {
 
     do {
         std::cin >> list[n++];
-        nth_element(list.begin(), list.begin() + (n >> 1), list.begin() + n);
+        std::nth_element(list.begin(), list.begin() + (n >> 1), list.begin() + n);
         if (!(n & 1)) {
-            nth_element(list.begin(), list.begin() + (n >> 1) - 1, list.begin() + n);
+            std::nth_element(list.begin(), list.begin() + (n >> 1) - 1, list.begin() + n);
         }
 
         const auto median = n & 1 ? list[n >> 1] : list[n >> 1] + list[(n >> 1) - 1] >> 1;

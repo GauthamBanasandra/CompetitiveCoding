@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stack>
 #include <list>
+#include <algorithm>
 
 void GetAnagramicStackOps(const std::string &source, const std::string &target, std::list<std::string> &o_stack_ops) {
     std::string stack_ops;

@@ -4,6 +4,7 @@
 #include <unordered_map>
 #include <vector>
 #include <sstream>
+#include <algorithm>
 
 typedef unsigned long long big_int;
 

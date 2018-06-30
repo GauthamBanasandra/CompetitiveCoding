@@ -7,6 +7,7 @@
 #include <unordered_set>
 #include <vector>
 #include <iostream>
+#include <algorithm>
 
 void Print(const std::vector<int> &nums);
 

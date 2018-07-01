@@ -22,7 +22,7 @@ struct Dimension {
 
   Dimension BottomLeft() const {
     const auto &top_left = TopLeft();
-    return {num_rows - top_left.num_rows, num_columns};
+    return {num_rows - top_left.num_rows, top_left.num_columns};
   }
 
   Dimension BottomRight() const {
@@ -37,6 +37,22 @@ struct Dimension {
 struct Point {
   Point() : x(0), y(0) {}
   Point(int x, int y) : x(x), y(y) {}
+
+  Point TopLeft() const {
+    return {x, y};
+  }
+
+  Point TopRight(const Dimension &dimension) const {
+    return {x, y + dimension.num_columns};
+  }
+
+  Point BottomLeft(const Dimension &dimension) const {
+    return {x + dimension.num_rows, y};
+  }
+
+  Point BottomRight(const Dimension &dimension) const {
+    return {x + dimension.num_rows, y + dimension.num_columns};
+  }
 
   int x;
   int y;
@@ -63,7 +79,8 @@ std::string Matrix::Get(const Point &point) const {
   auto i = (point.x * dimension_.num_columns) + point.y;
   assert(i < data_.length());
 
-  return {1, data_[i]};
+  char data[2]{data_[i], '\0'};
+  return std::string(data);
 }
 
 class Compressor {
@@ -74,10 +91,10 @@ class Compressor {
 
  private:
   std::string Compress(Point &point, Dimension &dimension) const;
-  TopLeftInfo ComputeTopLeft(const Point &begin, const Dimension &parent_dim) const;
-  TopRightInfo ComputeTopRight(const TopLeftInfo &top_left_info, const Dimension &parent_dim) const;
-  BottomLeftInfo ComputeBottomLeft(const TopLeftInfo &top_left_info, const Dimension &parent_dim) const;
-  BottomRightInfo ComputeBottomRight(const TopLeftInfo &top_left_info, const Dimension &parent_dim) const;
+  Point ComputeTopRight(const Point &top_left_begin, const Dimension &top_left_dim) const;
+  Point ComputeBottomLeft(const Point &top_left_begin, const Dimension &top_left_dim) const;
+  Point ComputeBottomRight(const Point &top_left_begin, const Dimension &top_left_dim) const;
+  bool AllSame(const std::string &data) const;
 
   Matrix data_;
 };
@@ -85,7 +102,6 @@ class Compressor {
 std::string Compressor::Compress() const {
   Point begin{0, 0};
   auto dimension = data_.dimension_;
-
   return Compress(begin, dimension);
 }
 
@@ -97,49 +113,64 @@ std::string Compressor::Compress(Point &point, Dimension &dimension) const {
   }
 
   std::string res;
-  return std::string();
+  auto top_left_dim = dimension.TopLeft();
+  res += Compress(point, top_left_dim);
+
+  if (dimension.num_columns > 1) {
+    auto top_right_begin = ComputeTopRight(point, top_left_dim);
+    auto top_right_dim = dimension.TopRight();
+    res += Compress(top_right_begin, top_right_dim);
+  }
+
+  if (dimension.num_rows > 1) {
+    auto bottom_left_begin = ComputeBottomLeft(point, top_left_dim);
+    auto bottom_left_dim = dimension.BottomLeft();
+    res += Compress(bottom_left_begin, bottom_left_dim);
+  }
+
+  if ((dimension.num_columns > 1) && (dimension.num_rows > 1)) {
+    auto bottom_right_begin = ComputeBottomRight(point, top_left_dim);
+    auto bottom_right_dim = dimension.BottomRight();
+    res += Compress(bottom_right_begin, bottom_right_dim);
+  }
+
+  if (AllSame(res)) {
+    char data[2]{res[0], '\0'};
+    return std::string(data);
+  }
+
+  return "D" + res;
 }
 
-TopLeftInfo Compressor::ComputeTopLeft(const Point &begin, const Dimension &parent_dim) const {
-  Dimension top_left_dim{static_cast<int>(std::ceil(parent_dim.num_rows / 2.0)),
-                         static_cast<int>(std::ceil(parent_dim.num_columns / 2.0))};
-  return TopLeftInfo{begin, top_left_dim};
+Point Compressor::ComputeTopRight(const Point &top_left_begin, const Dimension &top_left_dim) const {
+  return {top_left_begin.x, top_left_begin.y + top_left_dim.num_columns};
 }
 
-TopRightInfo Compressor::ComputeTopRight(const TopLeftInfo &top_left_info, const Dimension &parent_dim) const {
-  const auto &top_left_begin = top_left_info.first;
-  const auto &top_left_dim = top_left_info.second;
-
-  Dimension top_right_dim{top_left_dim.num_rows, parent_dim.num_columns - top_left_dim.num_columns};
-  Point top_right_begin{top_left_begin.x, top_left_begin.y + top_left_dim.num_columns};
-  return TopRightInfo{top_right_begin, top_right_dim};
+Point Compressor::ComputeBottomLeft(const Point &top_left_begin, const Dimension &top_left_dim) const {
+  return {top_left_begin.x + top_left_dim.num_rows, top_left_begin.y};
 }
 
-BottomLeftInfo Compressor::ComputeBottomLeft(const TopLeftInfo &top_left_info, const Dimension &parent_dim) const {
-  const auto &top_left_begin = top_left_info.first;
-  const auto &top_left_dim = top_left_info.second;
-
-  Dimension bottom_left_dim{parent_dim.num_rows - top_left_dim.num_rows, parent_dim.num_columns};
-  Point bottom_left_begin{top_left_begin.x + top_left_dim.num_rows, top_left_begin.y};
-  return BottomLeftInfo{bottom_left_begin, bottom_left_dim};
+Point Compressor::ComputeBottomRight(const Point &top_left_begin, const Dimension &top_left_dim) const {
+  return {top_left_begin.x + top_left_dim.num_rows, top_left_begin.y + top_left_dim.num_columns};
 }
 
-BottomRightInfo Compressor::ComputeBottomRight(const TopLeftInfo &top_left_info, const Dimension &parent_dim) const {
-  const auto &top_left_begin = top_left_info.first;
-  const auto &top_left_dim = top_left_info.second;
+bool Compressor::AllSame(const std::string &data) const {
+  assert(data.length() > 1);
 
-  Dimension bottom_right_dim{parent_dim.num_rows - top_left_dim.num_rows,
-                             parent_dim.num_columns - top_left_dim.num_columns};
-  Point bottom_right_begin{top_left_begin.x + top_left_dim.num_rows, top_left_begin.y + top_left_dim.num_columns};
-  return BottomRightInfo{bottom_right_begin, bottom_right_dim};
+  auto test = data[0];
+  for (std::size_t i = 1; i < data.length(); ++i) {
+    if (test != data[i]) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 int main() {
-  std::string data = "12345678";
-  Dimension dimension{2, 4};
+  std::string data = "101111";
+  Dimension dimension{1, 6};
 
-  Matrix matrix(data, dimension);
-  Point point{1, 3};
-  std::cout << matrix.Get(point) << std::endl;
+  std::cout << Compressor(data, dimension).Compress() << std::endl;
   return 0;
 }

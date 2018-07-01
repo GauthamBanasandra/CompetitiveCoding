@@ -204,3 +204,5 @@ set(CMAKE_CXX_STANDARD 11)
         # Bisection method or binary search the answer
         add_executable(Solve_it "Problem solving paradigms/Divide and conquer/Bisection method or binary search the answer/10341/Solve it.cpp")
         add_executable(The_monkey_and_the_oiled_bamboo "Problem solving paradigms/Divide and conquer/Bisection method or binary search the answer/12032/The monkey and the oiled bamboo.cpp")
+        # Other divide & conquer problems
+        add_executable(Bit_maps "Problem solving paradigms/Divide and conquer/Other divide & conquer problems/183/Bit maps.cpp")

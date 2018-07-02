@@ -6,9 +6,8 @@
 #include <string>
 #include <sstream>
 #include <iostream>
+#include <queue>
 #include <cassert>
-
-using ull = unsigned long long;
 
 enum EventType {
     kFuelConsumption, kLeak, kGasStation, kMechanic, kGoal
@@ -17,8 +16,8 @@ enum EventType {
 struct Event {
     Event() : distance(0), value(0), type(EventType::kFuelConsumption) {}
 
-    ull distance;
-    ull value;
+    int distance;
+    int value;
     EventType type;
 };
 
@@ -62,28 +61,50 @@ Event ParseEvent(const std::string &event_str) {
 }
 
 float Simulate(const std::list<Event> &events) {
-    int leaks = 0;
-    float fuel_needed = 0.0f, consumption_rate = 0.0f;
-    ull previous_distance = 0;
-    auto it = events.begin();
+    int leaks = 0, previous_distance = 0;
+    float fuel_needed = 0.0f, consumption_rate;
+    std::priority_queue<float> fuel_requirements;
 
+    auto it = events.begin();
     auto event = *it;
     assert(event.type == EventType::kFuelConsumption);
 
     previous_distance = event.distance;
     consumption_rate = event.value / 100.0f;
 
-    std::cout << "previous_distance : " << previous_distance << "\tconsumption_rate : " << consumption_rate
-              << std::endl;
-
     for (++it; it != events.end(); ++it) {
         event = *it;
-        std::cout << "distance : " << event.distance << "\tevent : " << event.type << "\tvalue : " << event.value
-                  << std::endl;
+
+        auto distance_covered = event.distance - previous_distance;
+        fuel_needed += distance_covered * (consumption_rate + leaks);
+
+        switch (event.type) {
+            case kFuelConsumption:
+                consumption_rate = event.value / 100.0f;
+                break;
+
+            case kLeak:
+                ++leaks;
+                break;
+
+            case kGasStation:
+                fuel_requirements.emplace(fuel_needed);
+                fuel_needed = 0.0f;
+                break;
+
+            case kMechanic:
+                leaks = 0;
+                break;
+
+            case kGoal:
+                break;
+        }
+
+        previous_distance = event.distance;
     }
 
-    std::cout << std::endl;
-    return fuel_needed;
+    fuel_requirements.emplace(fuel_needed);
+    return fuel_requirements.top();
 }
 
 int main() {
@@ -95,8 +116,10 @@ int main() {
         events.emplace_back(event);
 
         if (event.type == EventType::kGoal) {
-            Simulate(events);
+            printf("%.3f\n", Simulate(events));
             events.clear();
         }
     }
+
+    return 0;
 }

@@ -9,8 +9,8 @@ set(CMAKE_CXX_STANDARD 11)
     add_executable(Division_of_nlogonia "Introduction/Super easy/11498/Division of nlogonia.cpp")
     add_executable(Relational_operators "Introduction/Super easy/11172/Relational operators.cpp")
     # Easy
-    add_executable(Event_planning "Introduction/Easy/Event planning/Event planning.cpp")
-    add_executable(Horror_dash "Introduction/Easy/Horror dash/Horror dash.cpp")
+    add_executable(Event_planning "Introduction/Easy/11559/Event planning.cpp")
+    add_executable(Horror_dash "Introduction/Easy/11799/Horror dash.cpp")
     # Medium
     add_executable(Bender_B_Rodriguez "Introduction/Medium/Bender B Rodriguez/Bender B Rodriguez.cpp")
     add_executable(Request_for_proposal "Introduction/Medium/Request for proposal/Request for proposal.cpp")

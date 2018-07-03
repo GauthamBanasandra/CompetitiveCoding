@@ -207,3 +207,7 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Through_the_desert "Problem solving paradigms/Divide and conquer/Bisection method or binary search the answer/11935/Through the desert.cpp")
         # Other divide & conquer problems
         add_executable(Bit_maps "Problem solving paradigms/Divide and conquer/Other divide & conquer problems/183/Bit maps.cpp")
+    # Greedy
+        # Classical
+        add_executable(Station_balance "Problem solving paradigms/Greedy/Classical/410/Station balance.cpp"
+                utils/print.cpp)

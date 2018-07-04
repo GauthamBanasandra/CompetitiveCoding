@@ -12,9 +12,9 @@ set(CMAKE_CXX_STANDARD 11)
     add_executable(Event_planning "Introduction/Easy/11559/Event planning.cpp")
     add_executable(Horror_dash "Introduction/Easy/11799/Horror dash.cpp")
     # Medium
-    add_executable(Bender_B_Rodriguez "Introduction/Medium/Bender B Rodriguez/Bender B Rodriguez.cpp")
-    add_executable(Request_for_proposal "Introduction/Medium/Request for proposal/Request for proposal.cpp")
-    add_executable(The_snail "Introduction/Medium/The snail/The snail.cpp")
+    add_executable(Bender_B_Rodriguez "Introduction/Medium/11507/Bender B Rodriguez.cpp")
+    add_executable(Request_for_proposal "Introduction/Medium/10141/Request for proposal.cpp")
+    add_executable(The_snail "Introduction/Medium/573/The snail.cpp")
     # Adhoc
         # Anagram
         add_executable(Anagram "Introduction/Ad hoc/Anagram/Anagram/Anagram.cpp")

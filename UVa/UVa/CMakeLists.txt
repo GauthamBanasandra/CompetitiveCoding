@@ -211,3 +211,5 @@ set(CMAKE_CXX_STANDARD 11)
         # Classical
         add_executable(Station_balance "Problem solving paradigms/Greedy/Classical/410/Station balance.cpp"
                 utils/print.cpp)
+        add_executable(Radar_installation "Problem solving paradigms/Greedy/Classical/1193/Radar installation.cpp"
+                utils/print.cpp)

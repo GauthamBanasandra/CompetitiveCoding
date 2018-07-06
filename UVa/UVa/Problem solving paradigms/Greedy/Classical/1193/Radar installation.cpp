@@ -20,10 +20,23 @@ struct Point {
     ll y;
 };
 
-bool IsGreater(double x, double y, double epsilon = 0.0000001, ll factor = 10000000) {
-    /*x = std::round(x * factor) / factor;
-    y = std::round(y * factor) / factor;*/
-    return std::abs(x - y) < epsilon;
+struct Range {
+    Range() : start(0.0), end(0.0) {}
+
+    Range(const Point &point, ll radius);
+
+    bool operator<(const Range &other) const {
+        return end == other.end ? start < other.start : end < other.end;
+    }
+
+    double start;
+    double end;
+};
+
+Range::Range(const Point &point, ll radius) {
+    auto term = std::sqrt((radius * radius) - (point.y * point.y));
+    start = point.x - term;
+    end = point.x + term;
 }
 
 void Print(const std::vector<Point> &points) {
@@ -32,25 +45,10 @@ void Print(const std::vector<Point> &points) {
     }
 }
 
-struct Radar {
-    Radar(const Point &point, ll c) : coverage(c) {
-        auto term = std::sqrt((coverage * coverage) - (point.y * point.y));
-        h = point.x > 0 ? point.x - term : point.x + term;
-    }
-
-    bool IsCovered(const Point &point) const {
-        const auto lhs = ((point.x - h) * (point.x - h)) + (point.y * point.y);
-        const auto rhs = coverage * coverage;
-        return lhs <= rhs;
-    }
-
-    double h;
-    ll coverage;
-};
-
 class RadarInstaller {
 public:
-    RadarInstaller(const std::vector<Point> &islands, ll radar_coverage);
+    RadarInstaller(const std::vector<Point> &islands, ll radar_coverage) : radar_coverage_(radar_coverage),
+                                                                           islands_(islands) {}
 
     ll EstimateRadars() const;
 
@@ -59,41 +57,29 @@ private:
     std::vector<Point> islands_;
 };
 
-RadarInstaller::RadarInstaller(const std::vector<Point> &islands, ll radar_coverage) : islands_(islands),
-                                                                                       radar_coverage_(radar_coverage) {
-    std::sort(islands_.begin(), islands_.end(),
-              [](const Point &p1, const Point &p2) -> bool {
-                  if (p1.x < p2.x) {
-                      return true;
-                  }
-
-                  if (p1.x == p2.x) {
-                      return p1.y < p2.y;
-                  }
-
-                  return false;
-              });
-}
-
 ll RadarInstaller::EstimateRadars() const {
-    auto island_it = islands_.begin();
-    if ((*island_it).y > radar_coverage_) {
-        return -1;
-    }
+    std::vector<Range> ranges;
+    ranges.reserve(islands_.size());
 
-    Radar radar(*island_it, radar_coverage_);
-
-    ll num_radars = 1;
-    for (++island_it; island_it != islands_.end(); ++island_it) {
-        if ((*island_it).y > radar_coverage_) {
+    for (const auto &island : islands_) {
+        if (island.y > radar_coverage_) {
             return -1;
         }
 
-        if (radar.IsCovered(*island_it)) {
-            continue;
+        ranges.emplace_back(island, radar_coverage_);
+    }
+
+    std::sort(ranges.begin(), ranges.end());
+    ll num_radars = 0;
+    for (std::size_t i = 0; i < ranges.size();) {
+        std::size_t j = 0;
+        for (j = i; j < ranges.size(); ++j) {
+            if (ranges[j].start > ranges[i].end) {
+                break;
+            }
         }
 
-        radar = Radar(*island_it, radar_coverage_);
+        i = j;
         ++num_radars;
     }
 
@@ -101,18 +87,9 @@ ll RadarInstaller::EstimateRadars() const {
 }
 
 int main() {
-    std::vector<Point> islands{
-            {-18, 14},
-            {-16, 67},
-            {3,   20},
-            {-32, 31},
-    };
+    ll n, r, x, y, t = 0;
+    std::vector<Point> islands;
 
-
-    std::cout << RadarInstaller(islands, 70).EstimateRadars() << std::endl;
-
-
-    /*ll n, r, x, y, t = 0;
     while (std::cin >> n >> r, n || r) {
         islands.clear();
         islands.reserve(static_cast<std::size_t >(n));
@@ -124,6 +101,5 @@ int main() {
 
         std::cout << "Case " << (++t) << ": " << RadarInstaller(islands, r).EstimateRadars() << std::endl;
     }
-*/
     return 0;
 }

@@ -21,9 +21,9 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Anagrams "Introduction/Ad hoc/Anagram/Anagrams/Anagrams.cpp")
         add_executable(Ananagrams "Introduction/Ad hoc/Anagram/Ananagrams/Ananagrams.cpp")
         # Card
-        add_executable(Bridge_hand_evaluator "Introduction/Ad hoc/Card/Bridge hand evaluator/Bridge hand evaluator.cpp")
-        add_executable(What_is_the_card "Introduction/Ad hoc/Card/What is the card/What is the card.cpp")
-        add_executable(Jollo "Introduction/Ad hoc/Card/Jollo/Jollo.cpp")
+        add_executable(Bridge_hand_evaluator "Introduction/Ad hoc/Card/462/Bridge hand evaluator.cpp")
+        add_executable(What_is_the_card "Introduction/Ad hoc/Card/10646/What is the card.cpp")
+        add_executable(Jollo "Introduction/Ad hoc/Card/12247/Jollo.cpp")
         # Chess
         add_executable(Chess "Introduction/Ad hoc/Chess/Chess/Chess.cpp")
         add_executable(Chessboard_in_fen "Introduction/Ad hoc/Chess/Chessboard in FEN/Chessboard in FEN.cpp")

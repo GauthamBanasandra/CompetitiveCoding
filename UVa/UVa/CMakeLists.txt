@@ -213,3 +213,5 @@ set(CMAKE_CXX_STANDARD 11)
                 utils/print.cpp)
         add_executable(Radar_installation "Problem solving paradigms/Greedy/Classical/1193/Radar installation.cpp"
                 utils/print.cpp)
+        add_executable(Minimal_coverage "Problem solving paradigms/Greedy/Classical/10020/Minimal coverage.cpp"
+                "Problem solving paradigms/Greedy/Classical/10020/utils.cpp")

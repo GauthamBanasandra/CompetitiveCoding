@@ -3,4 +3,4 @@ project(Hacker_cup)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(Tourist "Qualification round/Tourist.cpp" utils/print.cpp)
+add_executable(Tourist "Qualification round/Tourist/Tourist.cpp" utils/print.cpp)

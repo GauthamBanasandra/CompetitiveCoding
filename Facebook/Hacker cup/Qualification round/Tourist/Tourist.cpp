@@ -33,11 +33,9 @@ class Campus {
 public:
     explicit Campus(int n);
 
-    void Visit(int k, ll v) const;
+    std::vector<Attraction> Visit(int k, ll v) const;
 
 private:
-    bool IsSame(const std::vector<Attraction> &attractions) const;
-
     std::vector<Attraction> attractions_;
 
     int n_;
@@ -51,13 +49,10 @@ Campus::Campus(int n) : n_(n) {
     }
 }
 
-void Campus::Visit(int k, ll v) const {
+std::vector<Attraction> Campus::Visit(int k, ll v) const {
     auto attractions(attractions_);
-    std::vector<std::vector<Attraction>> visits;
 
-    for (int i = 0; i < n_; ++i) {
-        Print(n_, k, i, attractions);
-
+    for (ll i = 0; i < v % n_; ++i) {
         for (int j = 0; j < k; ++j) {
             ++attractions[j].visits;
         }
@@ -66,46 +61,39 @@ void Campus::Visit(int k, ll v) const {
                   [](const Attraction &a1, const Attraction &a2) -> bool {
                       return a1.visits == a2.visits ? a1.popularity > a2.popularity : a1.visits < a2.visits;
                   });
-
-        visits.emplace_back(attractions);
-
-        if (IsSame(attractions)) {
-            Print(n_, k, i + 1, attractions);
-            break;
-        }
     }
 
-    std::cout << visits.size() << std::endl;
-    assert(attractions == attractions_);
-}
+    std::sort(attractions.begin(), attractions.begin() + k,
+              [](const Attraction &a1, const Attraction &a2) -> bool {
+                  return a1.popularity > a2.popularity;
+              });
 
-bool Campus::IsSame(const std::vector<Attraction> &attractions) const {
-    assert(!attractions.empty() && !attractions_.empty());
-
-    auto visits = attractions[0].visits;
-    for (std::size_t i = 0; i < n_; ++i) {
-        if (attractions[i] != attractions_[i]) {
-            return false;
-        }
-
-        if (attractions[i].visits != visits) {
-            return false;
-        }
-    }
-
-    return true;
+    return std::vector<Attraction>(attractions.begin(), attractions.begin() + k);
 }
 
 int main() {
+    int t, k, n;
+    ll v;
+    std::vector<std::string> attraction_names;
 
-    const auto max_n = 50;
-    for (int n = 1; n <= max_n; ++n) {
-        std::cout << "n = " << n << std::endl;
-        for (int k = 1; k <= n; ++k) {
-            std::cout << "k = " << k << std::endl;
-            Campus(n).Visit(k, 10);
-            std::cout << std::endl;
+    std::cin >> t;
+    for (int i = 1; i <= t; ++i) {
+        attraction_names.clear();
+        std::cin >> n >> k >> v;
+
+        attraction_names.resize(n);
+        for (int j = 0; j < n; ++j) {
+            std::cin >> attraction_names[j];
         }
+
+        std::cout << "Case #" << i << ": ";
+        std::string attractions_visit;
+        for (const auto attraction : Campus(n).Visit(k, v - 1)) {
+            attractions_visit += attraction_names[attraction.id] + " ";
+        }
+
+        attractions_visit.pop_back();
+        std::cout << attractions_visit << std::endl;
     }
 
     return 0;

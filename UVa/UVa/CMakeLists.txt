@@ -16,10 +16,10 @@ set(CMAKE_CXX_STANDARD 11)
     add_executable(Request_for_proposal "Introduction/Medium/10141/Request for proposal.cpp")
     add_executable(The_snail "Introduction/Medium/573/The snail.cpp")
     # Adhoc
-        # Anagram
-        add_executable(Anagram "Introduction/Ad hoc/Anagram/Anagram/Anagram.cpp")
-        add_executable(Anagrams "Introduction/Ad hoc/Anagram/Anagrams/Anagrams.cpp")
-        add_executable(Ananagrams "Introduction/Ad hoc/Anagram/Ananagrams/Ananagrams.cpp")
+        # 195
+        add_executable(Anagram "Introduction/Ad hoc/Anagram/195/Anagram.cpp")
+        add_executable(Anagrams "Introduction/Ad hoc/Anagram/454/Anagrams.cpp")
+        add_executable(Ananagrams "Introduction/Ad hoc/Anagram/156/Ananagrams.cpp")
         # Card
         add_executable(Bridge_hand_evaluator "Introduction/Ad hoc/Card/462/Bridge hand evaluator.cpp")
         add_executable(What_is_the_card "Introduction/Ad hoc/Card/10646/What is the card.cpp")

@@ -1,3 +1,5 @@
+// WA
+
 #include <iostream>
 #include <set>
 #include <unordered_set>
@@ -43,7 +45,7 @@ int main(int argc, char *argv[]) {
     }
 
     for (const auto an_key : an_keys) {
-      sort(an[an_key].begin(), an[an_key].end());
+      std::sort(an[an_key].begin(), an[an_key].end());
 
       for (big_int i = 0, len = an[an_key].size(); i < len - 1; ++i) {
         for (big_int j = i + 1; j < len; ++j) {

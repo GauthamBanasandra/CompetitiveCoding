@@ -5,14 +5,19 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <ios>
 #include <cassert>
+
+using ll = long long;
 
 struct Interval {
   Interval() : start(0), end(0) {}
 
   Interval(long start, long end) : start(start), end(end) {}
 
-  bool TryExpand(const Interval &other);
+  bool operator<(const Interval &other) {
+    return start == other.start ? end > other.end : start < other.start;
+  }
 
   long start;
   long end;
@@ -20,27 +25,20 @@ struct Interval {
 
 void Print(const std::vector<std::pair<Interval, Interval>> &intervals);
 
-bool Interval::TryExpand(const Interval &other) {
-  auto expanded = false;
+struct MinimalIntervalsInfo {
+  MinimalIntervalsInfo(bool is_possible) : is_possible(is_possible) {}
+  MinimalIntervalsInfo(bool is_possible, const std::vector<Interval> &intervals)
+      : is_possible(is_possible), intervals(intervals) {}
 
-  if (other.start < start) {
-    start = other.start;
-    expanded = true;
-  }
-
-  if (other.end > end) {
-    end = other.end;
-    expanded = true;
-  }
-
-  return expanded;
-}
+  bool is_possible;
+  std::vector<Interval> intervals;
+};
 
 class MinimalIntervals {
  public:
-  MinimalIntervals(const std::vector<Interval> &intervals, long m) : m_(m), intervals_(intervals) {}
+  MinimalIntervals(const std::vector<Interval> &intervals, long m) : intervals_(intervals), m_(m) {}
 
-  std::vector<Interval> Filter() const;
+  MinimalIntervalsInfo Filter() const;
 
  private:
   std::vector<std::pair<Interval, Interval>> Filter0M() const;
@@ -49,25 +47,50 @@ class MinimalIntervals {
   std::vector<Interval> intervals_;
 };
 
-std::vector<Interval> MinimalIntervals::Filter() const {
-  Interval covered;
-  std::vector<Interval> minimal_intervals;
-
-  for (const auto &interval : Filter0M()) {
-    if (covered.TryExpand(interval.second)) {
-      minimal_intervals.emplace_back(interval.first);
-    }
+MinimalIntervalsInfo MinimalIntervals::Filter() const {
+  auto intervals = Filter0M();
+  if (intervals.empty()) {
+    return MinimalIntervalsInfo{false};
   }
 
-  return minimal_intervals;
+  auto first = intervals[0].second;
+  if (first.start != 0) {
+    return MinimalIntervalsInfo{false};
+  }
+
+  std::vector<Interval> minimal{intervals[0].first};
+  auto m = first.end;
+
+  for (std::size_t i = 0, j = 0; m < m_;) {
+    // Select an interval
+    auto current = intervals[i];
+
+    // Find its successor such that among the ones overlapping
+    // with the selected interval, the uncovered distance is maximum
+    auto i_successor = i;
+    for (j = i; j < intervals.size() && intervals[j].second.start <= current.second.end; ++j) {
+      if (intervals[j].second.end > m) {
+        i_successor = j;
+        m = intervals[j].second.end;
+      }
+    }
+
+    // Break out if a successor can't be found
+    if (i_successor == i) {
+      break;
+    }
+
+    i = i_successor;
+    minimal.emplace_back(intervals[i].first);
+  }
+
+  return MinimalIntervalsInfo{m >= m_, minimal};
 }
 
 std::vector<std::pair<Interval, Interval>> MinimalIntervals::Filter0M() const {
   std::vector<std::pair<Interval, Interval>> filtered_intervals;
 
   for (const auto interval : intervals_) {
-    assert(interval.start < interval.end);
-
     if ((interval.end < 0) || (interval.start > m_)) {
       continue;
     }
@@ -76,21 +99,22 @@ std::vector<std::pair<Interval, Interval>> MinimalIntervals::Filter0M() const {
                                                        interval.end <= m_ ? interval.end : m_});
   }
 
+  std::sort(filtered_intervals.begin(), filtered_intervals.end(),
+            [](const std::pair<Interval, Interval> &a, const std::pair<Interval, Interval> &b) -> bool {
+              return a.second.start == b.second.start ? a.second.end > b.second.end : a.second.start < b.second.start;
+            });
   return filtered_intervals;
 }
 
 int main() {
-  long m = 20, start, end;
-  long long t;
-  std::vector<Interval> intervals{
-      {-10, 2},
-      {-20, 1},
-      {1, 15},
-      {2, 32},
-  };
+  std::ios::sync_with_stdio(false);
+
+  long m, start, end;
+  ll t;
+  std::vector<Interval> intervals;
 
   std::cin >> t;
-  while (t-- > 0) {
+  for (ll i = 0; i < t; ++i) {
     intervals.clear();
 
     std::cin >> m;
@@ -98,13 +122,19 @@ int main() {
       intervals.emplace_back(start, end);
     }
 
-    intervals = MinimalIntervals(intervals, m).Filter();
-    std::cout << intervals.size() << std::endl;
-    for (const auto &interval : intervals) {
-      std::cout << interval.start << " " << interval.end << std::endl;
+    if (i > 0) {
+      std::cout << std::endl;
     }
 
-    std::cout << std::endl;
+    auto info = MinimalIntervals(intervals, m).Filter();
+    if (info.is_possible) {
+      std::cout << info.intervals.size() << std::endl;
+      for (const auto &interval : info.intervals) {
+        std::cout << interval.start << " " << interval.end << std::endl;
+      }
+    } else {
+      std::cout << 0 << std::endl;
+    }
   }
 
   return 0;

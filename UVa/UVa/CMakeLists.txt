@@ -215,3 +215,4 @@ set(CMAKE_CXX_STANDARD 11)
                 utils/print.cpp)
         add_executable(Minimal_coverage "Problem solving paradigms/Greedy/Classical/10020/Minimal coverage.cpp"
                 "Problem solving paradigms/Greedy/Classical/10020/utils.cpp")
+        add_executable(Watering_grass "Problem solving paradigms/Greedy/Classical/10382/Watering grass.cpp")

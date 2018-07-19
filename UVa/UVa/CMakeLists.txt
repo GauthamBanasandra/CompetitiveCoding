@@ -24,10 +24,10 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Bridge_hand_evaluator "Introduction/Ad hoc/Card/462/Bridge hand evaluator.cpp")
         add_executable(What_is_the_card "Introduction/Ad hoc/Card/10646/What is the card.cpp")
         add_executable(Jollo "Introduction/Ad hoc/Card/12247/Jollo.cpp")
-        # Chess
-        add_executable(Chess "Introduction/Ad hoc/Chess/Chess/Chess.cpp")
-        add_executable(Chessboard_in_fen "Introduction/Ad hoc/Chess/Chessboard in FEN/Chessboard in FEN.cpp")
-        add_executable(How_many_knights "Introduction/Ad hoc/Chess/How many knights/How many knights.cpp")
+        # 278
+        add_executable(Chess "Introduction/Ad hoc/Chess/278/Chess.cpp")
+        add_executable(Chessboard_in_fen "Introduction/Ad hoc/Chess/10284/Chessboard in FEN.cpp")
+        add_executable(How_many_knights "Introduction/Ad hoc/Chess/696/How many knights.cpp")
         # Others
         add_executable(Bowling "Introduction/Ad hoc/Others/Bowling/Bowling.cpp")
         add_executable(Hangman_judge "Introduction/Ad hoc/Others/Hangman judge/Hangman judge.cpp")

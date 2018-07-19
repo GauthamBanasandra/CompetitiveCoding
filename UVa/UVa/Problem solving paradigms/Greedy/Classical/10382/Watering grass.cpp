@@ -9,18 +9,19 @@
 #include <cassert>
 #include <string>
 #include <sstream>
+#include <ios>
 
 struct Interval {
   Interval() : start(0), end(0) {}
 
-  Interval(float start, float end) : start(start), end(end) {}
+  Interval(double start, double end) : start(start), end(end) {}
 
   bool operator<(const Interval &other) {
     return start == other.start ? end > other.end : start < other.start;
   }
 
-  float start;
-  float end;
+  double start;
+  double end;
 };
 
 struct Sprinkler {
@@ -43,12 +44,16 @@ class MinimalSprinkler {
 };
 
 std::vector<Interval> MinimalSprinkler::Transform(const std::vector<Sprinkler> &sprinklers) const {
-  float height_half = width_ / 2.0f;
+  double height_half = width_ / 2.0f;
   std::vector<Interval> intervals;
 
   for (const Sprinkler &sprinkler:sprinklers) {
+    if (sprinkler.radius < height_half) {
+      continue;
+    }
+
     const auto dx = std::sqrt(sprinkler.radius * sprinkler.radius - height_half * height_half);
-    intervals.emplace_back(sprinkler.offset - dx, sprinkler.offset + dx);
+    intervals.emplace_back(std::max(sprinkler.offset - dx, 0.0), sprinkler.offset + dx);
   }
 
   return intervals;
@@ -57,21 +62,18 @@ std::vector<Interval> MinimalSprinkler::Transform(const std::vector<Sprinkler> &
 long MinimalSprinkler::Filter(const std::vector<Sprinkler> &sprinklers) const {
   long minimal = 1;
   auto intervals = Transform(sprinklers);
-  assert(!intervals.empty());
-
-  /*for (std::size_t i = 0; i < sprinklers.size(); ++i) {
-    printf("(%ld, %ld) -> (%f, %f)\n",
-           sprinklers[i].offset,
-           sprinklers[i].radius,
-           intervals[i].start,
-           intervals[i].end);
-  }*/
+  if (intervals.empty()) {
+    return -1;
+  }
 
   std::sort(intervals.begin(), intervals.end());
 
   auto current = intervals[0];
-  auto current_len = current.end;
+  if (current.start > 0) {
+    return -1;
+  }
 
+  auto current_len = current.end;
   for (std::size_t i = 0, j = 0; current_len < length_;) {
     current = intervals[i];
 
@@ -95,36 +97,18 @@ long MinimalSprinkler::Filter(const std::vector<Sprinkler> &sprinklers) const {
 }
 
 int main() {
-  std::vector<Sprinkler> sprinklers{
-      /*{5, 3},
-      {4, 1},
-      {1, 2},
-      {7, 2},
-      {10, 2},
-      {13, 3},
-      {16, 2},
-      {19, 4}*/
-
-      /*{3, 5},
-      {9, 3},
-      {6, 1}*/
-
-      /*{5, 3},
-      {1, 1},
-      {9, 1}*/
-  };
-
-//  std::cout << MinimalSprinkler(10l, 1l).Filter(sprinklers) << std::endl;
+  std::ios::sync_with_stdio(false);
 
   long n, l, w, offset, r;
   std::string line;
+  std::vector<Sprinkler> sprinklers;
+
   while (std::getline(std::cin, line), !std::cin.eof()) {
     sprinklers.clear();
     std::istringstream tokenizer(line);
     tokenizer >> n >> l >> w;
 
-//    sprinklers.resize(static_cast<std::size_t>(n));
-
+    sprinklers.reserve(static_cast<std::size_t>(n));
     while (n-- > 0) {
       std::getline(std::cin, line);
       std::istringstream line_tokenizer(line);

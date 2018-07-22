@@ -2,11 +2,12 @@
 // Created by gautham on 21/7/18.
 //
 
-// TLE
-
 #include <vector>
 #include <string>
 #include <iostream>
+#include <unordered_map>
+#include <sstream>
+#include <ios>
 #include <cassert>
 
 using ll = long long;
@@ -82,22 +83,23 @@ class Plumbing {
   explicit Plumbing(Layout &layout) : layout_(layout) {}
 
   ll Install();
-  void Install(Cell &cell, WaterDirection water_direction, ll &count);
+
+ private:
+  ll Add(ll a, ll b);
+  ll Hash(const Cell &cell, PipeConfiguration pipe_config);
+  void Install(Cell &cell, WaterDirection water_direction, ll &count, std::unordered_map<ll, ll> &memory);
   std::vector<PipeConfiguration> GetPipeConfigurations(WaterDirection water_direction);
   Consequence GetConsequence(WaterDirection water_direction, PipeConfiguration pipe_config, Cell &cell);
 
- private:
   Layout &layout_;
 };
 
-void Plumbing::Install(Cell &cell, WaterDirection water_direction, ll &count) {
+void Plumbing::Install(Cell &cell,
+                       WaterDirection water_direction,
+                       ll &count,
+                       std::unordered_map<ll, ll> &memory) {
   if (layout_.IsDestinationCell(cell)) {
-    ++count;
-    std::cout << count << std::endl;
-    if (count >= 1000000007) {
-      count %= 1000000007;
-    }
-
+    count = Add(count, 1);
     return;
   }
 
@@ -106,10 +108,24 @@ void Plumbing::Install(Cell &cell, WaterDirection water_direction, ll &count) {
   }
 
   for (const auto &pipe_config : GetPipeConfigurations(water_direction)) {
+    auto key = Hash(cell, pipe_config);
+    auto find_it = memory.find(key);
+    if (find_it != memory.end()) {
+      count = Add(count, find_it->second);
+      continue;
+    }
+
     auto consequence = GetConsequence(water_direction, pipe_config, cell);
 
     layout_.Mark(cell);
-    Install(consequence.cell, consequence.water_direction, count);
+
+    ll local_count = 0;
+    Install(consequence.cell, consequence.water_direction, local_count, memory);
+    local_count = Add(local_count, 0);
+
+    memory[key] = local_count;
+    count = Add(count, local_count);
+
     layout_.UnMark(cell);
   }
 }
@@ -166,20 +182,45 @@ Consequence Plumbing::GetConsequence(WaterDirection water_direction, PipeConfigu
 ll Plumbing::Install() {
   ll count = 0;
   Cell top_left;
+  std::unordered_map<ll, ll> memory;
 
-  Install(top_left, kLeftRight, count);
+  Install(top_left, kLeftRight, count, memory);
   return count;
 }
 
-int main() {
-  int num_rows = 3, num_columns = 70;
-  std::vector<std::string> raw_layout{
-      "......................................................................",
-      "......................................................................",
-      "......................................................................"
-  };
+ll Plumbing::Hash(const Cell &cell, PipeConfiguration pipe_config) {
+  assert(layout_.IsInside(cell));
 
-  Layout layout(num_rows, num_columns, raw_layout);
-  std::cout << Plumbing(layout).Install() << std::endl;
+  auto hash = cell.x * 100 + cell.y * 10000;
+  switch (pipe_config) {
+    case kA:return hash + 1;
+    case kB:return hash + 2;
+    case kC:return hash + 3;
+    case kD:return hash + 4;
+  }
+}
+
+ll Plumbing::Add(ll a, ll b) {
+  ll c = a + b;
+  return c >= 1000000007 ? c % 1000000007 : c;
+}
+
+int main() {
+  std::ios::sync_with_stdio(false);
+
+  int t, num_rows = 3, num_columns = -1;
+  std::vector<std::string> raw_layout(static_cast<std::size_t >(num_rows));
+
+  std::cin >> t;
+  for (int i = 1; i <= t; ++i) {
+    std::cin >> num_columns;
+    for (int j = 0; j < num_rows; ++j) {
+      std::cin >> raw_layout[j];
+    }
+
+    Layout layout(num_rows, num_columns, raw_layout);
+    std::cout << "Case #" << i << ": " << Plumbing(layout).Install() << std::endl;
+  }
+
   return 0;
 }

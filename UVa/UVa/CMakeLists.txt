@@ -35,9 +35,9 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Snakes_and_ladders "Introduction/Ad hoc/Others/11459/Snakes and ladders.cpp")
         add_executable(Traditional_BINGO "Introduction/Ad hoc/Others/10813/Traditional BINGO.cpp")
         # Palindrome
-        add_executable(Magic_square_palindromes "Introduction/Ad hoc/Palindrome/Magic square palindromes/Magic square palindromes.cpp")
-        add_executable(Mother_bear "Introduction/Ad hoc/Palindrome/Mother bear/Mother bear.cpp")
-        add_executable(Palindromes "Introduction/Ad hoc/Palindrome/Palindromes/Palindromes.cpp")
+        add_executable(Magic_square_palindromes "Introduction/Ad hoc/Palindrome/11221/Magic square palindromes.cpp")
+        add_executable(Mother_bear "Introduction/Ad hoc/Palindrome/10945/Mother bear.cpp")
+        add_executable(Palindromes "Introduction/Ad hoc/Palindrome/401/Palindromes.cpp")
         # Real life problems
         add_executable(Beat_the_spread "Introduction/Ad hoc/Real life problems/Beat the spread/Beat the spread.cpp")
         add_executable(Boolket_printing "Introduction/Ad hoc/Real life problems/Booklet printing/Booklet printing.cpp")

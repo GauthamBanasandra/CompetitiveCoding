@@ -4,17 +4,15 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
-#include <algorithm>
+#include <queue>
 #include <cassert>
 
 struct ScanInfo {
   ScanInfo() : coverage(0), i_scarecrow(0), miss(false) {}
   ScanInfo(int coverage) : coverage(coverage), i_scarecrow(0), miss(false) {}
-  ScanInfo(int coverage, size_t i_scarecrow) : coverage(coverage), i_scarecrow(i_scarecrow), miss(false) {}
 
-  bool operator<(const ScanInfo &other) const {
-    return coverage == other.coverage ? i_scarecrow < other.i_scarecrow : coverage > other.coverage;
+  bool operator>(const ScanInfo &other) const {
+    return coverage == other.coverage ? i_scarecrow > other.i_scarecrow : coverage < other.coverage;
   }
 
   int coverage;
@@ -22,7 +20,7 @@ struct ScanInfo {
   bool miss;
 };
 
-using Scans = std::vector<ScanInfo>;
+using Scans = std::priority_queue<ScanInfo, std::vector<ScanInfo>, std::greater<ScanInfo>>;
 
 class Field {
  public:
@@ -100,7 +98,7 @@ int ScarecrowAllocator::Minimal() {
     for (; i < field_.Length(); ++i) {
       auto info = field_.Scan(i);
       if (info.coverage != 0) {
-        scans.emplace_back(info);
+        scans.emplace(info);
       }
 
       if (info.miss) {
@@ -112,8 +110,7 @@ int ScarecrowAllocator::Minimal() {
       break;
     }
 
-    std::sort(scans.begin(), scans.end());
-    auto info = scans.front();
+    auto info = scans.top();
     field_.Mark(info.i_scarecrow);
     i = info.i_scarecrow + 2;
     Scans().swap(scans);
@@ -123,17 +120,6 @@ int ScarecrowAllocator::Minimal() {
 }
 
 int main() {
-//  std::cout << ScarecrowAllocator("...##....##").Minimal() << std::endl;
-  /*Scans scans;
-  scans.emplace_back(ScanInfo{2, 0});
-  scans.emplace_back(ScanInfo{3, 2});
-  scans.emplace_back(ScanInfo{3, 1});
-  std::sort(scans.begin(), scans.end());
-
-  auto top = scans.front();
-  std::cout << "Coverage : " << top.coverage << std::endl;
-  std::cout << "Index : " << top.i_scarecrow << std::endl;*/
-
   std::string field;
   int t, field_length;
   std::cin >> t;

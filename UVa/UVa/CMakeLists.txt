@@ -39,15 +39,15 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Mother_bear "Introduction/Ad hoc/Palindrome/10945/Mother bear.cpp")
         add_executable(Palindromes "Introduction/Ad hoc/Palindrome/401/Palindromes.cpp")
         # Real life problems
-        add_executable(Beat_the_spread "Introduction/Ad hoc/Real life problems/Beat the spread/Beat the spread.cpp")
-        add_executable(Boolket_printing "Introduction/Ad hoc/Real life problems/Booklet printing/Booklet printing.cpp")
-        add_executable(Consanguine_calculations "Introduction/Ad hoc/Real life problems/Consanguine calculations/Consanguine calculations.cpp"
-                "Introduction/Ad hoc/Real life problems/Consanguine calculations/utils.cpp")
-        add_executable(Counterfeit_dollar "Introduction/Ad hoc/Real life problems/Counterfeit dollar/Counterfeit dollar.cpp")
-        add_executable(Postscript "Introduction/Ad hoc/Real life problems/Postscript/Postscript.cpp"
-                "Introduction/Ad hoc/Real life problems/Postscript/util.cpp")
-        add_executable(Traffic_lights "Introduction/Ad hoc/Real life problems/Traffic lights/Traffic lights.cpp"
-                "Introduction/Ad hoc/Real life problems/Traffic lights/utils.cpp")
+        add_executable(Beat_the_spread "Introduction/Ad hoc/Real life problems/10812/Beat the spread.cpp")
+        add_executable(Boolket_printing "Introduction/Ad hoc/Real life problems/637/Booklet printing.cpp")
+        add_executable(Consanguine_calculations "Introduction/Ad hoc/Real life problems/1061/Consanguine calculations.cpp"
+                "Introduction/Ad hoc/Real life problems/1061/utils.cpp")
+        add_executable(Counterfeit_dollar "Introduction/Ad hoc/Real life problems/608/Counterfeit dollar.cpp")
+        add_executable(Postscript "Introduction/Ad hoc/Real life problems/403/Postscript.cpp"
+                "Introduction/Ad hoc/Real life problems/403/util.cpp")
+        add_executable(Traffic_lights "Introduction/Ad hoc/Real life problems/161/Traffic lights.cpp"
+                "Introduction/Ad hoc/Real life problems/161/utils.cpp")
         # Time
         add_executable(Clock_hands "Introduction/Ad hoc/Time/Clock hands/Clock hands.cpp")
         # Solved in Java - Clock hands

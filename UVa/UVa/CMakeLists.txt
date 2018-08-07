@@ -220,3 +220,5 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Coin_collector "Problem solving paradigms/Greedy/Classical/11264/Coin collector.cpp")
         add_executable(Gas_stations "Problem solving paradigms/Greedy/Classical/12321/Gas stations.cpp")
         add_executable(Scarecrow "Problem solving paradigms/Greedy/Classical/12405/Scarecrow.cpp")
+        # Involving sorting
+        add_executable(Bridge "Problem solving paradigms/Greedy/Involving sorting/10037/Bridge.cpp")

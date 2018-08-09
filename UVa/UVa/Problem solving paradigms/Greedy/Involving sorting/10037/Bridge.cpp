@@ -2,6 +2,7 @@
 // Created by gautham on 7/8/18.
 //
 
+// WA
 #include <iostream>
 #include <set>
 #include <vector>
@@ -216,13 +217,13 @@ int main() {
       100,
   };
 
-  Site source(crossing_times, "source");
+  /*Site source(crossing_times, "source");
   Site destination("destination");
   BridgeCrossing crossing(source, destination);
   auto events = crossing.Start();
-  PrintStrategy(events);
+  PrintStrategy(events);*/
 
-  /*std::cin >> t;
+  std::cin >> t;
   for (int i = 1; i <= t; ++i) {
     if (i > 1) {
       std::cout << std::endl;
@@ -246,6 +247,6 @@ int main() {
     BridgeCrossing crossing(source, destination);
     auto events = crossing.Start();
     PrintStrategy(events);
-  }*/
+  }
   return 0;
 }

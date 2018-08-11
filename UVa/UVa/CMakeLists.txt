@@ -49,8 +49,8 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Traffic_lights "Introduction/Ad hoc/Real life problems/161/Traffic lights.cpp"
                 "Introduction/Ad hoc/Real life problems/161/utils.cpp")
         # Time
-        add_executable(Clock_hands "Introduction/Ad hoc/Time/Clock hands/Clock hands.cpp")
-        # Solved in Java - Clock hands
+        add_executable(Clock_hands "Introduction/Ad hoc/Time/579/Clock hands.cpp")
+        # Solved in Java - Cancer or scorpio
         # Solved in Java - Y3K
         # Time waster problems
         add_executable(All_integer_average "Introduction/Ad hoc/Time waster problems/All integer average/All integer average.cpp")

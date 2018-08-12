@@ -53,8 +53,8 @@ set(CMAKE_CXX_STANDARD 11)
         # Solved in Java - Cancer or scorpio
         # Solved in Java - Y3K
         # Time waster problems
-        add_executable(All_integer_average "Introduction/Ad hoc/Time waster problems/All integer average/All integer average.cpp")
-        add_executable(Mobile_casanova "Introduction/Ad hoc/Time waster problems/Mobile casanova/Mobile casanova.cpp")
+        add_executable(All_integer_average "Introduction/Ad hoc/Time waster problems/12060/All integer average.cpp")
+        add_executable(Mobile_casanova "Introduction/Ad hoc/Time waster problems/12085/Mobile casanova.cpp")
 
 # Data structures and libraries
     # Linear DS builtin lib

@@ -223,3 +223,4 @@ set(CMAKE_CXX_STANDARD 11)
         # Involving sorting
         add_executable(Bridge "Problem solving paradigms/Greedy/Involving sorting/10037/Bridge.cpp")
         add_executable(The_grand_dinner "Problem solving paradigms/Greedy/Involving sorting/10249/The grand dinner.cpp")
+        add_executable(Foriegn_exchange "Problem solving paradigms/Greedy/Involving sorting/10763/Foreign exchange.cpp")

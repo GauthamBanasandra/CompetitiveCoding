@@ -59,9 +59,9 @@ set(CMAKE_CXX_STANDARD 11)
 # Data structures and libraries
     # Linear DS builtin lib
         # 1D array manipulation
-        add_executable(Army_buddies "Data structures and libraries/Linear DS builtin lib/1D array manipulation/Army buddies/Army buddies.cpp")
-        add_executable(Jolly_jumpers "Data structures and libraries/Linear DS builtin lib/1D array manipulation/Jolly jumpers/Jolly jumpers.cpp")
-        add_executable(Newspaper "Data structures and libraries/Linear DS builtin lib/1D array manipulation/Newspaper/Newspaper.cpp")
+        add_executable(Army_buddies "Data structures and libraries/Linear DS builtin lib/1D array manipulation/12356/Army buddies.cpp")
+        add_executable(Jolly_jumpers "Data structures and libraries/Linear DS builtin lib/1D array manipulation/10038/Jolly jumpers.cpp")
+        add_executable(Newspaper "Data structures and libraries/Linear DS builtin lib/1D array manipulation/11340/Newspaper.cpp")
         # 2D array manipulation
         add_executable(Grid_successor "Data structures and libraries/Linear DS builtin lib/2D array manipulation/Grid successor/Grid successor.cpp")
         add_executable(Rotated_squares "Data structures and libraries/Linear DS builtin lib/2D array manipulation/Rotated squares/Rotated squares.cpp")

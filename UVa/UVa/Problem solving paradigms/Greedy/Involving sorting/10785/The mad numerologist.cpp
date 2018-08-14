@@ -6,6 +6,9 @@
 #include <queue>
 #include <string>
 #include <cassert>
+#include <ios>
+
+using LexicographicOrder = std::priority_queue<char, std::vector<char>, std::greater<char>>;
 
 struct Alphabet {
   Alphabet() : name('\0'), value(-1) {}
@@ -26,10 +29,11 @@ class Numerology {
 
  private:
   void HandleAlphabet(std::priority_queue<Alphabet> &alphabets,
-                      std::size_t i,
-                      std::string &name,
+                      LexicographicOrder &to_alphabets,
                       int &num_left,
                       int max_num_left);
+
+  std::string GetName(LexicographicOrder &vowels, LexicographicOrder &consonants) const;
 
   const int max_vowels_;
   const int max_consonants_;
@@ -55,29 +59,28 @@ Numerology::Numerology() : max_consonants_(5), max_vowels_(21) {
 std::string Numerology::GetName(std::size_t max_length) {
   int num_vowels_left = max_vowels_;
   int num_consonants_left = max_consonants_;
-  std::string name(max_length, 'x');
+  LexicographicOrder vowels;
+  LexicographicOrder consonants;
 
   for (std::size_t i = 0; i < max_length; ++i) {
     if ((i + 1) & 1) {
-      HandleAlphabet(vowels_, i, name, num_vowels_left, max_vowels_);
+      HandleAlphabet(vowels_, vowels, num_vowels_left, max_vowels_);
     } else {
-      HandleAlphabet(consonants_, i, name, num_consonants_left, max_consonants_);
+      HandleAlphabet(consonants_, consonants, num_consonants_left, max_consonants_);
     }
   }
 
-  return name;
+  return GetName(vowels, consonants);
 }
 
 void Numerology::HandleAlphabet(std::priority_queue<Alphabet> &alphabets,
-                                std::size_t i,
-                                std::string &name,
+                                LexicographicOrder &to_alphabets,
                                 int &num_left,
                                 const int max_num_left) {
-  assert(i < name.length());
   assert(!alphabets.empty());
   assert(num_left > 0);
 
-  name[i] = alphabets.top().name;
+  to_alphabets.emplace(alphabets.top().name);
   --num_left;
 
   if (num_left == 0) {
@@ -86,7 +89,35 @@ void Numerology::HandleAlphabet(std::priority_queue<Alphabet> &alphabets,
   }
 }
 
+std::string Numerology::GetName(LexicographicOrder &vowels, LexicographicOrder &consonants) const {
+  std::string name(vowels.size() + consonants.size(), 'x');
+
+  for (int i = 0; !vowels.empty(); ++i) {
+    if (i & 1) {
+      continue;
+    }
+    assert(i < name.length());
+
+    name[i] = vowels.top();
+    vowels.pop();
+  }
+
+  for (int i = 0; !consonants.empty(); ++i) {
+    if ((i & 1) == 0) {
+      continue;
+    }
+    assert(i < name.length());
+
+    name[i] = consonants.top();
+    consonants.pop();
+  }
+
+  return name;
+}
+
 int main() {
+  std::ios::sync_with_stdio(false);
+  
   int n = 0;
   std::size_t max_length = 0;
 

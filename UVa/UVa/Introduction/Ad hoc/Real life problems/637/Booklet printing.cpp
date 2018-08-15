@@ -1,3 +1,4 @@
+#include <string>
 #include <stdio.h>
 #include <ios>
 #include <math.h>

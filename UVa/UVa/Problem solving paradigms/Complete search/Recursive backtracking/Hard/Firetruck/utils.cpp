@@ -4,6 +4,7 @@
 
 #include <limits>
 #include <iostream>
+#include <string>
 #include <vector>
 
 void PrintCostMap(const std::vector<std::vector<int>> &cost_map) {

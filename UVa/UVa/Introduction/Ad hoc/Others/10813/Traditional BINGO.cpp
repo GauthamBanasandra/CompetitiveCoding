@@ -4,6 +4,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cassert>
+#include <string>
 
 #define ROW_LEN 5
 #define COL_LEN 5

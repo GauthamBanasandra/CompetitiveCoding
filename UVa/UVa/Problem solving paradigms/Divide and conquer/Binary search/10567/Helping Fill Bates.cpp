@@ -5,6 +5,7 @@
 #include <unordered_map>
 #include <vector>
 #include <iostream>
+#include <string>
 
 using ll = long long;
 using Country = char;

@@ -1,3 +1,4 @@
+#include <string>
 #include <ios>
 #include <iostream>
 

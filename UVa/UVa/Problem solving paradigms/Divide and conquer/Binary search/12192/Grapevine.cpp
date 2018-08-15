@@ -2,6 +2,7 @@
 // Created by Gautham Banasandra on 23/06/18.
 //
 
+#include <string>
 #include <algorithm>
 #include <vector>
 #include <iostream>
@@ -30,7 +31,7 @@ long Grapevine::GetLargestSide(long l, long u) const {
                                                                                               u,
                                                                                               std::greater<long>());
 
-    largest_side = std::max(largest_side, std::distance(l_it, (++u_it).base()) + 1);
+    largest_side = std::max(largest_side, static_cast<long>(std::distance(l_it, (++u_it).base()) + 1));
   }
 
   return largest_side;

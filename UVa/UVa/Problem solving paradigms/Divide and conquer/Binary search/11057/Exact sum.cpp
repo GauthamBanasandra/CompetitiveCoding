@@ -2,6 +2,7 @@
 // Created by gauth on 17-06-2018.
 //
 
+#include <algorithm>
 #include <string>
 #include <sstream>
 #include <unordered_map>

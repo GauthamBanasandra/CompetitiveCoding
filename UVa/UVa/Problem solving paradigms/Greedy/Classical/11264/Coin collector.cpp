@@ -4,6 +4,7 @@
 
 // WA
 
+#include <numeric>
 #include <algorithm>
 #include <vector>
 #include <iostream>

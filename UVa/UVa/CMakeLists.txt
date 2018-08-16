@@ -63,9 +63,9 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Jolly_jumpers "Data structures and libraries/Linear DS builtin lib/1D array manipulation/10038/Jolly jumpers.cpp")
         add_executable(Newspaper "Data structures and libraries/Linear DS builtin lib/1D array manipulation/11340/Newspaper.cpp")
         # 2D array manipulation
-        add_executable(Grid_successor "Data structures and libraries/Linear DS builtin lib/2D array manipulation/Grid successor/Grid successor.cpp")
-        add_executable(Rotated_squares "Data structures and libraries/Linear DS builtin lib/2D array manipulation/Rotated squares/Rotated squares.cpp")
-        add_executable(Spiral_tap "Data structures and libraries/Linear DS builtin lib/2D array manipulation/Spiral tap/Spiral tap.cpp")
+        add_executable(Grid_successor "Data structures and libraries/Linear DS builtin lib/2D array manipulation/11581/Grid successor.cpp")
+        add_executable(Rotated_squares "Data structures and libraries/Linear DS builtin lib/2D array manipulation/10855/Rotated squares.cpp")
+        add_executable(Spiral_tap "Data structures and libraries/Linear DS builtin lib/2D array manipulation/10920/Spiral tap.cpp")
         # Bit manipulation
         add_executable(Multitasking "Data structures and libraries/Linear DS builtin lib/Bit manipulation/Multitasking/Multitasking.cpp")
         add_executable(Splitting_numbers "Data structures and libraries/Linear DS builtin lib/Bit manipulation/Splitting numbers/Splitting numbers.cpp")

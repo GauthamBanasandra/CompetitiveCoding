@@ -3,12 +3,14 @@
 //
 
 #include <iostream>
+#include <algorithm>
 #include <queue>
 #include <unordered_map>
 #include <vector>
 #include <list>
 #include <cassert>
 #include <string>
+#include <ios>
 
 using Dimension = std::size_t;
 using PackingOrder = std::vector<std::list<Dimension>>;
@@ -17,15 +19,13 @@ struct BagFrequency {
   BagFrequency() : dimension(0), frequency(-1) {}
   BagFrequency(Dimension dimension, int frequency) : dimension(dimension), frequency(frequency) {}
 
-  bool operator>(const BagFrequency &other) const {
+  bool operator<(const BagFrequency &other) const {
     return frequency < other.frequency;
   }
 
   Dimension dimension;
   int frequency;
 };
-
-using BagsCollection = std::priority_queue<BagFrequency, std::vector<BagFrequency>, std::greater<BagFrequency>>;
 
 class Packer {
  public:
@@ -36,7 +36,7 @@ class Packer {
  private:
   std::size_t Pack(PackingOrder &order, std::size_t i_order, BagFrequency &bag);
 
-  BagsCollection bags_;
+  std::priority_queue<BagFrequency> bags_;
 };
 
 PackingOrder Packer::Pack() {
@@ -57,7 +57,6 @@ PackingOrder Packer::Pack() {
 }
 
 Packer::Packer(const std::unordered_map<Dimension, int> &bag_frequency) {
-  // TODO : Use std::transform
   for (auto &kv : bag_frequency) {
     bags_.emplace(kv.first, kv.second);
   }
@@ -66,16 +65,23 @@ Packer::Packer(const std::unordered_map<Dimension, int> &bag_frequency) {
 std::size_t Packer::Pack(PackingOrder &order, std::size_t i_order, BagFrequency &bag) {
   assert(i_order < order.size());
 
-  std::size_t i;
-  for (i = i_order; i < order.size(); ++i) {
+  auto handle_bag = [&order, &bag](std::size_t i) -> bool {
     assert(bag.frequency >= 0);
 
     if (bag.frequency <= 0) {
-      return i;
+      return false;
     }
 
     order[i].emplace_back(bag.dimension);
     --bag.frequency;
+    return true;
+  };
+
+  std::size_t i;
+  for (i = i_order; i < order.size(); ++i) {
+    if (!handle_bag(i)) {
+      return i;
+    }
   }
 
   if (bag.frequency <= 0) {
@@ -83,14 +89,9 @@ std::size_t Packer::Pack(PackingOrder &order, std::size_t i_order, BagFrequency 
   }
 
   for (i = 0; i < i_order; ++i) {
-    assert(bag.frequency >= 0);
-
-    if (bag.frequency <= 0) {
+    if (!handle_bag(i)) {
       return i;
     }
-
-    order[i].emplace_back(bag.dimension);
-    --bag.frequency;
   }
 
   return i;
@@ -112,14 +113,11 @@ void Print(const PackingOrder &order) {
 }
 
 int main() {
+  std::ios::sync_with_stdio(false);
+
   int n;
   Dimension dimension;
   std::unordered_map<Dimension, int> bag_frequency;
-  /*for (auto dimension : {17, 16, 7, 8, 20, 2, 11, 10, 8, 11, 3, 11, 10, 6}) {
-    ++bag_frequency[dimension];
-  }
-
-  Print(Packer(bag_frequency).Pack());*/
 
   auto after_first = false;
   while (std::cin >> n, n) {

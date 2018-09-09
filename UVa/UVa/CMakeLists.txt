@@ -67,8 +67,8 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Rotated_squares "Data structures and libraries/Linear DS builtin lib/2D array manipulation/10855/Rotated squares.cpp")
         add_executable(Spiral_tap "Data structures and libraries/Linear DS builtin lib/2D array manipulation/10920/Spiral tap.cpp")
         # Bit manipulation
-        add_executable(Multitasking "Data structures and libraries/Linear DS builtin lib/Bit manipulation/Multitasking/Multitasking.cpp")
-        add_executable(Splitting_numbers "Data structures and libraries/Linear DS builtin lib/Bit manipulation/Splitting numbers/Splitting numbers.cpp")
+        add_executable(Multitasking "Data structures and libraries/Linear DS builtin lib/Bit manipulation/11926/Multitasking.cpp")
+        add_executable(Splitting_numbers "Data structures and libraries/Linear DS builtin lib/Bit manipulation/11933/Splitting numbers.cpp")
         # C++ STL algorithm
         add_executable(Content_scoreboard "Data structures and libraries/Linear DS builtin lib/C++ STL algorithm/Contest scoreboard/Contest scoreboard.cpp")
         add_executable(ID_codes "Data structures and libraries/Linear DS builtin lib/C++ STL algorithm/ID codes/ID codes.cpp")

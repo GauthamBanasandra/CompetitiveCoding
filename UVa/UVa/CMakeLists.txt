@@ -70,9 +70,9 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Multitasking "Data structures and libraries/Linear DS builtin lib/Bit manipulation/11926/Multitasking.cpp")
         add_executable(Splitting_numbers "Data structures and libraries/Linear DS builtin lib/Bit manipulation/11933/Splitting numbers.cpp")
         # C++ STL algorithm
-        add_executable(Content_scoreboard "Data structures and libraries/Linear DS builtin lib/C++ STL algorithm/Contest scoreboard/Contest scoreboard.cpp")
-        add_executable(ID_codes "Data structures and libraries/Linear DS builtin lib/C++ STL algorithm/ID codes/ID codes.cpp")
-        add_executable(What_is_the_median "Data structures and libraries/Linear DS builtin lib/C++ STL algorithm/What is the median/What is the median.cpp")
+        add_executable(Content_scoreboard "Data structures and libraries/Linear DS builtin lib/C++ STL algorithm/10258/Contest scoreboard.cpp")
+        add_executable(ID_codes "Data structures and libraries/Linear DS builtin lib/C++ STL algorithm/146/ID codes.cpp")
+        add_executable(What_is_the_median "Data structures and libraries/Linear DS builtin lib/C++ STL algorithm/10107/What is the median.cpp")
         # C++ STL list
         add_executable(Broken_keyboard "Data structures and libraries/Linear DS builtin lib/C++ STL list/Broken keyboard/Broken keyboard.cpp")
         # C++ STL queue and deque

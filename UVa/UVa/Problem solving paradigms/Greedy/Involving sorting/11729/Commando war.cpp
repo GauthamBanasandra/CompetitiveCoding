@@ -2,10 +2,10 @@
 // Created by gautham on 13/9/18.
 //
 
-// WA
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <ios>
 
 struct Task {
   Task() : brief_time(0), job_time(0) {}
@@ -38,18 +38,16 @@ long Ordering::TotalTime() const {
 
   for (const auto &task : task_list_) {
     brief_timeline += task.brief_time;
-    job_timeline = brief_timeline + task.job_time;
+    job_timeline = std::max(job_timeline, brief_timeline + task.job_time);
   }
   return job_timeline;
 }
 
 int main() {
+  std::ios::sync_with_stdio(false);
+
   std::size_t n, t = 0;
-  std::vector<Task> task_list{
-      {5, 2},
-      {6, 4},
-      {2, 3}
-  };
+  std::vector<Task> task_list;
 
   while (std::cin >> n, n) {
     task_list.resize(n);

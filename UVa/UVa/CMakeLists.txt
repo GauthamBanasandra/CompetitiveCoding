@@ -74,7 +74,7 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(ID_codes "Data structures and libraries/Linear DS builtin lib/C++ STL algorithm/146/ID codes.cpp")
         add_executable(What_is_the_median "Data structures and libraries/Linear DS builtin lib/C++ STL algorithm/10107/What is the median.cpp")
         # C++ STL list
-        add_executable(Broken_keyboard "Data structures and libraries/Linear DS builtin lib/C++ STL list/Broken keyboard/Broken keyboard.cpp")
+        add_executable(Broken_keyboard "Data structures and libraries/Linear DS builtin lib/C++ STL list/11988/Broken keyboard.cpp")
         # C++ STL queue and deque
         add_executable(Frerry_loading_III "Data structures and libraries/Linear DS builtin lib/C++ STL queue and deque/Ferry loading III/Ferry loading III.cpp")
         add_executable(Ferry_loading_IV "Data structures and libraries/Linear DS builtin lib/C++ STL queue and deque/Ferry loading IV/Ferry loading IV.cpp")

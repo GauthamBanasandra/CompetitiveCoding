@@ -2,9 +2,11 @@
 // Created by gauth on 10-06-2018.
 //
 
+#include <algorithm>
 #include <unordered_map>
 #include <vector>
 #include <iostream>
+#include <string>
 
 using ll = long long;
 using Country = char;
@@ -46,7 +48,7 @@ CandidatesInfo CandidatesSelection::GetCandidates(const std::string &pattern) {
     }
 
     auto candidates = find_country->second;
-    auto find_candidate = std::lower_bound(candidates.begin(), candidates.end(), find_i);
+	auto find_candidate = std::lower_bound(candidates.begin(), candidates.end(), find_i);
     if (find_candidate == candidates.end()) {
       info.matched = false;
       break;

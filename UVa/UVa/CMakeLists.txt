@@ -12,69 +12,69 @@ set(CMAKE_CXX_STANDARD 11)
     add_executable(Event_planning "Introduction/Easy/11559/Event planning.cpp")
     add_executable(Horror_dash "Introduction/Easy/11799/Horror dash.cpp")
     # Medium
-    add_executable(Bender_B_Rodriguez "Introduction/Medium/Bender B Rodriguez/Bender B Rodriguez.cpp")
-    add_executable(Request_for_proposal "Introduction/Medium/Request for proposal/Request for proposal.cpp")
-    add_executable(The_snail "Introduction/Medium/The snail/The snail.cpp")
+    add_executable(Bender_B_Rodriguez "Introduction/Medium/11507/Bender B Rodriguez.cpp")
+    add_executable(Request_for_proposal "Introduction/Medium/10141/Request for proposal.cpp")
+    add_executable(The_snail "Introduction/Medium/573/The snail.cpp")
     # Adhoc
         # Anagram
-        add_executable(Anagram "Introduction/Ad hoc/Anagram/Anagram/Anagram.cpp")
-        add_executable(Anagrams "Introduction/Ad hoc/Anagram/Anagrams/Anagrams.cpp")
-        add_executable(Ananagrams "Introduction/Ad hoc/Anagram/Ananagrams/Ananagrams.cpp")
+        add_executable(Anagram "Introduction/Ad hoc/Anagram/195/Anagram.cpp")
+        add_executable(Anagrams "Introduction/Ad hoc/Anagram/454/Anagrams.cpp")
+        add_executable(Ananagrams "Introduction/Ad hoc/Anagram/156/Ananagrams.cpp")
         # Card
-        add_executable(Bridge_hand_evaluator "Introduction/Ad hoc/Card/Bridge hand evaluator/Bridge hand evaluator.cpp")
-        add_executable(What_is_the_card "Introduction/Ad hoc/Card/What is the card/What is the card.cpp")
-        add_executable(Jollo "Introduction/Ad hoc/Card/Jollo/Jollo.cpp")
+        add_executable(Bridge_hand_evaluator "Introduction/Ad hoc/Card/462/Bridge hand evaluator.cpp")
+        add_executable(What_is_the_card "Introduction/Ad hoc/Card/10646/What is the card.cpp")
+        add_executable(Jollo "Introduction/Ad hoc/Card/12247/Jollo.cpp")
         # Chess
-        add_executable(Chess "Introduction/Ad hoc/Chess/Chess/Chess.cpp")
-        add_executable(Chessboard_in_fen "Introduction/Ad hoc/Chess/Chessboard in FEN/Chessboard in FEN.cpp")
-        add_executable(How_many_knights "Introduction/Ad hoc/Chess/How many knights/How many knights.cpp")
+        add_executable(Chess "Introduction/Ad hoc/Chess/278/Chess.cpp")
+        add_executable(Chessboard_in_fen "Introduction/Ad hoc/Chess/10284/Chessboard in FEN.cpp")
+        add_executable(How_many_knights "Introduction/Ad hoc/Chess/696/How many knights.cpp")
         # Others
-        add_executable(Bowling "Introduction/Ad hoc/Others/Bowling/Bowling.cpp")
-        add_executable(Hangman_judge "Introduction/Ad hoc/Others/Hangman judge/Hangman judge.cpp")
-        add_executable(Minesweeper "Introduction/Ad hoc/Others/Minesweeper/Minesweeper.cpp")
-        add_executable(Snakes_and_ladders "Introduction/Ad hoc/Others/Snakes and ladders/Snakes and ladders.cpp")
-        add_executable(Traditional_BINGO "Introduction/Ad hoc/Others/Traditional BINGO/Traditional BINGO.cpp")
+        add_executable(Bowling "Introduction/Ad hoc/Others/584/Bowling.cpp")
+        add_executable(Hangman_judge "Introduction/Ad hoc/Others/489/Hangman judge.cpp")
+        add_executable(Minesweeper "Introduction/Ad hoc/Others/10189/Minesweeper.cpp")
+        add_executable(Snakes_and_ladders "Introduction/Ad hoc/Others/11459/Snakes and ladders.cpp")
+        add_executable(Traditional_BINGO "Introduction/Ad hoc/Others/10813/Traditional BINGO.cpp")
         # Palindrome
-        add_executable(Magic_square_palindromes "Introduction/Ad hoc/Palindrome/Magic square palindromes/Magic square palindromes.cpp")
-        add_executable(Mother_bear "Introduction/Ad hoc/Palindrome/Mother bear/Mother bear.cpp")
-        add_executable(Palindromes "Introduction/Ad hoc/Palindrome/Palindromes/Palindromes.cpp")
+        add_executable(Magic_square_palindromes "Introduction/Ad hoc/Palindrome/11221/Magic square palindromes.cpp")
+        add_executable(Mother_bear "Introduction/Ad hoc/Palindrome/10945/Mother bear.cpp")
+        add_executable(Palindromes "Introduction/Ad hoc/Palindrome/401/Palindromes.cpp")
         # Real life problems
-        add_executable(Beat_the_spread "Introduction/Ad hoc/Real life problems/Beat the spread/Beat the spread.cpp")
-        add_executable(Boolket_printing "Introduction/Ad hoc/Real life problems/Booklet printing/Booklet printing.cpp")
-        add_executable(Consanguine_calculations "Introduction/Ad hoc/Real life problems/Consanguine calculations/Consanguine calculations.cpp"
-                "Introduction/Ad hoc/Real life problems/Consanguine calculations/utils.cpp")
-        add_executable(Counterfeit_dollar "Introduction/Ad hoc/Real life problems/Counterfeit dollar/Counterfeit dollar.cpp")
-        add_executable(Postscript "Introduction/Ad hoc/Real life problems/Postscript/Postscript.cpp"
-                "Introduction/Ad hoc/Real life problems/Postscript/util.cpp")
-        add_executable(Traffic_lights "Introduction/Ad hoc/Real life problems/Traffic lights/Traffic lights.cpp"
-                "Introduction/Ad hoc/Real life problems/Traffic lights/utils.cpp")
+        add_executable(Beat_the_spread "Introduction/Ad hoc/Real life problems/10812/Beat the spread.cpp")
+        add_executable(Boolket_printing "Introduction/Ad hoc/Real life problems/637/Booklet printing.cpp")
+        add_executable(Consanguine_calculations "Introduction/Ad hoc/Real life problems/1061/Consanguine calculations.cpp"
+                "Introduction/Ad hoc/Real life problems/1061/utils.cpp")
+        add_executable(Counterfeit_dollar "Introduction/Ad hoc/Real life problems/608/Counterfeit dollar.cpp")
+        add_executable(Postscript "Introduction/Ad hoc/Real life problems/403/Postscript.cpp"
+                "Introduction/Ad hoc/Real life problems/403/util.cpp")
+        add_executable(Traffic_lights "Introduction/Ad hoc/Real life problems/161/Traffic lights.cpp"
+                "Introduction/Ad hoc/Real life problems/161/utils.cpp")
         # Time
-        add_executable(Clock_hands "Introduction/Ad hoc/Time/Clock hands/Clock hands.cpp")
-        # Solved in Java - Clock hands
+        add_executable(Clock_hands "Introduction/Ad hoc/Time/579/Clock hands.cpp")
+        # Solved in Java - Cancer or scorpio
         # Solved in Java - Y3K
         # Time waster problems
-        add_executable(All_integer_average "Introduction/Ad hoc/Time waster problems/All integer average/All integer average.cpp")
-        add_executable(Mobile_casanova "Introduction/Ad hoc/Time waster problems/Mobile casanova/Mobile casanova.cpp")
+        add_executable(All_integer_average "Introduction/Ad hoc/Time waster problems/12060/All integer average.cpp")
+        add_executable(Mobile_casanova "Introduction/Ad hoc/Time waster problems/12085/Mobile casanova.cpp")
 
 # Data structures and libraries
     # Linear DS builtin lib
         # 1D array manipulation
-        add_executable(Army_buddies "Data structures and libraries/Linear DS builtin lib/1D array manipulation/Army buddies/Army buddies.cpp")
-        add_executable(Jolly_jumpers "Data structures and libraries/Linear DS builtin lib/1D array manipulation/Jolly jumpers/Jolly jumpers.cpp")
-        add_executable(Newspaper "Data structures and libraries/Linear DS builtin lib/1D array manipulation/Newspaper/Newspaper.cpp")
+        add_executable(Army_buddies "Data structures and libraries/Linear DS builtin lib/1D array manipulation/12356/Army buddies.cpp")
+        add_executable(Jolly_jumpers "Data structures and libraries/Linear DS builtin lib/1D array manipulation/10038/Jolly jumpers.cpp")
+        add_executable(Newspaper "Data structures and libraries/Linear DS builtin lib/1D array manipulation/11340/Newspaper.cpp")
         # 2D array manipulation
-        add_executable(Grid_successor "Data structures and libraries/Linear DS builtin lib/2D array manipulation/Grid successor/Grid successor.cpp")
-        add_executable(Rotated_squares "Data structures and libraries/Linear DS builtin lib/2D array manipulation/Rotated squares/Rotated squares.cpp")
-        add_executable(Spiral_tap "Data structures and libraries/Linear DS builtin lib/2D array manipulation/Spiral tap/Spiral tap.cpp")
+        add_executable(Grid_successor "Data structures and libraries/Linear DS builtin lib/2D array manipulation/11581/Grid successor.cpp")
+        add_executable(Rotated_squares "Data structures and libraries/Linear DS builtin lib/2D array manipulation/10855/Rotated squares.cpp")
+        add_executable(Spiral_tap "Data structures and libraries/Linear DS builtin lib/2D array manipulation/10920/Spiral tap.cpp")
         # Bit manipulation
-        add_executable(Multitasking "Data structures and libraries/Linear DS builtin lib/Bit manipulation/Multitasking/Multitasking.cpp")
-        add_executable(Splitting_numbers "Data structures and libraries/Linear DS builtin lib/Bit manipulation/Splitting numbers/Splitting numbers.cpp")
+        add_executable(Multitasking "Data structures and libraries/Linear DS builtin lib/Bit manipulation/11926/Multitasking.cpp")
+        add_executable(Splitting_numbers "Data structures and libraries/Linear DS builtin lib/Bit manipulation/11933/Splitting numbers.cpp")
         # C++ STL algorithm
-        add_executable(Content_scoreboard "Data structures and libraries/Linear DS builtin lib/C++ STL algorithm/Contest scoreboard/Contest scoreboard.cpp")
-        add_executable(ID_codes "Data structures and libraries/Linear DS builtin lib/C++ STL algorithm/ID codes/ID codes.cpp")
-        add_executable(What_is_the_median "Data structures and libraries/Linear DS builtin lib/C++ STL algorithm/What is the median/What is the median.cpp")
+        add_executable(Content_scoreboard "Data structures and libraries/Linear DS builtin lib/C++ STL algorithm/10258/Contest scoreboard.cpp")
+        add_executable(ID_codes "Data structures and libraries/Linear DS builtin lib/C++ STL algorithm/146/ID codes.cpp")
+        add_executable(What_is_the_median "Data structures and libraries/Linear DS builtin lib/C++ STL algorithm/10107/What is the median.cpp")
         # C++ STL list
-        add_executable(Broken_keyboard "Data structures and libraries/Linear DS builtin lib/C++ STL list/Broken keyboard/Broken keyboard.cpp")
+        add_executable(Broken_keyboard "Data structures and libraries/Linear DS builtin lib/C++ STL list/11988/Broken keyboard.cpp")
         # C++ STL queue and deque
         add_executable(Frerry_loading_III "Data structures and libraries/Linear DS builtin lib/C++ STL queue and deque/Ferry loading III/Ferry loading III.cpp")
         add_executable(Ferry_loading_IV "Data structures and libraries/Linear DS builtin lib/C++ STL queue and deque/Ferry loading IV/Ferry loading IV.cpp")
@@ -161,7 +161,7 @@ set(CMAKE_CXX_STANDARD 11)
             add_executable(Boggle_blitz "Problem solving paradigms/Complete search/Recursive backtracking/Medium/Boggle blitz/Boggle blitz.cpp")
             add_executable(Prime_ring_problem "Problem solving paradigms/Complete search/Recursive backtracking/Medium/Prime ring problem/Prime ring problem.cpp")
             add_executable(Mapping_the_swaps "Problem solving paradigms/Complete search/Recursive backtracking/Medium/Mapping the swaps/Mapping the swaps.cpp")
-            IF(NOT APPLE)
+            IF(WIN32)
             add_executable(Jugs "Problem solving paradigms/Complete search/Recursive backtracking/Medium/Jugs/Jugs.cpp")
             ENDIF()
             add_executable(Sum_it_up "Problem solving paradigms/Complete search/Recursive backtracking/Medium/Sum it up/Sum it up.cpp")
@@ -211,3 +211,21 @@ set(CMAKE_CXX_STANDARD 11)
         # Classical
         add_executable(Station_balance "Problem solving paradigms/Greedy/Classical/410/Station balance.cpp"
                 utils/print.cpp)
+        add_executable(Radar_installation "Problem solving paradigms/Greedy/Classical/1193/Radar installation.cpp"
+                utils/print.cpp)
+        add_executable(Minimal_coverage "Problem solving paradigms/Greedy/Classical/10020/Minimal coverage.cpp"
+                "Problem solving paradigms/Greedy/Classical/10020/utils.cpp")
+        add_executable(Watering_grass "Problem solving paradigms/Greedy/Classical/10382/Watering grass.cpp")
+        add_executable(The_bus_driver_problem "Problem solving paradigms/Greedy/Classical/11389/The bus driver problem.cpp")
+        add_executable(Coin_collector "Problem solving paradigms/Greedy/Classical/11264/Coin collector.cpp")
+        add_executable(Gas_stations "Problem solving paradigms/Greedy/Classical/12321/Gas stations.cpp")
+        add_executable(Scarecrow "Problem solving paradigms/Greedy/Classical/12405/Scarecrow.cpp")
+        # Involving sorting
+        add_executable(Bridge "Problem solving paradigms/Greedy/Involving sorting/10037/Bridge.cpp")
+        add_executable(The_grand_dinner "Problem solving paradigms/Greedy/Involving sorting/10249/The grand dinner.cpp")
+        add_executable(Foriegn_exchange "Problem solving paradigms/Greedy/Involving sorting/10763/Foreign exchange.cpp")
+        add_executable(The_mad_numerologist "Problem solving paradigms/Greedy/Involving sorting/10785/The mad numerologist.cpp")
+        add_executable(The_trip_2007 "Problem solving paradigms/Greedy/Involving sorting/11100/The trip 2007.cpp")
+        add_executable(The_dragon_of_loowater "Problem solving paradigms/Greedy/Involving sorting/11292/The dragon of loowater.cpp")
+        add_executable(Shopaholic "Problem solving paradigms/Greedy/Involving sorting/11369/Shopaholic.cpp")
+        add_executable(Commando_war "Problem solving paradigms/Greedy/Involving sorting/11729/Commando war.cpp")

@@ -6,9 +6,9 @@
 #include <vector>
 
 void Print(const std::vector<int> &elements) {
-    for (const auto element : elements) {
-        std::cout << element << " ";
-    }
+  for (const auto element : elements) {
+    std::cout << element << " ";
+  }
 
-    std::cout << std::endl;
+  std::cout << std::endl;
 }

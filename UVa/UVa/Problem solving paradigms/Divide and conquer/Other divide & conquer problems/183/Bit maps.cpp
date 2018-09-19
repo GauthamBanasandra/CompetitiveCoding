@@ -2,6 +2,7 @@
 // Created by Gautham Banasandra on 01/07/18.
 //
 
+#include <string>
 #include <iostream>
 #include <vector>
 #include <cmath>

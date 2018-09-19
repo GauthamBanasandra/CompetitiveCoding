@@ -2,6 +2,7 @@
 // Created by gauth on 11-03-2018.
 //
 
+#include <algorithm>
 #include <unordered_map>
 #include <unordered_set>
 #include <string>

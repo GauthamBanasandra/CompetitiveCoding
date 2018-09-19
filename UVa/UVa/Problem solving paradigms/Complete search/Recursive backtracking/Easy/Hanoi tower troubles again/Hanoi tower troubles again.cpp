@@ -2,6 +2,7 @@
 // Created by gauth on 26-03-2018.
 //
 
+#include <algorithm>
 #include <iostream>
 #include <vector>
 #include <stack>

@@ -2,6 +2,7 @@
 // Created by gauth on 21-01-2018.
 //
 
+#include <algorithm>
 #include <iostream>
 #include <sstream>
 #include <cassert>

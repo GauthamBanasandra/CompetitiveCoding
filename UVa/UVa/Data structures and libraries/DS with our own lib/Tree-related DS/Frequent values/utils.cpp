@@ -10,8 +10,8 @@ void print(const std::vector<int> &data) {
     std::cout << std::endl;
 }
 
-void print(const std::unordered_map<int, int> &kv) {
-    for (const auto &kv : kv) {
+void print(const std::unordered_map<int, int> &pairs) {
+    for (const auto &kv : pairs) {
         std::cout << kv.first << " : " << kv.second << std::endl;
     }
 }

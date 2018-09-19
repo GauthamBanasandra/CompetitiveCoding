@@ -2,6 +2,8 @@
 // Created by Gautham Banasandra on 04/06/18.
 //
 
+#include <algorithm>
+#include <string>
 #include <ios>
 #include <vector>
 #include <iostream>

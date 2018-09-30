@@ -76,9 +76,9 @@ set(CMAKE_CXX_STANDARD 11)
         # C++ STL list
         add_executable(Broken_keyboard "Data structures and libraries/Linear DS builtin lib/C++ STL list/11988/Broken keyboard.cpp")
         # C++ STL queue and deque
-        add_executable(Frerry_loading_III "Data structures and libraries/Linear DS builtin lib/C++ STL queue and deque/Ferry loading III/Ferry loading III.cpp")
-        add_executable(Ferry_loading_IV "Data structures and libraries/Linear DS builtin lib/C++ STL queue and deque/Ferry loading IV/Ferry loading IV.cpp")
-        add_executable(The_lonesome_cargo_distributor "Data structures and libraries/Linear DS builtin lib/C++ STL queue and deque/The lonesome cargo distributor/The lonesome cargo distributor.cpp")
+        add_executable(Frerry_loading_III "Data structures and libraries/Linear DS builtin lib/C++ STL queue and deque/10901/Ferry loading III.cpp")
+        add_executable(Ferry_loading_IV "Data structures and libraries/Linear DS builtin lib/C++ STL queue and deque/11034/Ferry loading IV.cpp")
+        add_executable(The_lonesome_cargo_distributor "Data structures and libraries/Linear DS builtin lib/C++ STL queue and deque/10172/The lonesome cargo distributor.cpp")
         # C++ STL stack
         add_executable(Anagrams_by_stack "Data structures and libraries/Linear DS builtin lib/C++ STL stack/Anagrams by stack/Anagrams by stack.cpp")
         add_executable(Rails "Data structures and libraries/Linear DS builtin lib/C++ STL stack/Rails/Rails.cpp")

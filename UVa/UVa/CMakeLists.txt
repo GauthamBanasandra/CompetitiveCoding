@@ -230,3 +230,5 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Shopaholic "Problem solving paradigms/Greedy/Involving sorting/11369/Shopaholic.cpp")
         add_executable(Commando_war "Problem solving paradigms/Greedy/Involving sorting/11729/Commando war.cpp")
         add_executable(Boiled_eggs "Problem solving paradigms/Greedy/Involving sorting/11900/Boiled eggs.cpp")
+        add_executable(A_match_making_problem "Problem solving paradigms/Greedy/Involving sorting/12210/A match making problem.cpp"
+                utils/print.cpp)

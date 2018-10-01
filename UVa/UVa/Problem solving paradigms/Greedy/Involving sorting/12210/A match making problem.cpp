@@ -4,9 +4,13 @@
 
 #include <algorithm>
 #include <vector>
+#include <map>
 #include <iostream>
+#include <cassert>
 
 void Print(const std::vector<int> &elements);
+
+using FrequencyTable = std::map<int, int>;
 
 struct MatchInfo {
   MatchInfo() : all_matched(false), num_left(0), min_bachelor(0) {}
@@ -16,16 +20,42 @@ struct MatchInfo {
   int min_bachelor;
 };
 
-MatchInfo Match(std::vector<int> &bachelors, std::vector<int> &spinsters) {
-  std::sort(spinsters.begin(), spinsters.end());
-  std::sort(bachelors.begin(), bachelors.end(), std::greater<int>());
+class MatchMaker {
+ public:
+  explicit MatchMaker(const std::vector<int> &spinsters);
+  MatchInfo Match(std::vector<int> &bachelors) const;
 
-  for (auto b_it = bachelors.begin(); b_it != bachelors.end(); ++b_it) {
-    if (spinsters.empty()) {
-      break;
-    }
+ private:
+  FrequencyTable spinsters_;
+};
 
+MatchMaker::MatchMaker(const std::vector<int> &spinsters) {
+  for (auto age : spinsters) {
+    ++spinsters_[age];
   }
+}
+
+MatchInfo MatchMaker::Match(std::vector<int> &bachelors) const {
+  std::sort(bachelors.begin(), bachelors.end(), std::greater<int>());
+  auto greater_eq = std::lower_bound(spinsters_.begin(),
+                                     spinsters_.end(),
+                                     1,
+                                     [](const std::pair<const int, int> &a, const int b) -> bool {
+                                       return a.first < b;
+                                     });
+  assert(greater_eq != spinsters_.end());
+
+  std::cout << "Greater or eq : " << greater_eq->first << std::endl;
+
+  auto less_eq = std::lower_bound(spinsters_.rbegin(),
+                                  spinsters_.rend(),
+                                  21,
+                                  [](const std::pair<const int, int> &a, const int b) -> bool {
+                                    return a.first > b;
+                                  });
+  assert(less_eq != spinsters_.rend());
+
+  std::cout << "Less or eq : " << less_eq->first << std::endl;
   return {};
 }
 
@@ -42,6 +72,6 @@ int main() {
       18
   };
 
-  Match(bachelors, spinsters);
+  MatchMaker(spinsters).Match(bachelors);
   return 0;
 }

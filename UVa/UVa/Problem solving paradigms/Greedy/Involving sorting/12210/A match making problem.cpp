@@ -23,10 +23,11 @@ struct MatchInfo {
 class MatchMaker {
  public:
   explicit MatchMaker(const std::vector<int> &spinsters);
-  MatchInfo Match(std::vector<int> &bachelors) const;
+  MatchInfo Match(std::vector<int> &bachelors);
 
  private:
   FrequencyTable spinsters_;
+  void Choose(std::map<int, int>::iterator &greater_eq_it);
 };
 
 MatchMaker::MatchMaker(const std::vector<int> &spinsters) {
@@ -35,28 +36,49 @@ MatchMaker::MatchMaker(const std::vector<int> &spinsters) {
   }
 }
 
-MatchInfo MatchMaker::Match(std::vector<int> &bachelors) const {
+MatchInfo MatchMaker::Match(std::vector<int> &bachelors) {
   std::sort(bachelors.begin(), bachelors.end(), std::greater<int>());
-  auto greater_eq = std::lower_bound(spinsters_.begin(),
-                                     spinsters_.end(),
-                                     1,
-                                     [](const std::pair<const int, int> &a, const int b) -> bool {
-                                       return a.first < b;
-                                     });
-  assert(greater_eq != spinsters_.end());
+  for (auto bachelor : bachelors) {
+    if (spinsters_.empty()) {
+      break;
+    }
 
-  std::cout << "Greater or eq : " << greater_eq->first << std::endl;
+    auto greater_eq_it = std::lower_bound(spinsters_.begin(),
+                                          spinsters_.end(),
+                                          bachelor,
+                                          [](const std::pair<const int, int> &a, const int b) -> bool {
+                                            return a.first < b;
+                                          });
 
-  auto less_eq = std::lower_bound(spinsters_.rbegin(),
-                                  spinsters_.rend(),
-                                  21,
-                                  [](const std::pair<const int, int> &a, const int b) -> bool {
-                                    return a.first > b;
-                                  });
-  assert(less_eq != spinsters_.rend());
+    auto less_eq_it = std::lower_bound(spinsters_.rbegin(),
+                                       spinsters_.rend(),
+                                       19,
+                                       [](const std::pair<const int, int> &a, const int b) -> bool {
+                                         return a.first > b;
+                                       });
 
-  std::cout << "Less or eq : " << less_eq->first << std::endl;
+    if (greater_eq_it == spinsters_.end()) {
+      assert(less_eq_it != spinsters_.rend());
+
+      Choose((++less_eq_it).base());
+    }
+
+    if (less_eq_it == spinsters_.rend()) {
+      assert(greater_eq_it != spinsters_.end());
+
+      Choose(greater_eq_it);
+    }
+
+  }
+
   return {};
+}
+
+void MatchMaker::Choose(std::map<int, int>::iterator &greater_eq_it) {
+  --greater_eq_it->second;
+  if (greater_eq_it->second == 0) {
+    spinsters_.erase(greater_eq_it);
+  }
 }
 
 int main() {

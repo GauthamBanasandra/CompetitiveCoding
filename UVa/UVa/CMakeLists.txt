@@ -80,8 +80,8 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Ferry_loading_IV "Data structures and libraries/Linear DS builtin lib/C++ STL queue and deque/11034/Ferry loading IV.cpp")
         add_executable(The_lonesome_cargo_distributor "Data structures and libraries/Linear DS builtin lib/C++ STL queue and deque/10172/The lonesome cargo distributor.cpp")
         # C++ STL stack
-        add_executable(Anagrams_by_stack "Data structures and libraries/Linear DS builtin lib/C++ STL stack/Anagrams by stack/Anagrams by stack.cpp")
-        add_executable(Rails "Data structures and libraries/Linear DS builtin lib/C++ STL stack/Rails/Rails.cpp")
+        add_executable(Anagrams_by_stack "Data structures and libraries/Linear DS builtin lib/C++ STL stack/732/Anagrams by stack.cpp")
+        add_executable(Rails "Data structures and libraries/Linear DS builtin lib/C++ STL stack/514/Rails.cpp")
     # Non linear DS builtin lib
         # C++ STL map
         add_executable(Conformity "Data structures and libraries/Non linear DS builtin lib/C++ STL map/Conformity/Conformity.cpp")

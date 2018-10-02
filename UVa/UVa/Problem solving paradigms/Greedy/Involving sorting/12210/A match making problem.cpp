@@ -4,9 +4,11 @@
 
 #include <algorithm>
 #include <vector>
+#include <list>
 #include <map>
 #include <iostream>
 #include <cassert>
+#include <ios>
 
 void Print(const std::vector<int> &elements);
 
@@ -14,6 +16,8 @@ using FrequencyTable = std::map<int, int>;
 
 struct MatchInfo {
   MatchInfo() : all_matched(false), num_left(0), min_bachelor(0) {}
+  MatchInfo(bool all_matched, int num_left, int min_bachelor)
+      : all_matched(all_matched), num_left(num_left), min_bachelor(min_bachelor) {}
 
   bool all_matched;
   int num_left;
@@ -23,7 +27,7 @@ struct MatchInfo {
 class MatchMaker {
  public:
   explicit MatchMaker(const std::vector<int> &spinsters);
-  MatchInfo Match(std::vector<int> &bachelors);
+  MatchInfo Match(std::list<int> &bachelors);
 
  private:
   FrequencyTable spinsters_;
@@ -36,13 +40,19 @@ MatchMaker::MatchMaker(const std::vector<int> &spinsters) {
   }
 }
 
-MatchInfo MatchMaker::Match(std::vector<int> &bachelors) {
-  std::sort(bachelors.begin(), bachelors.end(), std::greater<int>());
-  for (auto bachelor : bachelors) {
+MatchInfo MatchMaker::Match(std::list<int> &bachelors) {
+  if (bachelors.size() == spinsters_.size()) {
+    return {true, 0, 0};
+  }
+
+  bachelors.sort(std::greater<int>());
+  for (auto bachelor_it = bachelors.begin(); bachelor_it != bachelors.end();
+       bachelor_it = bachelors.erase(bachelor_it)) {
     if (spinsters_.empty()) {
       break;
     }
 
+    auto bachelor = *bachelor_it;
     auto greater_eq_it = std::lower_bound(spinsters_.begin(),
                                           spinsters_.end(),
                                           bachelor,
@@ -57,26 +67,27 @@ MatchInfo MatchMaker::Match(std::vector<int> &bachelors) {
                                          return a.first > b;
                                        });
 
-    assert((less_eq_it == spinsters_.rend()) || (greater_eq_it == spinsters_.end()));
+    assert(less_eq_it != spinsters_.rend() || greater_eq_it != spinsters_.end());
 
     if (greater_eq_it == spinsters_.end()) {
       auto less_eq_fwd_it = (++less_eq_it).base();
       Choose(less_eq_fwd_it);
-    }
-
-    if (less_eq_it == spinsters_.rend()) {
+    } else if (less_eq_it == spinsters_.rend()) {
       Choose(greater_eq_it);
-    }
-
-    if ((std::abs(greater_eq_it->second - bachelor)) < (std::abs(less_eq_it->second - bachelor))) {
+    } else if (std::abs(greater_eq_it->second - bachelor) < std::abs(less_eq_it->second - bachelor)) {
       Choose(greater_eq_it);
     } else {
+      // TODO : Use std::forward here by converting the parameter to a universal reference
       auto less_eq_fwd_it = (++less_eq_it).base();
       Choose(less_eq_fwd_it);
     }
   }
 
-  return {};
+  auto min = 0;
+  if (!bachelors.empty()) {
+    min = bachelors.back();
+  }
+  return {bachelors.empty(), static_cast<int>(bachelors.size()), min};
 }
 
 void MatchMaker::Choose(std::map<int, int>::iterator &greater_eq_it) {
@@ -87,18 +98,32 @@ void MatchMaker::Choose(std::map<int, int>::iterator &greater_eq_it) {
 }
 
 int main() {
-  std::vector<int> bachelors{
-      5,
-      5,
-      10,
-      15
-  };
+  std::ios::sync_with_stdio(false);
 
-  std::vector<int> spinsters{
-      20,
-      18
-  };
+  int b, b_age;
+  std::size_t s;
+  std::list<int> bachelors;
+  std::vector<int> spinsters;
 
-  MatchMaker(spinsters).Match(bachelors);
+  for (std::size_t t = 1; std::cin >> b >> s, b || s; ++t) {
+    bachelors.clear();
+    for (int i = 0; i < b; ++i) {
+      std::cin >> b_age;
+      bachelors.emplace_back(b_age);
+    }
+
+    spinsters.resize(s);
+    for (std::size_t i = 0; i < s; ++i) {
+      std::cin >> spinsters[i];
+    }
+
+    std::cout << "Case " << t << ": ";
+    auto info = MatchMaker(spinsters).Match(bachelors);
+    if (info.all_matched) {
+      std::cout << 0 << std::endl;
+    } else {
+      std::cout << info.num_left << " " << info.min_bachelor << std::endl;
+    }
+  }
   return 0;
 }

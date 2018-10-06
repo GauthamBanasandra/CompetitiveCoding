@@ -10,3 +10,4 @@ add_executable(longest_palindromic_substring "Medium/5/Longest palindromic subst
 add_executable(zigzag_conversion "Medium/6/Zigzag conversion.cpp")
 add_executable(string_to_integer "Medium/8/String to integer.cpp")
 add_executable(integer_to_roman "Medium/12/Integer to roman.cpp")
+add_executable(3sum "Medium/15/3Sum.cpp")

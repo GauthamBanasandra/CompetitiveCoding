@@ -9,6 +9,7 @@
 #include <iostream>
 #include <string>
 #include <unordered_set>
+#include <list>
 #include <cassert>
 
 using FrequencyTable = std::unordered_map<int, std::size_t>;
@@ -24,7 +25,7 @@ class Solution {
 };
 
 std::vector<std::vector<int>> Solution::threeSum(const std::vector<int> &nums) {
-  std::vector<std::vector<int>> triplets;
+  std::list<std::vector<int>> triplets;
   FrequencyTable f;
   std::unordered_set<std::string> uniq_triplets;
 
@@ -57,7 +58,7 @@ std::vector<std::vector<int>> Solution::threeSum(const std::vector<int> &nums) {
 
     ++f[a];
   }
-  return triplets;
+  return std::vector<std::vector<int>>(triplets.begin(), triplets.end());
 }
 
 void Solution::Select(FrequencyTable &f, FrequencyTable::iterator &&it) const {

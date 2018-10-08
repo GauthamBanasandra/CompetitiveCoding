@@ -84,9 +84,9 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Rails "Data structures and libraries/Linear DS builtin lib/C++ STL stack/514/Rails.cpp")
     # Non linear DS builtin lib
         # C++ STL map
-        add_executable(Conformity "Data structures and libraries/Non linear DS builtin lib/C++ STL map/Conformity/Conformity.cpp")
-        add_executable(Hardwood_species "Data structures and libraries/Non linear DS builtin lib/C++ STL map/Hardwood species/Hardwood species.cpp")
-        add_executable(Unique_snowflakes "Data structures and libraries/Non linear DS builtin lib/C++ STL map/Unique snowflakes/Unique snowflakes.cpp")
+        add_executable(Conformity "Data structures and libraries/Non linear DS builtin lib/C++ STL map/11286/Conformity.cpp")
+        add_executable(Hardwood_species "Data structures and libraries/Non linear DS builtin lib/C++ STL map/10226/Hardwood species.cpp")
+        add_executable(Unique_snowflakes "Data structures and libraries/Non linear DS builtin lib/C++ STL map/11572/Unique snowflakes.cpp")
         # C++ STL priority_queue
         add_executable(Add_all "Data structures and libraries/Non linear DS builtin lib/C++ STL priority_queue/Add all/Add all.cpp")
         add_executable(Argus "Data structures and libraries/Non linear DS builtin lib/C++ STL priority_queue/Argus/Argus.cpp")

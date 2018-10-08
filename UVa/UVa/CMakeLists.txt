@@ -232,3 +232,6 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Boiled_eggs "Problem solving paradigms/Greedy/Involving sorting/11900/Boiled eggs.cpp")
         add_executable(A_match_making_problem "Problem solving paradigms/Greedy/Involving sorting/12210/A match making problem.cpp"
                 utils/print.cpp)
+    # Dynamic programming
+        # Max 1D range sum
+        add_executable(Jill_rides_again "Problem solving paradigms/Dynamic programming/Max 1D range sum/507/Jill rides again.cpp")

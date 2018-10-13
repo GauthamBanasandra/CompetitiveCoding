@@ -88,9 +88,9 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Hardwood_species "Data structures and libraries/Non linear DS builtin lib/C++ STL map/10226/Hardwood species.cpp")
         add_executable(Unique_snowflakes "Data structures and libraries/Non linear DS builtin lib/C++ STL map/11572/Unique snowflakes.cpp")
         # C++ STL priority_queue
-        add_executable(Add_all "Data structures and libraries/Non linear DS builtin lib/C++ STL priority_queue/Add all/Add all.cpp")
-        add_executable(Argus "Data structures and libraries/Non linear DS builtin lib/C++ STL priority_queue/Argus/Argus.cpp")
-        add_executable(I_can_guess_the_data_structure "Data structures and libraries/Non linear DS builtin lib/C++ STL priority_queue/I can guess the data structure/I can guess the data structure.cpp")
+        add_executable(Add_all "Data structures and libraries/Non linear DS builtin lib/C++ STL priority_queue/10954/Add all.cpp")
+        add_executable(Argus "Data structures and libraries/Non linear DS builtin lib/C++ STL priority_queue/1203/Argus.cpp")
+        add_executable(I_can_guess_the_data_structure "Data structures and libraries/Non linear DS builtin lib/C++ STL priority_queue/11995/I can guess the data structure.cpp")
         # C++ STL set
         add_executable(CD_stl_set "Data structures and libraries/Non linear DS builtin lib/C++ STL set/CD/CD.cpp")
         add_executable(Hoax_or_what "Data structures and libraries/Non linear DS builtin lib/C++ STL set/Hoax or what/Hoax or what.cpp")

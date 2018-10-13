@@ -92,9 +92,9 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Argus "Data structures and libraries/Non linear DS builtin lib/C++ STL priority_queue/1203/Argus.cpp")
         add_executable(I_can_guess_the_data_structure "Data structures and libraries/Non linear DS builtin lib/C++ STL priority_queue/11995/I can guess the data structure.cpp")
         # C++ STL set
-        add_executable(CD_stl_set "Data structures and libraries/Non linear DS builtin lib/C++ STL set/CD/CD.cpp")
-        add_executable(Hoax_or_what "Data structures and libraries/Non linear DS builtin lib/C++ STL set/Hoax or what/Hoax or what.cpp")
-        add_executable(Lemmings_battle "Data structures and libraries/Non linear DS builtin lib/C++ STL set/Lemmings battle/Lemmings battle.cpp")
+        add_executable(CD_stl_set "Data structures and libraries/Non linear DS builtin lib/C++ STL set/11849/CD.cpp")
+        add_executable(Hoax_or_what "Data structures and libraries/Non linear DS builtin lib/C++ STL set/11136/Hoax or what.cpp")
+        add_executable(Lemmings_battle "Data structures and libraries/Non linear DS builtin lib/C++ STL set/978/Lemmings battle.cpp")
     # DS with our own lib
         # Graph
         add_executable(Easy_problem_from_rujia_liu "Data structures and libraries/DS with our own lib/Graph/Easy problem from rujia liu/Easy problem from rujia liu.cpp")

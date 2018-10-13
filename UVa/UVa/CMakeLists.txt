@@ -235,3 +235,5 @@ set(CMAKE_CXX_STANDARD 11)
     # Dynamic programming
         # Max 1D range sum
         add_executable(Jill_rides_again "Problem solving paradigms/Dynamic programming/Max 1D range sum/507/Jill rides again.cpp")
+        # Java - Max sub-sequence product
+        add_executable(The_jackpot "Problem solving paradigms/Dynamic programming/Max 1D range sum/10684/The jackpot.cpp")

@@ -102,10 +102,10 @@ set(CMAKE_CXX_STANDARD 11)
                 "Data structures and libraries/DS with our own lib/Graph/10895/utils.cpp")
         add_executable(The_forest_for_the_trees "Data structures and libraries/DS with our own lib/Graph/599/The forest for the trees.cpp")
         # Tree-related DS
-        add_executable(Ahoy_pirates "Data structures and libraries/DS with our own lib/Tree-related DS/Ahoy pirates/Ahoy pirates.cpp")
-        add_executable(Frequent_values "Data structures and libraries/DS with our own lib/Tree-related DS/Frequent values/Frequent values.cpp"
-                "Data structures and libraries/DS with our own lib/Tree-related DS/Frequent values/utils.cpp")
-        add_executable(Interval_product "Data structures and libraries/DS with our own lib/Tree-related DS/Interval product/Interval product.cpp")
+        add_executable(Ahoy_pirates "Data structures and libraries/DS with our own lib/Tree-related DS/11402/Ahoy pirates.cpp")
+        add_executable(Frequent_values "Data structures and libraries/DS with our own lib/Tree-related DS/11235/Frequent values.cpp"
+                "Data structures and libraries/DS with our own lib/Tree-related DS/11235/utils.cpp")
+        add_executable(Interval_product "Data structures and libraries/DS with our own lib/Tree-related DS/12532/Interval product.cpp")
         # Union-find disjoint sets
         add_executable(Network_connections "Data structures and libraries/DS with our own lib/Union-find disjoint sets/Network connections/Network connections.cpp")
         add_executable(Virtual_friends "Data structures and libraries/DS with our own lib/Union-find disjoint sets/Virtual friends/Virtual friends.cpp"

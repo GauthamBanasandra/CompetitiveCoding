@@ -240,3 +240,5 @@ set(CMAKE_CXX_STANDARD 11)
         # Max 2D range sum
         add_executable(Maximum_sum "Problem solving paradigms/Dynamic programming/Max 2D range sum/108/Maximum sum.cpp"
                 "utils/print.cpp")
+        add_executable(Largest_submatrix "Problem solving paradigms/Dynamic programming/Max 2D range sum/836/Largest submatrix.cpp"
+                "utils/print.cpp")

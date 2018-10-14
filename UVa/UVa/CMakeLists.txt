@@ -210,9 +210,9 @@ set(CMAKE_CXX_STANDARD 11)
     # Greedy
         # Classical
         add_executable(Station_balance "Problem solving paradigms/Greedy/Classical/410/Station balance.cpp"
-                utils/print.cpp)
+                "utils/print.cpp")
         add_executable(Radar_installation "Problem solving paradigms/Greedy/Classical/1193/Radar installation.cpp"
-                utils/print.cpp)
+                "utils/print.cpp")
         add_executable(Minimal_coverage "Problem solving paradigms/Greedy/Classical/10020/Minimal coverage.cpp"
                 "Problem solving paradigms/Greedy/Classical/10020/utils.cpp")
         add_executable(Watering_grass "Problem solving paradigms/Greedy/Classical/10382/Watering grass.cpp")
@@ -231,7 +231,7 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Commando_war "Problem solving paradigms/Greedy/Involving sorting/11729/Commando war.cpp")
         add_executable(Boiled_eggs "Problem solving paradigms/Greedy/Involving sorting/11900/Boiled eggs.cpp")
         add_executable(A_match_making_problem "Problem solving paradigms/Greedy/Involving sorting/12210/A match making problem.cpp"
-                utils/print.cpp)
+                "utils/print.cpp")
     # Dynamic programming
         # Max 1D range sum
         add_executable(Jill_rides_again "Problem solving paradigms/Dynamic programming/Max 1D range sum/507/Jill rides again.cpp")

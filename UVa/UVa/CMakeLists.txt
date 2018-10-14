@@ -97,10 +97,10 @@ set(CMAKE_CXX_STANDARD 11)
         add_executable(Lemmings_battle "Data structures and libraries/Non linear DS builtin lib/C++ STL set/978/Lemmings battle.cpp")
     # DS with our own lib
         # Graph
-        add_executable(Easy_problem_from_rujia_liu "Data structures and libraries/DS with our own lib/Graph/Easy problem from rujia liu/Easy problem from rujia liu.cpp")
-        add_executable(Matrix_transpose "Data structures and libraries/DS with our own lib/Graph/Matrix transpose/Matrix transpose.cpp"
-                "Data structures and libraries/DS with our own lib/Graph/Matrix transpose/utils.cpp")
-        add_executable(The_forest_for_the_trees "Data structures and libraries/DS with our own lib/Graph/The forest for the trees/The forest for the trees.cpp")
+        add_executable(Easy_problem_from_rujia_liu "Data structures and libraries/DS with our own lib/Graph/11991/Easy problem from rujia liu.cpp")
+        add_executable(Matrix_transpose "Data structures and libraries/DS with our own lib/Graph/10895/Matrix transpose.cpp"
+                "Data structures and libraries/DS with our own lib/Graph/10895/utils.cpp")
+        add_executable(The_forest_for_the_trees "Data structures and libraries/DS with our own lib/Graph/599/The forest for the trees.cpp")
         # Tree-related DS
         add_executable(Ahoy_pirates "Data structures and libraries/DS with our own lib/Tree-related DS/Ahoy pirates/Ahoy pirates.cpp")
         add_executable(Frequent_values "Data structures and libraries/DS with our own lib/Tree-related DS/Frequent values/Frequent values.cpp"

@@ -12,7 +12,7 @@ using ll = long long;
 const int max_rows = 8;
 const int max_columns = 8;
 
-void Print(const std::vector<vi> &board_values);
+void Print(const std::vector<vi> &matrix);
 
 bool IsSafePos(const vi &n_queens_pos, int row, int column) {
   for (auto _column = 0; _column < column; ++_column) {

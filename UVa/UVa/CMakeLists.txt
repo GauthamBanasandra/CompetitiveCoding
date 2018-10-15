@@ -242,3 +242,5 @@ set(CMAKE_CXX_STANDARD 11)
                 "utils/print.cpp")
         add_executable(Largest_submatrix "Problem solving paradigms/Dynamic programming/Max 2D range sum/836/Largest submatrix.cpp"
                 "utils/print.cpp")
+        add_executable(Localized_summing_for_blurring "Problem solving paradigms/Dynamic programming/Max 2D range sum/983/Localized summing for blurring.cpp"
+                "utils/print.cpp")

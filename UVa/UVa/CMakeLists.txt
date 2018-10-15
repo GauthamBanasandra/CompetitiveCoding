@@ -3,6 +3,9 @@ project(UVa)
 
 set(CMAKE_CXX_STANDARD 11)
 
+find_package(Java REQUIRED)
+include(UseJava)
+
 # Introduction
     # Super easy
     add_executable(Cost_cutting "Introduction/Super easy/11727/Cost cutting.cpp")
@@ -50,8 +53,8 @@ set(CMAKE_CXX_STANDARD 11)
                 "Introduction/Ad hoc/Real life problems/161/utils.cpp")
         # Time
         add_executable(Clock_hands "Introduction/Ad hoc/Time/579/Clock hands.cpp")
-        # Solved in Java - Cancer or scorpio
-        # Solved in Java - Y3K
+        add_jar(Cancer_or_scorpio "Introduction/Ad hoc/Time/11947/Cancer or scorpio/src/Main.java")
+        add_jar(Y3k "Introduction/Ad hoc/Time/893/Y3K/src/Main.java")
         # Time waster problems
         add_executable(All_integer_average "Introduction/Ad hoc/Time waster problems/12060/All integer average.cpp")
         add_executable(Mobile_casanova "Introduction/Ad hoc/Time waster problems/12085/Mobile casanova.cpp")
@@ -235,7 +238,7 @@ set(CMAKE_CXX_STANDARD 11)
     # Dynamic programming
         # Max 1D range sum
         add_executable(Jill_rides_again "Problem solving paradigms/Dynamic programming/Max 1D range sum/507/Jill rides again.cpp")
-        # Solved in Java - Max sub-sequence product
+        add_jar(Max_sub_sequence_product "Problem solving paradigms/Dynamic programming/Max 1D range sum/787/Max sub-sequence product/src/Main.java")
         add_executable(The_jackpot "Problem solving paradigms/Dynamic programming/Max 1D range sum/10684/The jackpot.cpp")
         # Max 2D range sum
         add_executable(Maximum_sum "Problem solving paradigms/Dynamic programming/Max 2D range sum/108/Maximum sum.cpp"

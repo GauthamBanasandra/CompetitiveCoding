@@ -107,11 +107,11 @@ set(CMAKE_CXX_STANDARD 11)
                 "Data structures and libraries/DS with our own lib/Tree-related DS/11235/utils.cpp")
         add_executable(Interval_product "Data structures and libraries/DS with our own lib/Tree-related DS/12532/Interval product.cpp")
         # Union-find disjoint sets
-        add_executable(Network_connections "Data structures and libraries/DS with our own lib/Union-find disjoint sets/Network connections/Network connections.cpp")
-        add_executable(Virtual_friends "Data structures and libraries/DS with our own lib/Union-find disjoint sets/Virtual friends/Virtual friends.cpp"
-                "Data structures and libraries/DS with our own lib/Union-find disjoint sets/Virtual friends/utils.cpp")
-        add_executable(Waking_up_brain "Data structures and libraries/DS with our own lib/Union-find disjoint sets/Waking up brain/Waking up brain.cpp"
-                "Data structures and libraries/DS with our own lib/Union-find disjoint sets/Virtual friends/utils.cpp")
+        add_executable(Network_connections "Data structures and libraries/DS with our own lib/Union-find disjoint sets/793/Network connections.cpp")
+        add_executable(Virtual_friends "Data structures and libraries/DS with our own lib/Union-find disjoint sets/11503/Virtual friends.cpp"
+                "Data structures and libraries/DS with our own lib/Union-find disjoint sets/11503/utils.cpp")
+        add_executable(Waking_up_brain "Data structures and libraries/DS with our own lib/Union-find disjoint sets/10507/Waking up brain.cpp"
+                "Data structures and libraries/DS with our own lib/Union-find disjoint sets/11503/utils.cpp")
 
 # Problem solving paradigms
     # Complete search

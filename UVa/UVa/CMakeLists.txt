@@ -120,9 +120,9 @@ include(UseJava)
     # Complete search
         # Iterative
             # Linear scan
-            add_executable(Integer_sequence_from "Problem solving paradigms/Complete search/Iterative/Linear scan/Integer sequence from/Integer sequence from.cpp")
-            add_executable(Expert_enough "Problem solving paradigms/Complete search/Iterative/Linear scan/Expert enough/Expert enough.cpp")
-            add_executable(Fractions_again "Problem solving paradigms/Complete search/Iterative/Linear scan/Fractions again/Fractions again.cpp")
+            add_executable(Integer_sequence_from "Problem solving paradigms/Complete search/Iterative/Linear scan/927/Integer sequence from.cpp")
+            add_executable(Expert_enough "Problem solving paradigms/Complete search/Iterative/Linear scan/1237/Expert enough.cpp")
+            add_executable(Fractions_again "Problem solving paradigms/Complete search/Iterative/Linear scan/10976/Fractions again.cpp")
             # Two nested loops
             add_executable(Sales "Problem solving paradigms/Complete search/Iterative/Two nested loops/Sales/Sales.cpp")
             add_executable(Closest_sums "Problem solving paradigms/Complete search/Iterative/Two nested loops/Closest sums/Closest sums.cpp")

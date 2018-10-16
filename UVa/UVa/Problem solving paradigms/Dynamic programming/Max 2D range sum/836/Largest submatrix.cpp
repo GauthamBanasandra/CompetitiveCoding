@@ -14,10 +14,10 @@ void Print(const std::vector<std::vector<int>> &matrix);
 using Matrix = std::vector<std::vector<int>>;
 
 struct MatrixInfo {
-  MatrixInfo(bool all_ones, int size) : all_ones(all_ones), ones_count(size) {}
+  MatrixInfo(bool all_ones, int size) : all_zeros(all_ones), zeros_count(size) {}
 
-  bool all_ones;
-  int ones_count;
+  bool all_zeros;
+  int zeros_count;
 };
 
 class MatrixSize {
@@ -79,11 +79,11 @@ int MatrixSize::Largest() const {
       for (std::size_t k = i; k < matrix_len; ++k) {
         for (std::size_t l = j; l < row_len; ++l) {
           auto info = GetMatrixInfo(i, j, k, l);
-          if (!info.all_ones) {
+          if (!info.all_zeros) {
             continue;
           }
 
-          max_ones = std::max(max_ones, info.ones_count);
+          max_ones = std::max(max_ones, info.zeros_count);
         }
       }
     }

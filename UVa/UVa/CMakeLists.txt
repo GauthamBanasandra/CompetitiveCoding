@@ -247,3 +247,5 @@ include(UseJava)
                 "utils/print.cpp")
         add_executable(Localized_summing_for_blurring "Problem solving paradigms/Dynamic programming/Max 2D range sum/983/Localized summing for blurring.cpp"
                 "utils/print.cpp")
+        add_executable(Take_the_land "Problem solving paradigms/Dynamic programming/Max 2D range sum/10074/Take the land.cpp"
+                "utils/print.cpp")

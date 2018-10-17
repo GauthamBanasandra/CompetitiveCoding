@@ -269,3 +269,6 @@
 /leetcode/build
 /UVa/UVa/build
 /leetcode/.vscode
+/Hackerrank/Hackerrank/.idea
+/Hackerrank/Hackerrank/build
+/Hackerrank/Hackerrank/cmake-build-debug

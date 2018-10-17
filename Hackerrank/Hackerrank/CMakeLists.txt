@@ -7,13 +7,17 @@ find_package(Java REQUIRED)
 include(UseJava)
 
 # Practice
+    # Strings
     add_executable(Strong_password "Practice/Strings/Strong password/Strong password.cpp")
+    # Graph theory
     add_executable(The_salesman "Practice/Graph_theory/The salesman/The salesman.cpp")
     add_executable(Marcs_cakewalk "Practice/Greedy/Marcs cakewalk/Marcs cakewalk.cpp")
-    add_executable(The_power_sum "Practice/Recursion/The power sum/The power sum.cpp"
-            "Practice/Recursion/The power sum/utils.cpp")
     # Recursion
     add_executable(Recursive_digit_sum "Practice/Recursion/Recursive digit sum/Recursive digit sum.cpp")
+    add_executable(The_power_sum "Practice/Recursion/The power sum/The power sum.cpp"
+            "Practice/Recursion/The power sum/utils.cpp")
+    # Greedy
+    add_executable(Beautiful_pairs "Practice/Greedy/16828/Beautiful pairs.cpp")
 
 # Compete
     # Week of code

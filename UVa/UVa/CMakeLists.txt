@@ -249,3 +249,5 @@ include(UseJava)
                 "utils/print.cpp")
         add_executable(Take_the_land "Problem solving paradigms/Dynamic programming/Max 2D range sum/10074/Take the land.cpp"
                 "utils/print.cpp")
+        add_executable(Largest_block "Problem solving paradigms/Dynamic programming/Max 2D range sum/10667/Largest block.cpp"
+                "utils/print.cpp")

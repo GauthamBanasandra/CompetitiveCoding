@@ -124,10 +124,10 @@ include(UseJava)
             add_executable(Expert_enough "Problem solving paradigms/Complete search/Iterative/Linear scan/1237/Expert enough.cpp")
             add_executable(Fractions_again "Problem solving paradigms/Complete search/Iterative/Linear scan/10976/Fractions again.cpp")
             # Two nested loops
-            add_executable(Sales "Problem solving paradigms/Complete search/Iterative/Two nested loops/Sales/Sales.cpp")
-            add_executable(Closest_sums "Problem solving paradigms/Complete search/Iterative/Two nested loops/Closest sums/Closest sums.cpp")
-            add_executable(Tour_de_france "Problem solving paradigms/Complete search/Iterative/Two nested loops/Tour de france/Tour de france.cpp"
-                    "Problem solving paradigms/Complete search/Iterative/Two nested loops/Tour de france/utils.cpp")
+            add_executable(Sales "Problem solving paradigms/Complete search/Iterative/Two nested loops/1260/Sales.cpp")
+            add_executable(Closest_sums "Problem solving paradigms/Complete search/Iterative/Two nested loops/10487/Closest sums.cpp")
+            add_executable(Tour_de_france "Problem solving paradigms/Complete search/Iterative/Two nested loops/11242/Tour de france.cpp"
+                    "Problem solving paradigms/Complete search/Iterative/Two nested loops/11242/utils.cpp")
             # Three or more nested loops
             add_executable(Lotto "Problem solving paradigms/Complete search/Iterative/Three or more nested loops/Easy/Lotto/Lotto.cpp"
                     "Problem solving paradigms/Complete search/Iterative/Three or more nested loops/Easy/Lotto/utils.cpp")

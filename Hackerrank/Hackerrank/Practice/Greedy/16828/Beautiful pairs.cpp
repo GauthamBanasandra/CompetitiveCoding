@@ -62,7 +62,7 @@ int CountBeautifulPairs(const std::vector<int>& a, const std::vector<int>& b)
 			++b_it;
 		}
 	}
-	return num_pairs + (b_ft.empty() && a_ft.empty() ? 0 : 1);
+	return num_pairs + (b_ft.empty() && a_ft.empty() ? -1 : 1);
 }
 
 int main(int argc, char* argv[])

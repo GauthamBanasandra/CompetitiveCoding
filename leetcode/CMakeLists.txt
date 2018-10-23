@@ -17,3 +17,4 @@ add_executable(remove_nth_node_from_end_of_list "Medium/19/Remove nth node from 
 add_executable(generate_parenthesis "Medium/22/Generate parenthesis.cpp")
 add_executable(swap_nodes_in_pairs "Medium/24/Swap nodes in pairs.cpp")
 add_executable(next_permutation "Medium/31/Next permutation.cpp")
+add_executable(search_in_rotated_sorted_array "Medium/33/Search in rotated sorted array.cpp")

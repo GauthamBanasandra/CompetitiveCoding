@@ -14,17 +14,34 @@ private:
 
 int Solution::search(std::vector<int>& numbers, const int target)
 {
-	const auto i_pivot = GetPivotIndex(numbers);
-	auto pivot_it = numbers.begin();
-	std::advance(pivot_it, i_pivot);
-
-	const auto l_it = std::lower_bound(numbers.begin(), pivot_it, target);
-	if (*l_it == target)
+	if (numbers.empty())
 	{
-		return std::distance(numbers.begin(), l_it);
+		return -1;
 	}
 
-	return 0;
+	const auto i_pivot = GetPivotIndex(numbers);
+	auto pivot_end_it = numbers.begin();
+	std::advance(pivot_end_it, i_pivot + 1);
+
+	auto find_it = std::lower_bound(numbers.begin(), pivot_end_it, target);
+	if (find_it == numbers.end())
+	{
+		return -1;
+	}
+	if (*find_it == target)
+	{
+		return std::distance(numbers.begin(), find_it);
+	}
+	if (pivot_end_it == numbers.end())
+	{
+		return -1;
+	}
+	find_it = std::lower_bound(pivot_end_it, numbers.end(), target);
+	if (find_it == numbers.end() || *find_it != target)
+	{
+		return -1;
+	}
+	return std::distance(numbers.begin(), find_it);
 }
 
 std::size_t Solution::GetPivotIndex(const std::vector<int>& numbers)
@@ -53,6 +70,7 @@ std::size_t Solution::GetPivotIndex(const std::vector<int>& numbers)
 
 int main(int argc, char* argv[])
 {
-	const std::vector<int> numbers{ 0, 1, 2, 4, 5, 6, 7 };
+	std::vector<int> numbers{ 8 };
+	std::cout << Solution::search(numbers, 8) << std::endl;
 	return 0;
 }

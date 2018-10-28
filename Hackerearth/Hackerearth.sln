@@ -37,6 +37,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Card game", "Card game\Card
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Polynomial sign", "Polynomial sign\Polynomial sign.vcxproj", "{479B372A-F815-4E14-B536-079B041D9BAA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "October circuits '18", "October circuits '18", "{083B7D73-B920-4767-9A2C-36167F17A099}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Quesion paper", "Quesion paper\Quesion paper.vcxproj", "{7D524A59-E223-45DF-A952-D3BCE35C104A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -153,6 +157,14 @@ Global
 		{479B372A-F815-4E14-B536-079B041D9BAA}.Release|x64.Build.0 = Release|x64
 		{479B372A-F815-4E14-B536-079B041D9BAA}.Release|x86.ActiveCfg = Release|Win32
 		{479B372A-F815-4E14-B536-079B041D9BAA}.Release|x86.Build.0 = Release|Win32
+		{7D524A59-E223-45DF-A952-D3BCE35C104A}.Debug|x64.ActiveCfg = Debug|x64
+		{7D524A59-E223-45DF-A952-D3BCE35C104A}.Debug|x64.Build.0 = Debug|x64
+		{7D524A59-E223-45DF-A952-D3BCE35C104A}.Debug|x86.ActiveCfg = Debug|Win32
+		{7D524A59-E223-45DF-A952-D3BCE35C104A}.Debug|x86.Build.0 = Debug|Win32
+		{7D524A59-E223-45DF-A952-D3BCE35C104A}.Release|x64.ActiveCfg = Release|x64
+		{7D524A59-E223-45DF-A952-D3BCE35C104A}.Release|x64.Build.0 = Release|x64
+		{7D524A59-E223-45DF-A952-D3BCE35C104A}.Release|x86.ActiveCfg = Release|Win32
+		{7D524A59-E223-45DF-A952-D3BCE35C104A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -171,6 +183,7 @@ Global
 		{F91ED106-757D-47FB-9D90-FCE142E08A24} = {8F92EF18-A6A1-4B14-8B1B-AF58960933AF}
 		{8C5B73E6-E2EF-4EAC-BD98-A1FDC2193B5F} = {C66B7E51-7EDD-4737-8755-9580B5F4E891}
 		{479B372A-F815-4E14-B536-079B041D9BAA} = {C66B7E51-7EDD-4737-8755-9580B5F4E891}
+		{7D524A59-E223-45DF-A952-D3BCE35C104A} = {083B7D73-B920-4767-9A2C-36167F17A099}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BF4659AF-2246-4E02-843C-40DEAB7C5998}

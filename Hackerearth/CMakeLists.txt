@@ -28,3 +28,4 @@ set(CMAKE_CXX_STANDARD 14)
             # October
             add_executable(Question_paper "Compete/Circuits/2018/October/Quesion paper/Question paper.cpp")
             add_executable(Total_cost "Compete/Circuits/2018/October/Total cost/Total cost.cpp")
+            add_executable(Reversing_elements "Compete/Circuits/2018/October/Reversing elements/Reversing elements.cpp")

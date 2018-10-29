@@ -27,3 +27,4 @@ set(CMAKE_CXX_STANDARD 14)
         # 2018
             # October
             add_executable(Question_paper "Compete/Circuits/2018/October/Quesion paper/Question paper.cpp")
+            add_executable(Total_cost "Compete/Circuits/2018/October/Total cost/Total cost.cpp")

@@ -129,12 +129,12 @@ include(UseJava)
             add_executable(Tour_de_france "Problem solving paradigms/Complete search/Iterative/Two nested loops/11242/Tour de france.cpp"
                     "Problem solving paradigms/Complete search/Iterative/Two nested loops/11242/utils.cpp")
             # Three or more nested loops
-            add_executable(Lotto "Problem solving paradigms/Complete search/Iterative/Three or more nested loops/Easy/Lotto/Lotto.cpp"
-                    "Problem solving paradigms/Complete search/Iterative/Three or more nested loops/Easy/Lotto/utils.cpp")
-            add_executable(Dart_a_mania "Problem solving paradigms/Complete search/Iterative/Three or more nested loops/Easy/Dart-a-mania/Dart-a-mania.cpp"
-                    "Problem solving paradigms/Complete search/Iterative/Three or more nested loops/Easy/Dart-a-mania/utils.cpp")
-            add_executable(The_path_in_the_colored_field "Problem solving paradigms/Complete search/Iterative/Three or more nested loops/Easy/The path in the colored field/The path in the colored field.cpp"
-                    "Problem solving paradigms/Complete search/Iterative/Three or more nested loops/Easy/The path in the colored field/utils.cpp")
+            add_executable(Lotto "Problem solving paradigms/Complete search/Iterative/Three or more nested loops/Easy/441/Lotto.cpp"
+                    "Problem solving paradigms/Complete search/Iterative/Three or more nested loops/Easy/441/utils.cpp")
+            add_executable(Dart_a_mania "Problem solving paradigms/Complete search/Iterative/Three or more nested loops/Easy/735/Dart-a-mania.cpp"
+                    "Problem solving paradigms/Complete search/Iterative/Three or more nested loops/Easy/735/utils.cpp")
+            add_executable(The_path_in_the_colored_field "Problem solving paradigms/Complete search/Iterative/Three or more nested loops/Easy/10102/The path in the colored field.cpp"
+                    "Problem solving paradigms/Complete search/Iterative/Three or more nested loops/Easy/10102/utils.cpp")
             add_executable(Simple_equations "Problem solving paradigms/Complete search/Iterative/Three or more nested loops/Hard/Simple equations/Simple equations.cpp")
             # Fancy techniques
             add_executable(Bars "Problem solving paradigms/Complete search/Iterative/Fancy techniques/Bars/Bars.cpp")

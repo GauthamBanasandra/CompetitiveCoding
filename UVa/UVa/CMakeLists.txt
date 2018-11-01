@@ -253,3 +253,5 @@ include(UseJava)
                 "utils/print.cpp")
         add_executable(Maximum_sum_on_a_torus "Problem solving paradigms/Dynamic programming/Max 2D range sum/10827/Maximum sum on a torus.cpp"
                 "utils/print.cpp")
+        add_executable(Area "Problem solving paradigms/Dynamic programming/Max 2D range sum/11951/Area.cpp"
+                "utils/print.cpp")

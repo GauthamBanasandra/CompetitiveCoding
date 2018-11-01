@@ -135,7 +135,7 @@ include(UseJava)
                     "Problem solving paradigms/Complete search/Iterative/Three or more nested loops/Easy/735/utils.cpp")
             add_executable(The_path_in_the_colored_field "Problem solving paradigms/Complete search/Iterative/Three or more nested loops/Easy/10102/The path in the colored field.cpp"
                     "Problem solving paradigms/Complete search/Iterative/Three or more nested loops/Easy/10102/utils.cpp")
-            add_executable(Simple_equations "Problem solving paradigms/Complete search/Iterative/Three or more nested loops/Hard/Simple equations/Simple equations.cpp")
+            add_executable(Simple_equations "Problem solving paradigms/Complete search/Iterative/Three or more nested loops/Hard/11565/Simple equations.cpp")
             # Fancy techniques
             add_executable(Bars "Problem solving paradigms/Complete search/Iterative/Fancy techniques/Bars/Bars.cpp")
             add_executable(Zones "Problem solving paradigms/Complete search/Iterative/Fancy techniques/Zones/Zones.cpp")

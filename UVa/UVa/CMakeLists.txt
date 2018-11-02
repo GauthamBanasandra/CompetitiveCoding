@@ -255,3 +255,5 @@ include(UseJava)
                 "utils/print.cpp")
         add_executable(Area "Problem solving paradigms/Dynamic programming/Max 2D range sum/11951/Area.cpp"
                 "utils/print.cpp")
+        # Longest increasing subsequence
+        add_executable(History_grading "Problem solving paradigms/Dynamic programming/Longest increasing subsequence/111/History grading.cpp")

@@ -137,10 +137,10 @@ include(UseJava)
                     "Problem solving paradigms/Complete search/Iterative/Three or more nested loops/Easy/10102/utils.cpp")
             add_executable(Simple_equations "Problem solving paradigms/Complete search/Iterative/Three or more nested loops/Hard/11565/Simple equations.cpp")
             # Fancy techniques
-            add_executable(Bars "Problem solving paradigms/Complete search/Iterative/Fancy techniques/Bars/Bars.cpp")
-            add_executable(Zones "Problem solving paradigms/Complete search/Iterative/Fancy techniques/Zones/Zones.cpp")
-            add_executable(Grid_game "Problem solving paradigms/Complete search/Iterative/Fancy techniques/Grid game/Grid game.cpp"
-                    "Problem solving paradigms/Complete search/Iterative/Fancy techniques/Grid game/util.cpp")
+            add_executable(Bars "Problem solving paradigms/Complete search/Iterative/Fancy techniques/12455/Bars.cpp")
+            add_executable(Zones "Problem solving paradigms/Complete search/Iterative/Fancy techniques/1047/Zones.cpp")
+            add_executable(Grid_game "Problem solving paradigms/Complete search/Iterative/Fancy techniques/11553/Grid game.cpp"
+                    "Problem solving paradigms/Complete search/Iterative/Fancy techniques/11553/util.cpp")
         # Recursive backtracking
             # Easy
             add_executable(The_sultans_successor "Problem solving paradigms/Complete search/Recursive backtracking/Easy/The sultans successor/The sultans successor.cpp"

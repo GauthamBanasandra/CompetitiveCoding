@@ -4,10 +4,10 @@
 #include <cassert>
 #include <ios>
 
-class Sequence
+class Bits
 {
 public:
-	explicit Sequence(const std::vector<std::size_t>& numbers);
+	explicit Bits(const std::vector<std::size_t>& numbers);
 	bool Find();
 
 private:
@@ -16,7 +16,7 @@ private:
 	std::unordered_map<std::size_t, std::vector<std::size_t>> reverse_index_;
 };
 
-Sequence::Sequence(const std::vector<std::size_t>& numbers)
+Bits::Bits(const std::vector<std::size_t>& numbers)
 {
 	for (std::size_t i = 0, len = numbers.size(); i < len; ++i)
 	{
@@ -29,7 +29,7 @@ Sequence::Sequence(const std::vector<std::size_t>& numbers)
 	}
 }
 
-bool Sequence::Find()
+bool Bits::Find()
 {
 	for (const auto& reverse_index : reverse_index_)
 	{
@@ -47,7 +47,7 @@ bool Sequence::Find()
 	return false;
 }
 
-bool Sequence::IsInverseExist(const std::vector<std::size_t>& indices) const
+bool Bits::IsInverseExist(const std::vector<std::size_t>& indices) const
 {
 	std::size_t i_index = 0;
 	const auto len = indices.size();
@@ -92,7 +92,7 @@ int main(int argc, char* argv[])
 			std::cin >> numbers[i];
 		}
 
-		std::cout << (Sequence(numbers).Find() ? "Truly Happy" : "Poor Chef") << std::endl;
+		std::cout << (Bits(numbers).Find() ? "Truly Happy" : "Poor Chef") << std::endl;
 	}
 	return 0;
 }

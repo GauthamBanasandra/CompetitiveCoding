@@ -10,6 +10,7 @@ add_executable(Chef_and_difficult_contests "Compete/2018/November challenge/CHFT
 add_executable(Chef_and_happiness "Compete/2018/November challenge/CHHAPPY/Chef and happiness.cpp")
 add_executable(Chef_and_ridges "Compete/2018/November challenge/PRDRG/Chef and ridges.cpp")
 add_executable(Appy_loves_one "Compete/2018/November challenge/HMAPPY1/Appy loves one.cpp")
+add_executable(Magician_versus_chef_2 "Compete/2018/November challenge/MAGICHF2/Magician versus chef 2.cpp")
 
 # Practice
 add_executable(Closing_the_tweets "Practice/Medium/TWTCLOSE/Closing the tweets.cpp")

@@ -143,22 +143,22 @@ include(UseJava)
                     "Problem solving paradigms/Complete search/Iterative/Fancy techniques/11553/util.cpp")
         # Recursive backtracking
             # Easy
-            add_executable(The_sultans_successor "Problem solving paradigms/Complete search/Recursive backtracking/Easy/The sultans successor/The sultans successor.cpp"
-                    "Problem solving paradigms/Complete search/Recursive backtracking/Easy/The sultans successor/utils.cpp")
-            add_executable(Call_forwarding "Problem solving paradigms/Complete search/Recursive backtracking/Easy/Call forwarding/Call forwarding.cpp"
-                    "Problem solving paradigms/Complete search/Recursive backtracking/Easy/Call forwarding/utils.cpp")
-            add_executable(The_settlers_of_catan "Problem solving paradigms/Complete search/Recursive backtracking/Easy/The settlers of catan/The settlers of catan.cpp"
-                    "Problem solving paradigms/Complete search/Recursive backtracking/Easy/The settlers of catan/utils.cpp")
-            add_executable(CD "Problem solving paradigms/Complete search/Recursive backtracking/Easy/CD/CD.cpp")
-            add_executable(Passwords "Problem solving paradigms/Complete search/Recursive backtracking/Easy/Passwords/Passwords.cpp")
-            add_executable(All_walks_of_length_n_from_first_node "Problem solving paradigms/Complete search/Recursive backtracking/Easy/All walks of length n from first node/All walks of length n from first node.cpp"
-                    "Problem solving paradigms/Complete search/Recursive backtracking/Easy/All walks of length n from first node/utils.cpp")
-            add_executable(The_hamming_distance_problem "Problem solving paradigms/Complete search/Recursive backtracking/Easy/The hamming distance problem/The hamming distance problem.cpp")
-            add_executable(8_queens_chess_problem "Problem solving paradigms/Complete search/Recursive backtracking/Easy/8 queens chess problem/8 queens chess problem.cpp")
-            add_executable(Hanoi_tower_troubles_again "Problem solving paradigms/Complete search/Recursive backtracking/Easy/Hanoi tower troubles again/Hanoi tower troubles again.cpp")
-            add_executable(23_out_of_5 "Problem solving paradigms/Complete search/Recursive backtracking/Easy/23 out of 5/23 out of 5.cpp")
-            add_executable(Marcus_help "Problem solving paradigms/Complete search/Recursive backtracking/Easy/Marcus help/Marcus help.cpp")
-            add_executable(Back_to_the_8_queens "Problem solving paradigms/Complete search/Recursive backtracking/Easy/Back to the 8 queens/Back to the 8 queens.cpp")
+            add_executable(The_sultans_successor "Problem solving paradigms/Complete search/Recursive backtracking/Easy/167/The sultans successor.cpp"
+                    "Problem solving paradigms/Complete search/Recursive backtracking/Easy/167/utils.cpp")
+            add_executable(Call_forwarding "Problem solving paradigms/Complete search/Recursive backtracking/Easy/380/Call forwarding.cpp"
+                    "Problem solving paradigms/Complete search/Recursive backtracking/Easy/380/utils.cpp")
+            add_executable(The_settlers_of_catan "Problem solving paradigms/Complete search/Recursive backtracking/Easy/539/The settlers of catan.cpp"
+                    "Problem solving paradigms/Complete search/Recursive backtracking/Easy/539/utils.cpp")
+            add_executable(CD "Problem solving paradigms/Complete search/Recursive backtracking/Easy/624/CD.cpp")
+            add_executable(Passwords "Problem solving paradigms/Complete search/Recursive backtracking/Easy/628/Passwords.cpp")
+            add_executable(All_walks_of_length_n_from_first_node "Problem solving paradigms/Complete search/Recursive backtracking/Easy/677/All walks of length n from first node.cpp"
+                    "Problem solving paradigms/Complete search/Recursive backtracking/Easy/677/utils.cpp")
+            add_executable(The_hamming_distance_problem "Problem solving paradigms/Complete search/Recursive backtracking/Easy/729/The hamming distance problem.cpp")
+            add_executable(8_queens_chess_problem "Problem solving paradigms/Complete search/Recursive backtracking/Easy/750/8 queens chess problem.cpp")
+            add_executable(Hanoi_tower_troubles_again "Problem solving paradigms/Complete search/Recursive backtracking/Easy/10276/Hanoi tower troubles again.cpp")
+            add_executable(23_out_of_5 "Problem solving paradigms/Complete search/Recursive backtracking/Easy/10344/23 out of 5.cpp")
+            add_executable(Marcus_help "Problem solving paradigms/Complete search/Recursive backtracking/Easy/10452/Marcus help.cpp")
+            add_executable(Back_to_the_8_queens "Problem solving paradigms/Complete search/Recursive backtracking/Easy/11085/Back to the 8 queens.cpp")
             # Medium
             add_executable(Transportation "Problem solving paradigms/Complete search/Recursive backtracking/Medium/Transportation/Transportation.cpp")
             add_executable(Boggle_blitz "Problem solving paradigms/Complete search/Recursive backtracking/Medium/Boggle blitz/Boggle blitz.cpp")

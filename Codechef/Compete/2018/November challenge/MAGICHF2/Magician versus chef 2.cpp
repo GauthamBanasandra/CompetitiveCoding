@@ -1,38 +1,31 @@
-// WA
-
+#include <algorithm>
 #include <iostream>
 
 using ll = long long;
 
-double GetProbability(const ll n, const ll k)
+double GetProbability(ll n, ll k)
 {
-	if (n == 1)
-	{
-		return 1;
-	}
-
-	if (n % 2)
-	{
-		if (n > 2 * k)
-		{
-			if (n - 2 * k >= 3)
-			{
-				return static_cast<double>(1) / (n - 2 * k);
-			}
-			return static_cast<double>(1) / 2;
-		}
-		return 1;
-	}
-
-	if (n > 2 * k)
-	{
-		return static_cast<double>(1) / (n - 2 * k);
-	}
-	if (n == 2 * k)
+	if (n == 2)
 	{
 		return static_cast<double>(1) / 2;
 	}
-	return 1;
+
+	auto have_fake = false;
+	while (n > 1 && k > 0)
+	{
+		const auto half = (n + (n & 1 ? 1 : 0)) / 2; // Ceil if n is odd
+		auto in = std::max(half, n - half); // Will be used in balance
+		auto out = std::min(half, n - half); // Will not be used in balance
+		if (in & 1 && !have_fake)
+		{
+			--in;
+			++out;
+		}
+		n = std::max(in, out); // Guarantees minimum probability
+		--k;
+		have_fake = true;
+	}
+	return static_cast<double>(1) / n;
 }
 
 int main(int argc, char* argv[])

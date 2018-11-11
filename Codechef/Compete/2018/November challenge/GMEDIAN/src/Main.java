@@ -31,11 +31,11 @@ class Combination {
         max = BigInteger.valueOf(1000000007);
     }
 
-    int Compute(int n, int r) {
+    BigInteger Compute(int n, int r) {
         assert r <= n;
 
         if (n == r) {
-            return 1;
+            return BigInteger.valueOf(1);
         }
 
         if (r > (n / 2)) {
@@ -44,7 +44,7 @@ class Combination {
 
         BigInteger numerator = Factorial(n);
         BigInteger denominator = Factorial(n - r).multiply(Factorial(r));
-        return (numerator.divide(denominator).mod(max)).intValue();
+        return numerator.divide(denominator);
     }
 
     private BigInteger Factorial(int n) {
@@ -68,7 +68,7 @@ class Sequence {
     int CountGoodMedians() {
         assert numbers.length != 0;
 
-        int count = CountInOddSequences(numbers.length);
+        BigInteger count = CountInOddSequences(numbers.length);
         for (int i = 0; i < numbers.length - 1; i++) {
             int number = numbers[i];
             if (number != numbers[i + 1]) {
@@ -79,26 +79,25 @@ class Sequence {
             CountInfo rightInfo = CountRight(i + 1, number);
             Distribution distribution = new Distribution(leftInfo, rightInfo);
 
-            count += CountInEvenSequences(distribution);
-            count %= 1000000007;
+            count = count.add(CountInEvenSequences(distribution));
         }
-        return count;
+        return count.mod(Combination.max).intValue();
     }
 
-    private int CountInOddSequences(int length) {
+    private BigInteger CountInOddSequences(int length) {
         assert length != 0;
 
         BigInteger result = BigInteger.valueOf(2);
         result = result.pow(length - 1);
-        return result.mod(Combination.max).intValue();
+        return result;
     }
 
-    private int CountInEvenSequences(Distribution distribution) {
+    private BigInteger CountInEvenSequences(Distribution distribution) {
         BigInteger count = BigInteger.valueOf(1);
         for (int i = 1; i <= Math.min(distribution.numLeft, distribution.numRight); i++) {
-            count = count.add(BigInteger.valueOf(combination.Compute(distribution.numLeft, i) * combination.Compute(distribution.numRight, i)).mod(Combination.max));
+            count = count.add(combination.Compute(distribution.numLeft, i).multiply(combination.Compute(distribution.numRight, i)));
         }
-        return count.intValue();
+        return count;
     }
 
     private CountInfo CountLeft(int i, int number) {
@@ -136,7 +135,7 @@ class Sequence {
 public class Main {
     public static void main(String[] args) throws IOException {
         int t, n, a;
-        int numbers[] = {2, 3, 4, 3, 3, 0, 9, 8, 7, 1, 1};
+        int numbers[] = {2, 4, 2, 1};
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         t = Integer.parseInt(reader.readLine());

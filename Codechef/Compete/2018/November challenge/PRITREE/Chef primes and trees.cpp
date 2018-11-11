@@ -9,11 +9,12 @@ using Edge = std::pair<ll, ll>;
 
 struct Node
 {
-	Node(const ll index, const int value) : index(index), parent_index(0), value(value), has_child(false), has_parent(false) {}
+	Node(const ll index, const int value) : index(index), parent_index(0), value(value), cumulative(value), has_child(false), has_parent(false) {}
 
 	ll index;
 	ll parent_index;
 	int value;
+	int cumulative;
 	bool has_child;
 	bool has_parent;
 };
@@ -28,11 +29,18 @@ std::list<Edge> GetTree(const std::vector<int> &numbers)
 	for (std::size_t i = 0, len = numbers.size(); i < len; ++i)
 	{
 		auto number = numbers[i];
-		(number & 1 ? odd : even).emplace_back(i + 1, number);
+		(number == 2 || number & 1 ? odd : even).emplace_back(i + 1, number);
 	}
 
 	for (auto &odd_node : odd)
 	{
+		if (odd_node.value == 2)
+		{
+			odd_node.parent_index = -1;
+			odd_node.has_parent = true;
+			continue;
+		}
+
 		auto found = false;
 		for (auto &even_node : even)
 		{
@@ -43,6 +51,7 @@ std::list<Edge> GetTree(const std::vector<int> &numbers)
 
 			odd_node.parent_index = even_node.index;
 			odd_node.has_parent = even_node.has_child = true;
+			even_node.cumulative = even_node.value + odd_node.value;
 			found = true;
 			break;
 		}
@@ -51,6 +60,25 @@ std::list<Edge> GetTree(const std::vector<int> &numbers)
 		{
 			odd_node.parent_index = -1;
 			odd_node.has_parent = true;
+		}
+	}
+
+	std::list<Node> even_with_child, even_without_child;
+	for (auto &even_node : even)
+	{
+		(even_node.has_child ? even_with_child : even_without_child).emplace_back(even_node);
+	}
+
+	for (auto &node_with_child : even_with_child)
+	{
+		for (auto &node_without_child : even_without_child)
+		{
+			if (primes.find(node_with_child.cumulative + node_without_child.value) != primes.end())
+			{
+				node_without_child.has_child = node_with_child.has_parent = true;
+				node_with_child.parent_index = node_without_child.index;
+				break;
+			}
 		}
 	}
 
@@ -87,6 +115,11 @@ std::list<Edge> GetTree(const std::vector<int> &numbers)
 
 	for (auto &even_node : even)
 	{
+		if (even_node.has_parent)
+		{
+			continue;
+		}
+
 		even_node.parent_index = root.index;
 		even_node.has_parent = true;
 	}
@@ -106,8 +139,8 @@ std::list<Edge> GetTree(const std::vector<int> &numbers)
 int main(int argc, char* argv[])
 {
 	std::size_t n;
-	std::vector<int> numbers{1, 2};
-	
+	std::vector<int> numbers{ 1, 2 };
+
 	std::cin >> n;
 	numbers.resize(n);
 	for (std::size_t i = 0; i < n; ++i)

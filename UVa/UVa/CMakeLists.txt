@@ -258,3 +258,4 @@ include(UseJava)
         # Longest increasing subsequence
         add_executable(History_grading "Problem solving paradigms/Dynamic programming/Longest increasing subsequence/111/History grading.cpp")
         add_executable(Testing_the_catcher "Problem solving paradigms/Dynamic programming/Longest increasing subsequence/231/Testing the catcher.cpp")
+        add_executable(What_goes_up "Problem solving paradigms/Dynamic programming/Longest increasing subsequence/481/What goes up.cpp")

@@ -177,13 +177,13 @@ include(UseJava)
             add_executable(The_problem_of_the_crazy_linguist "Problem solving paradigms/Complete search/Recursive backtracking/Medium/11201/The problem of the crazy linguist.cpp")
             add_executable(DNA "Problem solving paradigms/Complete search/Recursive backtracking/Medium/11961/DNA.cpp")
             # Hard
-            add_executable(Graph_coloring "Problem solving paradigms/Complete search/Recursive backtracking/Hard/Graph coloring/Graph coloring.cpp")
-            add_executable(Firetruck "Problem solving paradigms/Complete search/Recursive backtracking/Hard/Firetruck/Firetruck.cpp"
-                    "Problem solving paradigms/Complete search/Recursive backtracking/Hard/Firetruck/utils.cpp")
-            add_executable(LED_test "Problem solving paradigms/Complete search/Recursive backtracking/Hard/LED test/LED test.cpp"
-                    "Problem solving paradigms/Complete search/Recursive backtracking/Hard/LED test/utils.cpp")
-            add_executable(Bank_not_quite_OCR "Problem solving paradigms/Complete search/Recursive backtracking/Hard/Bank not quite OCR/Bank not quite OCR.cpp"
-                    "Problem solving paradigms/Complete search/Recursive backtracking/Hard/Bank not quite OCR/utils.cpp")
+            add_executable(Graph_coloring "Problem solving paradigms/Complete search/Recursive backtracking/Hard/193/Graph coloring.cpp")
+            add_executable(Firetruck "Problem solving paradigms/Complete search/Recursive backtracking/Hard/208/Firetruck.cpp"
+                    "Problem solving paradigms/Complete search/Recursive backtracking/Hard/208/utils.cpp")
+            add_executable(LED_test "Problem solving paradigms/Complete search/Recursive backtracking/Hard/416/LED test.cpp"
+                    "Problem solving paradigms/Complete search/Recursive backtracking/Hard/416/utils.cpp")
+            add_executable(Bank_not_quite_OCR "Problem solving paradigms/Complete search/Recursive backtracking/Hard/433/Bank not quite OCR.cpp"
+                    "Problem solving paradigms/Complete search/Recursive backtracking/Hard/433/utils.cpp")
     # Divide and conquer
         # Binary search
         add_executable(Dropping_balls "Problem solving paradigms/Divide and conquer/Binary search/Dropping balls/Dropping balls.cpp")

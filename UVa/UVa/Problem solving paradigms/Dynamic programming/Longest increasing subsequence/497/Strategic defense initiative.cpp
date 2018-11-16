@@ -5,6 +5,8 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <string>
+#include <sstream>
 
 template<typename T>
 std::vector<T> LongestIncreasingSeq(const std::vector<T> &numbers) {
@@ -44,12 +46,30 @@ std::vector<T> LongestIncreasingSeq(const std::vector<T> &numbers) {
 int main() {
   using ll = long long;
 
-  ll t;
-  std::vector<int> numbers{0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15};
+  ll t, number;
+  std::string line;
+  std::vector<ll> numbers;
 
   std::cin >> t;
-  while (t--) {
+  std::cin.ignore();
+  std::getline(std::cin, line);
+  for(ll i = 0; i < t; ++i) {
+    numbers.clear();
+    while (std::getline(std::cin, line), !line.empty() && ((line[0] != '\n') || (line[0] != '\r'))) {
+      std::stringstream tokenizer(line);
+      tokenizer >> number;
+      numbers.emplace_back(number);
+    }
 
+    auto lis = LongestIncreasingSeq(numbers);
+    if (i > 0) {
+      std::cout << std::endl;
+    }
+
+    std::cout << "Max hits: " << lis.size() << std::endl;
+    for(const auto & n : lis) {
+      std::cout << n << std::endl;
+    }
   }
   return 0;
 }

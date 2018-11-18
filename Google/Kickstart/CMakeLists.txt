@@ -12,3 +12,4 @@ set(CMAKE_CXX_STANDARD 11)
     add_executable(Common_anagrams "2018/F/A/Common anagrams.cpp")
     # H
     add_executable(Big_buttons "2018/H/A/Big buttons.cpp")
+    add_executable(Mural "2018/H/B/Mural.cpp")

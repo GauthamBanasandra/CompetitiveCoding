@@ -14,5 +14,6 @@ add_executable(Magician_versus_chef_2 "Compete/2018/November challenge/MAGICHF2/
 add_executable(Good_median "Compete/2018/November challenge/GMEDIAN/Good median.cpp")
 add_executable(Chef_primes_and_trees "Compete/2018/November challenge/PRITREE/Chef primes and trees.cpp")
 add_executable(Truth_and_dare "Compete/2018/November cook off/TRUEDARE/Truth and dare.cpp")
+add_executable(Beautiful_garland "Compete/2018/November cook off/BEAUTGAR/Beautiful garland.cpp")
 # Practice
 add_executable(Closing_the_tweets "Practice/Medium/TWTCLOSE/Closing the tweets.cpp")

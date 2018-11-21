@@ -32,3 +32,19 @@ void Print(const std::vector<std::vector<int>> &matrix) {
 void Print(const std::vector<std::vector<ll>> &matrix) {
   Print<ll>(matrix);
 }
+
+template<typename T>
+void Print(const std::vector<T> &numbers, char separator = ' ') {
+  for (const auto &number: numbers) {
+    std::cout << number << separator;
+  }
+  std::cout << std::endl;
+}
+
+void Print(const std::vector<ll> &numbers, char separator = ' ') {
+  Print<ll>(numbers, separator);
+}
+
+void Print(const std::vector<std::size_t> &numbers, char separator = ' ') {
+  Print<std::size_t>(numbers, separator);
+}

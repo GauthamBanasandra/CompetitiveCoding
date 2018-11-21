@@ -262,3 +262,5 @@ include(UseJava)
         add_executable(Strategic_defense_initiative "Problem solving paradigms/Dynamic programming/Longest increasing subsequence/497/Strategic defense initiative.cpp")
         add_executable(Tiling_up_blocks "Problem solving paradigms/Dynamic programming/Longest increasing subsequence/1196/Tiling up blocks.cpp")
         add_executable(Is_bigger_smarter "Problem solving paradigms/Dynamic programming/Longest increasing subsequence/10131/Is bigger smarter.cpp")
+        add_executable(Wavio_sequence "Problem solving paradigms/Dynamic programming/Longest increasing subsequence/10534/Wavio sequence.cpp"
+                "utils/print.cpp")

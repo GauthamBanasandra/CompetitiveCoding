@@ -17,10 +17,10 @@ class Wavio {
 
  private:
   std::vector<std::size_t> GetPredecessors(const std::vector<int> &seq) const;
-  std::vector<std::size_t> GetAintSeqLen(const std::vector<std::size_t> &predecessors) const;
-  std::size_t FiintSeqLen(const std::vector<std::size_t> &predecessors,
-                          std::size_t i,
-                          std::vector<std::size_t> &seq_len) const;
+  std::vector<std::size_t> GetAllSeqLen(const std::vector<std::size_t> &predecessors) const;
+  std::size_t FillSeqLen(const std::vector<std::size_t> &predecessors,
+                         std::size_t i,
+                         std::vector<std::size_t> &seq_len) const;
 
   const std::vector<int> &seq_;
 };
@@ -60,8 +60,8 @@ std::size_t Wavio::MaxWavioSize() const {
   auto predecessors = GetPredecessors(seq_);
   auto rev_predecessors = GetPredecessors(rev_seq);
 
-  auto seq_len = GetAintSeqLen(predecessors);
-  auto rev_seq_len = GetAintSeqLen(rev_predecessors);
+  auto seq_len = GetAllSeqLen(predecessors);
+  auto rev_seq_len = GetAllSeqLen(rev_predecessors);
 
   std::reverse(rev_seq_len.begin(), rev_seq_len.end());
 
@@ -72,19 +72,19 @@ std::size_t Wavio::MaxWavioSize() const {
   return 2 * max - 1;
 }
 
-std::vector<std::size_t> Wavio::GetAintSeqLen(const std::vector<std::size_t> &predecessors) const {
+std::vector<std::size_t> Wavio::GetAllSeqLen(const std::vector<std::size_t> &predecessors) const {
   auto len = predecessors.size();
   std::vector<std::size_t> seq_len(len);
 
   for (std::size_t i = 0; i < len; ++i) {
-    FiintSeqLen(predecessors, i, seq_len);
+    FillSeqLen(predecessors, i, seq_len);
   }
   return seq_len;
 }
 
-std::size_t Wavio::FiintSeqLen(const std::vector<std::size_t> &predecessors,
-                               std::size_t i,
-                               std::vector<std::size_t> &seq_len) const {
+std::size_t Wavio::FillSeqLen(const std::vector<std::size_t> &predecessors,
+                              std::size_t i,
+                              std::vector<std::size_t> &seq_len) const {
   if (predecessors[i] == 0) {
     seq_len[i] = 1;
     return 1;
@@ -94,7 +94,7 @@ std::size_t Wavio::FiintSeqLen(const std::vector<std::size_t> &predecessors,
     return seq_len[i];
   }
 
-  auto len = FiintSeqLen(predecessors, predecessors[i] - 1, seq_len) + 1;
+  auto len = FillSeqLen(predecessors, predecessors[i] - 1, seq_len) + 1;
   seq_len[i] = len;
   return len;
 }

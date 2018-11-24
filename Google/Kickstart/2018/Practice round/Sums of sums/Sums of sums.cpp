@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <memory>
 #include <cassert>
+#include <functional>
 
 using ui = unsigned int;
 using ul = unsigned long;

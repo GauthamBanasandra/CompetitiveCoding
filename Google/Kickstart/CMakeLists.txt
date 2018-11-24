@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.8)
 project(kickstart)
 set(CMAKE_CXX_STANDARD 11)
+find_package(Java REQUIRED)
+include(UseJava)
 
 # 2018
     # Practice
@@ -8,6 +10,10 @@ set(CMAKE_CXX_STANDARD 11)
     add_executable(Sort_a_scrambled_itinerary "2018/Practice round/Sort a scrambled itinerary/Sort a scrambled itinerary.cpp")
     add_executable(Sums_of_sums "2018/Practice round/Sums of sums/Sums of sums.cpp")
     add_executable(Googol_string "2018/Practice round/Googol string/Googol string.cpp")
+    # A
+    add_jar(Even_digits "2018/A/A/Even digits/src/Calculator.java"
+            "2018/A/A/Even digits/src/EvenDigits.java"
+            "2018/A/A/Even digits/src/EvenDigitsArray.java")
     # F
     add_executable(Common_anagrams "2018/F/A/Common anagrams.cpp")
     # H

@@ -264,3 +264,6 @@ include(UseJava)
         add_executable(Is_bigger_smarter "Problem solving paradigms/Dynamic programming/Longest increasing subsequence/10131/Is bigger smarter.cpp")
         add_executable(Wavio_sequence "Problem solving paradigms/Dynamic programming/Longest increasing subsequence/10534/Wavio sequence.cpp"
                 "utils/print.cpp")
+        # 0-1 Knapsack
+        add_executable(Dividing_coins "Problem solving paradigms/Dynamic programming/0-1 Knapsack/562/Dividing coins.cpp"
+                utils/print.cpp)

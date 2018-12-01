@@ -267,3 +267,5 @@ include(UseJava)
         # 0-1 Knapsack
         add_executable(Dividing_coins "Problem solving paradigms/Dynamic programming/0-1 Knapsack/562/Dividing coins.cpp"
                 utils/print.cpp)
+        add_executable(Diving_for_gold "Problem solving paradigms/Dynamic programming/0-1 Knapsack/990/Diving for gold.cpp"
+                utils/print.cpp)

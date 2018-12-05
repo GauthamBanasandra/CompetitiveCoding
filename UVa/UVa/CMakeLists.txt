@@ -270,3 +270,4 @@ include(UseJava)
         add_executable(Diving_for_gold "Problem solving paradigms/Dynamic programming/0-1 Knapsack/990/Diving for gold.cpp"
                 utils/print.cpp)
         add_executable(Sum_of_different_primes "Problem solving paradigms/Dynamic programming/0-1 Knapsack/1213/Sum of different primes.cpp")
+        add_executable(Supersale "Problem solving paradigms/Dynamic programming/0-1 Knapsack/10130/SuperSale.cpp")

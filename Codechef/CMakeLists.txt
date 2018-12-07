@@ -22,6 +22,8 @@ include(UseJava)
     add_executable(Beautiful_garland "Compete/2018/November cook off/BEAUTGAR/Beautiful garland.cpp")
     # 2018 November lunchtime
     add_executable(Event "Compete/2018/November lunchtime/EVENT/Event.cpp")
+    # 2018 December challenge
+    add_executable(Chef_and_interactive_contests "Compete/2018/December challenge/CHFINTRO/Chef and interactive contests.cpp")
 
 # Practice
 add_executable(Closing_the_tweets "Practice/Medium/TWTCLOSE/Closing the tweets.cpp")

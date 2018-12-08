@@ -1,5 +1,3 @@
-#include <utility>
-
 //
 // Created by Gautham on 06-12-2018.
 //
@@ -8,6 +6,7 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <unordered_map>
 
 using ll = long long;
 
@@ -25,22 +24,16 @@ class Ferry {
 
  private:
   ll Direct(std::size_t i, ll port_len, ll starboard_len, std::vector<std::string> &directions);
+  bool IsExists(std::size_t i, ll port_len, ll starboard_len);
 
   const ll port_len_;
   const ll starboard_len_;
   const std::vector<ll> &cars_;
-  std::vector<std::vector<std::vector<ll>>> memo_;
+  std::unordered_map<std::size_t, std::unordered_map<ll, std::unordered_map<ll, ll>>> memo_;
 };
 
 Ferry::Ferry(const ll port_len, const ll starboard_len, const std::vector<ll> &cars)
     : port_len_(port_len), starboard_len_(starboard_len), cars_(cars) {
-  memo_.resize(cars_.size());
-  for (auto &table : memo_) {
-    table.resize(static_cast<std::size_t>(port_len) + 1);
-    for (auto &row : table) {
-      row.resize(static_cast<std::size_t>(starboard_len_) + 1, -1);
-    }
-  }
 }
 
 ll Ferry::Direct(std::size_t i, ll port_len, ll starboard_len, std::vector<std::string> &directions) {
@@ -48,9 +41,8 @@ ll Ferry::Direct(std::size_t i, ll port_len, ll starboard_len, std::vector<std::
     return 0;
   }
 
-  auto &memo = memo_[i][port_len][starboard_len];
-  if (memo != -1) {
-    return memo;
+  if (IsExists(i, port_len, starboard_len)) {
+    return memo_[i][port_len][starboard_len];
   }
 
   if (cars_[i] > port_len && cars_[i] > starboard_len) {
@@ -71,12 +63,12 @@ ll Ferry::Direct(std::size_t i, ll port_len, ll starboard_len, std::vector<std::
   auto r = Direct(i + 1, port_len, starboard_len - cars_[i], directions) + 1;
   if (l >= r) {
     directions[i] = "port";
-    memo = l;
+    memo_[i][port_len][starboard_len] = l;
   } else {
     directions[i] = "starboard";
-    memo = r;
+    memo_[i][port_len][starboard_len] = r;
   }
-  return memo;
+  return memo_[i][port_len][starboard_len];
 }
 
 FerryInfo Ferry::Direct() {
@@ -86,8 +78,30 @@ FerryInfo Ferry::Direct() {
   return {num_loaded, directions};
 }
 
+bool Ferry::IsExists(std::size_t i, ll port_len, ll starboard_len) {
+  auto find_i_it = memo_.find(i);
+  if (find_i_it == memo_.end()) {
+    return false;
+  }
+
+  const std::unordered_map<ll, std::unordered_map<ll, ll>> &port_len_map = find_i_it->second;
+  auto port_len_it = port_len_map.find(port_len);
+  if (port_len_it == port_len_map.end()) {
+    return false;
+  }
+
+  const std::unordered_map<ll, ll> &starboard_len_map = port_len_it->second;
+  auto starboard_len_it = starboard_len_map.find(starboard_len);
+  if (starboard_len_it == starboard_len_map.end()) {
+    return false;
+  }
+
+  return true;
+}
+
 int main() {
 //  ll ferry_len = 98;
+//  ll ferry_len = 20;
 //  ll ferry_len = 20;
   std::size_t t;
   ll ferry_len = 15, car_len = 0;

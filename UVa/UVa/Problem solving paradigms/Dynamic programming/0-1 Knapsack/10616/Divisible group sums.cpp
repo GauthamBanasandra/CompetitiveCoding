@@ -19,7 +19,7 @@ class Counter {
 
   int divisor_;
   const std::vector<int> &numbers_;
-  std::vector<std::vector<ll>> memo_;
+  std::vector<std::vector<std::vector<ll>>> memo_;
 };
 
 Counter::Counter(const std::vector<int> &numbers)
@@ -29,33 +29,39 @@ Counter::Counter(const std::vector<int> &numbers)
 
 ll Counter::Count(int divisor, std::size_t m) {
   divisor_ = divisor;
-  for (auto &row : memo_) {
-    row.resize(m + 1, -1);
+  for (auto &table : memo_) {
+    table.resize(static_cast<std::size_t>(divisor ) + 1);
+    for (auto &row : table) {
+      row.resize(m + 1, -1);
+    }
   }
   return Count(0, 0, m);
 }
 
 ll Counter::Count(std::size_t i, int sum, std::size_t m) {
-  if (i >= numbers_.size()) {
-    return 0;
-  }
-
   if (m == 0) {
     return sum % divisor_ == 0 ? 1 : 0;
   }
 
-  auto &memo = memo_[i][m];
+  if (i >= numbers_.size()) {
+    return 0;
+  }
+
+  auto &memo = memo_[i][sum][m];
   if (memo != -1) {
     return memo;
   }
-  auto include = Count(i + 1, sum + numbers_[i], m - 1);
+
   auto exclude = Count(i + 1, sum, m);
-  return memo = std::max(include, exclude);
+  auto include = Count(i + 1, (sum + numbers_[i]) % divisor_, m - 1);
+  return memo = exclude + include;
 }
 
 int main() {
+  std::size_t n, q, m, t = 0;
+  int divisor;
   std::vector<int> numbers{
-      1,
+      /*1,
       2,
       3,
       4,
@@ -64,10 +70,27 @@ int main() {
       7,
       8,
       9,
-      10
+      10*/
+
+      2,
+      3,
+      4,
+      5,
+      6
   };
 
-  Counter counter(numbers);
-  std::cout << counter.Count(5, 1) << std::endl;
+  while (std::cin >> n >> q, n || q) {
+    numbers.resize(n);
+    for (std::size_t i = 0; i < n; ++i) {
+      std::cin >> numbers[i];
+    }
+
+    Counter counter(numbers);
+    std::cout << "SET " << (++t) << ":" << std::endl;
+    for (std::size_t i = 1; i <= q; ++i) {
+      std::cin >> divisor >> m;
+      std::cout << "QUERY " << i << ": " << counter.Count(divisor, m) << std::endl;
+    }
+  }
   return 0;
 }

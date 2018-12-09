@@ -5,40 +5,42 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <unordered_map>
+#include <ios>
 
 using ll = long long;
 
 class Counter {
  public:
-  explicit Counter(const std::vector<int> &numbers);
+  explicit Counter(const std::vector<ll> &numbers);
 
-  ll Count(int divisor, std::size_t m);
+  ll Count(ll divisor, std::size_t m);
 
  private:
-  ll Count(std::size_t i, int sum, std::size_t m);
+  ll Count(std::size_t i, ll sum, std::size_t m);
+  bool IsExists(std::size_t i, ll sum, std::size_t m);
 
-  int divisor_;
-  const std::vector<int> &numbers_;
-  std::vector<std::vector<std::vector<ll>>> memo_;
+  ll divisor_;
+  const std::vector<ll> &numbers_;
+  std::unordered_map<std::size_t, std::unordered_map<ll, std::unordered_map<std::size_t, ll>>> memo_;
 };
 
-Counter::Counter(const std::vector<int> &numbers)
-    : divisor_(1), numbers_(numbers) {
-  memo_.resize(numbers.size());
-}
+Counter::Counter(const std::vector<ll> &numbers)
+    : divisor_(1), numbers_(numbers) {}
 
-ll Counter::Count(int divisor, std::size_t m) {
+ll Counter::Count(ll divisor, std::size_t m) {
   divisor_ = divisor;
-  for (auto &table : memo_) {
-    table.resize(static_cast<std::size_t>(divisor ) + 1);
-    for (auto &row : table) {
-      row.resize(m + 1, -1);
-    }
-  }
+  memo_.clear();
   return Count(0, 0, m);
 }
 
-ll Counter::Count(std::size_t i, int sum, std::size_t m) {
+ll Counter::Count(std::size_t i, ll sum, std::size_t m) {
+  // This condition has to be before i >= numbers_.size()
+  // because this check is never made in the calling method
+
+  // Use numbers = {5, 10}, d = 5 and m = 1 with debugger
+  // and step through the recursion stack to get an idea
+  // about why this check should be done first
   if (m == 0) {
     return sum % divisor_ == 0 ? 1 : 0;
   }
@@ -47,37 +49,39 @@ ll Counter::Count(std::size_t i, int sum, std::size_t m) {
     return 0;
   }
 
-  auto &memo = memo_[i][sum][m];
-  if (memo != -1) {
-    return memo;
+  if (IsExists(i, sum, m)) {
+    return memo_[i][sum][m];
   }
 
   auto exclude = Count(i + 1, sum, m);
   auto include = Count(i + 1, (sum + numbers_[i]) % divisor_, m - 1);
-  return memo = exclude + include;
+  memo_[i][sum][m] = exclude + include;
+  return memo_[i][sum][m];
+}
+
+bool Counter::IsExists(std::size_t i, ll sum, std::size_t m) {
+  auto find_i_it = memo_.find(i);
+  if (find_i_it == memo_.end()) {
+    return false;
+  }
+
+  const std::unordered_map<ll, std::unordered_map<std::size_t, ll>> &index_map = find_i_it->second;
+  auto find_sum_it = index_map.find(sum);
+  if (find_sum_it == index_map.end()) {
+    return false;
+  }
+
+  const std::unordered_map<std::size_t, ll> &sum_map = find_sum_it->second;
+  auto find_m_it = sum_map.find(m);
+  return find_m_it != sum_map.end();
 }
 
 int main() {
-  std::size_t n, q, m, t = 0;
-  int divisor;
-  std::vector<int> numbers{
-      /*1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10*/
+  std::ios::sync_with_stdio(false);
 
-      2,
-      3,
-      4,
-      5,
-      6
-  };
+  std::size_t n, q, m, t = 0;
+  ll divisor;
+  std::vector<ll> numbers;
 
   while (std::cin >> n >> q, n || q) {
     numbers.resize(n);

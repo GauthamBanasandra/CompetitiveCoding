@@ -22,7 +22,7 @@ class Selector {
   int Select(int weight_left);
 
  private:
-  int Select(std::size_t i, int weight_left);
+  int Select(std::size_t i, int weight_left, int money_spent, bool voucher_used);
 
   const std::vector<Item> &items_;
   std::vector<std::vector<int>> memo_;
@@ -37,23 +37,24 @@ Selector::Selector(const std::vector<Item> &items_, int max_weight) : items_(ite
 }
 
 int Selector::Select(const int weight_left) {
-  return Select(0, weight_left);
+  return Select(0, weight_left, 0, false);
 }
 
-int Selector::Select(std::size_t i, int weight_left) {
+int Selector::Select(std::size_t i, int money_left, int money_spent, bool voucher_used) {
   if (i >= items_.size()) {
     return 0;
   }
 
-  if (items_[i].weight > weight_left) {
-    return Select(i + 1, weight_left);
+  if (items_[i].weight > money_left) {
+    return Select(i + 1, money_left, 0, false);
   }
 
-  auto &memo = memo_[i][weight_left];
+  auto &memo = memo_[i][money_left];
   if (memo != -1) {
     return memo;
   }
-  return memo = std::max(Select(i + 1, weight_left), Select(i + 1, weight_left - items_[i].weight) + items_[i].value);
+  return memo = std::max(Select(i + 1, money_left, 0, false),
+                         Select(i + 1, money_left - items_[i].weight, 0, false) + items_[i].value);
 }
 
 int main() {

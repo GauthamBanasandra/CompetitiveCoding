@@ -6,26 +6,28 @@
 #include <algorithm>
 #include <vector>
 #include <cmath>
+#include <string>
 
-using ll = long long;
+using ll = int;
 
 class Coalition {
  public:
-  Coalition(const std::vector<double> &shares, std::size_t i_opt);
+  Coalition(const std::vector<std::string> &shares, std::size_t i_opt);
   double Coalesce();
 
  private:
   ll Coalesce(std::size_t i, ll sum);
+  int RemoveDecimalPoint(const std::string &num_str) const;
 
   const std::size_t i_opt_;
   std::vector<int> shares_;
   std::vector<std::vector<ll>> memo_;
 };
 
-Coalition::Coalition(const std::vector<double> &shares, std::size_t i_opt) : i_opt_(i_opt) {
+Coalition::Coalition(const std::vector<std::string> &shares, std::size_t i_opt) : i_opt_(i_opt) {
   shares_.resize(shares.size());
   for (std::size_t i = 0, len = shares.size(); i < len; ++i) {
-    shares_[i] = static_cast<int>(shares[i] * 1000) / 10;
+    shares_[i] = RemoveDecimalPoint(shares[i]);
   }
 
   memo_.resize(shares_.size());
@@ -35,9 +37,7 @@ Coalition::Coalition(const std::vector<double> &shares, std::size_t i_opt) : i_o
 }
 
 double Coalition::Coalesce() {
-  auto c = Coalesce(0, shares_[i_opt_]);
-  auto d = static_cast<double>(shares_[i_opt_]) / c;
-  return d * 100.0f;
+  return (static_cast<double>(shares_[i_opt_]) / Coalesce(0, shares_[i_opt_])) * 100.0f;
 }
 
 ll Coalition::Coalesce(std::size_t i, ll sum) {
@@ -57,76 +57,34 @@ ll Coalition::Coalesce(std::size_t i, ll sum) {
   auto exclude = Coalesce(i + 1, sum);
   auto include = Coalesce(i + 1, sum + shares_[i]);
 
+  // The share sum must be greater than 50.00
   if (exclude > 5000 && include <= 5000) {
     return memo = exclude;
   }
   if (exclude <= 5000 && include > 5000) {
     return memo = include;
   }
+  // At this point, the share sum of both "include" and "exclude" are either greater than 5000 or less than equal to 5000
+  // So, we just memoize the one nearest to 5001 (because it must be greater than 50.01)
   return memo = std::abs(5001 - exclude) < std::abs(5001 - include) ? exclude : include;
 }
 
+int Coalition::RemoveDecimalPoint(const std::string &num_str) const {
+  std::string num(num_str);
+  // This is equivalent to multiplying by 100
+  // This is necessary as we need to memoize the state of share sum
+  // Since share sum is in decimal, we are naturalizing it by removing the decimal point
+  num.erase(num.begin() + num.find('.'));
+  return std::stoi(num);
+}
+
 int main() {
-//  std::size_t i_opt = 5;
-//  std::size_t i_opt = 1;
-//  std::size_t i_opt = 2;
-//  std::size_t i_opt = 1;
   std::size_t i_opt = 7, num_shares = 0;
-//  std::size_t i_opt = 5, num_shares = 0;
-  std::vector<double> shares{
-      /*20.00,
-      12.00,
-      29.00,
-      14.00,
-      25.00*/
 
-      /*56.87,
-      43.13*/
+  // Using a vector of string because reading as float/double itself causes loss of precision
+  // For example, try reading 4.14. It will be read as 4.13.
+  std::vector<std::string> shares;
 
-      /*56.87,
-      43.13*/
-
-      /*10.00,
-      45.00,
-      45.00*/
-
-      2.44,
-      5.46,
-      0.68,
-      0.02,
-      2.04,
-      4.34,
-      4.14,
-      5.50,
-      1.99,
-      0.62,
-      1.47,
-      1.82,
-      7.24,
-      0.28,
-      4.84,
-      5.60,
-      4.11,
-      4.96,
-      2.86,
-      5.66,
-      6.54,
-      7.84,
-      7.10,
-      2.87,
-      3.71,
-      2.87,
-      1.23,
-      1.77
-
-      /*24.75,
-      23.21,
-      20.51,
-      9.19,
-      22.34*/
-  };
-
-//  printf("%.2f\n", Coalition(shares, i_opt - 1).Coalesce());
   std::size_t tc = 1;
   while (std::cin >> num_shares >> i_opt, num_shares || i_opt) {
     shares.resize(num_shares);

@@ -8,20 +8,18 @@
 #include <cmath>
 #include <string>
 
-using ll = int;
-
 class Coalition {
  public:
   Coalition(const std::vector<std::string> &shares, std::size_t i_opt);
   double Coalesce();
 
  private:
-  ll Coalesce(std::size_t i, ll sum);
+  int Coalesce(std::size_t i, int sum);
   int RemoveDecimalPoint(const std::string &num_str) const;
 
   const std::size_t i_opt_;
   std::vector<int> shares_;
-  std::vector<std::vector<ll>> memo_;
+  std::vector<std::vector<int>> memo_;
 };
 
 Coalition::Coalition(const std::vector<std::string> &shares, std::size_t i_opt) : i_opt_(i_opt) {
@@ -40,7 +38,7 @@ double Coalition::Coalesce() {
   return (static_cast<double>(shares_[i_opt_]) / Coalesce(0, shares_[i_opt_])) * 100.0f;
 }
 
-ll Coalition::Coalesce(std::size_t i, ll sum) {
+int Coalition::Coalesce(std::size_t i, int sum) {
   if (i >= shares_.size() || sum > 5000) {
     return sum;
   }

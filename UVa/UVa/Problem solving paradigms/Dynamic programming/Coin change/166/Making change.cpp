@@ -6,14 +6,25 @@
 #include <vector>
 #include <algorithm>
 #include <numeric>
+#include <string>
+#include <cassert>
 
-const int infinity = std::numeric_limits<int>::max();
+const auto infinity = std::numeric_limits<int>::max();
 
 struct Denomination {
   Denomination(int value, long count) : value(value), count(count) {}
 
   int value;
   long count;
+};
+
+enum Denominations {
+  k5,
+  k10,
+  k20,
+  k50,
+  k100,
+  k200
 };
 
 class ChangeMaker {
@@ -55,15 +66,17 @@ int ChangeMaker::Count(int change) {
     }
 
     --denomination.count;
-    min_change = std::min(min_change, Count(change - denomination.value));
+    auto b = Count(change - denomination.value);
+    min_change = std::min(min_change, b);
     ++denomination.count;
   }
-  return memo = 1 + min_change;
+  return memo = min_change == infinity ? infinity : 1 + min_change;
 }
 
-struct SumIt {
+struct CoinIterator {
  public:
-  SumIt(const std::vector<Denomination> &denominations) : i_denomination(0), i_count(0), denominations(denominations) {}
+  CoinIterator(const std::vector<Denomination> &denominations)
+      : i_denomination(0), i_count(0), denominations(denominations) {}
 
   int Next(int offset);
 
@@ -73,7 +86,7 @@ struct SumIt {
   const std::vector<Denomination> &denominations;
 };
 
-int SumIt::Next(int offset) {
+int CoinIterator::Next(int offset) {
   if (i_denomination >= denominations.size()) {
     return -1;
   }
@@ -92,25 +105,70 @@ class Customer : public ChangeMaker {
  public:
   Customer(std::size_t max_value, std::vector<Denomination> &denominations) : ChangeMaker(max_value, denominations) {}
 
-  SumIt GetSumIt() const { return {denominations_}; }
+  CoinIterator GetCoinIterator() const { return {denominations_}; }
 };
 
+class Shop {
+ public:
+  explicit Shop(std::size_t max_value) : shop_keeper_(max_value, {
+      {5, infinity},
+      {10, infinity},
+      {20, infinity},
+      {50, infinity},
+      {100, infinity},
+      {200, infinity}
+  }) {}
+
+  int Buy(Customer &customer, int value);
+
+ private:
+  ChangeMaker shop_keeper_;
+};
+
+int Shop::Buy(Customer &customer, int value) {
+  auto min_coins = infinity;
+  auto coin_it = customer.GetCoinIterator();
+  for (auto change = 0; change != -1; change = coin_it.Next(change)) {
+    assert(change >= 0);
+    auto tender = value + change;
+    auto receive = change;
+    auto coins_tendered = customer.Count(tender);
+    auto coins_received = shop_keeper_.Count(receive);
+    min_coins = std::min(min_coins, coins_tendered + coins_received);
+  }
+  return min_coins;
+}
+
 int main() {
-  auto value = 100;
+  auto value = 95;
+  std::string value_str;
+  Shop shop(50000);
   std::vector<Denomination> denominations{
-      {50, 1},
-      {20, 3},
-      {10, 0},
-      {1, 10}
+      {5, 2},
+      {10, 4},
+      {20, 2},
+      {50, 2},
+      {100, 1},
+      {200, 0},
   };
 
-  ChangeMaker change_maker(500, denominations);
-  std::cout << change_maker.Count(value) << std::endl;
+  auto &num_k5 = denominations[k5].count;
+  auto &num_k10 = denominations[k10].count;
+  auto &num_k20 = denominations[k20].count;
+  auto &num_k50 = denominations[k50].count;
+  auto &num_k100 = denominations[k100].count;
+  auto &num_k200 = denominations[k200].count;
 
-  Customer customer(500, denominations);
-  auto sum_it = customer.GetSumIt();
-  for (auto change = 0; change != -1; change = sum_it.Next(change)) {
-    std::cout << change << std::endl;
+  while (std::cin >> num_k5 >> num_k10 >> num_k20 >> num_k50 >> num_k100 >> num_k200,
+      num_k5 || num_k10 || num_k20 || num_k50 || num_k100 || num_k200) {
+    std::cin >> value_str;
+    value_str.erase(value_str.begin() + value_str.find('.'));
+    value = std::stoi(value_str);
+
+    auto max_value = static_cast<std::size_t>(5 * num_k5 + 10 * num_k10 + 20 * num_k20 + 50 * num_k50 + 100 * num_k100
+        + 200 * num_k200);
+    Customer customer(max_value, denominations);
+    std::cout << shop.Buy(customer, value) << std::endl;
   }
   return 0;
 }

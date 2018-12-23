@@ -134,30 +134,32 @@ int Shop::Buy(Customer &customer, int value) {
     auto receive = change;
     auto coins_tendered = customer.Count(tender);
     auto coins_received = shop_keeper_.Count(receive);
+    assert(coins_tendered != infinity && coins_received != infinity);
     min_coins = std::min(min_coins, coins_tendered + coins_received);
   }
   return min_coins;
 }
 
 int main() {
-  auto value = 95;
+  auto value = 165;
   std::string value_str;
-  Shop shop(50000);
+  Shop shop(1000000);
   std::vector<Denomination> denominations{
-      {5, 2},
-      {10, 4},
-      {20, 2},
-      {50, 2},
-      {100, 1},
-      {200, 0},
+  /*    {5, 0},
+      {10, 0},*/
+      {20, 6},
+      {50, 7},
+      {100, 8},
+//      {200, 0},
   };
 
-  auto &num_k5 = denominations[k5].count;
+  /*auto &num_k5 = denominations[k5].count;
   auto &num_k10 = denominations[k10].count;
   auto &num_k20 = denominations[k20].count;
   auto &num_k50 = denominations[k50].count;
   auto &num_k100 = denominations[k100].count;
   auto &num_k200 = denominations[k200].count;
+
 
   while (std::cin >> num_k5 >> num_k10 >> num_k20 >> num_k50 >> num_k100 >> num_k200,
       num_k5 || num_k10 || num_k20 || num_k50 || num_k100 || num_k200) {
@@ -167,8 +169,14 @@ int main() {
 
     auto max_value = static_cast<std::size_t>(5 * num_k5 + 10 * num_k10 + 20 * num_k20 + 50 * num_k50 + 100 * num_k100
         + 200 * num_k200);
-    Customer customer(max_value, denominations);
-    std::cout << shop.Buy(customer, value) << std::endl;
-  }
+    Customer customer(1000000, denominations);
+    std::cout.width(3);
+    std::cout << std::right << shop.Buy(customer, value) << std::endl;
+  }*/
+
+
+  Customer customer(1000000, denominations);
+  std::cout.width(3);
+  std::cout << std::right << shop.Buy(customer, value) << std::endl;
   return 0;
 }

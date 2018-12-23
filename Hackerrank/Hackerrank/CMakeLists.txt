@@ -19,6 +19,9 @@ include(UseJava)
     # Greedy
     add_executable(Beautiful_pairs "Practice/Greedy/16828/Beautiful pairs.cpp")
 
+    # Dyanmic programming
+    add_executable(Coin_change "Practice/Dynamic_programming/Coin change/Coin change.cpp")
+
 # Compete
     # Week of code
         # 37

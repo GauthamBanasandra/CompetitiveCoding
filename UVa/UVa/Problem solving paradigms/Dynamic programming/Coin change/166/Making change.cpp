@@ -87,69 +87,87 @@ int ShopKeeper::Count(int change) {
   return memo = min_change == infinity ? infinity : 1 + min_change;
 }
 
+struct CountInfo {
+  CountInfo() : is_possible(false), count(-1) {}
+  CountInfo(const bool is_possible, const int count) : is_possible(is_possible), count(count) {}
+
+  bool is_possible;
+  int count;
+};
+
 class Customer {
  public:
-  explicit Customer(std::vector<Denomination> &denominations);
+  explicit Customer(const std::vector<Denomination> &denominations);
 
   int GetBudget() const { return budget_; }
 
-  int Count(int change);
+  CountInfo Count(int change) { return Count(0, change); }
 
  private:
-  int Count(size_t i_denomination, std::size_t i_coin, int change);
+  CountInfo Count(std::size_t i, int change);
 
   int budget_;
-  std::vector<Denomination> denominations_;
-  std::vector<std::vector<std::vector<int>>> memo_;
+  std::vector<int> coins_;
+  std::vector<std::vector<CountInfo>> memo_;
 };
 
-Customer::Customer(std::vector<Denomination> &denominations)
-    : budget_(0), denominations_(denominations) {
-  for (const auto &denomination : denominations_) {
+Customer::Customer(const std::vector<Denomination> &denominations)
+    : budget_(0) {
+  auto num_coins = 0;
+  for (const auto &denomination : denominations) {
+    num_coins += denomination.count;
     budget_ += denomination.value * denomination.count;
   }
 
-  memo_.resize(denominations_.size());
-  std::vector<int> row(budget_ + 1, -1);
-  for (std::size_t i = 0, len = denominations_.size(); i < len; ++i) {
-    memo_[i].resize(static_cast<std::size_t>(denominations_[i].count), row);
+  coins_.resize(static_cast<std::size_t>(num_coins));
+  std::size_t i = 0;
+  for (const auto &coins : denominations) {
+    for (std::size_t j = 0; j < coins.count; ++j, ++i) {
+      coins_[i] = coins.value;
+    }
   }
+
+  memo_.resize(static_cast<std::size_t>(num_coins), std::vector<CountInfo>(static_cast<std::size_t>(budget_) + 1));
 }
 
-int Customer::Count(int change) {
-  return Count(0, denominations_[0].count, change);
-}
-
-int Customer::Count(std::size_t i_denomination, std::size_t i_coin, int change) {
-  if (change < 0 || i_denomination >= denominations_.size()) {
-    return infinity;
-  }
+CountInfo Customer::Count(std::size_t i, int change) {
   if (change == 0) {
-    return 0;
+    return {true, 0};
   }
 
-  if (i_coin == 0) {
-    return Count(i_denomination + 1,
-                 i_denomination + 1 >= denominations_.size() ? infinity : denominations_[i_denomination + 1].count,
-                 change);
+  if (i >= coins_.size()) {
+    return {false, -1};
   }
 
-  auto &memo = memo_[i_denomination][i_coin - 1][change];
-  if (memo != -1) {
+  auto &memo = memo_[i][change];
+  if (memo.count != -1) {
     return memo;
   }
 
-  auto min_change = infinity;
-  for (std::size_t i = 0, len = denominations_.size(); i < len; ++i) {
-    auto &denomination = denominations_[i];
-    if (denomination.count == 0) {
-      continue;
-    }
-    --denomination.count;
-    min_change = std::min(min_change, Count(i, denomination.count, change - denomination.value));
-    ++denomination.count;
+  if (coins_[i] > change) {
+    return Count(i + 1, change);
   }
-  return memo = min_change == infinity ? infinity : 1 + min_change;
+
+  const auto exclude = Count(i + 1, change);
+  auto include = Count(i + 1, change - coins_[i]);
+  ++include.count;
+
+  if (!exclude.is_possible && !include.is_possible) {
+    return memo = {false, -1};
+  }
+
+  if (!exclude.is_possible && include.is_possible) {
+    return memo = include;
+  }
+
+  if (exclude.is_possible && !include.is_possible) {
+    return memo = exclude;
+  }
+
+  if (exclude.count < include.count) {
+    return memo = exclude;
+  }
+  return memo = include;
 }
 
 class Shop {
@@ -168,7 +186,7 @@ int Shop::Buy(Customer &customer, int value) {
   // and loop over all such possible sums
   for (auto tender = value, budget = customer.GetBudget(); tender <= budget; tender += 5) {
     auto coins_tendered = customer.Count(tender);
-    if (coins_tendered == infinity) {
+    if (!coins_tendered.is_possible) {
       continue;
     }
 
@@ -177,7 +195,7 @@ int Shop::Buy(Customer &customer, int value) {
     if (coins_received == infinity) {
       continue;
     }
-    min_coins = std::min(min_coins, coins_tendered + coins_received);
+    min_coins = std::min(min_coins, coins_tendered.count + coins_received);
   }
   return min_coins;
 }

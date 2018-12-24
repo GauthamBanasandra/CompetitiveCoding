@@ -281,3 +281,4 @@ include(UseJava)
         # Coin change
         add_executable(Dollars "Problem solving paradigms/Dynamic programming/Coin change/147/Dollars.cpp")
         add_executable(Making_change "Problem solving paradigms/Dynamic programming/Coin change/166/Making change.cpp")
+        add_executable(Let_me_count_the_ways "Problem solving paradigms/Dynamic programming/Coin change/357/Let me count the ways.cpp")

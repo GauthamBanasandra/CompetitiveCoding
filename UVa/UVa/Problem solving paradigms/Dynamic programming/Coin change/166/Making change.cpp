@@ -103,10 +103,22 @@ int CoinIterator::Next(int offset) {
 
 class Customer : public ChangeMaker {
  public:
-  Customer(std::size_t max_value, std::vector<Denomination> &denominations) : ChangeMaker(max_value, denominations) {}
+  Customer(std::size_t max_value, std::vector<Denomination> &denominations);
 
   CoinIterator GetCoinIterator() const { return {denominations_}; }
+  int GetBudget() const { return budget_; }
+
+ private:
+  int budget_;
 };
+
+Customer::Customer(std::size_t max_value, std::vector<Denomination> &denominations) : ChangeMaker(max_value,
+                                                                                                  denominations),
+                                                                                      budget_(0) {
+  for (const auto &denomination : denominations_) {
+    budget_ += denomination.value * denomination.count;
+  }
+}
 
 class Shop {
  public:
@@ -127,30 +139,41 @@ class Shop {
 
 int Shop::Buy(Customer &customer, int value) {
   auto min_coins = infinity;
-  auto coin_it = customer.GetCoinIterator();
-  for (auto change = 0; change != -1; change = coin_it.Next(change)) {
-    assert(change >= 0);
-    auto tender = value + change;
-    auto receive = change;
+  for (auto tender = value, budget = customer.GetBudget(); tender <= budget; tender += 5) {
     auto coins_tendered = customer.Count(tender);
+    if (coins_tendered == infinity) {
+      continue;
+    }
+
+    auto receive = tender - value;
     auto coins_received = shop_keeper_.Count(receive);
-    assert(coins_tendered != infinity && coins_received != infinity);
+    if (coins_received == infinity) {
+      continue;
+    }
     min_coins = std::min(min_coins, coins_tendered + coins_received);
   }
   return min_coins;
 }
 
 int main() {
-  auto value = 165;
+  auto value = 400;
+//  auto value = 315;
   std::string value_str;
   Shop shop(1000000);
   std::vector<Denomination> denominations{
-  /*    {5, 0},
-      {10, 0},*/
+//      {5, 1},
+//      {10, 7},
+//      {20, 7},
+//      {50, 4},
+      {100, 2},
+      {200, 1},
+
+/*//      {5, 1},
+//      {10, 7},
       {20, 6},
       {50, 7},
       {100, 8},
-//      {200, 0},
+//      {200, 1},*/
   };
 
   /*auto &num_k5 = denominations[k5].count;
@@ -159,7 +182,6 @@ int main() {
   auto &num_k50 = denominations[k50].count;
   auto &num_k100 = denominations[k100].count;
   auto &num_k200 = denominations[k200].count;
-
 
   while (std::cin >> num_k5 >> num_k10 >> num_k20 >> num_k50 >> num_k100 >> num_k200,
       num_k5 || num_k10 || num_k20 || num_k50 || num_k100 || num_k200) {
@@ -173,7 +195,6 @@ int main() {
     std::cout.width(3);
     std::cout << std::right << shop.Buy(customer, value) << std::endl;
   }*/
-
 
   Customer customer(1000000, denominations);
   std::cout.width(3);

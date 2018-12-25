@@ -21,15 +21,15 @@ enum CoinType {
   Count
 };
 
-struct Denomination {
-  Denomination(CoinType type, std::size_t count);
+struct Coin {
+  Coin(CoinType type, std::size_t count);
 
   CoinType type;
   int value;
   std::size_t count;
 };
 
-Denomination::Denomination(CoinType type, std::size_t count) : type(type), count(count) {
+Coin::Coin(CoinType type, std::size_t count) : type(type), count(count) {
   switch (type) {
     case k5: value = 5;
       break;
@@ -54,18 +54,17 @@ class ShopKeeper {
 
   int Count(int change);
 
- protected:
-  std::vector<Denomination> denominations_;
-
  private:
+  std::vector<Coin> coins_;
   std::vector<int> memo_;
 };
 
-ShopKeeper::ShopKeeper(std::size_t max_value) : denominations_({{k5, infinity}, {k10, infinity}, {k20, infinity},
-                                                                {k50, infinity}, {k100, infinity}, {k200, infinity}}) {
+ShopKeeper::ShopKeeper(std::size_t max_value) : coins_({{k5, infinity}, {k10, infinity}, {k20, infinity},
+                                                        {k50, infinity}, {k100, infinity}, {k200, infinity}}) {
   memo_.resize(max_value + 1, -1);
 }
 
+// Traditional coin change problem where infinite coins are available for any type
 int ShopKeeper::Count(int change) {
   if (change < 0) {
     return infinity;
@@ -81,8 +80,8 @@ int ShopKeeper::Count(int change) {
   }
 
   auto min_change = infinity;
-  for (auto &denomination : denominations_) {
-    min_change = std::min(min_change, Count(change - denomination.value));
+  for (auto &coin : coins_) {
+    min_change = std::min(min_change, Count(change - coin.value));
   }
   return memo = min_change == infinity ? infinity : 1 + min_change;
 }
@@ -97,7 +96,7 @@ struct CountInfo {
 
 class Customer {
  public:
-  explicit Customer(const std::vector<Denomination> &denominations);
+  explicit Customer(const std::vector<Coin> &coins);
 
   int GetBudget() const { return budget_; }
 
@@ -111,17 +110,17 @@ class Customer {
   std::vector<std::vector<CountInfo>> memo_;
 };
 
-Customer::Customer(const std::vector<Denomination> &denominations)
+Customer::Customer(const std::vector<Coin> &coins)
     : budget_(0) {
   auto num_coins = 0;
-  for (const auto &denomination : denominations) {
-    num_coins += denomination.count;
-    budget_ += denomination.value * denomination.count;
+  for (const auto &coin : coins) {
+    num_coins += coin.count;
+    budget_ += coin.value * coin.count;
   }
 
   coins_.resize(static_cast<std::size_t>(num_coins));
   std::size_t i = 0;
-  for (const auto &coins : denominations) {
+  for (const auto &coins : coins) {
     for (std::size_t j = 0; j < coins.count; ++j, ++i) {
       coins_[i] = coins.value;
     }
@@ -130,13 +129,18 @@ Customer::Customer(const std::vector<Denomination> &denominations)
   memo_.resize(static_cast<std::size_t>(num_coins), std::vector<CountInfo>(static_cast<std::size_t>(budget_) + 1));
 }
 
-CountInfo Customer::Count(std::size_t i, int change) {
+// Using Knapsack to compute the minimum number of coins, when the availability of coins are limited
+CountInfo Customer::Count(const std::size_t i, const int change) {
+  // A valid state is represented as {true, 0}
+  // This means that the sequence of operations that have been carried out will yield change == 0
   if (change == 0) {
     return {true, 0};
   }
 
+  // An invalid state is represented as {false, -2}
+  // This means that the sequence of operations that have been carried out will not yield a change == 0
   if (i >= coins_.size()) {
-    return {false, -1};
+    return {false, -2};
   }
 
   auto &memo = memo_[i][change];
@@ -150,10 +154,12 @@ CountInfo Customer::Count(std::size_t i, int change) {
 
   const auto exclude = Count(i + 1, change);
   auto include = Count(i + 1, change - coins_[i]);
+  // Included this coin[i], so incrementing its count
   ++include.count;
 
   if (!exclude.is_possible && !include.is_possible) {
-    return memo = {false, -1};
+    // Need to memoize if the sequence of operations could not yield change == 0 to avoid recomputation
+    return memo = {false, -2};
   }
 
   if (!exclude.is_possible && include.is_possible) {
@@ -204,28 +210,28 @@ int main() {
   auto value = 150;
   std::string value_str;
   Shop shop(1000000);
-  std::vector<Denomination> denominations{
-      {k5, 100},
+  std::vector<Coin> coins{
+      /*{k5, 100},
       {k10, 1},
       {k20, 1},
       {k50, 2},
-      /*{k100, 2},
+      {k100, 2},
       {k200, 1},*/
 
-      /*{k5, 0},
+      {k5, 0},
       {k10, 0},
       {k20, 6},
       {k50, 7},
       {k100, 8},
-      {k200, 0},*/
+      {k200, 0},
   };
 
-  /*auto &num_k5 = denominations[k5].count;
-  auto &num_k10 = denominations[k10].count;
-  auto &num_k20 = denominations[k20].count;
-  auto &num_k50 = denominations[k50].count;
-  auto &num_k100 = denominations[k100].count;
-  auto &num_k200 = denominations[k200].count;
+  auto &num_k5 = coins[k5].count;
+  auto &num_k10 = coins[k10].count;
+  auto &num_k20 = coins[k20].count;
+  auto &num_k50 = coins[k50].count;
+  auto &num_k100 = coins[k100].count;
+  auto &num_k200 = coins[k200].count;
 
   while (std::cin >> num_k5 >> num_k10 >> num_k20 >> num_k50 >> num_k100 >> num_k200,
       num_k5 || num_k10 || num_k20 || num_k50 || num_k100 || num_k200) {
@@ -233,13 +239,13 @@ int main() {
     value_str.erase(value_str.begin() + value_str.find('.'));
     value = std::stoi(value_str);
 
-    Customer customer(denominations);
+    Customer customer(coins);
     std::cout.width(3);
     std::cout << std::right << shop.Buy(customer, value) << std::endl;
-  }*/
+  }
 
-  Customer customer(denominations);
+  /*Customer customer(coins);
   std::cout.width(3);
-  std::cout << std::right << shop.Buy(customer, value) << std::endl;
+  std::cout << std::right << shop.Buy(customer, value) << std::endl;*/
   return 0;
 }

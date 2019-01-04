@@ -2,11 +2,11 @@
 // Created by Gautham Banasandra on 10/06/18.
 //
 
-#include <functional>
 #include <vector>
 #include <string>
 #include <iostream>
 #include <algorithm>
+#include <functional>
 
 struct ChimpInfo {
   ChimpInfo() : shorter_height(-1), taller_height(-1) {}

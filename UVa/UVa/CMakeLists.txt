@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.8)
 project(UVa)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 
 find_package(Java REQUIRED)
 include(UseJava)
@@ -192,7 +192,8 @@ include(UseJava)
         add_executable(Where_is_the_marble "Problem solving paradigms/Divide and conquer/Binary search/10474/Where is the marble.cpp"
                 "Problem solving paradigms/Divide and conquer/Binary search/10474/utils.cpp")
         add_executable(Helping_fill_bates "Problem solving paradigms/Divide and conquer/Binary search/10567/Helping Fill Bates.cpp")
-        add_executable(The_playboy_chimp "Problem solving paradigms/Divide and conquer/Binary search/10611/The playboy chimp.cpp")
+        # TODO : Compilation fails for The_playboy_chimp because it uses bind2nd, which is deprecated in C++ 17
+        # add_executable(The_playboy_chimp "Problem solving paradigms/Divide and conquer/Binary search/10611/The playboy chimp.cpp")
         add_executable(Number_sequence "Problem solving paradigms/Divide and conquer/Binary search/10706/Number sequence.cpp")
         add_executable(The_new_rule_in_euphomia "Problem solving paradigms/Divide and conquer/Binary search/10742/The new rule in Euphomia.cpp"
                 "Problem solving paradigms/Divide and conquer/Binary search/10742/utils.cpp")

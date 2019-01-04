@@ -33,7 +33,7 @@ private:
 
 ChangeMaker::ChangeMaker(const std::vector<ECoin>& e_coins, const long target) : target_(target * target), e_coins_(e_coins)
 {
-	memo_.resize(10000, std::vector<long>(10000, -1));
+	memo_.resize(500, std::vector<long>(500, -1));
 }
 
 long ChangeMaker::Count(ECoin sum)
@@ -68,27 +68,7 @@ int main(int argc, char* argv[])
 	auto n = 0;
 	std::size_t num_coins;
 	long target = 12;
-	std::vector<ECoin> e_coins{
-		/*{0, 2},
-		{2, 0},
-		{2, 1},*/
-
-		/*{5 ,5},
-		{3 ,0},
-		{0 ,4},*/
-		{0, 1},
-		{3, 0},
-	};
-
-	/*const auto min_coins = ChangeMaker(e_coins, target).Count();
-	if (min_coins == infinity)
-	{
-		std::cout << "not possible" << std::endl;
-	}
-	else
-	{
-		std::cout << min_coins << std::endl;
-	}*/
+	std::vector<ECoin> e_coins;
 
 	std::cin >> n;
 	while (n-- > 0)

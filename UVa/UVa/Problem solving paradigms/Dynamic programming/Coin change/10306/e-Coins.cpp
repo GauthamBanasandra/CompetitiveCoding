@@ -27,13 +27,13 @@ private:
 	long Count(ECoin sum);
 
 	const long target_;
-	std::vector<long> memo_;
+	std::vector<std::vector<long>> memo_;
 	const std::vector<ECoin> &e_coins_;
 };
 
 ChangeMaker::ChangeMaker(const std::vector<ECoin>& e_coins, const long target) : target_(target * target), e_coins_(e_coins)
 {
-	memo_.resize(static_cast<std::size_t>(target_) + 1, -1);
+	memo_.resize(10000, std::vector<long>(10000, -1));
 }
 
 long ChangeMaker::Count(ECoin sum)
@@ -49,7 +49,7 @@ long ChangeMaker::Count(ECoin sum)
 		return 0;
 	}
 
-	auto &memo = memo_[target_ - value];
+	auto &memo = memo_[sum.conventional_value][sum.info_tech_value];
 	if (memo != -1)
 	{
 		return memo;
@@ -67,7 +67,7 @@ int main(int argc, char* argv[])
 {
 	auto n = 0;
 	std::size_t num_coins;
-	long target = 4;
+	long target = 12;
 	std::vector<ECoin> e_coins{
 		/*{0, 2},
 		{2, 0},
@@ -80,7 +80,7 @@ int main(int argc, char* argv[])
 		{3, 0},
 	};
 
-	const auto min_coins = ChangeMaker(e_coins, target).Count();
+	/*const auto min_coins = ChangeMaker(e_coins, target).Count();
 	if (min_coins == infinity)
 	{
 		std::cout << "not possible" << std::endl;
@@ -88,9 +88,9 @@ int main(int argc, char* argv[])
 	else
 	{
 		std::cout << min_coins << std::endl;
-	}
+	}*/
 
-	/*std::cin >> n;
+	std::cin >> n;
 	while (n-- > 0)
 	{
 		std::cin >> num_coins >> target;
@@ -109,6 +109,6 @@ int main(int argc, char* argv[])
 		{
 			std::cout << min_coins << std::endl;
 		}
-	}*/
+	}
 	return 0;
 }

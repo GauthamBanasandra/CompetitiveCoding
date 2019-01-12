@@ -1,90 +1,125 @@
 #include <iostream>
 #include <vector>
 #include <numeric>
+#include <cassert>
 
 using ll = long long;
 
+const auto infinity_int = std::numeric_limits<int>::max();
+const auto infinity_ll = std::numeric_limits<ll>::max();
+const auto minus_inf_int = std::numeric_limits<int>::min();
+const auto minus_inf_ll = std::numeric_limits<ll>::min();
+
 struct Coins
 {
-	Coins() :amount(0), num(0) {}
-	Coins(const int amount, const ll num) :amount(amount), num(num) {}
+	Coins() :is_valid(true), amount(0), num(0) {}
+	Coins(const bool is_valid) : is_valid(is_valid), amount(minus_inf_int), num(minus_inf_ll) {}
+	Coins(const int amount, const ll num) :is_valid(true), amount(amount), num(num) {}
 
+	bool is_valid;
 	int amount;
 	ll num;
 };
-
-const auto infinity_int = std::numeric_limits<int>::max();
-const auto infinity_ll = std::numeric_limits<ll>::max();
 
 class ChangeMaker
 {
 public:
 	ChangeMaker(const std::vector<int> &coins, int target);
-	Coins Count() { return Count({ 0, 0 }); }
-
+	Coins Count() { return Count(0, {}); }
 private:
-	Coins Count(Coins sum);
-	static const Coins &Min(const Coins &a, const Coins &b);
+	const Coins &Min(const Coins &a, const Coins &b) const;
+	Coins Count(std::size_t i, Coins cum);
 
 	const int target_;
 	const std::vector<int> &coins_;
-	std::vector<Coins> memo_;
+	std::vector<std::vector<Coins>> memo_;
 };
 
 ChangeMaker::ChangeMaker(const std::vector<int>& coins, const int target) : target_(target), coins_(coins)
 {
-	memo_.resize(20000, { -1, -1 });
+	memo_.resize(coins_.size(), std::vector<Coins>(20000, { false }));
 }
 
-Coins ChangeMaker::Count(const Coins sum)
+const Coins& ChangeMaker::Min(const Coins& a, const Coins& b) const
 {
-	if (sum.amount >= target_)
+	if (a.amount <= target_ && b.amount<= target_)
 	{
-		return sum;
+		return a.num < b.num ? a : b;
 	}
 
-	auto &memo = memo_[sum.amount];
-	if (memo.amount != -1 && memo.num != -1)
+	return a.amount < b.amount ? a : b;
+}
+
+Coins ChangeMaker::Count(const std::size_t i, const Coins cum)
+{
+	assert(cum.amount <= target_);
+	if (i >= coins_.size())
+	{
+		return { false };
+	}
+
+	assert(cum.amount < 20000);
+	auto &memo = memo_[i][static_cast<std::size_t>(cum.amount)];
+	if (memo.is_valid)
 	{
 		return memo;
 	}
 
-	Coins min_coins{ infinity_int, infinity_ll };
-	for (const auto& coin : coins_)
+	const auto exclude = Count(i + 1, cum);
+	Coins include{ coins_[i] + cum.amount , cum.num + 1 };
+	if (include.amount <= target_)
 	{
-		min_coins = Min(min_coins, Count({ sum.amount + coin, sum.num + 1 }));
-	}
-	return memo = min_coins;
-}
-
-const Coins& ChangeMaker::Min(const Coins& a, const Coins& b)
-{
-	if (a.num < b.num)
-	{
-		return a;
+		include = Count(i + 1, include);
 	}
 
-	if (a.num == b.num)
+	if (!exclude.is_valid && !include.is_valid)
 	{
-		if (a.amount < b.amount)
-		{
-			return a;
-		}
+		return { false };
 	}
-	return b;
+	if (!exclude.is_valid && include.is_valid)
+	{
+		return include;
+	}
+	if (exclude.is_valid && !include.is_valid)
+	{
+		return exclude;
+	}
+	return memo = Min(exclude, include);
 }
 
 int main(int argc, char* argv[])
 {
-	auto target = 1400;
+	/*auto target = 1400;
 	std::vector<int> coin_values{
 		500,
 		1000,
 		2000,
+	};*/
+
+	ll t;
+	auto target = 100;
+	std::size_t num_coin_values;
+	std::vector<int> coin_values{
+		50,
+		25,
+		27,
+		26,
 	};
 
-	ChangeMaker change_maker(coin_values, target);
-	auto coins = change_maker.Count();
-	std::cout << coins.amount << " " << coins.num << std::endl;
+	std::cin >> t;
+	while (t-- > 0)
+	{
+		std::cin >> target >> num_coin_values;
+		coin_values.resize(num_coin_values);
+		for (std::size_t i = 0; i < num_coin_values; ++i)
+		{
+			std::cin >> coin_values[i];
+		}
+
+		ChangeMaker change_maker(coin_values, target);
+		const auto coins = change_maker.Count();
+		assert(coins.is_valid);
+		std::cout << coins.amount << " " << coins.num << std::endl;
+	}
 	return 0;
 }

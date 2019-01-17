@@ -68,37 +68,37 @@ namespace uva10496
 				Collect(i, visited | 1 << i));
 		}
 		return memo = min_distance;
-	}
+	}	
+}
 
-	int main(int argc, char* argv[])
+int main(int argc, char* argv[])
+{
+	std::size_t t, num_pos;
+	int x, y;
+
+	std::vector<uva10496::Point> pos{
+		{1, 1 },
+		{2, 3 },
+		{5, 5 },
+		{9 ,4 },
+		{6 ,5 },
+	};
+
+	std::cin >> t;
+	while (t--)
 	{
-		std::size_t t, num_pos;
-		int x, y;
-
-		std::vector<Point> pos{
-			{1, 1 },
-			{2, 3 },
-			{5, 5 },
-			{9 ,4 },
-			{6 ,5 },
-		};
-
-		std::cin >> t;
-		while (t--)
+		std::cin >> x >> y;
+		assert(!pos.empty());
+		std::cin >> pos[0].first >> pos[0].second;
+		std::cin >> num_pos;
+		pos.resize(num_pos + 1);
+		for (std::size_t i = 0; i < num_pos; ++i)
 		{
-			std::cin >> x >> y;
-			assert(!pos.empty());
-			std::cin >> pos[0].first >> pos[0].second;
-			std::cin >> num_pos;
-			pos.resize(num_pos + 1);
-			for (std::size_t i = 0; i < num_pos; ++i)
-			{
-				std::cin >> pos[i + 1].first >> pos[i + 1].second;
-			}
-
-			Collector collector(pos);
-			std::cout << "The shortest path has length " << collector.Collect() << std::endl;
+			std::cin >> pos[i + 1].first >> pos[i + 1].second;
 		}
-		return 0;
+
+		uva10496::Collector collector(pos);
+		std::cout << "The shortest path has length " << collector.Collect() << std::endl;
 	}
+	return 0;
 }

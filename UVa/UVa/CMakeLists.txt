@@ -290,3 +290,5 @@ include(UseJava)
         add_executable(Exact_change "Problem solving paradigms/Dynamic programming/Coin change/11517/Exact change.cpp")
         add_executable(Collecting_beepers "Problem solving paradigms/Dynamic programming/Traveling salesman problem/10496/Collecting beepers.cpp"
                 "utils/print.cpp")
+        add_executable(Getting_in_line "Problem solving paradigms/Dynamic programming/Traveling salesman problem/216/Getting in line.cpp"
+                "utils/print.cpp")

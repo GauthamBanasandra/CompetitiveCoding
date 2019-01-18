@@ -15,7 +15,7 @@ class Graph
 {
 public:
 	Graph(const std::vector<Pos> &pos);
-	double Connect();
+	void ConnectAndPrint();
 
 private:
 	double Connect(std::size_t i_pos, int visited);
@@ -45,12 +45,12 @@ Graph::Graph(const std::vector<Pos>& pos) :pos_(pos)
 	}
 }
 
-double Graph::Connect()
+void Graph::ConnectAndPrint()
 {
 	const auto len = distance_.size();
 	const auto min_distance = Connect(0, 1) + 16 * (len - 1);
 	Reconstruct();
-	return min_distance;
+	std::cout << "Number of feet of cable required is " << min_distance << "." << std::endl;
 }
 
 double Graph::Connect(const std::size_t i_pos, const int visited)
@@ -93,8 +93,13 @@ void Graph::Reconstruct()
 	auto visited = 1;
 	while (visited != (1 << len) - 1)
 	{
-		const auto next = memo_visit_[index][visited];
-		std::cout << distance_[index][next.first] + 16 << std::endl;
+		const auto&[x1, y1] = pos_[index];
+		const auto& next = memo_visit_[index][visited];
+		const auto&[x2, y2] = pos_[next.first];
+
+		std::cout << "Cable requirement to connect ";
+		std::cout << "(" << x1 << "," << y1 << ") to (" << x2 << "," << y2 << ") is ";
+		std::cout << distance_[index][next.first] + 16 << " feet." << std::endl;
 		index = next.first;
 		visited = next.second;
 	}
@@ -102,6 +107,8 @@ void Graph::Reconstruct()
 
 int main(int argc, char* argv[])
 {
+	std::size_t t = 0;
+	std::size_t num_pos;
 	std::vector<Pos> pos{
 		/*{5 ,19},
 		{55 ,28},
@@ -116,9 +123,20 @@ int main(int argc, char* argv[])
 		{88, 30},
 		{95, 38}
 	};
-
-	Graph graph(pos);
 	std::cout << std::fixed << std::showpoint << std::setprecision(2);
-	std::cout << graph.Connect() << std::endl;
+
+	while (std::cin >> num_pos, num_pos)
+	{
+		pos.resize(num_pos);
+		for (std::size_t i = 0; i < num_pos; ++i)
+		{
+			std::cin >> pos[i].first >> pos[i].second;
+		}
+
+		Graph graph(pos);
+		std::cout << "**********************************************************" << std::endl;
+		std::cout << "Network #" << ++t << std::endl;
+		graph.ConnectAndPrint();
+	}	
 	return 0;
 }

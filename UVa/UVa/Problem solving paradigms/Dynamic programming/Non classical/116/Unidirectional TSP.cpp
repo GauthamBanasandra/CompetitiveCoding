@@ -1,4 +1,6 @@
 #include <iostream>
+#include <algorithm>
+#include <string>
 #include <vector>
 #include <limits>
 #include <cassert>
@@ -16,7 +18,8 @@ public:
 private:
 	int Visit(long i_row, std::size_t i_column);
 	inline std::size_t ResolveRow(long i_row) const;
-	void Reconstruct(std::size_t i_row) const;
+	std::vector<std::string> Reconstruct(std::size_t i_row) const;
+	static void Print(const std::vector<std::string> &nodes);
 
 	const Matrix &matrix_;
 	std::size_t num_rows_;
@@ -42,14 +45,18 @@ int PathFinder::Visit()
 	for (std::size_t i_row = 0; i_row < num_rows_; ++i_row)
 	{
 		const auto cost = Visit(static_cast<long>(i_row), 0);
-		if (cost < min_cost)
+		if (cost == min_cost)
+		{
+			min_row = Reconstruct(i_row) < Reconstruct(min_row) ? i_row : min_row;
+		}
+		else if (cost < min_cost)
 		{
 			min_cost = cost;
 			min_row = i_row;
 		}
 	}
+	Print(Reconstruct(min_row));
 	assert(min_cost != infinity);
-	Reconstruct(min_row);
 	return min_cost;
 }
 
@@ -103,12 +110,14 @@ std::size_t PathFinder::ResolveRow(const long i_row) const
 	return i_row;
 }
 
-void PathFinder::Reconstruct(std::size_t i_row) const
+std::vector<std::string> PathFinder::Reconstruct(std::size_t i_row) const
 {
+	std::vector<std::string> nodes;
+	nodes.reserve(num_columns_);
 	std::size_t i_column = 0;
 	while (i_column < num_columns_)
 	{
-		std::cout << i_row + 1 << " ";
+		nodes.emplace_back(std::to_string(i_row + 1));
 		if (i_column == num_columns_ - 1)
 		{
 			break;
@@ -117,29 +126,54 @@ void PathFinder::Reconstruct(std::size_t i_row) const
 		i_row = next_row;
 		i_column = next_column;
 	}
+	return nodes;
+}
+
+void PathFinder::Print(const std::vector<std::string>& nodes)
+{
+	for (const auto& node : nodes)
+	{
+		std::cout << node << " ";
+	}
 	std::cout << std::endl;
 }
 
 int main(int argc, char* argv[])
 {
-	const Matrix matrix = {
-		 {3, 4, 1, 2, 8, 6},
-		 {6, 1, 8, 2, 7, 4},
-		 {5, 9, 3, 9, 9, 5},
-		 {3, 7, 2, 8, 6, 4},
-		 {8, 4, 1, 3, 2, 6},
+	Matrix matrix = {
+		{3, 4, 1, 2, 8, 6},
+		{6, 1, 8, 2, 7, 4},
+		{5, 9, 3, 9, 9, 5},
+		{8, 4, 1, 3, 2, 6},
+		{3, 7, 2, 8, 6, 4},
 
-		 /*{3, 4, 1, 2, 8, 6},
-		 {6, 1, 8, 2, 7, 4},
-		 {5, 9, 3, 9, 9, 5},
-		 {8, 4, 1, 3, 2, 6},
-		 {3, 7, 2, 1, 2, 3},*/
+		/*{3, 4, 1, 2, 8, 6},
+		{6, 1, 8, 2, 7, 4},
+		{5, 9, 3, 9, 9, 5},
+		{8, 4, 1, 3, 2, 6},
+		{3, 7, 2, 1, 2, 3},*/
 
-		 /*{9, 10},
-		 {9, 10},*/
+		/*{9, 10},
+		{9, 10},*/
 	};
+	std::size_t num_rows = 0, num_columns = 0;
 
-	PathFinder finder(matrix);
-	std::cout << finder.Visit() << std::endl;
+	while (std::cin >> num_rows >> num_columns, !std::cin.eof())
+	{
+		matrix.resize(num_rows);
+		for (std::size_t i = 0; i < num_rows; ++i)
+		{
+			matrix[i].resize(num_columns);
+			for (std::size_t j = 0; j < num_columns; ++j)
+			{
+				std::cin >> matrix[i][j];
+			}
+		}
+
+		PathFinder finder(matrix);
+		std::cout << finder.Visit() << std::endl;
+	}
+	/*PathFinder finder(matrix);
+	std::cout << finder.Visit() << std::endl;*/
 	return 0;
 }

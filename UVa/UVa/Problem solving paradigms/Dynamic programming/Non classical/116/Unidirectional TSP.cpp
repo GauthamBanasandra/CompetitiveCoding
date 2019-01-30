@@ -4,6 +4,7 @@
 #include <vector>
 #include <limits>
 #include <cassert>
+#include <ios>
 
 using Matrix = std::vector<std::vector<int>>;
 using Pos = std::pair<std::size_t, std::size_t>;
@@ -45,11 +46,7 @@ int PathFinder::Visit()
 	for (std::size_t i_row = 0; i_row < num_rows_; ++i_row)
 	{
 		const auto cost = Visit(static_cast<long>(i_row), 0);
-		if (cost == min_cost)
-		{
-			min_row = Reconstruct(i_row) < Reconstruct(min_row) ? i_row : min_row;
-		}
-		else if (cost < min_cost)
+		if (cost < min_cost)
 		{
 			min_cost = cost;
 			min_row = i_row;
@@ -79,6 +76,12 @@ int PathFinder::Visit(const long i_row, const std::size_t i_column)
 	(const std::size_t i_row, const std::size_t i_column) -> void
 	{
 		const auto cost = Visit(i_row, i_column);
+		if (cost == min_cost)
+		{
+			// This takes care of lexicographic order since the row index of the 3 cells
+			// that we are comparing are always adjacent
+			min_row = std::min(min_row, i_row);
+		}
 		if (cost < min_cost)
 		{
 			min_cost = cost;
@@ -131,31 +134,20 @@ std::vector<std::string> PathFinder::Reconstruct(std::size_t i_row) const
 
 void PathFinder::Print(const std::vector<std::string>& nodes)
 {
-	for (const auto& node : nodes)
+	assert(!nodes.empty());
+	std::cout << nodes.front();
+	for (std::size_t i = 1; i < nodes.size(); ++i)
 	{
-		std::cout << node << " ";
+		std::cout << " " << nodes[i];
 	}
 	std::cout << std::endl;
 }
 
 int main(int argc, char* argv[])
 {
-	Matrix matrix = {
-		{3, 4, 1, 2, 8, 6},
-		{6, 1, 8, 2, 7, 4},
-		{5, 9, 3, 9, 9, 5},
-		{8, 4, 1, 3, 2, 6},
-		{3, 7, 2, 8, 6, 4},
+	std::ios::sync_with_stdio(false);
 
-		/*{3, 4, 1, 2, 8, 6},
-		{6, 1, 8, 2, 7, 4},
-		{5, 9, 3, 9, 9, 5},
-		{8, 4, 1, 3, 2, 6},
-		{3, 7, 2, 1, 2, 3},*/
-
-		/*{9, 10},
-		{9, 10},*/
-	};
+	Matrix matrix;
 	std::size_t num_rows = 0, num_columns = 0;
 
 	while (std::cin >> num_rows >> num_columns, !std::cin.eof())
@@ -173,7 +165,5 @@ int main(int argc, char* argv[])
 		PathFinder finder(matrix);
 		std::cout << finder.Visit() << std::endl;
 	}
-	/*PathFinder finder(matrix);
-	std::cout << finder.Visit() << std::endl;*/
 	return 0;
 }

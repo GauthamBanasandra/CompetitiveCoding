@@ -293,3 +293,4 @@ include(UseJava)
         add_executable(Getting_in_line "Problem solving paradigms/Dynamic programming/Traveling salesman problem/216/Getting in line.cpp"
                 "utils/print.cpp")
         add_executable(Unidirectional_TSP "Problem solving paradigms/Dynamic programming/Non classical/116/Unidirectional TSP.cpp")
+        add_executable(Spreadsheet "Problem solving paradigms/Dynamic programming/Non classical/196/Spreadsheet.cpp")

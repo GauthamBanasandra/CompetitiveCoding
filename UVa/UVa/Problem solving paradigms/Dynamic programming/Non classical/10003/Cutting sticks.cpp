@@ -25,20 +25,26 @@ struct Stick
 class Cutter
 {
 public:
-	Cutter(const std::vector<std::size_t> &cuts) :cuts_(cuts) {}
+	explicit Cutter(const std::vector<std::size_t> &cuts);
 
-	std::size_t Cut(Stick stick) const;
+	std::size_t Cut(Stick stick);
 
 private:
 	static Stick GetStick(const std::list<Stick> &sticks, std::size_t cut);
 	static std::pair<Stick, Stick> CutStick(std::list<Stick> &sticks, std::size_t cut);
 	static void MergeSticks(std::list<Stick> &sticks, const std::pair<Stick, Stick> &fragments);
-	std::size_t CutNext(std::list<Stick> &sticks, std::size_t cuts) const;
+	std::size_t CutNext(std::list<Stick> &sticks, std::size_t cuts);
 
 	const std::vector<std::size_t> &cuts_;
+	std::vector<std::vector<long>> memo_;
 };
 
-std::size_t Cutter::Cut(const Stick stick) const
+Cutter::Cutter(const std::vector<std::size_t>& cuts) : cuts_(cuts)
+{
+	memo_.resize(cuts_.size() + 1, std::vector<long>(1 << cuts_.size(), -1));
+}
+
+std::size_t Cutter::Cut(const Stick stick)
 {
 	std::list<Stick> sticks{ stick };
 	return CutNext(sticks, 0ul);
@@ -79,7 +85,7 @@ void Cutter::MergeSticks(std::list<Stick>& sticks, const std::pair<Stick, Stick>
 	sticks.emplace_back(fragments.first.start, fragments.second.end);
 }
 
-std::size_t Cutter::CutNext(std::list<Stick>& sticks, const std::size_t cuts) const
+std::size_t Cutter::CutNext(std::list<Stick>& sticks, const std::size_t cuts)
 {
 	const auto len = cuts_.size();
 	if (cuts == (1 << len) - 1)
@@ -95,10 +101,17 @@ std::size_t Cutter::CutNext(std::list<Stick>& sticks, const std::size_t cuts) co
 			continue;
 		}
 
+		auto& memo = memo_[len][1 << i];
+		if (memo != -1)
+		{
+			min_cost = std::min(min_cost, static_cast<std::size_t>(memo));
+			continue;
+		}
+
 		const auto stick = GetStick(sticks, cuts_[i]);
 		auto fragments = CutStick(sticks, cuts_[i]);
 		auto cost = CutNext(sticks, cuts | 1 << i) + stick.length;
-		min_cost = std::min(min_cost, cost);
+		/*memo = */min_cost = std::min(min_cost, cost);
 		MergeSticks(sticks, fragments);
 	}
 	return min_cost;
@@ -106,8 +119,8 @@ std::size_t Cutter::CutNext(std::list<Stick>& sticks, const std::size_t cuts) co
 
 int main(int argc, char* argv[])
 {
-	std::vector<std::size_t> cuts{ 4,5,7,8 };
+	std::vector<std::size_t> cuts{ 25, 50, 75 };
 	Cutter cutter(cuts);
-	std::cout << cutter.Cut({ 0, 10 }) << std::endl;
+	std::cout << cutter.Cut({ 0, 100 }) << std::endl;
 	return 0;
 }

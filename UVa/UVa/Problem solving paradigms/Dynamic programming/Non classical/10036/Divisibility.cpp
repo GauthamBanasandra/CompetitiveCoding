@@ -14,7 +14,7 @@ private:
 
 	const std::size_t k_;
 	const std::vector<int> &numbers_;
-	std::vector<std::vector<short>> memo_;
+	std::vector<std::vector<short>> memo_; // Don't use vector<bool>
 };
 
 Numbers::Numbers(const std::vector<int>& numbers, const std::size_t k) :k_(k), numbers_(numbers)
@@ -47,6 +47,8 @@ bool Numbers::IsDivisible()
 
 long Numbers::Mod(long n) const
 {
+	// In case the number is negative, this will first convert it to
+	// a positive number and then take the mod.
 	const auto q = std::abs(n) / k_ + 1;
 	n += q * k_;
 	return n % static_cast<long>(k_);

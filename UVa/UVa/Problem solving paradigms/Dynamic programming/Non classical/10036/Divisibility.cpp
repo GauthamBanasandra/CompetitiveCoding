@@ -2,56 +2,59 @@
 #include <vector>
 #include <ios>
 
-class Numbers
+namespace uva10036
 {
-public:
-	Numbers(const std::vector<int> &numbers, std::size_t k);
-
-	bool IsDivisible();
-
-private:
-	long Mod(long n) const;
-
-	const std::size_t k_;
-	const std::vector<int> &numbers_;
-	std::vector<std::vector<short>> memo_; // Don't use vector<bool>
-};
-
-Numbers::Numbers(const std::vector<int>& numbers, const std::size_t k) :k_(k), numbers_(numbers)
-{
-	memo_.resize(numbers_.size(), std::vector<short>(k_));
-}
-
-bool Numbers::IsDivisible()
-{
-	memo_[0][Mod(numbers_[0])] = 1;
-	const auto len = numbers_.size();
-	for (std::size_t i = 1ul; i < len; ++i)
+	class Numbers
 	{
-		for (auto j = 0l; j < static_cast<long>(k_); ++j)
-		{
-			if (memo_[i - 1][j] == 0)
-			{
-				continue;
-			}
+	public:
+		Numbers(const std::vector<int> &numbers, std::size_t k);
 
-			const auto add = j + numbers_[i];
-			const auto sub = j - numbers_[i];
-			const auto i_add = Mod(add);
-			const auto i_sub = Mod(sub);
-			memo_[i][i_add] = memo_[i][i_sub] = 1;
-		}
+		bool IsDivisible();
+
+	private:
+		long Mod(long n) const;
+
+		const std::size_t k_;
+		const std::vector<int> &numbers_;
+		std::vector<std::vector<short>> memo_; // Don't use vector<bool>
+	};
+
+	Numbers::Numbers(const std::vector<int>& numbers, const std::size_t k) :k_(k), numbers_(numbers)
+	{
+		memo_.resize(numbers_.size(), std::vector<short>(k_));
 	}
-	return memo_[len - 1][0] == 1;
-}
 
-long Numbers::Mod(long n) const
-{
-	// In case the number is negative, this will first convert it to
-	// a positive number and then take the mod.
-	const auto q = std::abs(n) / k_ + 1;
-	n += q * k_;
-	return n % static_cast<long>(k_);
+	bool Numbers::IsDivisible()
+	{
+		memo_[0][Mod(numbers_[0])] = 1;
+		const auto len = numbers_.size();
+		for (std::size_t i = 1ul; i < len; ++i)
+		{
+			for (auto j = 0l; j < static_cast<long>(k_); ++j)
+			{
+				if (memo_[i - 1][j] == 0)
+				{
+					continue;
+				}
+
+				const auto add = j + numbers_[i];
+				const auto sub = j - numbers_[i];
+				const auto i_add = Mod(add);
+				const auto i_sub = Mod(sub);
+				memo_[i][i_add] = memo_[i][i_sub] = 1;
+			}
+		}
+		return memo_[len - 1][0] == 1;
+	}
+
+	long Numbers::Mod(long n) const
+	{
+		// In case the number is negative, this will first convert it to
+		// a positive number and then take the mod.
+		const auto q = std::abs(n) / k_ + 1;
+		n += q * k_;
+		return n % static_cast<long>(k_);
+	}
 }
 
 int main(int argc, char* argv[])
@@ -71,7 +74,7 @@ int main(int argc, char* argv[])
 			std::cin >> nums[i];
 		}
 
-		Numbers numbers(nums, k);
+		uva10036::Numbers numbers(nums, k);
 		std::cout << (numbers.IsDivisible() ? "Divisible" : "Not divisible") << std::endl;
 	}
 	return 0;

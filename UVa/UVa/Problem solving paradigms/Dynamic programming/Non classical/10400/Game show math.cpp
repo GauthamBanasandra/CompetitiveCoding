@@ -1,3 +1,5 @@
+// WA
+
 #include <cstdlib>
 #include <vector>
 #include <iostream>

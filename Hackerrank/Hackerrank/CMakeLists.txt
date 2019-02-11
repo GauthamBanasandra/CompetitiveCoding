@@ -21,6 +21,7 @@ include(UseJava)
 
     # Dyanmic programming
     add_executable(Coin_change "Practice/Dynamic_programming/Coin change/Coin change.cpp")
+    add_executable(The_coin_change_problem "Practice/Dynamic_programming/The coin change problem/The coin change problem.cpp")
 
 # Compete
     # Week of code

@@ -286,12 +286,14 @@ include(UseJava)
         add_executable(Coin_change "Problem solving paradigms/Dynamic programming/Coin change/674/Coin change.cpp")
         add_executable(e_coins "Problem solving paradigms/Dynamic programming/Coin change/10306/e-Coins.cpp")
         add_executable(Pay_the_price "Problem solving paradigms/Dynamic programming/Coin change/10313/Pay the price.cpp")
-        add_executable(Ingenuous_cubrency "Problem solving paradigms/Dynamic programming/Coin change/11137/Ingenuous cubrency.cpp")
+        add_executable(Ingenuous_cubrency "Problem solving paradigms/Dynamic programming/Coin change/11137/Ingenuous cubrency.cpp")        
         add_executable(Exact_change "Problem solving paradigms/Dynamic programming/Coin change/11517/Exact change.cpp")
+        # Traveling salesman problem
         add_executable(Collecting_beepers "Problem solving paradigms/Dynamic programming/Traveling salesman problem/10496/Collecting beepers.cpp"
                 "utils/print.cpp")
         add_executable(Getting_in_line "Problem solving paradigms/Dynamic programming/Traveling salesman problem/216/Getting in line.cpp"
                 "utils/print.cpp")
+        # Non classical
         add_executable(Unidirectional_TSP "Problem solving paradigms/Dynamic programming/Non classical/116/Unidirectional TSP.cpp")
         add_executable(Spreadsheet "Problem solving paradigms/Dynamic programming/Non classical/196/Spreadsheet.cpp")
         add_executable(String_popping "Problem solving paradigms/Dynamic programming/Non classical/1261/String popping.cpp")
@@ -300,3 +302,4 @@ include(UseJava)
         add_executable(Game_show_math "Problem solving paradigms/Dynamic programming/Non classical/10400/Game show math.cpp")
         add_executable(The_marriage_interview "Problem solving paradigms/Dynamic programming/Non classical/10446/The marriage interview.cpp")
         add_executable(Homer_simpson "Problem solving paradigms/Dynamic programming/Non classical/10465/Homer simpson.cpp")
+        add_executable(Marks_distribution "Problem solving paradigms/Dynamic programming/Non classical/10910/Marks distribution.cpp")

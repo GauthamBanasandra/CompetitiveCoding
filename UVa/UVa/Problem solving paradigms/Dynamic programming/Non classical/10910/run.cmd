@@ -1,0 +1,3 @@
+REM .\build\Debug\Marks_distribution.exe < "Problem solving paradigms\Dynamic programming\Non classical\10910\Marks distribution.txt"
+REM .\build\Debug\Marks_distribution.exe < "Problem solving paradigms\Dynamic programming\Non classical\10910\Marks distribution1.txt" | clip
+.\build\Debug\Marks_distribution.exe < "Problem solving paradigms\Dynamic programming\Non classical\10910\Marks distribution2.txt" | clip

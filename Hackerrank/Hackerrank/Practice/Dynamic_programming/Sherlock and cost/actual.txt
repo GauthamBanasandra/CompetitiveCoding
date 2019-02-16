@@ -1,0 +1,23 @@
+
+C:\Users\Gautham\projects\github\CompetitiveCoding\Hackerrank\Hackerrank>.\build\Debug\Sherlock_and_cost.exe  0<"Practice\Dynamic_programming\Sherlock and cost\input00.txt" 
+36
+4487
+1454
+976
+4045
+3368
+4541
+2832
+213
+5700
+4547
+4124
+2157
+3771
+4759
+653
+4420
+418
+4028
+3661
+1506

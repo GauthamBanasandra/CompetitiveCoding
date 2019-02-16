@@ -31,6 +31,26 @@ int Counter::Count()
 	return Count(0, rem_);
 }
 
+// There must be a parameter that holds the cumulative value to distribute.
+// This permits the solution to be memoized - when I'm at some i_subject, with some value rem,
+// irrespective of how I reached that state, the number of ways of achieving this will always
+// be the same.
+// Note that this problem could also be solved using the following Complete Search recurrence -
+/*
+ * int Count(i_sub, i_mark) {
+ *	if(i_sub == num_sub - 1) {
+ *		return 1;
+ *	}
+ * 
+ * count = 0;
+ * while(i_mark < marks_left) {
+ *	count += Count(i_sub + 1, i_mark + 1);
+ * }
+ * 
+ * return count;
+ */
+// Basically, the one which doesn't contain states that are independent, like the one above
+// The above solution can't be memoized.
 int Counter::Count(const std::size_t i_subject, const int rem)
 {
 	if (i_subject >= num_subjects_ || rem < 0)

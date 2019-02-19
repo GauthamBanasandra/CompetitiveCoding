@@ -2,32 +2,35 @@
 #include <algorithm>
 #include <iostream>
 
-class Estimator
+namespace round540
 {
-public:
-	Estimator(long long num_l, long long cost_1l, long long cost_2l);
-	long long Estimate() const;
-
-private:
-	const long long num_l_;
-	const long long cost_1l_;
-	const long long cost_2l_;
-};
-
-Estimator::Estimator(long long num_l, long long cost_1l, long long cost_2l) :num_l_(num_l), cost_1l_(cost_1l), cost_2l_(cost_2l)
-{
-}
-
-long long Estimator::Estimate() const
-{
-	long long max_2 = num_l_ / 2 * cost_2l_;
-	if (num_l_ & 1)
+	class Estimator
 	{
-		max_2 += cost_1l_;
+	public:
+		Estimator(long long num_l, long long cost_1l, long long cost_2l);
+		long long Estimate() const;
+
+	private:
+		const long long num_l_;
+		const long long cost_1l_;
+		const long long cost_2l_;
+	};
+
+	Estimator::Estimator(long long num_l, long long cost_1l, long long cost_2l) :num_l_(num_l), cost_1l_(cost_1l), cost_2l_(cost_2l)
+	{
 	}
 
-	const long long max_1 = num_l_ * cost_1l_;
-	return std::min(max_1, max_2);
+	long long Estimator::Estimate() const
+	{
+		long long max_2 = num_l_ / 2 * cost_2l_;
+		if (num_l_ & 1)
+		{
+			max_2 += cost_1l_;
+		}
+
+		const long long max_1 = num_l_ * cost_1l_;
+		return std::min(max_1, max_2);
+	}
 }
 
 int main(int argc, char* argv[])
@@ -38,7 +41,7 @@ int main(int argc, char* argv[])
 	while (q--)
 	{
 		std::cin >> n >> a >> b;
-		Estimator estimator(n, a, b);
+		round540::Estimator estimator(n, a, b);
 		std::cout << estimator.Estimate() << std::endl;
 	}
 	return 0;

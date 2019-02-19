@@ -1,0 +1,1 @@
+.\build\Debug\Water_buying.exe < "Compete\Round 540\A\Water buying.txt"

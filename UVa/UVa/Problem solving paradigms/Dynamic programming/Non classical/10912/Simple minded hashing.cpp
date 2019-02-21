@@ -1,3 +1,5 @@
+// WIP
+
 #include <vector>
 #include <iostream>
 
@@ -35,7 +37,7 @@ int CollisionCounter::Count(const std::size_t i_word, const std::size_t start_c,
 	auto &memo = memo_[i_word][start_c];
 	if (memo != -1)
 	{
-		//return memo;
+		return memo;
 	}
 
 	auto count = 0;
@@ -48,7 +50,13 @@ int CollisionCounter::Count(const std::size_t i_word, const std::size_t start_c,
 
 int main(int argc, char* argv[])
 {
-	CollisionCounter counter(4, 56);
-	std::cout << counter.Count() << std::endl;
+	std::size_t t = 0, l;
+	int s;
+
+	while (std::cin >> l >> s, !std::cin.eof())
+	{
+		CollisionCounter counter(l, s);
+		std::cout << "Case " << ++t << ": " << counter.Count() << std::endl;
+	}
 	return 0;
 }

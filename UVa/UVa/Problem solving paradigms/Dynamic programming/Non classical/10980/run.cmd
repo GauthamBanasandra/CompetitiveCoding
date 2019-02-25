@@ -1,0 +1,2 @@
+REM .\build\Debug\Lowest_price_in_town.exe < "Problem solving paradigms\Dynamic programming\Non classical\10980\Lowest price in town.txt"
+.\build\Debug\Lowest_price_in_town.exe < "Problem solving paradigms\Dynamic programming\Non classical\10980\Lowest price in town1.txt" | clip

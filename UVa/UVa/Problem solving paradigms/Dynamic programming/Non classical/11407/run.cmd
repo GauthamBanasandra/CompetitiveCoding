@@ -1,0 +1,2 @@
+REM .\build\Debug\Squares.exe < "Problem solving paradigms\Dynamic programming\Non classical\11407\Squares.txt"
+.\build\Debug\Squares.exe < "Problem solving paradigms\Dynamic programming\Non classical\11407\Squares1.txt" | clip

@@ -308,3 +308,4 @@ include(UseJava)
         add_executable(Lowest_price_in_town "Problem solving paradigms/Dynamic programming/Non classical/10980/Lowest price in town.cpp")
         add_executable(A_grouping_problem "Problem solving paradigms/Dynamic programming/Non classical/11026/A grouping problem.cpp"
                 "utils/print.cpp")
+        add_executable(Squares "Problem solving paradigms/Dynamic programming/Non classical/11407/Squares.cpp")

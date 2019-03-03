@@ -309,3 +309,4 @@ include(UseJava)
         add_executable(A_grouping_problem "Problem solving paradigms/Dynamic programming/Non classical/11026/A grouping problem.cpp"
                 "utils/print.cpp")
         add_executable(Squares "Problem solving paradigms/Dynamic programming/Non classical/11407/Squares.cpp")
+        add_executable(Chest_of_drawers "Problem solving paradigms/Dynamic programming/Non classical/11420/Chest of drawers.cpp")

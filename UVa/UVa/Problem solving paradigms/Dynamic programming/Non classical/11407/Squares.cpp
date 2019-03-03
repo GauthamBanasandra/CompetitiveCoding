@@ -63,6 +63,13 @@ namespace uva11407
 			const auto count = Count(rem - square);
 			if (count == infinity)
 			{
+				// It is quite evident that this problem is nothing but coin change problem
+				// This "if" block is an optimization (pruning)
+				// Since this count returned infinity, we know that the next "rem - square" will also return infinity
+				// We know this because the squares are all in "sorted" order.
+
+				// This optimization can be applied to the regular coin change problem too
+				// We only need to sort the coins w.r.t their denominations.
 				break;
 			}
 

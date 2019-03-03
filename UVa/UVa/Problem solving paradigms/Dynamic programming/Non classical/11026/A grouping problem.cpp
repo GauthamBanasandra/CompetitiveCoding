@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <algorithm>
+#include <unordered_set>
 #include <iostream>
 #include <cassert>
 
@@ -9,93 +10,112 @@ using ll = long long;
 
 void Print(const std::vector<int> &elements);
 
+struct Cell
+{
+	Cell() = default;
+	Cell(const ll product, const std::size_t index, const std::size_t i_primordial) :product(product), index(index), i_primordial(i_primordial) {}
+
+	bool operator==(const Cell& other) const { return product == other.product; }
+	bool operator<(const Cell& other) const { return index < other.index; }
+	ll operator()(const Cell& cell) const { return cell.product; }
+
+	ll product{ 0 };
+	std::size_t index{ 0 };
+	std::size_t i_primordial{ 0 };
+};
+
 class Group
 {
 public:
-	Group(const std::vector<int> &numbers, std::size_t k);
+	Group(const std::vector<int> &numbers, std::size_t k, ll m);
 
-	void Next();
-	void GenerateCombinations();
+	ll Score();
 
 private:
-	void SelectNext(std::size_t i_memo, std::size_t i_start_num);
-	ll Next(std::size_t i_memo, std::size_t i_start_num);
+	void Insert(std::size_t i, const Cell& cell);
 
-	std::vector<std::vector<ll>> memo_;
-	std::vector<int> memo_selection_;
+	const ll m_;
+	std::vector<std::unordered_set<Cell, Cell>> memo_;
 	const std::vector<int> &numbers_;
 };
 
-Group::Group(const std::vector<int>& numbers, const std::size_t k) :numbers_(numbers)
+Group::Group(const std::vector<int>& numbers, const std::size_t k, const ll m) :m_(m), numbers_(numbers)
 {
-	memo_selection_.resize(k);
-	memo_.resize(k, std::vector<ll>(numbers_.size(), -1));
+	memo_.resize(k);
 }
 
-void Group::Next()
+ll Group::Score()
 {
-	for (std::size_t i = 0, len = numbers_.size(); i < len; ++i)
+	const auto numbers_len = numbers_.size();
+	for (std::size_t i = 0; i < numbers_len; ++i)
 	{
-		std::cout << i << '\t' << Next(0, i) << std::endl;
+		Insert(0, { numbers_[i], i, i });
 	}
-	std::cout << std::endl;
-}
 
-void Group::GenerateCombinations()
-{
-	for (std::size_t i = 0, len = numbers_.size(); i < len; ++i)
+	for (std::size_t i = 1, len = memo_.size(); i < len; ++i)
 	{
-		SelectNext(0, i);
+		auto &row = memo_[i - 1];
+		for (const auto& cell : row)
+		{
+			for (auto j = cell.index + 1; j < numbers_len; ++j)
+			{
+				const auto product = ((cell.product)* (numbers_[j]));
+				Insert(i, { product, j, cell.i_primordial });
+			}
+		}
 	}
+
+	ll fitness_score = 0;
+	for (const auto& cell : memo_.back())
+	{
+		fitness_score = (fitness_score + cell.product) % m_;
+	}
+	return fitness_score;
 }
 
-void Group::SelectNext(const std::size_t i_memo, const std::size_t i_start_num)
+void Group::Insert(const std::size_t i, const Cell& cell)
 {
-	if (i_memo >= memo_selection_.size() || i_start_num >= numbers_.size())
+	auto& row = memo_[i];
+	const auto find_it = row.find(cell);
+	if (find_it == row.end())
 	{
+		row.insert(cell);
 		return;
 	}
 
-	memo_selection_[i_memo] = numbers_[i_start_num];
-	if (i_memo == memo_selection_.size() - 1)
+	if (cell < *find_it)
 	{
-		Print(memo_selection_);
-	}
-
-	for (auto i_num = i_start_num + 1, len = numbers_.size(); i_num < len; ++i_num)
-	{
-		SelectNext(i_memo + 1, i_num);
+		row.erase(find_it);
+		row.insert(cell);
 	}
 }
 
-ll Group::Next(const std::size_t i_memo, const std::size_t i_start_num)
+ll AggregateScore(const std::vector<int> &numbers, const ll m)
 {
-	if (i_memo >= memo_.size() || i_start_num >= numbers_.size())
+	ll max_score = 0;
+	for (std::size_t k = 1, len = numbers.size(); k <= len; ++k)
 	{
-		return -1;
-	}
-
-	auto &memo = memo_[i_memo][i_start_num];
-	if (memo != -1)
-	{
-		return memo;
-	}
-
-	ll max_score = -1;
-	for (auto i_num = i_start_num + 1, len = numbers_.size(); i_num < len; ++i_num)
-	{
-		const auto score = Next(i_memo + 1, i_num);
+		Group group(numbers, k, m);
+		const auto score = group.Score();
 		max_score = std::max(max_score, score);
 	}
-	return memo = max_score != -1 ? max_score * numbers_[i_start_num] : numbers_[i_start_num];
+	return max_score;
 }
 
 int main(int argc, char* argv[])
 {
+	std::size_t n;
+	int m;
 	std::vector<int> numbers{ 1, 2, 3, 4 };
 
-	Group group(numbers, 2);
-	group.Next();
-	group.GenerateCombinations();
+	while (std::cin >> n >> m, n || m)
+	{
+		numbers.resize(n);
+		for (std::size_t i = 0; i < n; ++i)
+		{
+			std::cin >> numbers[i];
+		}
+		std::cout << AggregateScore(numbers, m) << std::endl;
+	}
 	return 0;
 }

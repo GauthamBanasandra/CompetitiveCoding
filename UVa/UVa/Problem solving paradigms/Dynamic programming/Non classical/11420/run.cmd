@@ -1,0 +1,3 @@
+REM .\build\Debug\Chest_of_drawers.exe < "Problem solving paradigms\Dynamic programming\Non classical\11420\Chest of drawers.txt"
+REM .\build\Debug\Chest_of_drawers.exe < "Problem solving paradigms\Dynamic programming\Non classical\11420\Chest of drawers1.txt" | clip
+.\build\Debug\Chest_of_drawers.exe < "Problem solving paradigms\Dynamic programming\Non classical\11420\Chest of drawers2.txt" | clip

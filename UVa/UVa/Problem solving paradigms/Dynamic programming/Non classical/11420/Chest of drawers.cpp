@@ -1,53 +1,58 @@
-// WIP
-
 #include <vector>
 #include <iostream>
+
+using ll = long long;
 
 class Counter
 {
 public:
-	Counter(std::size_t n, std::size_t s);
-	long Count() { return Count(0, true, s_); }
+	Counter(std::size_t n, int s);
+	ll Count() { return Count(0, true, 0); }
 
 private:
-	long Count(std::size_t i, bool is_prev_lock, int rem);
+	ll Count(std::size_t i, bool is_prev_lock, int s);
 
 	const std::size_t n_;
-	const std::size_t s_;
-	std::vector<std::vector<std::vector<long>>> memo_;
+	const int s_;
+	std::vector<std::vector<std::vector<ll>>> memo_;
 };
 
-Counter::Counter(const std::size_t n, const std::size_t s) :n_(n), s_(s)
+Counter::Counter(const std::size_t n, const int s) :n_(n), s_(s)
 {
-	memo_.resize(n_, std::vector<std::vector<long>>(2, std::vector<long>(s_ + 1, -1)));
+	memo_.resize(n_, std::vector<std::vector<ll>>(2, std::vector<ll>(n_ + 1, -1)));
 }
 
-long Counter::Count(const std::size_t i, const bool is_prev_lock, const int rem)
+ll Counter::Count(const std::size_t i, const bool is_prev_lock, const int s)
 {
-	if (rem == 0)
+	if (i >= n_)
 	{
-		return 1;
-	}
-
-	if (i >= n_ || rem < 0)
-	{
+		if (s == s_)
+		{
+			return 1;
+		}
 		return 0;
 	}
 
-	auto& memo = memo_[i][is_prev_lock ? 1 : 0][rem];
+	auto& memo = memo_[i][is_prev_lock ? 1 : 0][s];
 	if (memo != -1)
 	{
 		return memo;
 	}
 
-	const auto unlocked = Count(i + 1, false, rem);
-	const auto locked = Count(i + 1, true, rem - (is_prev_lock ? 1 : 0));
+	const auto unlocked = Count(i + 1, false, s);
+	const auto locked = Count(i + 1, true, s + (is_prev_lock ? 1 : 0));
 	return memo = unlocked + locked;
 }
 
 int main(int argc, char* argv[])
 {
-	Counter counter(3, 1);
-	std::cout << counter.Count() << std::endl;
+	ll n;
+	int s;
+
+	while (std::cin >> n >> s, n != -1 && s != -1)
+	{
+		Counter counter(n, s);
+		std::cout << counter.Count() << std::endl;
+	}
 	return 0;
 }

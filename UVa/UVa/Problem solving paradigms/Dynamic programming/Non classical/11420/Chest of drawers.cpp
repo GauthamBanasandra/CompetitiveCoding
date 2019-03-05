@@ -22,6 +22,26 @@ Counter::Counter(const std::size_t n, const int s) :n_(n), s_(s)
 	memo_.resize(n_, std::vector<std::vector<ll>>(2, std::vector<ll>(n_ + 1, -1)));
 }
 
+/*
+ * Using "rem" all the time isn't going to work.
+ * By "rem", I mean passing the remaining and subtracting it till "rem" reaches 0.
+ * 
+ * In this case, it will prune the branches. But the problem needs to explore
+ * all the branches and count them, even if the solution is reached
+ * 
+ * For example,
+ * Let's say n = 3 and s = 1. We get the following possibilities (U - Unlocked, L - Locked)
+ * U U U
+ * U U L
+ * U L U
+ * U L L
+ * L U U
+  -------
+ | L U L |  These permutations are pruned because s = 0, on the first recursion itself
+ | L L U |	and will return immediately without exploring the subsequent positions
+ | L L L |
+  -------
+ */
 ll Counter::Count(const std::size_t i, const bool is_prev_lock, const int s)
 {
 	if (i >= n_)

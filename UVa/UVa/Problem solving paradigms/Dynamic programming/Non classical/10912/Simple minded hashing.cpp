@@ -3,73 +3,67 @@
 #include <vector>
 #include <iostream>
 
-class CollisionCounter
+class Counter
 {
 public:
-	CollisionCounter(std::size_t word_len, int rem);
+	Counter(std::size_t l, int s);
 
-	int Count();
+	long Count() { return Count(0, 0, rem_); }
+
 private:
-	int Count(std::size_t i_word, std::size_t start_c, int rem);
+	long Count(std::size_t i_letter, std::size_t prev_char, int rem);
 
-	const std::size_t word_len_;
+	const std::size_t l_;
 	const int rem_;
-	std::vector<std::vector<std::vector<int>>> memo_;
+	std::vector<std::vector<std::vector<long>>> memo_;
 };
 
-CollisionCounter::CollisionCounter(const std::size_t word_len, const int rem) :word_len_(word_len), rem_(rem)
+Counter::Counter(const std::size_t l, const int s) :l_(l), rem_(s)
 {
-	memo_.resize(word_len_, std::vector<std::vector<int>>(27, std::vector<int>(rem_ + 1, -1)));
+	memo_.resize(l_,
+		std::vector<std::vector<long>>(27,
+			std::vector<long>(rem_ + 1, -1)));
 }
 
-int CollisionCounter::Count()
+long Counter::Count(const std::size_t i_letter, const std::size_t prev_char, const int rem)
 {
-	auto count = 0;
-	for (std::size_t i = 1; i <= 26; ++i)
-	{
-		count += Count(0, i, rem_ - i);
-	}
-	return count;
-}
-
-int CollisionCounter::Count(const std::size_t i_word, const std::size_t start_c, const int rem)
-{
-	if (i_word >= word_len_ || start_c > 26 || rem < 0)
+	if (rem < 0 || prev_char > 26)
 	{
 		return 0;
 	}
 
-	if (i_word == word_len_ - 1 && rem == 0)
+	if (i_letter >= l_)
 	{
-		return 1;
+		if (rem == 0)
+		{
+			return 1;
+		}
+		return 0;
 	}
 
-	auto &memo = memo_[i_word][start_c][rem];
+	auto &memo = memo_[i_letter][prev_char][rem];
 	if (memo != -1)
 	{
 		return memo;
 	}
 
-	auto count = 0;
-	for (auto c = start_c + 1; c <= 26; ++c)
+	long count = 0;
+	for (auto i = prev_char + 1; i <= 26; ++i)
 	{
-		count += Count(i_word + 1, c, rem - c);
+		count += Count(i_letter + 1, i, rem - static_cast<int>(i));
 	}
 	return memo = count;
 }
 
 int main(int argc, char* argv[])
 {
-	/*CollisionCounter counter(7, 123);
-	std::cout << counter.Count() << std::endl;*/
-
-
-	std::size_t t = 0, l;
+	std::size_t t = 0;
+	std::size_t l;
 	int s;
 
-	while (std::cin >> l >> s, !std::cin.eof())
+	while (std::cin >> l >> s, l || s)
 	{
-		CollisionCounter counter(l, s);
+		Counter counter(l, s);
 		std::cout << "Case " << ++t << ": " << counter.Count() << std::endl;
 	}
 	return 0;

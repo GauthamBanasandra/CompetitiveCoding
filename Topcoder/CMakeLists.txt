@@ -3,4 +3,8 @@ project(Topcoder)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Ab "Practice/Ab/Ab.cpp")
+include_directories("Practice/Ab")
+
+add_executable(Ab
+    "Practice/Ab/Ab.cpp"
+    "Practice/Ab/main.cpp")

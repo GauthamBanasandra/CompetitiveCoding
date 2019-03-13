@@ -3,12 +3,12 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
-#include <valarray>
+#include <ios>
 
 class Maximizer
 {
 public:
-	Maximizer(const std::vector<int> &numbers);
+	explicit Maximizer(const std::vector<int> &numbers, int max_num);
 
 	long Maximize() { return Maximize(0, 0); }
 
@@ -19,10 +19,10 @@ private:
 	std::vector<std::vector<long>> memo_;
 };
 
-Maximizer::Maximizer(const std::vector<int>& numbers) : numbers_(numbers)
+Maximizer::Maximizer(const std::vector<int>& numbers, const int max_num) : numbers_(numbers)
 {
 	memo_.resize(numbers_.size(),
-		std::vector<long>(*std::max_element(numbers_.begin(), numbers_.end()) + 1, -1));
+		std::vector<long>(max_num + 1, -1));
 }
 
 long Maximizer::Maximize(const std::size_t i_num, const int prev_num)
@@ -53,6 +53,8 @@ long Maximizer::Maximize(const std::size_t i_num, const int prev_num)
 
 int main(int argc, char* argv[])
 {
+	std::ios::sync_with_stdio(false);
+
 	std::size_t t, num_len;
 	std::vector<int> numbers{ 1,2,3 };
 
@@ -64,12 +66,14 @@ int main(int argc, char* argv[])
 	{
 		std::cin >> num_len;
 		numbers.resize(num_len);
+		auto max_num = 0;
 		for (std::size_t i = 0; i < num_len; ++i)
 		{
 			std::cin >> numbers[i];
+			max_num = std::max(max_num, numbers[i]);
 		}
 
-		Maximizer maximizer(numbers);
+		Maximizer maximizer(numbers, max_num);
 		std::cout << maximizer.Maximize() << std::endl;
 	}
 	return 0;

@@ -1,5 +1,3 @@
-// TLE
-
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -38,17 +36,20 @@ long Maximizer::Maximize(const std::size_t i_num, const int prev_num)
 		return memo;
 	}
 
-	long max_score = 0;
-	for (auto num = 1, max_num = numbers_[i_num]; num <= max_num; ++num)
+	const auto min_num = 1;
+	auto lower_bound = Maximize(i_num + 1, min_num);
+	if (i_num != 0)
 	{
-		auto score = Maximize(i_num + 1, num);
-		if (i_num != 0)
-		{
-			score += std::abs(prev_num - num);
-		}
-		max_score = std::max(max_score, score);
+		lower_bound += std::abs(prev_num - min_num);
 	}
-	return memo = max_score;
+
+	const auto max_num = numbers_[i_num];
+	auto upper_bound = Maximize(i_num + 1, max_num);
+	if (i_num != 0)
+	{
+		upper_bound += std::abs(prev_num - max_num);
+	}
+	return memo = std::max(lower_bound, upper_bound);
 }
 
 int main(int argc, char* argv[])
@@ -56,10 +57,7 @@ int main(int argc, char* argv[])
 	std::ios::sync_with_stdio(false);
 
 	std::size_t t, num_len;
-	std::vector<int> numbers{ 1,2,3 };
-
-	/*Maximizer maximizer(numbers);
-	std::cout << maximizer.Maximize() << std::endl;*/
+	std::vector<int> numbers;
 
 	std::cin >> t;
 	while (t--)

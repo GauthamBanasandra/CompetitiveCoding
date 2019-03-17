@@ -315,3 +315,8 @@ include(UseJava)
         add_executable(Sqrt_log_sin "Problem solving paradigms/Dynamic programming/Non classical/11703/Sqrt log sin.cpp")
         add_executable(Bar_codes "Problem solving paradigms/Dynamic programming/Non classical/10721/Bar codes.cpp")
         add_executable(Test_the_rods "Problem solving paradigms/Dynamic programming/Non classical/10086/Test the rods.cpp")
+
+# Graph
+        # Graph traversal
+                # Just graph traversal
+                add_executable(Dominator "Graph/Graph traversal/Just graph traversal/11902/Dominator.cpp")

@@ -1,6 +1,7 @@
 // WIP
 
 import java.math.BigInteger;
+import java.util.Scanner;
 
 class Counter {
     Counter(int n) {
@@ -9,6 +10,10 @@ class Counter {
     }
 
     long Count() {
+        if (n == 0) {
+            return 2;
+        }
+
         for (int i = 0; i < 10; i++) {
             memo[0][i * i] = 1;
         }
@@ -25,10 +30,11 @@ class Counter {
             }
         }
 
+        ++memo[n - 1][1];
         BigInteger count = BigInteger.ZERO;
         for (long c : memo[n - 1]) {
             BigInteger bigC = BigInteger.valueOf(c);
-            count = count.add(bigC.subtract(BigInteger.ONE).multiply(bigC).divide(BigInteger.TWO)).mod(maxNum);
+            count = count.add(bigC.multiply(bigC)).mod(maxNum);
         }
         return count.longValue();
     }
@@ -41,7 +47,14 @@ class Counter {
 
 public class TestClass {
     public static void main(String[] args) {
-        Counter counter = new Counter(1);
+        /*for (int n = 0; n < 5; n++) {
+            Counter counter = new Counter(n);
+            BruteForce.Counter bruteForceCounter = new BruteForce.Counter(n);
+            System.out.printf("DP : %d\tBrute force : %d\n", counter.Count(), bruteForceCounter.Count());
+        }*/
+
+        Scanner scanner = new Scanner(System.in);
+        Counter counter = new Counter(scanner.nextInt());
         System.out.println(counter.Count());
     }
 }

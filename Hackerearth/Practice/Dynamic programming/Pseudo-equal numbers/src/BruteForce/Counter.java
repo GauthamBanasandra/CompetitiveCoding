@@ -1,21 +1,28 @@
 package BruteForce;
 
+import java.util.Hashtable;
+import java.util.Map;
+
 public class Counter {
     public Counter(int n) {
         this.n = n;
+        squares = new Hashtable<>();
     }
 
     public long Count() {
-        long count = 0;
         for (int i = 0, len = (int) Math.pow(10, n); i <= len; i++) {
             final long iSum = SumDigitSquare(i);
-            for (int j = 0; j <= len; j++) {
-                if (iSum == SumDigitSquare(j)) {
-                    ++count;
-                    count = count % maxNum;
-                }
-            }
+            squares.put(iSum, squares.getOrDefault(iSum, 0L) + 1);
         }
+
+        long count = 0;
+        for (Map.Entry<Long, Long> entry :
+                squares.entrySet()) {
+            count += (entry.getValue() * entry.getValue());
+            count %= maxNum;
+        }
+
+        System.out.printf("Brute force non-zero : %d\n", squares.size());
         return count;
     }
 
@@ -30,6 +37,7 @@ public class Counter {
         return sum;
     }
 
+    private Hashtable<Long, Long> squares;
     private final int n;
     private static final int maxNum = 1000000007;
 }

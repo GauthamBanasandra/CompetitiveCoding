@@ -1,7 +1,10 @@
 cmake_minimum_required(VERSION 3.12)
 project(Hackerearth)
 
-set(CMAKE_CXX_STANDARD 14)
+find_package(Java REQUIRED)
+include(UseJava)
+set(CMAKE_CXX_STANDARD 17)
+
 # Practice
     # Bit manipulation
     add_executable(Count_the_bits "Practice/Bit manipulation/Count the bits/Count the bits.cpp")
@@ -9,6 +12,8 @@ set(CMAKE_CXX_STANDARD 14)
     add_executable(Monk_and_the_box_of_cookies "Practice/Bit manipulation/Monk and the box of cookies/Monk and the box of cookies.cpp")
     add_executable(Sherlock_and_xor "Practice/Bit manipulation/Sherlock and XOR/Sherlock and XOR.cpp")
     add_executable(Subham_and_binary_strings "Practice/Bit manipulation/Subham and binary strings/Subham and binary strings.cpp")
+    # Dynamic programming
+    add_jar(Pseudo_equal_numbers "Practice/Dynamic programming/Pseudo-equal numbers/src/TestClass.java")
 
 # Compete
     # Circuits

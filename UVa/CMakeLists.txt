@@ -321,3 +321,4 @@ include(UseJava)
                 # Just graph traversal
                 add_executable(Dominator "Graph/Graph traversal/Just graph traversal/11902/Dominator.cpp")
                 add_executable(Mutant_flatworld_explorers "Graph/Graph traversal/Just graph traversal/118/Mutant flatworld explorers.cpp")
+                add_executable(Theseus_and_the_minotaur "Graph/Graph traversal/Just graph traversal/168/Theseus and the minotaur.cpp")

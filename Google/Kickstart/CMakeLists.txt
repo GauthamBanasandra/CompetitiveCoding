@@ -19,3 +19,6 @@ include(UseJava)
     # H
     add_executable(Big_buttons "2018/H/A/Big buttons.cpp")
     add_executable(Mural "2018/H/B/Mural.cpp")
+# 2019
+        # Round A
+        add_executable(Training "2019/Round A/A/Training.cpp")

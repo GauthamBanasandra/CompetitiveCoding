@@ -1,0 +1,1 @@
+.\build\Debug\Training.exe < "2019\Round A\A\Training.txt" > "2019\Round A\A\Training.out.txt"

@@ -1,134 +1,75 @@
-// WA
-
 #include <vector>
-#include <algorithm>
-#include <queue>
-#include <unordered_map>
-#include <unordered_set>
 #include <iostream>
-#include <cassert>
-
-struct Node
-{
-	Node() = default;
-	Node(const long component, const long rank) :
-		is_visited(true), component(component), rank(rank) {}
-
-	bool is_visited{ false };
-	long component{ 0 };
-	long rank{ 0 };
-};
 
 class Traversal
 {
 public:
-	explicit Traversal(long num_nodes);
+	explicit Traversal(int num_nodes);
 
-	long GetMaxForwardIndex() const;
+	int GetMaxForwardIndex();
 
 private:
-	long BFS(long i_start, const long i_component, std::vector<Node>&
-		visited, std::unordered_map<long, long>& component_size) const;
+	int DFS(int u);
 
-	const long num_nodes_;
-	std::unordered_map<long, std::vector<long>> adj_list_;
+	const int num_nodes_;
+	std::vector<int> adj_list_;
+	std::vector<short> visited_;
+	std::vector<int> visit_cache_;
 };
 
-Traversal::Traversal(const long num_nodes) :num_nodes_(num_nodes)
+Traversal::Traversal(const int num_nodes) :num_nodes_(num_nodes)
 {
-	long node;
-	long adj_node;
+	visited_.resize(num_nodes_ + 1);
+	adj_list_.resize(num_nodes_ + 1);
+	visit_cache_.resize(num_nodes_ + 1, -1);
+
+	int node;
+	int adj_node;
 	for (auto i = 0l; i < num_nodes_; ++i)
 	{
 		std::cin >> node >> adj_node;
-		adj_list_[node].emplace_back(adj_node);
+		adj_list_[node] = adj_node;
 	}
 }
 
-long Traversal::GetMaxForwardIndex() const
+int Traversal::GetMaxForwardIndex()
 {
-	auto max_num_visited = 0l;
-	auto i_max = 0l;
-	auto num_components = 1l;
-	std::vector<Node> visited(num_nodes_ + 1);
-	std::unordered_map<long, long> component_size;
-
-	for (auto i = 1l; i <= num_nodes_; ++i)
+	auto max_visit = 0;
+	auto i_max = 0;
+	for (auto i = 1; i <= num_nodes_; ++i)
 	{
-		if (visited[i].is_visited)
+		if (visit_cache_[i] == -1)
 		{
-			continue;
+			DFS(i);
 		}
-
-		const auto num_visited = BFS(i, num_components, visited, component_size);
-		if (num_visited > max_num_visited)
+		if (visit_cache_[i] > max_visit)
 		{
-			max_num_visited = num_visited;
+			max_visit = visit_cache_[i];
 			i_max = i;
 		}
-		component_size[num_components] = num_visited;
-		++num_components;
 	}
 	return i_max;
 }
 
-long Traversal::BFS(const long i_start, const long i_component,
-	std::vector<Node>& visited, std::unordered_map<long, long>& component_size) const
+int Traversal::DFS(const int u)
 {
-	auto rank = 1l;
-	std::queue<long> order;
-	std::vector<long> component{ i_start };
-	std::vector<long> revisited;
-	visited[i_start] = { i_component, rank };
-	order.push(i_start);
+	const auto v = adj_list_[u];
+	auto num_visited_nodes = 0;
 
-	while (!order.empty())
+	visited_[u] = 1;
+	if (visited_[v] == 0)
 	{
-		const auto node = order.front();
-		order.pop();
-
-		auto find_it = adj_list_.find(node);
-		assert(find_it != adj_list_.end());
-
-		for (const auto adj_node : find_it->second)
-		{
-			if (visited[adj_node].is_visited)
-			{
-				revisited.emplace_back(adj_node);
-				continue;
-			}
-
-			++rank;
-			visited[adj_node] = { i_component, rank };
-			order.push(adj_node);
-			component.emplace_back(adj_node);
-		}
+		num_visited_nodes = DFS(v) + 1;
 	}
-
-	auto num_visited = rank;
-	for (const auto &node : revisited)
-	{
-		if (visited[node].component != i_component)
-		{
-			num_visited += component_size[visited[node].component] - visited[node].rank + 1;
-		}
-		else
-		{
-			auto it = std::find(component.begin(), component.end(), node);
-			assert(it != component.end());
-			for (const auto cycle_rank = *it; it != component.end(); ++it)
-			{
-				visited[*it].rank = cycle_rank;
-			}
-		}
-	}
-	return num_visited;
+	visited_[u] = 0;
+	visit_cache_[u] = num_visited_nodes;
+	return num_visited_nodes;
 }
 
 int main(int argc, char* argv[])
 {
 	int t;
-	long num_nodes;
+	int num_nodes;
 
 	std::cin >> t;
 	for (auto i = 1; i <= t; ++i)

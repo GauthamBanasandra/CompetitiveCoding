@@ -1,9 +1,23 @@
+// WA
+
 #include <vector>
+#include <algorithm>
 #include <queue>
 #include <unordered_map>
 #include <unordered_set>
 #include <iostream>
 #include <cassert>
+
+struct Node
+{
+	Node() = default;
+	Node(const long component, const long rank) :
+		is_visited(true), component(component), rank(rank) {}
+
+	bool is_visited{ false };
+	long component{ 0 };
+	long rank{ 0 };
+};
 
 class Traversal
 {
@@ -13,7 +27,8 @@ public:
 	long GetMaxForwardIndex() const;
 
 private:
-	long BFS(long i_start, std::vector<short>& overall_visited) const;
+	long BFS(long i_start, const long i_component, std::vector<Node>&
+		visited, std::unordered_map<long, long>& component_size) const;
 
 	const long num_nodes_;
 	std::unordered_map<long, std::vector<long>> adj_list_;
@@ -34,32 +49,37 @@ long Traversal::GetMaxForwardIndex() const
 {
 	auto max_num_visited = 0l;
 	auto i_max = 0l;
-	std::vector<short> visited(num_nodes_ + 1);
+	auto num_components = 1l;
+	std::vector<Node> visited(num_nodes_ + 1);
+	std::unordered_map<long, long> component_size;
 
 	for (auto i = 1l; i <= num_nodes_; ++i)
 	{
-		if (visited[i] == 1)
+		if (visited[i].is_visited)
 		{
 			continue;
 		}
 
-		const auto num_visited = BFS(i, visited);
+		const auto num_visited = BFS(i, num_components, visited, component_size);
 		if (num_visited > max_num_visited)
 		{
 			max_num_visited = num_visited;
 			i_max = i;
 		}
+		component_size[num_components] = num_visited;
+		++num_components;
 	}
 	return i_max;
 }
 
-long Traversal::BFS(const long i_start, std::vector<short>& overall_visited) const
+long Traversal::BFS(const long i_start, const long i_component,
+	std::vector<Node>& visited, std::unordered_map<long, long>& component_size) const
 {
-	auto num_visited = 1l;
-	std::unordered_set<long> visited{ i_start };
+	auto rank = 1l;
 	std::queue<long> order;
-
-	overall_visited[i_start] = 1;
+	std::vector<long> component{ i_start };
+	std::vector<long> revisited;
+	visited[i_start] = { i_component, rank };
 	order.push(i_start);
 
 	while (!order.empty())
@@ -72,15 +92,34 @@ long Traversal::BFS(const long i_start, std::vector<short>& overall_visited) con
 
 		for (const auto adj_node : find_it->second)
 		{
-			if (visited.find(adj_node) != visited.end())
+			if (visited[adj_node].is_visited)
 			{
+				revisited.emplace_back(adj_node);
 				continue;
 			}
 
-			visited.insert(adj_node);
-			overall_visited[adj_node] = 1;
-			++num_visited;
+			++rank;
+			visited[adj_node] = { i_component, rank };
 			order.push(adj_node);
+			component.emplace_back(adj_node);
+		}
+	}
+
+	auto num_visited = rank;
+	for (const auto &node : revisited)
+	{
+		if (visited[node].component != i_component)
+		{
+			num_visited += component_size[visited[node].component] - visited[node].rank + 1;
+		}
+		else
+		{
+			auto it = std::find(component.begin(), component.end(), node);
+			assert(it != component.end());
+			for (const auto cycle_rank = *it; it != component.end(); ++it)
+			{
+				visited[*it].rank = cycle_rank;
+			}
 		}
 	}
 	return num_visited;

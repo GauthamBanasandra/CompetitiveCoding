@@ -1,0 +1,1 @@
+.\build\Debug\Diverse_strings.exe < "Compete\Round 550\A\Diverse strings.txt"

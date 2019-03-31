@@ -12,3 +12,5 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(Chocolates "Compete/Round 548/B/Chocolates.cpp")
     # Round 549
     add_executable(Nirvana "Compete/Round 549/B/Nirvana.cpp")
+    # Round 550
+    add_executable(Diverse_strings "Compete/Round 550/A/Diverse strings.cpp")

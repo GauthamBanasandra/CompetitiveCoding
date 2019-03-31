@@ -10,3 +10,5 @@ set(CMAKE_CXX_STANDARD 17)
     # Round 548
     add_executable(Even_substrings "Compete/Round 548/A/Even substrings.cpp")
     add_executable(Chocolates "Compete/Round 548/B/Chocolates.cpp")
+    # Round 549
+    add_executable(Nirvana "Compete/Round 549/B/Nirvana.cpp")

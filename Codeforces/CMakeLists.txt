@@ -15,3 +15,4 @@ set(CMAKE_CXX_STANDARD 17)
     # Round 550
     add_executable(Diverse_strings "Compete/Round 550/A/Diverse strings.cpp")
     add_executable(Parity_alternated_deletions "Compete/Round 550/B/Parity alternated deletions.cpp")
+    add_executable(Two_shuffled_sequences "Compete/Round 550/C/Two shuffled sequences.cpp")

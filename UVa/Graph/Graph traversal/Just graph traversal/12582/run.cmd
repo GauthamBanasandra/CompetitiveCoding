@@ -1,0 +1,2 @@
+REM .\build\Debug\Wedding_of_sultan.exe < "Graph\Graph traversal\Just graph traversal\12582\Wedding of sultan.txt"
+.\build\Debug\Wedding_of_sultan.exe < "Graph\Graph traversal\Just graph traversal\12582\Wedding of sultan1.txt" | clip

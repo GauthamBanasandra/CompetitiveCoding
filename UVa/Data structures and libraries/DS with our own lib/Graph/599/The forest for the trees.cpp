@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <bitset>
 
 int main(int argc, char *argv[]) {
@@ -11,7 +12,7 @@ int main(int argc, char *argv[]) {
     while (n--) {
         vertices = acorns = edges = 0;
         all_vertices.reset();
-        while (getline(std::cin, line), line[0] != '*') {
+        while (std::getline(std::cin, line), line[0] != '*') {
             ++edges;
             all_vertices.set(line[1] - 'A', true);
             all_vertices.set(line[3] - 'A', true);
@@ -23,7 +24,7 @@ int main(int argc, char *argv[]) {
             }
         }
 
-        getline(std::cin, line);
+        std::getline(std::cin, line);
         for (const auto c : line) {
             if (c != ',' && !all_vertices[c - 'A']) {
                 ++acorns;

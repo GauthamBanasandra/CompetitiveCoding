@@ -2,6 +2,7 @@
 #include <unordered_set>
 #include <vector>
 #include <unordered_map>
+#include <string>
 #include <bitset>
 
 #define N_AREAS 26

@@ -329,3 +329,4 @@ include(UseJava)
                 add_executable(Wedding_of_sultan "Graph/Graph traversal/Just graph traversal/12582/Wedding of sultan.cpp")
                 # Flood fill
                 add_executable(Graph_connectivity "Graph/Graph traversal/Flood fill/459/Graph connectivity.cpp")
+                add_executable(Il_gioco_dell_x "Graph/Graph traversal/Flood fill/260/Il gioco dell x.cpp")

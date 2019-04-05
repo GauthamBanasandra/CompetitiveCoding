@@ -26,6 +26,8 @@ include(UseJava)
     add_executable(Chef_and_interactive_contests "Compete/2018/December challenge/CHFINTRO/Chef and interactive contests.cpp")
     add_executable(Chef_and_an_ideal_problem "Compete/2018/December challenge/CHFIDEAL/Chef and an ideal problem.cpp")
     add_executable(Max_and_electrical_panel "Compete/2018/December challenge/MAXEP/Max and electrical panel.cpp")
+    # 2019 April challenge
+    add_executable(Maximum_remaining "Compete/2019/April challenge/MAXREM/Maximum remaining.cpp")
 # Practice
 add_executable(Closing_the_tweets "Practice/Medium/TWTCLOSE/Closing the tweets.cpp")
 add_executable(The_next_palindrome "Practice/Medium/PALIN/The next palindrome.cpp")

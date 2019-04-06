@@ -15,8 +15,10 @@ ll GetMaximumRemaining(const int n)
 		numbers.emplace(number);
 	}
 
+	const auto biggest = numbers.top();
 	numbers.pop();
-	return  numbers.top();
+	const auto second_biggest = numbers.top();
+	return biggest == second_biggest ? 0 : second_biggest;
 }
 
 int main(int argc, char* argv[])

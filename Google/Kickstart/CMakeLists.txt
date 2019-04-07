@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.8)
 project(kickstart)
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 find_package(Java REQUIRED)
 include(UseJava)
 
@@ -14,6 +14,8 @@ include(UseJava)
     add_jar(Even_digits "2018/A/A/Even digits/src/Calculator.java"
             "2018/A/A/Even digits/src/EvenDigits.java"
             "2018/A/A/Even digits/src/EvenDigitsArray.java")
+    # B
+    add_executable(No_nine "2018/B/A/No nine.cpp")
     # F
     add_executable(Common_anagrams "2018/F/A/Common anagrams.cpp")
     # H

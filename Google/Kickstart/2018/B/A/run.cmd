@@ -1,0 +1,1 @@
+.\build\Debug\No_nine.exe < "2018\B\A\No nine.txt"

@@ -12,7 +12,7 @@ using ll = long long;
 class Traversal
 {
 public:
-	Traversal(ll x, const std::vector<std::pair<ll, ll>>& edge_list,
+	Traversal(ll x, const std::vector<std::pair<int, int>>& edge_list,
 		std::vector<ll>& nodes_value);
 
 	ll GetMaxProfit() { return DFS(1); }
@@ -26,7 +26,7 @@ private:
 	std::unordered_map<ll, std::vector<ll>> adj_list_;
 };
 
-Traversal::Traversal(const ll x, const std::vector<std::pair<ll, ll>>& edge_list,
+Traversal::Traversal(const ll x, const std::vector<std::pair<int, int>>& edge_list,
 	std::vector<ll>& nodes_value) :x_(x), nodes_value_(nodes_value)
 {
 	for (const auto& edge : edge_list)
@@ -56,12 +56,12 @@ ll Traversal::DFS(const ll node)
 	return std::max(max_profit, -x_);
 }
 
-int main(ll argc, char* argv[])
+int main(int argc, char* argv[])
 {
-	ll t;
-	std::size_t n;
+	int t;
+	int n;
 	ll x;
-	std::vector<std::pair<ll, ll>> edge_list;
+	std::vector<std::pair<int, int>> edge_list;
 	std::vector<ll> nodes_value;
 
 	std::cin >> t;
@@ -71,12 +71,12 @@ int main(ll argc, char* argv[])
 		edge_list.resize(n - 1);
 		nodes_value.resize(n + 1);
 
-		for (std::size_t i = 1; i <= n; ++i)
+		for (auto i = 1; i <= n; ++i)
 		{
 			std::cin >> nodes_value[i];
 		}
 
-		for (std::size_t i = 0; i < n - 1; ++i)
+		for (auto i = 0; i < n - 1; ++i)
 		{
 			std::cin >> edge_list[i].first >> edge_list[i].second;
 		}

@@ -29,7 +29,7 @@ include(UseJava)
     # 2019 April challenge
     add_executable(Maximum_remaining "Compete/2019/April challenge/MAXREM/Maximum remaining.cpp")
     add_executable(Fence "Compete/2019/April challenge/FENCE/Fencing.cpp")
-    add_executable(SUBREM "Compete/2019/April challenge/SUBREM/Subtree removal.cpp")
+    add_executable(Subtree_removal "Compete/2019/April challenge/SUBREM/Subtree removal.cpp")
     add_executable(Friend_or_girlfriend "Compete/2019/April challenge/STRCH/Friend or girlfriend.cpp")
 # Practice
 add_executable(Closing_the_tweets "Practice/Medium/TWTCLOSE/Closing the tweets.cpp")

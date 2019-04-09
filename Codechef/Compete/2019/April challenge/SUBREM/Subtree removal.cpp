@@ -1,51 +1,49 @@
-// TLE
-
 #include <vector>
 #include <algorithm>
-#include <unordered_map>
-#include <unordered_set>
 #include <iostream>
 #include <cassert>
 
-using ll = long long;
-
-class Traversal
+namespace april_challenge_2019
 {
-public:
-	Traversal(ll x, const std::vector<std::pair<int, int>>& edge_list,
-		std::vector<int>& nodes_value);
+	using ll = long long;
 
-	ll GetMaxProfit() { return DFS(1); }
-
-private:
-	ll DFS(ll node);
-
-	const ll x_;
-	const std::vector<int>& nodes_value_;
-	std::vector<int> visited_;
-	std::unordered_map<ll, std::vector<int>> adj_list_;
-};
-
-Traversal::Traversal(const ll x, const std::vector<std::pair<int, int>>& edge_list,
-	std::vector<int>& nodes_value) :x_(x), nodes_value_(nodes_value)
-{
-	visited_.resize(nodes_value_.size());
-	for (const auto& edge : edge_list)
+	class Traversal
 	{
-		adj_list_[edge.first].emplace_back(edge.second);
-		adj_list_[edge.second].emplace_back(edge.first);
+	public:
+		Traversal(ll x, const std::vector<std::pair<int, int>>& edge_list,
+			std::vector<int>& nodes_value);
+
+		ll GetMaxProfit() { return DFS(1); }
+
+	private:
+		ll DFS(int node);
+
+		const ll x_;
+		const std::vector<int>& nodes_value_;
+		std::vector<int> visited_;
+		std::vector<std::vector<int>> adj_list_;
+	};
+
+	Traversal::Traversal(const ll x, const std::vector<std::pair<int, int>>& edge_list,
+		std::vector<int>& nodes_value) :x_(x), nodes_value_(nodes_value)
+	{
+		const auto len = nodes_value_.size();
+		visited_.resize(len);
+		adj_list_.resize(len);
+
+		for (const auto& edge : edge_list)
+		{
+			adj_list_[edge.first].emplace_back(edge.second);
+			adj_list_[edge.second].emplace_back(edge.first);
+		}
 	}
-}
 
-ll Traversal::DFS(const ll node)
-{
-	visited_[node] = 1;
-
-	ll max_profit = nodes_value_[node];
-	const auto find_it = adj_list_.find(node);
-	if (find_it != adj_list_.end())
+	ll Traversal::DFS(const int node)
 	{
-		for (const auto adj_node : find_it->second)
+		visited_[node] = 1;
+
+		ll max_profit = nodes_value_[node];
+		for (const auto adj_node : adj_list_[node])
 		{
 			if (visited_[adj_node] == 1)
 			{
@@ -53,15 +51,15 @@ ll Traversal::DFS(const ll node)
 			}
 			max_profit += DFS(adj_node);
 		}
+		return std::max(max_profit, -x_);
 	}
-	return std::max(max_profit, -x_);
 }
 
 int main(int argc, char* argv[])
 {
 	int t;
 	int n;
-	ll x;
+	april_challenge_2019::ll x;
 	std::vector<std::pair<int, int>> edge_list;
 	std::vector<int> nodes_value;
 
@@ -82,7 +80,7 @@ int main(int argc, char* argv[])
 			std::cin >> edge_list[i].first >> edge_list[i].second;
 		}
 
-		Traversal traversal(x, edge_list, nodes_value);
+		april_challenge_2019::Traversal traversal(x, edge_list, nodes_value);
 		std::cout << traversal.GetMaxProfit() << std::endl;
 	}
 	return 0;

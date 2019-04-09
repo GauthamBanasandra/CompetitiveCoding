@@ -1,8 +1,9 @@
-// WA
+// TLE
 
 #include <vector>
 #include <algorithm>
 #include <unordered_map>
+#include <unordered_set>
 #include <iostream>
 #include <cassert>
 
@@ -14,13 +15,14 @@ public:
 	Traversal(ll x, const std::vector<std::pair<ll, ll>>& edge_list,
 		std::vector<ll>& nodes_value);
 
-	ll GetMaxProfit() const { return DFS(1); }
+	ll GetMaxProfit() { return DFS(1); }
 
 private:
-	ll DFS(ll node) const;
+	ll DFS(ll node);
 
 	const ll x_;
 	const std::vector<ll>& nodes_value_;
+	std::unordered_set<ll> visited_;
 	std::unordered_map<ll, std::vector<ll>> adj_list_;
 };
 
@@ -30,17 +32,24 @@ Traversal::Traversal(const ll x, const std::vector<std::pair<ll, ll>>& edge_list
 	for (const auto& edge : edge_list)
 	{
 		adj_list_[edge.first].emplace_back(edge.second);
+		adj_list_[edge.second].emplace_back(edge.first);
 	}
 }
 
-ll Traversal::DFS(const ll node) const
+ll Traversal::DFS(const ll node)
 {
+	visited_.insert(node);
+
 	auto max_profit = nodes_value_[node];
 	const auto find_it = adj_list_.find(node);
 	if (find_it != adj_list_.end())
 	{
 		for (const auto adj_node : find_it->second)
 		{
+			if (visited_.find(adj_node) != visited_.end())
+			{
+				continue;
+			}
 			max_profit += DFS(adj_node);
 		}
 	}

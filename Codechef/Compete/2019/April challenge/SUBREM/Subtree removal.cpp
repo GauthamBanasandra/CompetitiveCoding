@@ -13,7 +13,7 @@ class Traversal
 {
 public:
 	Traversal(ll x, const std::vector<std::pair<int, int>>& edge_list,
-		std::vector<ll>& nodes_value);
+		std::vector<int>& nodes_value);
 
 	ll GetMaxProfit() { return DFS(1); }
 
@@ -21,14 +21,15 @@ private:
 	ll DFS(ll node);
 
 	const ll x_;
-	const std::vector<ll>& nodes_value_;
-	std::unordered_set<ll> visited_;
-	std::unordered_map<ll, std::vector<ll>> adj_list_;
+	const std::vector<int>& nodes_value_;
+	std::vector<int> visited_;
+	std::unordered_map<ll, std::vector<int>> adj_list_;
 };
 
 Traversal::Traversal(const ll x, const std::vector<std::pair<int, int>>& edge_list,
-	std::vector<ll>& nodes_value) :x_(x), nodes_value_(nodes_value)
+	std::vector<int>& nodes_value) :x_(x), nodes_value_(nodes_value)
 {
+	visited_.resize(nodes_value_.size());
 	for (const auto& edge : edge_list)
 	{
 		adj_list_[edge.first].emplace_back(edge.second);
@@ -38,15 +39,15 @@ Traversal::Traversal(const ll x, const std::vector<std::pair<int, int>>& edge_li
 
 ll Traversal::DFS(const ll node)
 {
-	visited_.insert(node);
+	visited_[node] = 1;
 
-	auto max_profit = nodes_value_[node];
+	ll max_profit = nodes_value_[node];
 	const auto find_it = adj_list_.find(node);
 	if (find_it != adj_list_.end())
 	{
 		for (const auto adj_node : find_it->second)
 		{
-			if (visited_.find(adj_node) != visited_.end())
+			if (visited_[adj_node] == 1)
 			{
 				continue;
 			}
@@ -62,7 +63,7 @@ int main(int argc, char* argv[])
 	int n;
 	ll x;
 	std::vector<std::pair<int, int>> edge_list;
-	std::vector<ll> nodes_value;
+	std::vector<int> nodes_value;
 
 	std::cin >> t;
 	while (t--)

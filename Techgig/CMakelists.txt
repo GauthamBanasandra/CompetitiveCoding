@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.8)
+project(Techgig)
+
+set(CMAKE_CXX_STANDARD 17)
+
+# Compete
+    # 2019
+        # Code gladiators
+        add_executable(Win_or_lose "Compete/2019/Code gladiators/Win or lose/Win or lose.cpp")

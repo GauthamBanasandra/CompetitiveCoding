@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.8)
 project(Hackerrank)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 
 find_package(Java REQUIRED)
 include(UseJava)
@@ -23,6 +23,7 @@ include(UseJava)
     add_executable(Coin_change "Practice/Dynamic_programming/Coin change/Coin change.cpp")
     add_executable(The_coin_change_problem "Practice/Dynamic_programming/The coin change problem/The coin change problem.cpp")
     add_executable(Sherlock_and_cost "Practice/Dynamic_programming/Sherlock and cost/Sherlock and cost.cpp")
+    add_executable(Sam_and_substrings "Practice/Dynamic_programming/Sam and substrings/Sam and substrings.cpp")
 
 # Compete
     # Week of code

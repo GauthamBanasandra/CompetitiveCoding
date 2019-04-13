@@ -16,3 +16,5 @@ add_executable(Waffle_choppers "2018/Round 1A/Waffle choppers/Waffle choppers.cp
     # Qualification round
     add_executable(Foregone_solution "2019/Qualification round/Foregone solution/Foregone solution.cpp")
     add_executable(You_can_go_your_own_way "2019/Qualification round/You can go your own way/You can go your own way.cpp")
+    # Round 1A
+    add_executable(Pylons "2019/Round 1A/Pylons/Pylons.cpp")

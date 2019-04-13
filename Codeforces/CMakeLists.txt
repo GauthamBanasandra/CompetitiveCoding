@@ -19,3 +19,4 @@ set(CMAKE_CXX_STANDARD 17)
     # Round 551
     add_executable(Serval_and_bus "Compete/Round 551/A/Serval and bus.cpp")
     add_executable(Serval_toy_bricks "Compete/Round 551/B/Serval and toy bricks.cpp")
+    add_executable(Serval_and_parenthesis_sequence "Compete/Round 551/C/Serval and parenthesis sequence.cpp")

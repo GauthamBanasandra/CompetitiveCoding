@@ -84,3 +84,7 @@ bool Selector::Select(const int i_letter, std::stack<int> & verifier)
 	return false;
 }
 
+int main(int argc, char* argv[])
+{
+	return 0;
+}

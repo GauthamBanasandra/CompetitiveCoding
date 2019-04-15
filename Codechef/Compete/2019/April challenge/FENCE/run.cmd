@@ -1,0 +1,1 @@
+.\build\Debug\FENCE.exe < "Compete\2019\April challenge\FENCE\Fencing.txt"

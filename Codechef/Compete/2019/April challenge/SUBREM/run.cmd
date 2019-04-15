@@ -1,0 +1,1 @@
+.\build\Debug\SUBREM.exe < "Compete\2019\April challenge\SUBREM\Subtree removal.txt"

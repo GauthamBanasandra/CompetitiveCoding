@@ -1,0 +1,13 @@
+5
+wine
+beer
+rum
+apple-juice
+cachaca
+6
+beer cachaca
+apple-juice beer
+apple-juice rum
+beer rum
+beer wine
+wine cachaca

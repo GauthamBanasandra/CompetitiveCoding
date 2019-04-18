@@ -337,3 +337,5 @@ include(UseJava)
                 add_executable(Getting_gold "Graph/Graph traversal/Flood fill/11561/Getting gold.cpp")
                 add_executable(Poor_trade_advisor "Graph/Graph traversal/Flood fill/11749/Poor trade advisor.cpp")
                 add_executable(Battleships "Graph/Graph traversal/Flood fill/11953/Battleships.cpp")
+                # Topological sort
+                add_executable(Ordering_tasks "Graph/Graph traversal/Topological sort/10305/Ordering tasks.cpp")

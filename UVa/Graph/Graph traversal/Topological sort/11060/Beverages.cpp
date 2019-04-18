@@ -1,90 +1,88 @@
-// WA
-
 #include <vector>
 #include <string>
-#include <unordered_set>
 #include <unordered_map>
-#include <algorithm>
+#include <queue>
 #include <sstream>
 #include <iostream>
+#include <ios>
 
-class TopologicalSort
+namespace uva11060
 {
-public:
-	TopologicalSort(const std::vector<std::string>& beverages,
-		const std::vector<std::pair<std::string, std::string>>& edge_list);
-
-	std::vector<std::string> Sort();
-
-private:
-	void DFS(const std::string& node, std::vector<std::string>& order);
-
-	const std::vector<std::string>& beverages_;
-	std::unordered_set<std::string> visited_;
-	std::unordered_map<std::string, int> bev_index_;
-	std::unordered_map<std::string, std::vector<std::string>> adj_list_;
-};
-
-TopologicalSort::TopologicalSort(
-	const std::vector<std::string>& beverages,
-	const std::vector<std::pair<std::string, std::string>>&
-	edge_list) :beverages_(beverages)
-{
-	for (const auto& edge : edge_list)
+	class TopologicalSort
 	{
-		adj_list_[edge.first].emplace_back(edge.second);
+	public:
+		TopologicalSort(const std::vector<std::string>& beverages,
+			const std::vector<std::pair<std::string, std::string>>& edge_list);
+
+		std::vector<std::string> Sort();
+
+	private:
+		const std::vector<std::string>& beverages_;
+		std::vector<int> in_degree_;
+		std::vector<std::vector<int>> adj_list_;
+		std::unordered_map<int, std::string> rev_index_;
+	};
+
+	TopologicalSort::TopologicalSort(
+		const std::vector<std::string>& beverages,
+		const std::vector<std::pair<std::string, std::string>>&
+		edge_list) :beverages_(beverages)
+	{
+		std::unordered_map<std::string, int> bev_index;
+		const auto num_beverages = beverages_.size();
+		for (auto i = 0; i < static_cast<int>(num_beverages); ++i)
+		{
+			rev_index_[i] = beverages_[i];
+			bev_index[beverages_[i]] = i;
+		}
+
+		in_degree_.resize(num_beverages);
+		adj_list_.resize(num_beverages);
+		for (const auto& edge : edge_list)
+		{
+			adj_list_[bev_index[edge.first]].emplace_back(bev_index[edge.second]);
+			++in_degree_[bev_index[edge.second]];
+		}
 	}
 
-	for (auto i = 0, len = static_cast<int>(beverages.size()); i < len; ++i)
+	std::vector<std::string> TopologicalSort::Sort()
 	{
-		bev_index_[beverages[i]] = i + 1;
-	}
-
-	for (auto& adj_list : adj_list_)
-	{
-		std::sort(adj_list.second.begin(), adj_list.second.end(),
-			[this](const std::string & b1, const std::string & b2)->bool
+		std::priority_queue<int, std::vector<int>, std::greater<>> order;
+		const auto num_beverages = beverages_.size();
+		for (auto i = 0; i < static_cast<int>(num_beverages); ++i)
+		{
+			if (in_degree_[i] == 0)
 			{
-				return bev_index_[b1] < bev_index_[b2];
-			});
-	}
-}
-
-std::vector<std::string> TopologicalSort::Sort()
-{
-	std::vector<std::string> order;
-	for (const auto& beverage : beverages_)
-	{
-		if (visited_.find(beverage) == visited_.end())
-		{
-			DFS(beverage, order);
+				order.push(i);
+			}
 		}
-	}
-	std::reverse(order.begin(), order.end());
-	return order;
-}
 
-void TopologicalSort::DFS(const std::string& node, std::vector<std::string>& order)
-{
-	visited_.insert(node);
-	for (const auto& adj_node : adj_list_[node])
-	{
-		if (visited_.find(adj_node) == visited_.end())
+		std::vector<std::string> beverages;
+		beverages.reserve(num_beverages);
+		while (!order.empty())
 		{
-			DFS(adj_node, order);
+			const auto node = order.top();
+			order.pop();
+			beverages.emplace_back(beverages_[node]);
+
+			for (const auto adj_node : adj_list_[node])
+			{
+				--in_degree_[adj_node];
+				if (in_degree_[adj_node] == 0)
+				{
+					order.push(adj_node);
+				}
+			}
 		}
+		return beverages;
 	}
-
-	std::sort(order.begin(), order.begin() + adj_list_[node].size(),
-		[this](const std::string & b1, const std::string & b2)->bool
-		{
-			return bev_index_[b1] < bev_index_[b2];
-		});
-	order.emplace_back(node);
 }
 
 int main(int argc, char* argv[])
 {
+	std::ios::sync_with_stdio(false);
+
+	auto t = 0;
 	int n;
 	int m;
 	std::string line;
@@ -119,14 +117,16 @@ int main(int argc, char* argv[])
 			edge_list_tokenizer >> edge_list[i].first >> edge_list[i].second;
 		}
 
-		TopologicalSort sorter(beverages, edge_list);
+		std::cout << "Case #" << ++t << ": Dilbert should drink beverages in this order: ";
+		uva11060::TopologicalSort sorter(beverages, edge_list);
 		auto separator = "";
 		for (const auto& beverage : sorter.Sort())
 		{
 			std::cout << separator << beverage;
 			separator = " ";
 		}
-		std::cout << std::endl;
+		std::cout << '.' << std::endl << std::endl;
+		std::getline(std::cin, line);
 	}
 	return 0;
 }

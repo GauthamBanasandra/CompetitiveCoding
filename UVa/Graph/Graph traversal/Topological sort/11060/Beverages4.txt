@@ -1,0 +1,754 @@
+3
+agnostic
+tapioca
+boa
+3
+agnostic boa
+agnostic tapioca
+tapioca boa
+
+3
+leakage
+ravenously
+judicature
+2
+leakage ravenously
+leakage judicature
+
+2
+inelegant
+vituperation
+1
+inelegant vituperation
+
+3
+uncritical
+averil
+hub
+1
+uncritical hub
+
+3
+duality
+tapioca
+aberrations
+2
+duality tapioca
+duality tapioca
+
+1
+phantasy
+0
+
+4
+clout
+ravenously
+seraphic
+separable
+3
+clout seraphic
+clout ravenously
+ravenously separable
+
+4
+leakage
+aberrations
+spoor
+distil
+5
+leakage distil
+leakage distil
+spoor distil
+aberrations distil
+leakage distil
+
+4
+importune
+denudation
+malleable
+hub
+5
+importune malleable
+malleable hub
+malleable hub
+importune hub
+importune denudation
+
+2
+spoor
+averil
+1
+spoor averil
+
+3
+leicestershire
+zeppelin
+minutiae
+1
+zeppelin minutiae
+
+1
+mutation
+0
+
+3
+boa
+leicestershire
+zeppelin
+3
+leicestershire zeppelin
+leicestershire zeppelin
+leicestershire zeppelin
+
+3
+malleable
+hussar
+extradition
+1
+hussar extradition
+
+2
+wrongdoing
+twaddle
+1
+wrongdoing twaddle
+
+1
+averil
+0
+
+4
+ravenously
+dour
+zeppelin
+pestle
+3
+ravenously pestle
+dour zeppelin
+ravenously dour
+
+3
+incorporeal
+denudation
+reynard
+1
+denudation reynard
+
+2
+landlocked
+gashed
+1
+landlocked gashed
+
+1
+godson
+0
+
+1
+leicestershire
+0
+
+2
+incorporeal
+oriole
+1
+incorporeal oriole
+
+4
+hussar
+misanthropy
+siliceous
+bruising
+1
+siliceous bruising
+
+5
+hessian
+sear
+smudge
+extradition
+duality
+1
+smudge duality
+
+5
+dour
+befit
+meddlesome
+inelegant
+misanthropy
+1
+meddlesome inelegant
+
+2
+percussion
+temperamental
+1
+percussion temperamental
+
+1
+pigtail
+0
+
+5
+dolt
+darlington
+separable
+python
+aria
+7
+python aria
+separable aria
+dolt python
+dolt python
+separable aria
+dolt python
+separable python
+
+5
+shad
+godson
+gashed
+tabooed
+hub
+7
+gashed hub
+shad hub
+godson hub
+godson tabooed
+godson tabooed
+gashed hub
+shad tabooed
+
+3
+incorporeal
+acceleration
+ringleader
+1
+acceleration ringleader
+
+2
+pickpocket
+sardinian
+1
+pickpocket sardinian
+
+2
+meddlesome
+aberrations
+1
+meddlesome aberrations
+
+1
+incubation
+0
+
+3
+percussion
+eucalyptus
+oriole
+1
+eucalyptus oriole
+
+5
+aliment
+betaken
+bern
+wildfire
+factotum
+1
+bern wildfire
+
+3
+pestle
+siliceous
+minutiae
+3
+pestle siliceous
+pestle siliceous
+pestle minutiae
+
+5
+extradition
+dolt
+canticles
+characterise
+vagina
+1
+extradition characterise
+
+5
+uncritical
+denudation
+betaken
+modem
+zebra
+7
+denudation zebra
+denudation modem
+denudation modem
+betaken zebra
+modem zebra
+uncritical zebra
+uncritical modem
+
+4
+somersault
+meddlesome
+zebra
+aberrations
+1
+meddlesome aberrations
+
+5
+mutation
+vagina
+misanthropy
+pigtail
+aberrations
+4
+mutation aberrations
+misanthropy aberrations
+mutation aberrations
+misanthropy pigtail
+
+1
+tapioca
+0
+
+1
+oman
+0
+
+5
+tourism
+scud
+sear
+gesticulation
+disconcert
+6
+gesticulation disconcert
+sear disconcert
+tourism sear
+scud sear
+tourism sear
+tourism disconcert
+
+1
+darlington
+0
+
+1
+scud
+0
+
+5
+gashed
+teamster
+distil
+minutiae
+tapioca
+6
+gashed distil
+teamster minutiae
+gashed minutiae
+teamster tapioca
+distil minutiae
+teamster distil
+
+2
+dolt
+ringleader
+1
+dolt ringleader
+
+2
+ravenously
+tourism
+1
+ravenously tourism
+
+1
+tapioca
+0
+
+4
+hub
+ofries
+obituary
+caitiff
+6
+hub ofries
+hub ofries
+obituary caitiff
+ofries caitiff
+hub obituary
+hub ofries
+
+4
+godson
+denudation
+oman
+reynard
+4
+denudation reynard
+oman reynard
+denudation oman
+denudation oman
+
+3
+vituperation
+reynard
+zeppelin
+1
+vituperation zeppelin
+
+2
+separable
+ravenously
+1
+separable ravenously
+
+2
+aphorisms
+aberrations
+1
+aphorisms aberrations
+
+1
+incubation
+0
+
+1
+reynard
+0
+
+3
+sardinian
+sear
+specter
+2
+sear specter
+sardinian specter
+
+5
+gashed
+aria
+oriole
+hallow
+specter
+4
+aria specter
+hallow specter
+hallow specter
+oriole specter
+
+3
+pickpocket
+tardily
+befit
+2
+pickpocket befit
+tardily befit
+
+1
+aria
+0
+
+4
+disconcert
+ion
+misanthropy
+specter
+1
+ion specter
+
+1
+wildfire
+0
+
+2
+importune
+gib
+1
+importune gib
+
+2
+tapioca
+canticles
+1
+tapioca canticles
+
+1
+separable
+0
+
+3
+spoor
+ofries
+wrongdoing
+2
+ofries wrongdoing
+spoor ofries
+
+1
+ion
+0
+
+5
+shad
+gesticulation
+aria
+weathercock
+wildfire
+8
+shad weathercock
+shad aria
+gesticulation weathercock
+shad aria
+gesticulation weathercock
+gesticulation wildfire
+gesticulation wildfire
+shad gesticulation
+
+1
+wrongdoing
+0
+
+5
+wildfire
+uncritical
+sear
+vagina
+vituperation
+5
+sear vagina
+wildfire sear
+wildfire vagina
+wildfire vagina
+wildfire vagina
+
+3
+jowl
+pestle
+mutation
+1
+pestle mutation
+
+3
+twaddle
+bern
+canticles
+3
+bern canticles
+twaddle bern
+twaddle bern
+
+3
+bern
+separable
+mutation
+2
+separable mutation
+separable mutation
+
+2
+seraphic
+inelegant
+1
+seraphic inelegant
+
+2
+tardily
+distil
+1
+tardily distil
+
+1
+betaken
+0
+
+1
+oriole
+0
+
+5
+corvette
+inelegant
+clout
+somersault
+leicestershire
+3
+somersault leicestershire
+clout leicestershire
+somersault leicestershire
+
+1
+meddlesome
+0
+
+5
+educator
+hallow
+caitiff
+aria
+spoor
+5
+caitiff spoor
+educator aria
+caitiff aria
+hallow spoor
+hallow spoor
+
+1
+aliment
+0
+
+2
+landlocked
+leicestershire
+1
+landlocked leicestershire
+
+4
+aberrations
+hussar
+specter
+malleable
+4
+aberrations specter
+aberrations specter
+hussar malleable
+aberrations malleable
+
+4
+aliment
+specter
+inelegant
+dour
+6
+aliment inelegant
+inelegant dour
+aliment inelegant
+specter dour
+aliment specter
+specter inelegant
+
+2
+mutation
+inelegant
+1
+mutation inelegant
+
+1
+aliment
+0
+
+4
+meddlesome
+scud
+vituperation
+bern
+6
+meddlesome scud
+scud bern
+meddlesome scud
+vituperation bern
+scud bern
+meddlesome scud
+
+2
+aliment
+python
+1
+aliment python
+
+2
+specter
+characterise
+1
+specter characterise
+
+3
+specter
+uncritical
+aberrations
+2
+specter uncritical
+specter uncritical
+
+2
+seraphic
+modem
+1
+seraphic modem
+
+3
+tourism
+caitiff
+incubation
+2
+tourism incubation
+caitiff incubation
+
+3
+ravish
+landlocked
+mutation
+1
+ravish mutation
+
+5
+ilk
+boa
+python
+corvette
+averil
+1
+boa corvette
+
+2
+darlington
+modem
+1
+darlington modem
+
+3
+leakage
+sardinian
+ofries
+2
+leakage sardinian
+leakage sardinian
+
+1
+aliment
+0
+
+1
+temperamental
+0
+
+4
+tourism
+caitiff
+oman
+judicature
+2
+oman judicature
+oman judicature
+
+5
+misanthropy
+bruising
+aria
+inelegant
+tourism
+7
+aria tourism
+misanthropy bruising
+bruising tourism
+bruising tourism
+misanthropy inelegant
+bruising aria
+misanthropy inelegant

@@ -25,3 +25,4 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(Make_them_equal "Compete/Round 552/B/Make them equal.cpp")
     # Round 553
     add_executable(Maxim_and_biology "Compete/Round 553/A/Maxim and biology.cpp")
+    add_executable(Dima_and_a_bad_xor "Compete/Round 553/B/Dima and a bad xor.cpp")

@@ -23,3 +23,5 @@ set(CMAKE_CXX_STANDARD 17)
     # Round 552
     add_executable(Restoring_three_numbers "Compete/Round 552/A/Restoring three numbers.cpp")
     add_executable(Make_them_equal "Compete/Round 552/B/Make them equal.cpp")
+    # Round 553
+    add_executable(Maxim_and_biology "Compete/Round 553/A/Maxim and biology.cpp")

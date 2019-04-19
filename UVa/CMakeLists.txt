@@ -340,3 +340,4 @@ include(UseJava)
                 # Topological sort
                 add_executable(Ordering_tasks "Graph/Graph traversal/Topological sort/10305/Ordering tasks.cpp")
                 add_executable(Beverages "Graph/Graph traversal/Topological sort/11060/Beverages.cpp")
+                add_executable(Pick_up_sticks "Graph/Graph traversal/Topological sort/11686/Pick up sticks.cpp")

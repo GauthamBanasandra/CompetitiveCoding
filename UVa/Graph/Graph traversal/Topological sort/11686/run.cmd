@@ -1,0 +1,2 @@
+REM .\build\Debug\Pick_up_sticks.exe < "Graph\Graph traversal\Topological sort\11686\Pick up sticks.txt"
+.\build\Debug\Pick_up_sticks.exe < "Graph\Graph traversal\Topological sort\11686\Pick up sticks1.txt" | clip

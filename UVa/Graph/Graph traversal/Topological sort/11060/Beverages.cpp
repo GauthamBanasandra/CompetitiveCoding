@@ -17,9 +17,16 @@ namespace uva11060
 		std::vector<std::string> Sort();
 
 	private:
+		// Beverages list
 		const std::vector<std::string>& beverages_;
+
 		std::vector<int> in_degree_;
+
+		// The adjacency list, based on the indices of the beverages
+		// Using unordered_map with actual strings as node is expensive
 		std::vector<std::vector<int>> adj_list_;
+
+		// Reverse mapping of index to its corresponding beverage in the list
 		std::unordered_map<int, std::string> rev_index_;
 	};
 
@@ -45,9 +52,39 @@ namespace uva11060
 		}
 	}
 
+	// Need to use BFS based Kahn's algorithm here, rather than
+	// the usual DFS based (Tarjan's) topological sorting algorithm
+	// Explanation : In Kahn's algorithm, we have a deterministic start point
+	// i.e. the node having 0 in-degree. If there are multiple nodes having
+	// 0 in-degree, we choose the one according to the order in the input beverage list
+	// Thus, we process the graph in a particular order
+	// This is unlike DFS based topological sorting algorithm, where we start visiting
+	// from all unvisited nodes, which can't guarantee that the graph will be
+	// traversed in a particular order
+
+	// Thus, whenever we expect topological sorting to be done in a particular order,
+	// we need to use Kahn's algorithm
 	std::vector<std::string> TopologicalSort::Sort()
 	{
+		// This is a variant of BFS
+		// General implementation of Kahn's algorithm doesn't require a priority queue
+		// Since the problem asks for us to pick in the order of beverages list,
+		// we are using a priority queue here
+
+		// Note that since the graph is maintained based on the index of beverages in the list
+		// This guarantees that we follow the order specified in the beverages list
+
+		// Another way of explaining this is as follows -
+		// the beverage can enter the queue only when its in-degree becomes 0
+		// This implies that all the beverages in this queue are peers w.r.t each other and to
+		// break the tie, we go by the order specified in the beverages list
+		// Thus, we need a priority queue to decide the order
 		std::priority_queue<int, std::vector<int>, std::greater<>> order;
+
+		// The following is just an implementation of Kahn's algorithm
+		// where I read from - https://medium.com/insider-inc-engineering/the-wrath-of-kahns-algorithm-68081cf2fc55
+		// It's highly advisable to go through the above link
+		// It's very nicely explained
 		const auto num_beverages = beverages_.size();
 		for (auto i = 0; i < static_cast<int>(num_beverages); ++i)
 		{

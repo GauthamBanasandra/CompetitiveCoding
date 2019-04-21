@@ -344,3 +344,5 @@ include(UseJava)
                 add_executable(Following_orders "Graph/Graph traversal/Topological sort/124/Following orders.cpp")
                 # Bipartite graph check
                 add_executable(Bicoloring "Graph/Graph traversal/Bipartite graph check/10004/Bicoloring.cpp")
+                add_executable(Montesco_vs_capuleto "Graph/Graph traversal/Bipartite graph check/10505/Montesco vs capuleto.cpp")
+                

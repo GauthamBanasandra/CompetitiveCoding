@@ -1,0 +1,1 @@
+.\build\Debug\Pied_piper_vs_hooli.exe < "Compete\2019\April cook-off\PEWDSVTS\Pied piper vs hooli.txt"

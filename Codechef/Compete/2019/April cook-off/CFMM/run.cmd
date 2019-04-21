@@ -1,0 +1,1 @@
+.\build\Debug\Making_a_meal.exe < "Compete\2019\April cook-off\CFMM\Making a meal.txt"

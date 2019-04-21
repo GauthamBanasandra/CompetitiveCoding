@@ -33,6 +33,7 @@ include(UseJava)
     add_executable(Friend_or_girlfriend "Compete/2019/April challenge/STRCH/Friend or girlfriend.cpp")
     # 2019 April cook-off
     add_executable(Making_a_meal "Compete/2019/April cook-off/CFMM/Making a meal.cpp")
+    add_executable(Chef_learning_hungarian_algorithm "Compete/2019/April cook-off/HUNGALGO/Chef learning hungarian algorithm.cpp")
 # Practice
 add_executable(Closing_the_tweets "Practice/Medium/TWTCLOSE/Closing the tweets.cpp")
 add_executable(The_next_palindrome "Practice/Medium/PALIN/The next palindrome.cpp")

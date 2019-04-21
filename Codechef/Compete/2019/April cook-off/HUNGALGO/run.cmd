@@ -1,0 +1,1 @@
+.\build\Debug\Chef_learning_hungarian_algorithm.exe < "Compete\2019\April cook-off\HUNGALGO\Chef learning hungarian algorithm.txt"

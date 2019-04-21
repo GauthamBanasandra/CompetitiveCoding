@@ -342,3 +342,5 @@ include(UseJava)
                 add_executable(Beverages "Graph/Graph traversal/Topological sort/11060/Beverages.cpp")
                 add_executable(Pick_up_sticks "Graph/Graph traversal/Topological sort/11686/Pick up sticks.cpp")
                 add_executable(Following_orders "Graph/Graph traversal/Topological sort/124/Following orders.cpp")
+                # Bipartite graph check
+                add_executable(Bicoloring "Graph/Graph traversal/Bipartite graph check/10004/Bicoloring.cpp")

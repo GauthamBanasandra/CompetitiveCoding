@@ -1,0 +1,2 @@
+REM .\build\Debug\Montesco_vs_capuleto.exe < "Graph\Graph traversal\Bipartite graph check\10505\Montesco vs capuleto.txt"
+.\build\Debug\Montesco_vs_capuleto.exe < "Graph\Graph traversal\Bipartite graph check\10505\Montesco vs capuleto1.txt" | clip

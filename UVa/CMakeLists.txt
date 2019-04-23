@@ -345,4 +345,4 @@ include(UseJava)
                 # Bipartite graph check
                 add_executable(Bicoloring "Graph/Graph traversal/Bipartite graph check/10004/Bicoloring.cpp")
                 add_executable(Montesco_vs_capuleto "Graph/Graph traversal/Bipartite graph check/10505/Montesco vs capuleto.cpp")
-                
+                add_executable(Place_the_guards "Graph/Graph traversal/Bipartite graph check/11080/Place the guards.cpp")

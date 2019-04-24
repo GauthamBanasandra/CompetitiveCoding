@@ -26,3 +26,5 @@ set(CMAKE_CXX_STANDARD 17)
     # Round 553
     add_executable(Maxim_and_biology "Compete/Round 553/A/Maxim and biology.cpp")
     add_executable(Dima_and_a_bad_xor "Compete/Round 553/B/Dima and a bad xor.cpp")
+    # Round 554
+    add_executable(Neko_finds_grapes "Compete/Round 554/A/Neko finds grapes.cpp")

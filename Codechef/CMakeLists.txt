@@ -37,6 +37,7 @@ include(UseJava)
     add_executable(Pied_piper_vs_hooli "Compete/2019/April cook-off/PEWDSVTS/Pied piper vs hooli.cpp")
     # 2019 April lunchtime
     add_executable(Attendance "Compete/2019/April lunchtime/ATTND/Attendance.cpp")
+    add_executable(Fast_food "Compete/2019/April lunchtime/FASTFOOD/Fast food.cpp")
 # Practice
 add_executable(Closing_the_tweets "Practice/Medium/TWTCLOSE/Closing the tweets.cpp")
 add_executable(The_next_palindrome "Practice/Medium/PALIN/The next palindrome.cpp")

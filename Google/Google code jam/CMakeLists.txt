@@ -18,4 +18,6 @@ add_executable(Waffle_choppers "2018/Round 1A/Waffle choppers/Waffle choppers.cp
     add_executable(You_can_go_your_own_way "2019/Qualification round/You can go your own way/You can go your own way.cpp")
     # Round 1A
     add_executable(Pylons "2019/Round 1A/Pylons/Pylons.cpp")
-    add_executable(Alien_rhyme "2019/Round 1A/Alien rhyme/Alien rhyme.cpp")    
+    add_executable(Alien_rhyme "2019/Round 1A/Alien rhyme/Alien rhyme.cpp")
+    # Round 1B
+    add_executable(Manhattan_crepe_cart "2019/Round 1B/Manhattan crepe cart/Manhattan crepe cart.cpp")

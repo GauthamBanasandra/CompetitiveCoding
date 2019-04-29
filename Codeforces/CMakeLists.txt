@@ -28,3 +28,5 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(Dima_and_a_bad_xor "Compete/Round 553/B/Dima and a bad xor.cpp")
     # Round 554
     add_executable(Neko_finds_grapes "Compete/Round 554/A/Neko finds grapes.cpp")
+    # Round 556
+    add_executable(Stock_arbitraging "Compete/Round 556/A/Stock arbitraging.cpp")

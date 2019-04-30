@@ -346,3 +346,5 @@ include(UseJava)
                 add_executable(Bicoloring "Graph/Graph traversal/Bipartite graph check/10004/Bicoloring.cpp")
                 add_executable(Montesco_vs_capuleto "Graph/Graph traversal/Bipartite graph check/10505/Montesco vs capuleto.cpp")
                 add_executable(Place_the_guards "Graph/Graph traversal/Bipartite graph check/11080/Place the guards.cpp")
+                # Finding articulation points, bridges
+                add_executable(Network "Graph/Graph traversal/Finding articulation points, bridges/315/Network.cpp")

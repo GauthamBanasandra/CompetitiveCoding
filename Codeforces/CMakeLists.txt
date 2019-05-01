@@ -31,3 +31,5 @@ set(CMAKE_CXX_STANDARD 17)
     # Round 556
     add_executable(Stock_arbitraging "Compete/Round 556/A/Stock arbitraging.cpp")
     add_executable(Tiling_challenge "Compete/Round 556/B/Tiling challenge.cpp")
+    # Edu round 64
+    add_executable(Inscribed_figures "Compete/Edu round 64/A/Inscribed figures.cpp")

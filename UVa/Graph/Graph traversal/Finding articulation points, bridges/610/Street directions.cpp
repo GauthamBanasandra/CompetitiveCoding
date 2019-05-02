@@ -1,10 +1,10 @@
-// WA
+// WIP
 
 #include <vector>
 #include <algorithm>
-#include <string>
 #include <unordered_set>
 #include <iostream>
+#include <string>
 
 using AdjList = std::vector<std::vector<int>>;
 using Edge = std::pair<int, int>;
@@ -14,9 +14,8 @@ const auto unvisited = -1;
 
 struct EdgeFinder
 {
-	explicit EdgeFinder(const EdgeList& bridges);
-
 	bool Exists(const Edge& edge);
+	void AddEdge(const Edge& edge);
 
 private:
 	std::unordered_set<std::string> edges_;
@@ -45,21 +44,18 @@ private:
 	int order_{ 0 };
 };
 
-EdgeFinder::EdgeFinder(const EdgeList& bridges)
-{
-	for (const auto& bridge : bridges)
-	{
-		edges_.emplace(std::to_string(bridge.first) +
-			" " + std::to_string(bridge.second));
-		edges_.emplace(std::to_string(bridge.second) +
-			" " + std::to_string(bridge.first));
-	}
-}
-
 bool EdgeFinder::Exists(const Edge & edge)
 {
 	return edges_.find(std::to_string(edge.first)
 		+ " " + std::to_string(edge.second)) != edges_.end();
+}
+
+void EdgeFinder::AddEdge(const Edge & edge)
+{
+	edges_.emplace(std::to_string(edge.first) +
+		" " + std::to_string(edge.second));
+	edges_.emplace(std::to_string(edge.second) +
+		" " + std::to_string(edge.first));
 }
 
 Graph::Graph(const EdgeList & edge_list, const int num_nodes)
@@ -89,56 +85,7 @@ std::vector<std::pair<int, int>> Graph::GetOneWayRoute()
 			FindBridge(i, bridges);
 		}
 	}
-
-	EdgeList one_way;
-	for (const auto& edge : edge_list_)
-	{
-		if (has_out_edge_[edge.first] == 1)
-		{
-			has_out_edge_[edge.second] = 1;
-			one_way.emplace_back(edge.second, edge.first);
-		}
-		else
-		{
-			has_out_edge_[edge.first] = 1;
-			one_way.emplace_back(edge.first, edge.second);
-		}
-	}
-
-	EdgeFinder finder(bridges);
-	for (auto i = 0, len = static_cast<int>(one_way.size()); i < len; ++i)
-	{
-		const auto edge = one_way[i];
-		if (finder.Exists(edge))
-		{
-			one_way.emplace_back(edge.second, edge.first);
-		}
-	}
-	return one_way;
-}
-
-void Graph::DFS(int node, EdgeList & edge_list)
-{
-	is_visited_[node] = 1;
-	for (const auto& adj_node : adj_list_[node])
-	{
-		if (is_visited_[adj_node] != unvisited)
-		{
-			continue;
-		}
-
-		if (has_out_edge_[node] == 1)
-		{
-			edge_list.emplace_back(node, adj_node);
-		}
-		else
-		{
-			has_out_edge_[node] = 1;
-			edge_list.emplace_back(adj_node, node);
-		}
-
-		DFS(adj_node, edge_list);
-	}
+	return bridges;
 }
 
 void Graph::FindBridge(const int node, EdgeList & bridges)
@@ -149,18 +96,20 @@ void Graph::FindBridge(const int node, EdgeList & bridges)
 		if (visit_order_[adj_node] == unvisited)
 		{
 			parent_[adj_node] = node;
+			bridges.emplace_back(node, adj_node);
 
 			FindBridge(adj_node, bridges);
 
 			if (lowest_reachable_[adj_node] > visit_order_[node])
 			{
-				bridges.emplace_back(node, adj_node);
+				bridges.emplace_back(adj_node, node);
 			}
 			lowest_reachable_[node] = std::min(
 				lowest_reachable_[node], lowest_reachable_[adj_node]);
 		}
 		else if (parent_[node] != adj_node)
 		{
+			bridges.emplace_back(node, adj_node);
 			lowest_reachable_[node] = std::min(
 				lowest_reachable_[node], visit_order_[adj_node]);
 		}

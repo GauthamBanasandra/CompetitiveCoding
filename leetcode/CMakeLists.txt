@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
-project(leetcode)
+project(Leetcode)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -20,3 +20,4 @@ add_executable(next_permutation "Medium/31/Next permutation.cpp")
 add_executable(search_in_rotated_sorted_array "Medium/33/Search in rotated sorted array.cpp")
 add_executable(find_first_and_last_position_of_element_in_sorted_array "Medium/34/Find first and last position of element in sorted array.cpp")
 add_executable(valid_sudoku "Medium/36/Valid sudoku.cpp")
+add_executable(Combination_sum "Medium/39/Combination sum.cpp")

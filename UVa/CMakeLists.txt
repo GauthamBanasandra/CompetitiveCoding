@@ -349,3 +349,4 @@ include(UseJava)
                 # Finding articulation points, bridges
                 add_executable(Network "Graph/Graph traversal/Finding articulation points, bridges/315/Network.cpp")
                 add_executable(Street_directions "Graph/Graph traversal/Finding articulation points, bridges/610/Street directions.cpp")
+                add_executable(Critical_links "Graph/Graph traversal/Finding articulation points, bridges/796/Critical links.cpp")

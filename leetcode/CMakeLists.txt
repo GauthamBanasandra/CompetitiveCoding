@@ -23,3 +23,4 @@ add_executable(valid_sudoku "Practice/Medium/36/Valid sudoku.cpp")
 add_executable(Combination_sum "Practice/Medium/39/Combination sum.cpp")
 
 add_executable(Valid_boomerang "Compete/Weekly contest/135/5051/Valid boomerang.cpp")
+add_executable(Binary_search_tree_to_greater_sum_tree "Compete/Weekly contest/135/5050/Binary search tree to greater sum tree.cpp")

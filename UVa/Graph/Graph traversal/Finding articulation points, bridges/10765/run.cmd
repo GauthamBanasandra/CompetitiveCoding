@@ -1,2 +1,2 @@
-.\build\Debug\Doves_and_bombs.exe < "Graph\Graph traversal\Finding articulation points, bridges\10765\Doves and bombs.txt"
-REM .\build\Debug\Doves_and_bombs.exe < "Graph\Graph traversal\Finding articulation points, bridges\10765\Doves and bombs1.txt" | clip
+REM .\build\Debug\Doves_and_bombs.exe < "Graph\Graph traversal\Finding articulation points, bridges\10765\Doves and bombs.txt"
+.\build\Debug\Doves_and_bombs.exe < "Graph\Graph traversal\Finding articulation points, bridges\10765\Doves and bombs1.txt" | clip

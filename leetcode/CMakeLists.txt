@@ -21,3 +21,5 @@ add_executable(search_in_rotated_sorted_array "Practice/Medium/33/Search in rota
 add_executable(find_first_and_last_position_of_element_in_sorted_array "Practice/Medium/34/Find first and last position of element in sorted array.cpp")
 add_executable(valid_sudoku "Practice/Medium/36/Valid sudoku.cpp")
 add_executable(Combination_sum "Practice/Medium/39/Combination sum.cpp")
+
+add_executable(Valid_boomerang "Compete/Weekly contest/135/5051/Valid boomerang.cpp")

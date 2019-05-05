@@ -2,6 +2,8 @@
 
 #include <vector>
 #include <iostream>
+#include <algorithm>
+#include <iterator>
 
 class Generator
 {
@@ -63,6 +65,13 @@ public:
 std::vector<std::vector<int>> Solution::combinationSum(
 	std::vector<int>& candidates, const int target)
 {
+	auto some_candidates(candidates);
+	std::sort(some_candidates.begin(), some_candidates.end());
+	const auto find_it = std::upper_bound(some_candidates.begin(),
+		some_candidates.end(), target);
+	some_candidates.resize(std::distance(some_candidates.begin(),
+		find_it));
+
 	Generator generator(candidates);
 	return generator.Generate(target);
 }

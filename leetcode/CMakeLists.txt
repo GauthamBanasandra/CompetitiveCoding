@@ -3,6 +3,7 @@ project(Leetcode)
 
 set(CMAKE_CXX_STANDARD 14)
 
+# Practice
 add_executable(maximum_binary_tree "Practice/Medium/654/Maximum binary tree.cpp")
 add_executable(add_two_numbers "Practice/Medium/2/Add two numbers.cpp")
 add_executable(longest_substring_without_repeating_characters "Practice/Medium/3/Longest substring without repeating characters.cpp")
@@ -21,6 +22,9 @@ add_executable(search_in_rotated_sorted_array "Practice/Medium/33/Search in rota
 add_executable(find_first_and_last_position_of_element_in_sorted_array "Practice/Medium/34/Find first and last position of element in sorted array.cpp")
 add_executable(valid_sudoku "Practice/Medium/36/Valid sudoku.cpp")
 add_executable(Combination_sum "Practice/Medium/39/Combination sum.cpp")
+add_executable(Permutations "Practice/Medium/46/Permutations.cpp")
 
-add_executable(Valid_boomerang "Compete/Weekly contest/135/5051/Valid boomerang.cpp")
-add_executable(Binary_search_tree_to_greater_sum_tree "Compete/Weekly contest/135/5050/Binary search tree to greater sum tree.cpp")
+# Compete
+    # Weekly contest 135
+    add_executable(Valid_boomerang "Compete/Weekly contest/135/5051/Valid boomerang.cpp")
+    add_executable(Binary_search_tree_to_greater_sum_tree "Compete/Weekly contest/135/5050/Binary search tree to greater sum tree.cpp")

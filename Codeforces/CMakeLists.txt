@@ -35,3 +35,4 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(Inscribed_figures "Compete/Edu round 64/A/Inscribed figures.cpp")
     # Round 558
     add_executable(Eating_soup "Compete/Round 558/A/Eating soup.cpp")
+    add_executable(Cat_party_easy_edition "Compete/Round 558/B1/Cat party easy edition.cpp")

@@ -24,6 +24,7 @@ add_executable(valid_sudoku "Practice/Medium/36/Valid sudoku.cpp")
 add_executable(Combination_sum "Practice/Medium/39/Combination sum.cpp")
 add_executable(Permutations "Practice/Medium/46/Permutations.cpp")
 add_executable(Group_anagrams "Practice/Medium/49/Group anagrams.cpp")
+add_executable(Two_sum "Practice/Medium/1/Two sum.cpp")
 
 # Compete
     # Weekly contest 135

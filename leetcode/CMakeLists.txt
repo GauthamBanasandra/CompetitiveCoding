@@ -23,6 +23,7 @@ add_executable(find_first_and_last_position_of_element_in_sorted_array "Practice
 add_executable(valid_sudoku "Practice/Medium/36/Valid sudoku.cpp")
 add_executable(Combination_sum "Practice/Medium/39/Combination sum.cpp")
 add_executable(Permutations "Practice/Medium/46/Permutations.cpp")
+add_executable(Group_anagrams "Practice/Medium/49/Group anagrams.cpp")
 
 # Compete
     # Weekly contest 135

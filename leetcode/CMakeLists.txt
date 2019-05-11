@@ -28,6 +28,7 @@ set(CMAKE_CXX_STANDARD 14)
     add_executable(Combination_sum "Practice/Medium/39/Combination sum.cpp")
     add_executable(Permutations "Practice/Medium/46/Permutations.cpp")
     add_executable(Group_anagrams "Practice/Medium/49/Group anagrams.cpp")
+    add_executable(Container_with_most_water "Practice/Medium/11/Container with most water.cpp")
 
 # Compete
     # Weekly contest 135

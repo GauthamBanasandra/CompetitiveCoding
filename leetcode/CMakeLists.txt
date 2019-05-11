@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD 14)
     # Easy
     add_executable(Two_sum "Practice/Easy/1/Two sum.cpp")
     add_executable(Reverse_integer "Practice/Easy/7/Reverse integer.cpp")
+    add_executable(Valid_parenthesis "Practice/Easy/20/Valid parenthesis.cpp")
     # Medium
     add_executable(maximum_binary_tree "Practice/Medium/654/Maximum binary tree.cpp")
     add_executable(add_two_numbers "Practice/Medium/2/Add two numbers.cpp")

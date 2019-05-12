@@ -30,7 +30,7 @@ int GetMaximumStreak(const std::vector<int>& numbers)
 			}
 		}
 
-
+		return false;
 	};
 
 	for (auto streak = static_cast<int>(numbers.size()); streak > 0; --streak)

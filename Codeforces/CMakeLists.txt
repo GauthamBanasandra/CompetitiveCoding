@@ -36,3 +36,5 @@ set(CMAKE_CXX_STANDARD 17)
     # Round 558
     add_executable(Eating_soup "Compete/Round 558/A/Eating soup.cpp")
     add_executable(Cat_party_easy_edition "Compete/Round 558/B1/Cat party easy edition.cpp")
+    # Round 559
+    add_executable(A_pile_of_stones "Compete/Round 559/A/A pile of stones.cpp")

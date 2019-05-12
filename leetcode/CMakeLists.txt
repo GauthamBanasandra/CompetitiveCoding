@@ -37,3 +37,5 @@ set(CMAKE_CXX_STANDARD 14)
     # Weekly contest 135
     add_executable(Valid_boomerang "Compete/Weekly contest/135/5051/Valid boomerang.cpp")
     add_executable(Binary_search_tree_to_greater_sum_tree "Compete/Weekly contest/135/5050/Binary search tree to greater sum tree.cpp")
+    # Weekly contest 136
+    add_executable(Flower_planting_with_no_adjacent "Compete/Weekly contest/136/1042/Flower planting with no adjacent.cpp")

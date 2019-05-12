@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD 14)
     add_executable(Two_sum "Practice/Easy/1/Two sum.cpp")
     add_executable(Reverse_integer "Practice/Easy/7/Reverse integer.cpp")
     add_executable(Valid_parenthesis "Practice/Easy/20/Valid parenthesis.cpp")
+    add_executable(Remove_duplicates_from_sorted_array "Practice/Easy/26/Remove duplicates from sorted array.cpp")
     # Medium
     add_executable(maximum_binary_tree "Practice/Medium/654/Maximum binary tree.cpp")
     add_executable(add_two_numbers "Practice/Medium/2/Add two numbers.cpp")

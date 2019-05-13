@@ -45,11 +45,16 @@ int GetFirstMissingNumber(std::vector<int>& numbers)
 
 	for (auto i = 0; i < len; ++i)
 	{
+		// The missing number is where we don't have numbers[i] == i
 		if (numbers[i] != i)
 		{
+			// We converted the numbers from 1-based to 0-based
+			// So, need to add 1
 			return i + 1;
 		}
 	}
+
+	// The vector has all the numbers (1 to len) so the missing number is len + 1
 	return len + 1;
 }
 

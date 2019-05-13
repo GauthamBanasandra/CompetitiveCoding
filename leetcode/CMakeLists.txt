@@ -33,6 +33,7 @@ set(CMAKE_CXX_STANDARD 14)
     add_executable(Container_with_most_water "Practice/Medium/11/Container with most water.cpp")
     # Hard
     add_executable(Merge_k_sorted_lists "Practice/Hard/23/Merge k sorted lists.cpp")
+    add_executable(First_missing_positive "Practice/Hard/41/First missing positive.cpp")
 
 # Compete
     # Weekly contest 135

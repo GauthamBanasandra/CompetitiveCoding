@@ -32,10 +32,11 @@ set(CMAKE_CXX_STANDARD 14)
     add_executable(Permutations "Practice/Medium/46/Permutations.cpp")
     add_executable(Group_anagrams "Practice/Medium/49/Group anagrams.cpp")
     add_executable(Container_with_most_water "Practice/Medium/11/Container with most water.cpp")
-    add_executable(Jump_game "Practice/Easy/55/Jump game.cpp")
+    add_executable(Jump_game "Practice/Medium/55/Jump game.cpp")
     # Hard
     add_executable(Merge_k_sorted_lists "Practice/Hard/23/Merge k sorted lists.cpp")
     add_executable(First_missing_positive "Practice/Hard/41/First missing positive.cpp")
+    add_executable(Trapping_rain_water "Practice/Hard/42/Trapping rain water.cpp")
 
 # Compete
     # Weekly contest 135

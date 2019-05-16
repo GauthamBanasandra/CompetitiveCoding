@@ -34,6 +34,7 @@ set(CMAKE_CXX_STANDARD 14)
     add_executable(Container_with_most_water "Practice/Medium/11/Container with most water.cpp")
     add_executable(Jump_game "Practice/Medium/55/Jump game.cpp")
     add_executable(Merge_intervals "Practice/Medium/56/Merge intervals.cpp")
+    add_executable(Unique_paths "Practice/Medium/62/Unique paths.cpp")
     # Hard
     add_executable(Merge_k_sorted_lists "Practice/Hard/23/Merge k sorted lists.cpp")
     add_executable(First_missing_positive "Practice/Hard/41/First missing positive.cpp")

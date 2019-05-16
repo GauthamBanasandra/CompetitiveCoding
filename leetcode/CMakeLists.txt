@@ -10,6 +10,7 @@ set(CMAKE_CXX_STANDARD 14)
     add_executable(Valid_parenthesis "Practice/Easy/20/Valid parenthesis.cpp")
     add_executable(Remove_duplicates_from_sorted_array "Practice/Easy/26/Remove duplicates from sorted array.cpp")
     add_executable(Maximum_subarray "Practice/Easy/53/Maximum subarray.cpp")
+    add_executable(Plus_one "Practice/Easy/66/Plus one.cpp")
     # Medium
     add_executable(maximum_binary_tree "Practice/Medium/654/Maximum binary tree.cpp")
     add_executable(add_two_numbers "Practice/Medium/2/Add two numbers.cpp")

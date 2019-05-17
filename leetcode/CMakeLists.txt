@@ -11,6 +11,7 @@ set(CMAKE_CXX_STANDARD 14)
     add_executable(Remove_duplicates_from_sorted_array "Practice/Easy/26/Remove duplicates from sorted array.cpp")
     add_executable(Maximum_subarray "Practice/Easy/53/Maximum subarray.cpp")
     add_executable(Plus_one "Practice/Easy/66/Plus one.cpp")
+    add_executable(Climbing_stairs "Practice/Easy/70/Climbing stairs.cpp")
     # Medium
     add_executable(maximum_binary_tree "Practice/Medium/654/Maximum binary tree.cpp")
     add_executable(add_two_numbers "Practice/Medium/2/Add two numbers.cpp")

@@ -38,6 +38,7 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(Merge_intervals "Practice/Medium/56/Merge intervals.cpp")
     add_executable(Unique_paths "Practice/Medium/62/Unique paths.cpp")
     add_executable(Set_matrix_zeroes "Practice/Medium/73/Set matrix zeroes.cpp")
+    add_executable(Subsets "Practice/Medium/78/Subsets.cpp")
     # Hard
     add_executable(Merge_k_sorted_lists "Practice/Hard/23/Merge k sorted lists.cpp")
     add_executable(First_missing_positive "Practice/Hard/41/First missing positive.cpp")

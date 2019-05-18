@@ -42,6 +42,7 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(Merge_k_sorted_lists "Practice/Hard/23/Merge k sorted lists.cpp")
     add_executable(First_missing_positive "Practice/Hard/41/First missing positive.cpp")
     add_executable(Trapping_rain_water "Practice/Hard/42/Trapping rain water.cpp")
+    add_executable(Minimum_window_substring "Practice/Hard/76/Minimum window substring.cpp")
 
 # Compete
     # Weekly contest 135

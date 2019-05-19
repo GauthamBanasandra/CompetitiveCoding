@@ -1,0 +1,1 @@
+.\build\Debug\Chain_reaction.exe < "Compete\2019\May cook-off\REACTION\Chain reaction.txt"

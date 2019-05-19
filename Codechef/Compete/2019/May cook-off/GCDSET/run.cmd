@@ -1,0 +1,1 @@
+.\build\Debug\Misha_and_nice_sets.exe < "Compete\2019\May cook-off\GCDSET\Misha and nice sets.txt"

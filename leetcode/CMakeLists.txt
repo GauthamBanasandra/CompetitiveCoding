@@ -55,3 +55,4 @@ set(CMAKE_CXX_STANDARD 17)
     # Weekly contest 137
     add_executable(Last_stone_weight "Compete/Weekly contest/137/1046/Last stone weight.cpp")
     add_executable(Remove_all_adjacent_duplicates_in_string "Compete/Weekly contest/137/1047/Remove all adjacent duplicates in string.cpp")
+    add_executable(Last_stone_weight_II "Compete/Weekly contest/137/1049/Last stone weight II.cpp")

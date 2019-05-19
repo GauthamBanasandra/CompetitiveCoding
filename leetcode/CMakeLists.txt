@@ -52,3 +52,5 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(Binary_search_tree_to_greater_sum_tree "Compete/Weekly contest/135/5050/Binary search tree to greater sum tree.cpp")
     # Weekly contest 136
     add_executable(Flower_planting_with_no_adjacent "Compete/Weekly contest/136/1042/Flower planting with no adjacent.cpp")
+    # Weekly contest 137
+    add_executable(Last_stone_weight "Compete/Weekly contest/137/1046/Last stone weight.cpp")

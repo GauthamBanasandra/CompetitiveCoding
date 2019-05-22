@@ -14,6 +14,7 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(Climbing_stairs "Practice/Easy/70/Climbing stairs.cpp")
     add_executable(Maximum_depth_of_binary_tree "Practice/Easy/104/Maximum depth of binary tree.cpp")
     add_executable(Convert_sorted_array_to_binary_search_tree "Practice/Easy/108/Convert sorted array to binary search tree.cpp")
+    add_executable(Pascals_triangle "Practice/Easy/118/Pascals triangle.cpp")
     # Medium
     add_executable(maximum_binary_tree "Practice/Medium/654/Maximum binary tree.cpp")
     add_executable(add_two_numbers "Practice/Medium/2/Add two numbers.cpp")

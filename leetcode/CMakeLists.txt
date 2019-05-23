@@ -52,6 +52,7 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(First_missing_positive "Practice/Hard/41/First missing positive.cpp")
     add_executable(Trapping_rain_water "Practice/Hard/42/Trapping rain water.cpp")
     add_executable(Minimum_window_substring "Practice/Hard/76/Minimum window substring.cpp")
+    add_executable(Binary_tree_maximum_path_sum "Practice/Hard/124/Binary tree maximum path sum.cpp")
 
 # Compete
     # Weekly contest 135

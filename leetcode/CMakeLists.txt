@@ -48,6 +48,7 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(Binary_tree_zigzag_level_order_traversal "Practice/Medium/103/Binary tree zigzag level order traversal.cpp")
     add_executable(Populating_next_right_pointers_in_each_node "Practice/Medium/116/Populating next right pointers in each node.cpp")
     add_executable(Word_ladder "Practice/Medium/127/Word ladder.cpp")
+    add_executable(Surrounded_regions "Practice/Medium/130/Surrounded regions.cpp")
     # Hard
     add_executable(Merge_k_sorted_lists "Practice/Hard/23/Merge k sorted lists.cpp")
     add_executable(First_missing_positive "Practice/Hard/41/First missing positive.cpp")

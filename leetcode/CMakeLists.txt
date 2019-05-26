@@ -71,3 +71,4 @@ set(CMAKE_CXX_STANDARD 17)
     # Weekly contest 138
     add_executable(Height_checker "Compete/Weekly contest/138/1051/Height checker.cpp")
     add_executable(Grumpy_bookstore_owner "Compete/Weekly contest/138/1052/Grumpy bookstore owner.cpp")
+    add_executable(Distant_barcodes "Compete/Weekly contest/138/1054/Distant barcodes.cpp")

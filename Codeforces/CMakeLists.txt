@@ -39,3 +39,5 @@ set(CMAKE_CXX_STANDARD 17)
     # Round 559
     add_executable(A_pile_of_stones "Compete/Round 559/A/A pile of stones.cpp")
     add_executable(Expansion_coefficient_of_the_array "Compete/Round 559/B/Expansion coefficient of the array.cpp")
+    # Round 562
+    add_executable(Circle_metro "Compete/Round 562/A/Circle metro.cpp")

@@ -51,6 +51,7 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(Word_ladder "Practice/Medium/127/Word ladder.cpp")
     add_executable(Surrounded_regions "Practice/Medium/130/Surrounded regions.cpp")
     add_executable(Palindrome_partitioning "Practice/Medium/131/Palindrome partitioning.cpp")
+    add_executable(Word_break "Practice/Medium/139/Word break.cpp")
     # Hard
     add_executable(Merge_k_sorted_lists "Practice/Hard/23/Merge k sorted lists.cpp")
     add_executable(First_missing_positive "Practice/Hard/41/First missing positive.cpp")

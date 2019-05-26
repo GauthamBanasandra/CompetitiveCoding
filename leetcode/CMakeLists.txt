@@ -16,6 +16,7 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(Convert_sorted_array_to_binary_search_tree "Practice/Easy/108/Convert sorted array to binary search tree.cpp")
     add_executable(Pascals_triangle "Practice/Easy/118/Pascals triangle.cpp")
     add_executable(Best_time_to_buy_and_sell_stock "Practice/Easy/121/Best time to buy and sell stock.cpp")
+    add_executable(Single_number "Practice/Easy/136/Single number.cpp")
     # Medium
     add_executable(maximum_binary_tree "Practice/Medium/654/Maximum binary tree.cpp")
     add_executable(add_two_numbers "Practice/Medium/2/Add two numbers.cpp")

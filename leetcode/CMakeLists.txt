@@ -68,3 +68,5 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(Remove_all_adjacent_duplicates_in_string "Compete/Weekly contest/137/1047/Remove all adjacent duplicates in string.cpp")
     add_executable(Last_stone_weight_II "Compete/Weekly contest/137/1049/Last stone weight II.cpp")
     add_executable(Longest_string_chain "Compete/Weekly contest/137/1048/Longest string chain.cpp")
+    # Weekly contest 138
+    add_executable(Height_checker "Compete/Weekly contest/138/1051/Height checker.cpp")

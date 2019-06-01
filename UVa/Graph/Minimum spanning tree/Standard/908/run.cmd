@@ -1,0 +1,2 @@
+REM .\.build\Debug\Re-connecting_computer_sites < "Graph\Minimum spanning tree\Standard\908\Re-connecting computer sites.txt"
+.\.build\Debug\Re-connecting_computer_sites < "Graph\Minimum spanning tree\Standard\908\Re-connecting computer sites1.txt" | clip

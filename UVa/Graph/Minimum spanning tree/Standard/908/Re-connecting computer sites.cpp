@@ -66,28 +66,31 @@ namespace ds
 	}
 }
 
-int GetMinSpanningTreeCost(const std::size_t num_nodes,
-	std::vector<std::tuple<int, std::size_t, std::size_t>>& edge_list)
+namespace uva_908
 {
-	std::sort(edge_list.begin(), edge_list.end(),
-		[](const std::tuple<int, std::size_t, std::size_t>& a,
-			const std::tuple<int, std::size_t, std::size_t>& b)->bool
-		{
-			return std::get<0>(a) < std::get<0>(b);
-		});
-
-	ds::ufds set(num_nodes + 1);
-	auto total_cost = 0;
-	for (const auto& edge : edge_list)
+	int GetMinSpanningTreeCost(const std::size_t num_nodes,
+		std::vector<std::tuple<int, std::size_t, std::size_t>>& edge_list)
 	{
-		auto& [cost, u, v] = edge;
-		if (!set.is_same_set(u, v))
+		std::sort(edge_list.begin(), edge_list.end(),
+			[](const std::tuple<int, std::size_t, std::size_t>& a,
+				const std::tuple<int, std::size_t, std::size_t>& b)->bool
+			{
+				return std::get<0>(a) < std::get<0>(b);
+			});
+
+		ds::ufds set(num_nodes + 1);
+		auto total_cost = 0;
+		for (const auto& edge : edge_list)
 		{
-			total_cost += cost;
-			set.union_set(u, v);
+			auto& [cost, u, v] = edge;
+			if (!set.is_same_set(u, v))
+			{
+				total_cost += cost;
+				set.union_set(u, v);
+			}
 		}
+		return total_cost;
 	}
-	return total_cost;
 }
 
 int main(int argc, char* argv[])
@@ -128,7 +131,7 @@ int main(int argc, char* argv[])
 		}
 		++t;
 		std::cout << total_cost << std::endl;
-		std::cout << GetMinSpanningTreeCost(n, edge_list) << std::endl;
+		std::cout << uva_908::GetMinSpanningTreeCost(n, edge_list) << std::endl;
 	}
 	return 0;
 }

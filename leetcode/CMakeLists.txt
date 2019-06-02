@@ -75,3 +75,5 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(Height_checker "Compete/Weekly contest/138/1051/Height checker.cpp")
     add_executable(Grumpy_bookstore_owner "Compete/Weekly contest/138/1052/Grumpy bookstore owner.cpp")
     add_executable(Distant_barcodes "Compete/Weekly contest/138/1054/Distant barcodes.cpp")
+    # Weekly contest 139
+    add_executable(Flip_columns_for_maximum_number_of_equal_rows "Compete/Weekly contest/139/1072/Flip Columns For Maximum Number of Equal Rows.cpp")

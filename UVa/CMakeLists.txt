@@ -355,3 +355,4 @@ include(UseJava)
                 # Standard
                 add_executable(Re-connecting_computer_sites "Graph/Minimum spanning tree/Standard/908/Re-connecting computer sites.cpp")
                 add_executable(Anti_brute_force_lock "Graph/Minimum spanning tree/Standard/1235/Anti brute force lock.cpp")
+                add_executable(Transportation_system "Graph/Minimum spanning tree/Standard/11228/Transportation system.cpp")

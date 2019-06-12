@@ -53,6 +53,7 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(Palindrome_partitioning "Practice/Medium/131/Palindrome partitioning.cpp")
     add_executable(Word_break "Practice/Medium/139/Word break.cpp")
     add_executable(Lru_cache "Practice/Medium/146/Lru cache.cpp")
+    add_executable(Evaluate_reverse_polish_notation "Practice/Medium/150/Evaluate reverse polish notation.cpp")
     # Hard
     add_executable(Merge_k_sorted_lists "Practice/Hard/23/Merge k sorted lists.cpp")
     add_executable(First_missing_positive "Practice/Hard/41/First missing positive.cpp")

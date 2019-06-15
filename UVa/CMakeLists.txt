@@ -360,3 +360,4 @@ include(UseJava)
                 add_executable(Heavy_cycle_edges "Graph/Minimum spanning tree/Standard/11747/Heavy cycle edges.cpp")
                 # Variants
                 add_executable(Frogger "Graph/Minimum spanning tree/Variants/534/Frogger.cpp")
+                add_executable(X-plosives "Graph/Minimum spanning tree/Variants/1160/X-plosives.cpp")

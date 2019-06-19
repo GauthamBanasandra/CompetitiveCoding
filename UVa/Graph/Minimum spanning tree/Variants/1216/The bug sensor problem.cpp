@@ -101,6 +101,12 @@ ll GetECD(const ll k, const std::vector<Point> &points) {
     }
   }
 
+  // Since MST is a tree, each edge that is removed creates a new connected component
+  // In order to get k components, we need to remove k-1 edges
+  // So, we just remove k-1 largest edges and the last greatest remaining edge is the
+  // one with largest ECD
+
+  // Here, we just subtract k to account the 0-1 offset
   const auto index = static_cast<ll>(mst_edges_len.size()) - k;
   assert(index >= 0);
   return std::ceil(std::sqrt(mst_edges_len[index]));

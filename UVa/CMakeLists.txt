@@ -361,3 +361,4 @@ include(UseJava)
                 # Variants
                 add_executable(Frogger "Graph/Minimum spanning tree/Variants/534/Frogger.cpp")
                 add_executable(X-plosives "Graph/Minimum spanning tree/Variants/1160/X-plosives.cpp")
+                add_executable(The_bug_sensor_problem "Graph/Minimum spanning tree/Variants/1216/The bug sensor problem.cpp")

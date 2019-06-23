@@ -1,0 +1,2 @@
+REM .build\Debug\The_tourist_guide.exe < "Graph\Minimum spanning tree\Variants\10099\The tourist guide.txt"
+.build\Debug\The_tourist_guide.exe < "Graph\Minimum spanning tree\Variants\10099\The tourist guide1.txt" | clip

@@ -95,10 +95,12 @@ private:
 std::pair<Network::Status, int> Network::GetSecondBestCost() const {
   assert(num_nodes_ > 0);
 
+  // Just sort only once
   std::sort(edge_list_.begin(), edge_list_.end(),
             [](const std::pair<Edge, int> &e1, const std::pair<Edge, int> &e2)
                 -> bool { return e1.second < e2.second; });
 
+  // Collect only indices from edge_list that could form MST
   std::vector<size_t> mst;
   mst.reserve(num_nodes_ - 1);
 
@@ -116,10 +118,18 @@ std::pair<Network::Status, int> Network::GetSecondBestCost() const {
   }
 
   auto min_cost = infinity;
-  for (auto &i : mst) {
+  for (const auto i : mst) {
     const auto cost = edge_list_[i].second;
+    // Set the cost to infinity, thereby indicating that this edge
+    // must not be considered
     edge_list_[i].second = infinity;
+
+    // Get the MST cost excluding the edge above
+    // We have excluded the least edge that was possible
+    // Thus, the MST that will be obtained must be the second best MST
     auto [is_possible, mst_cost] = GetMSTCost();
+
+    // Restore the cost back
     edge_list_[i].second = cost;
     if (!is_possible) {
       continue;

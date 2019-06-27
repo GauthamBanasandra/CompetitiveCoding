@@ -365,3 +365,6 @@ include(UseJava)
                 add_executable(The_tourist_guide "Graph/Minimum spanning tree/Variants/10099/The tourist guide.cpp")
                 add_executable(Highways "Graph/Minimum spanning tree/Variants/10147/Highways.cpp")
                 add_executable(Is_there_a_second_way_left "Graph/Minimum spanning tree/Variants/10462/Is there a second way left.cpp")
+        # Single source shortest paths
+                # On unweighted graph : BFS, Easier
+                add_executable(A_node_too_far "Graph/Single source shortest paths/336/A node too far.cpp")

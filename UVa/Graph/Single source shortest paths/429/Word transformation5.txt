@@ -1,0 +1,45 @@
+4
+
+inf333
+inf633
+inf663
+inf666
+*
+inf333 inf666
+
+day
+mai
+cai
+lai
+oia
+odi
+sae
+dai
+poe
+pai
+dai
+dia
+iad
+iia
+aia
+aaa
+iii
+*
+dia iii
+aaa iii
+
+arroz
+arraz
+aaraz
+aaaaz
+aaaaa
+*
+aaaaa arroz
+
+a
+b
+c
+d
+e
+*
+a e

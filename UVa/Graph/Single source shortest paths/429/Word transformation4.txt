@@ -1,0 +1,48 @@
+3
+
+dip
+lip
+mad
+map
+mapl
+maple
+may
+pad
+pip
+pod
+pop
+sap
+sip
+slice
+slick
+spice
+stick
+stock
+*
+spice slick
+may mad
+map map
+
+axe
+axi
+bxi
+cxi
+dxi
+dli
+dlx
+dls
+cls
+clx
+*
+axe axi
+axe clx
+axi cls
+axi dli
+dli cls
+cxi cls
+
+aa
+ab
+bb
+*
+aa bb

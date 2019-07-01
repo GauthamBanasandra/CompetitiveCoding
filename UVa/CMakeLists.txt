@@ -369,3 +369,4 @@ include(UseJava)
                 # On unweighted graph : BFS, Easier
                 add_executable(A_node_too_far "Graph/Single source shortest paths/336/A node too far.cpp")
                 add_executable(Word_transformation "Graph/Single source shortest paths/429/Word transformation.cpp")
+                add_executable(The_net "Graph/Single source shortest paths/627/The net.cpp")

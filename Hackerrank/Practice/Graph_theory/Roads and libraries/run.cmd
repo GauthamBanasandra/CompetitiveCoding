@@ -1,0 +1,1 @@
+.build\Debug\Roads_and_libraries.exe < "Practice\Graph_theory\Roads and libraries\Roads and libraries.txt"

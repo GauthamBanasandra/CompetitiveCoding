@@ -11,14 +11,14 @@ include(UseJava)
     add_executable(Strong_password "Practice/Strings/Strong password/Strong password.cpp")
     # Graph theory
     add_executable(The_salesman "Practice/Graph_theory/The salesman/The salesman.cpp")
-    add_executable(Marcs_cakewalk "Practice/Greedy/Marcs cakewalk/Marcs cakewalk.cpp")
+    add_executable(Roads_and_libraries "Practice/Graph_theory/Roads and libraries/Roads and libraries.cpp")
     # Recursion
     add_executable(Recursive_digit_sum "Practice/Recursion/Recursive digit sum/Recursive digit sum.cpp")
     add_executable(The_power_sum "Practice/Recursion/The power sum/The power sum.cpp"
             "Practice/Recursion/The power sum/utils.cpp")
     # Greedy
     add_executable(Beautiful_pairs "Practice/Greedy/16828/Beautiful pairs.cpp")
-
+    add_executable(Marcs_cakewalk "Practice/Greedy/Marcs cakewalk/Marcs cakewalk.cpp")
     # Dyanmic programming
     add_executable(Coin_change "Practice/Dynamic_programming/Coin change/Coin change.cpp")
     add_executable(The_coin_change_problem "Practice/Dynamic_programming/The coin change problem/The coin change problem.cpp")

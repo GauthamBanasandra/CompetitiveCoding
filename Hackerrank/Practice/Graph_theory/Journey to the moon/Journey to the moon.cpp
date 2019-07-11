@@ -1,4 +1,4 @@
-// WA, TLE
+// TLE
 
 #include <iostream>
 #include <unordered_map>
@@ -96,11 +96,7 @@ ll CountChoices(const size_t num_astronauts,
   }
 
   ll count = 0;
-  const auto len = by_country_size.size();
-  if (len == 1) {
-    return 1;
-  }
-  for (size_t i = 0; i < len - 1; ++i) {
+  for (size_t i = 0, len = by_country_size.size(); i < len - 1; ++i) {
     for (auto j = i + 1; j < len; ++j) {
       count += static_cast<ll>(by_country_size[i] * by_country_size[j]);
     }

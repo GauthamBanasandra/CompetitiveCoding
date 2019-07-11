@@ -1,5 +1,4 @@
-// TLE
-
+#include <cassert>
 #include <iostream>
 #include <unordered_map>
 #include <unordered_set>
@@ -81,6 +80,16 @@ std::unordered_map<size_t, size_t> ufds::components_size() {
 namespace JourneyToTheMoon {
 using ll = long long;
 
+ll NCr(const ll n, const ll r) {
+  assert(r != 0);
+  ll nr = 1, dr = 1;
+  for (ll i = 0; i < r; ++i) {
+    nr *= n - i;
+    dr *= i + 1;
+  }
+  return nr / dr;
+}
+
 ll CountChoices(const size_t num_astronauts,
                 const std::vector<std::pair<size_t, size_t>> &ids) {
   ds::ufds set(num_astronauts);
@@ -95,10 +104,15 @@ ll CountChoices(const size_t num_astronauts,
     by_country_size.emplace_back(item.second);
   }
 
-  ll count = 0;
-  for (size_t i = 0, len = by_country_size.size(); i < len - 1; ++i) {
-    for (auto j = i + 1; j < len; ++j) {
-      count += static_cast<ll>(by_country_size[i] * by_country_size[j]);
+  // We make use of exclusion principle
+  // First, count all possible subsets of size 2
+  auto count = NCr(static_cast<ll>(num_astronauts), 2);
+  // Next, "count" would contain subsets in which both the members are from the
+  // same country
+  // So, we just loop over subsets of such sizes and exclude them from the count
+  for (const auto &size : by_country_size) {
+    if (size > 1) {
+      count -= NCr(static_cast<ll>(size), 2);
     }
   }
   return count;

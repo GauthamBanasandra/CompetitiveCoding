@@ -12,6 +12,7 @@ include(UseJava)
     # Graph theory
     add_executable(The_salesman "Practice/Graph_theory/The salesman/The salesman.cpp")
     add_executable(Roads_and_libraries "Practice/Graph_theory/Roads and libraries/Roads and libraries.cpp")
+    add_executable(Journey_to_the_moon "Practice/Graph_theory/Journey to the moon/Journey to the moon.cpp")
     # Recursion
     add_executable(Recursive_digit_sum "Practice/Recursion/Recursive digit sum/Recursive digit sum.cpp")
     add_executable(The_power_sum "Practice/Recursion/The power sum/The power sum.cpp"

@@ -1,0 +1,1 @@
+.build\Debug\BFS_shortest_reach.exe < "Practice\Graph_theory\BFS shortest reach\BFS shortest reach.txt"

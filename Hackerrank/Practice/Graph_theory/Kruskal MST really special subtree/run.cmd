@@ -1,0 +1,1 @@
+.build\Debug\Kruskal_mst_really_special_subtree.exe < "Practice\Graph_theory\Kruskal MST really special subtree\Kruskal MST really special subtree.txt"

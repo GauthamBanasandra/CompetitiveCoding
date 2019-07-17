@@ -1,0 +1,1 @@
+.build\Debug\Snakes_and_ladders_the_quickest_way_up.exe < "Practice\Graph_theory\Snakes and ladders the quickest way up\Snakes and ladders the quickest way up.txt"

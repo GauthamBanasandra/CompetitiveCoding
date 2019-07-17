@@ -15,6 +15,7 @@ include(UseJava)
     add_executable(Journey_to_the_moon "Practice/Graph_theory/Journey to the moon/Journey to the moon.cpp")
     add_executable(BFS_shortest_reach "Practice/Graph_theory/BFS shortest reach/BFS shortest reach.cpp")
     add_executable(Kruskal_mst_really_special_subtree "Practice/Graph_theory/Kruskal MST really special subtree/Kruskal MST really speciak subtree.cpp")
+    add_executable(Snakes_and_ladders_the_quickest_way_up "Practice/Graph_theory/Snakes and ladders the quickest way up/Snakes and ladders the quickest way up.cpp")
     # Recursion
     add_executable(Recursive_digit_sum "Practice/Recursion/Recursive digit sum/Recursive digit sum.cpp")
     add_executable(The_power_sum "Practice/Recursion/The power sum/The power sum.cpp"

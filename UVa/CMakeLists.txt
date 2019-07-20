@@ -375,3 +375,4 @@ include(UseJava)
                 add_executable(Fire "Graph/Single source shortest paths/11624/Fire.cpp")
                 # On weighted graph : Dijkstra's, easier
                 add_executable(Number_maze "Graph/Single source shortest paths/929/Number maze.cpp")
+                add_executable(Mice_and_maze "Graph/Single source shortest paths/1112/Mice and maze.cpp")

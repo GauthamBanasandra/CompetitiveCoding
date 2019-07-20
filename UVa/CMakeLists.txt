@@ -366,9 +366,12 @@ include(UseJava)
                 add_executable(Highways "Graph/Minimum spanning tree/Variants/10147/Highways.cpp")
                 add_executable(Is_there_a_second_way_left "Graph/Minimum spanning tree/Variants/10462/Is there a second way left.cpp")
         # Single source shortest paths
-                # On unweighted graph : BFS, Easier
+                # On unweighted graph : BFS, easier
                 add_executable(A_node_too_far "Graph/Single source shortest paths/336/A node too far.cpp")
                 add_executable(Word_transformation "Graph/Single source shortest paths/429/Word transformation.cpp")
                 add_executable(The_net "Graph/Single source shortest paths/627/The net.cpp")
                 add_executable(Bombs_no_they_are_mines "Graph/Single source shortest paths/10653/Bombs no they are mines.cpp")
+                # On unweighted graph : BSF, harder
                 add_executable(Fire "Graph/Single source shortest paths/11624/Fire.cpp")
+                # On weighted graph : Dijkstra's, easier
+                add_executable(Number_maze "Graph/Single source shortest paths/929/Number maze.cpp")

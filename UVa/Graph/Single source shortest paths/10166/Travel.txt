@@ -1,0 +1,31 @@
+3
+Liuzhou
+Guilin
+Xian
+3
+2
+0900 Liuzhou
+1200 Guilin
+2
+1200 Guilin
+2200 Xian
+3
+0900 Liuzhou
+1200 Guilin
+2300 Xian
+0800
+Liuzhou
+Xian
+3
+Liuzhou
+Guilin
+Xian
+1
+3
+0900 Liuzhou
+1200 Guilin
+2300 Xian
+1000
+Liuzhou
+Xian
+0

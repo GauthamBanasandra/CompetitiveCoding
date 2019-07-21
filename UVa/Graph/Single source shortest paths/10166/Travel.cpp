@@ -50,6 +50,7 @@ Scheduler::Scheduler(
   assert(find_it != node_index.end());
   journey_end_ = find_it->second;
 
+  adj_list_.resize(num_nodes_);
   for (const auto &path : paths) {
     const auto len = path.size();
     assert(len >= 2);
@@ -79,36 +80,90 @@ Scheduler::Scheduler(
 }
 
 struct Comparator {
-  bool operator()(const std::pair<int, int> &p1,
-                  const std::pair<int, int> &p2) const {
-    if (p1.second == p2.second) {
-      return p1.first < p2.first;
+  bool operator()(const std::tuple<int, int, size_t> &p1,
+                  const std::tuple<int, int, size_t> &p2) const {
+    if (std::get<1>(p1) == std::get<1>(p2)) {
+      return std::get<0>(p1) < std::get<0>(p2);
     }
-    return p1.second > p2.second;
+    return std::get<1>(p1) > std::get<1>(p2);
   }
 };
 
 std::tuple<bool, int, int> Scheduler::FindEarliestArrival() const {
   std::vector<std::pair<int, int>> min_cost(num_nodes_,
                                             {neg_infinity, infinity});
-  std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>,
-                      Comparator>
+  std::priority_queue<std::tuple<int, int, size_t>,
+                      std::vector<std::tuple<int, int, size_t>>, Comparator>
       order;
-  return {};
+  order.emplace(neg_infinity, start_time_, journey_begin_);
+
+  while (!order.empty()) {
+    const auto [departure, arrival, destination] = order.top();
+    order.pop();
+
+    if (arrival > min_cost[destination].second ||
+        arrival == min_cost[destination].second &&
+            departure < min_cost[destination].first) {
+      continue;
+    }
+
+    for (auto it = std::lower_bound(adj_list_[destination].begin(),
+                                    adj_list_[destination].end(), arrival,
+                                    [](const std::tuple<int, int, size_t> &item,
+                                       const int arrival) -> bool {
+                                      return std::get<0>(item) < arrival;
+                                    });
+         it != adj_list_[destination].end(); ++it) {
+      const auto [departure_to_adj, arrival_at_adj, adj_destination] = *it;
+      if (departure_to_adj < arrival) {
+        continue;
+      }
+      if (arrival_at_adj < min_cost[adj_destination].second ||
+          arrival_at_adj == min_cost[adj_destination].second &&
+              departure_to_adj > min_cost[adj_destination].first) {
+        min_cost[adj_destination] = {departure_to_adj, arrival_at_adj};
+        order.emplace(departure_to_adj, arrival_at_adj, adj_destination);
+      }
+    }
+  }
+  return {min_cost[journey_end_].second != infinity,
+          min_cost[journey_begin_].first, min_cost[journey_end_].second};
 }
 
 int main(int argc, char *argv[]) {
-  std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>,
-                      Comparator>
-      order;
-  order.emplace(2, 4);
-  order.emplace(1, 5);
-  order.emplace(3, 4);
-  while (!order.empty()) {
-    const auto [u, v] = order.top();
-    order.pop();
+  size_t c = 0, t = 0, ti = 0;
+  auto start_time = 0;
+  std::string city, begin, destination;
+  std::vector<std::string> cities;
+  std::vector<std::vector<std::pair<int, std::string>>> trains;
 
-    std::cout << u << '\t' << v << std::endl;
+  while (std::cin >> c, c) {
+    cities.resize(c);
+    for (size_t i = 0; i < c; ++i) {
+      std::cin >> cities[i];
+    }
+
+    std::cin >> t;
+    trains.resize(t);
+    for (size_t i = 0; i < t; ++i) {
+      auto &train = trains[i];
+      std::cin >> ti;
+      train.resize(ti);
+
+      for (size_t j = 0; j < ti; ++j) {
+        std::cin >> train[j].first >> train[j].second;
+      }
+    }
+
+    std::cin >> start_time >> begin >> destination;
+    auto [is_possible, departure, arrival] =
+        Scheduler(cities, trains, start_time, begin, destination)
+            .FindEarliestArrival();
+    if (is_possible) {
+      std::cout << departure << ' ' << arrival << std::endl;
+    } else {
+      std::cout << "No connection" << std::endl;
+    }
   }
   return 0;
 }

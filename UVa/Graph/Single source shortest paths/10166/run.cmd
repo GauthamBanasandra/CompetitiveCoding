@@ -1,0 +1,1 @@
+.build\Debug\Travel.exe < "Graph\Single source shortest paths\10166\Travel.txt"

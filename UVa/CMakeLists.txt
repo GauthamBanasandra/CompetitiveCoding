@@ -376,3 +376,5 @@ include(UseJava)
                 # On weighted graph : Dijkstra's, easier
                 add_executable(Number_maze "Graph/Single source shortest paths/929/Number maze.cpp")
                 add_executable(Mice_and_maze "Graph/Single source shortest paths/1112/Mice and maze.cpp")
+                # On unweighted graph : Dijkstra's, harder
+                add_executable(Travel "Graph/Single source shortest paths/10166/Travel.cpp")

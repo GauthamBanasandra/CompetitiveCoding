@@ -113,17 +113,19 @@ std::tuple<bool, int, int> Scheduler::FindEarliestArrival() const {
       continue;
     }
 
-    for (auto it = std::lower_bound(adj_list_[destination].begin(),
-                                    adj_list_[destination].end(), arrival,
-                                    [](const std::tuple<int, int, size_t> &item,
-                                       const int arrival) -> bool {
-                                      return std::get<0>(item) < arrival;
-                                    });
-         it != adj_list_[destination].end(); ++it) {
+    /*const auto least_it = std::upper_bound(
+        adj_list_[destination].rbegin(), adj_list_[destination].rend(), arrival,
+        [](const std::tuple<int, int, size_t> &item,
+           const int arrival) -> bool { return std::get<0>(item) > arrival;
+       });*/
+
+    for (auto it = adj_list_[destination].rbegin();
+         /*it != least_it*/ it != adj_list_[destination].rend(); ++it) {
       const auto [departure_to_adj, arrival_at_adj, adj_destination] = *it;
       if (departure_to_adj < arrival) {
         continue;
       }
+
       if (arrival_at_adj < min_cost[adj_destination].second ||
           arrival_at_adj == min_cost[adj_destination].second &&
               departure_to_adj > min_cost[adj_destination].first) {

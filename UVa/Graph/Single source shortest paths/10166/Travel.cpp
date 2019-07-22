@@ -1,7 +1,8 @@
-// WIP
+// WA
 
 #include <algorithm>
 #include <cassert>
+#include <iomanip>
 #include <iostream>
 #include <limits>
 #include <queue>
@@ -23,6 +24,10 @@ public:
   std::tuple<bool, int, int> FindEarliestArrival() const;
 
 private:
+  int GetFirstDepartureTime(
+      const std::vector<size_t> &parent,
+      const std::vector<std::pair<int, int>> &min_cost) const;
+
   const size_t num_nodes_;
   const int start_time_;
   size_t journey_begin_{0};
@@ -92,6 +97,7 @@ struct Comparator {
 std::tuple<bool, int, int> Scheduler::FindEarliestArrival() const {
   std::vector<std::pair<int, int>> min_cost(num_nodes_,
                                             {neg_infinity, infinity});
+  std::vector<size_t> parent(num_nodes_, infinity);
   std::priority_queue<std::tuple<int, int, size_t>,
                       std::vector<std::tuple<int, int, size_t>>, Comparator>
       order;
@@ -122,12 +128,26 @@ std::tuple<bool, int, int> Scheduler::FindEarliestArrival() const {
           arrival_at_adj == min_cost[adj_destination].second &&
               departure_to_adj > min_cost[adj_destination].first) {
         min_cost[adj_destination] = {departure_to_adj, arrival_at_adj};
+        parent[adj_destination] = destination;
         order.emplace(departure_to_adj, arrival_at_adj, adj_destination);
       }
     }
   }
-  return {min_cost[journey_end_].second != infinity,
-          min_cost[journey_begin_].first, min_cost[journey_end_].second};
+  if (min_cost[journey_end_].second == infinity) {
+    return {false, -1, -1};
+  }
+  return {true, GetFirstDepartureTime(parent, min_cost),
+          min_cost[journey_end_].second};
+}
+
+int Scheduler::GetFirstDepartureTime(
+    const std::vector<size_t> &parent,
+    const std::vector<std::pair<int, int>> &min_cost) const {
+  auto node = journey_end_;
+  while (parent[node] != journey_begin_) {
+    node = parent[node];
+  }
+  return min_cost[node].first;
 }
 
 int main(int argc, char *argv[]) {
@@ -160,7 +180,8 @@ int main(int argc, char *argv[]) {
         Scheduler(cities, trains, start_time, begin, destination)
             .FindEarliestArrival();
     if (is_possible) {
-      std::cout << departure << ' ' << arrival << std::endl;
+      std::cout << std::setfill('0') << std::setw(4) << departure << ' '
+                << std::setfill('0') << std::setw(4) << arrival << std::endl;
     } else {
       std::cout << "No connection" << std::endl;
     }

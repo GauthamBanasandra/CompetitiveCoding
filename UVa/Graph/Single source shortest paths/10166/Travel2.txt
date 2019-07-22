@@ -1,0 +1,152 @@
+12
+alsatian
+foresail
+radial
+corked
+bethany
+corset
+inscribe
+forsworn
+bugbear
+mildew
+curative
+truism
+19
+9
+0225 radial
+0259 bugbear
+0443 bethany
+0612 corked
+1145 foresail
+1517 curative
+1611 corset
+2154 truism
+2223 inscribe
+3
+0027 corked
+0510 mildew
+1325 alsatian
+8
+0100 mildew
+0102 inscribe
+0311 alsatian
+0538 radial
+0730 forsworn
+1526 bethany
+2031 curative
+2110 corset
+8
+0134 inscribe
+0157 curative
+0255 radial
+0344 forsworn
+0652 foresail
+1104 corked
+1624 mildew
+2354 bethany
+6
+0034 foresail
+0851 bugbear
+0915 curative
+1003 bethany
+1120 truism
+1203 corked
+3
+0354 truism
+1252 curative
+1611 corked
+2
+0502 corset
+1948 alsatian
+9
+0315 corset
+0818 inscribe
+0901 radial
+1003 corked
+1009 truism
+1418 forsworn
+1708 curative
+2014 alsatian
+2252 foresail
+3
+0427 radial
+0917 truism
+2345 curative
+4
+0837 bethany
+1049 inscribe
+1219 radial
+1813 mildew
+9
+0108 inscribe
+0129 foresail
+0321 bugbear
+0446 forsworn
+0447 mildew
+0827 alsatian
+1023 truism
+1211 corset
+1250 bethany
+8
+0242 bugbear
+0708 foresail
+1320 truism
+1805 corset
+1913 radial
+1921 alsatian
+2216 mildew
+2321 forsworn
+2
+0509 alsatian
+2019 foresail
+12
+0223 inscribe
+0614 mildew
+0728 corked
+0928 curative
+1116 truism
+1300 foresail
+1352 bethany
+1545 corset
+1634 bugbear
+1642 radial
+2019 forsworn
+2128 alsatian
+4
+0659 curative
+1229 bethany
+1322 bugbear
+1358 inscribe
+5
+0322 bugbear
+0352 corset
+0633 corked
+1529 alsatian
+2159 forsworn
+3
+0306 forsworn
+0458 radial
+0956 alsatian
+11
+0105 bugbear
+0346 foresail
+0455 alsatian
+1235 mildew
+1408 radial
+1728 corset
+2049 inscribe
+2142 forsworn
+2219 curative
+2222 bethany
+2327 truism
+6
+0155 alsatian
+0204 radial
+0237 curative
+0328 bugbear
+0841 corset
+0901 truism
+0551
+corset
+radial
+0

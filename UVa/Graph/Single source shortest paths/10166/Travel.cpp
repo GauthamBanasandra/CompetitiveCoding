@@ -15,7 +15,7 @@ const auto infinity = std::numeric_limits<int>::max();
 const auto neg_infinity = std::numeric_limits<int>::min();
 
 class Scheduler {
-public:
+ public:
   Scheduler(const std::vector<std::string> &nodes,
             const std::vector<std::vector<std::pair<int, std::string>>> &paths,
             int start_time, const std::string &journey_begin,
@@ -23,7 +23,7 @@ public:
 
   std::tuple<bool, int, int> FindEarliestArrival() const;
 
-private:
+ private:
   int GetFirstDepartureTime(
       const std::vector<size_t> &parent,
       const std::vector<std::pair<int, int>> &min_cost) const;
@@ -104,31 +104,32 @@ std::tuple<bool, int, int> Scheduler::FindEarliestArrival() const {
   order.emplace(neg_infinity, start_time_, journey_begin_);
 
   while (!order.empty()) {
-    const auto [departure, arrival, destination] = order.top();
+    const auto[departure, arrival, destination] = order.top();
     order.pop();
 
     if (arrival > min_cost[destination].second ||
-        arrival == min_cost[destination].second &&
-            departure < min_cost[destination].first) {
+        (arrival == min_cost[destination].second &&
+            departure < min_cost[destination].first)) {
       continue;
     }
 
-    /*const auto least_it = std::upper_bound(
+    const auto least_it = std::upper_bound(
         adj_list_[destination].rbegin(), adj_list_[destination].rend(), arrival,
-        [](const std::tuple<int, int, size_t> &item,
-           const int arrival) -> bool { return std::get<0>(item) > arrival;
-       });*/
+        [](const int arrival,
+           const std::tuple<int, int, size_t> &item) -> bool {
+          return std::get<0>(item) > arrival;
+        });
 
     for (auto it = adj_list_[destination].rbegin();
-         /*it != least_it*/ it != adj_list_[destination].rend(); ++it) {
-      const auto [departure_to_adj, arrival_at_adj, adj_destination] = *it;
+      /*it != least_it*/ it != adj_list_[destination].rend(); ++it) {
+      const auto[departure_to_adj, arrival_at_adj, adj_destination] = *it;
       if (departure_to_adj < arrival) {
         continue;
       }
 
       if (arrival_at_adj < min_cost[adj_destination].second ||
-          arrival_at_adj == min_cost[adj_destination].second &&
-              departure_to_adj > min_cost[adj_destination].first) {
+          (arrival_at_adj == min_cost[adj_destination].second &&
+              departure_to_adj > min_cost[adj_destination].first)) {
         min_cost[adj_destination] = {departure_to_adj, arrival_at_adj};
         parent[adj_destination] = destination;
         order.emplace(departure_to_adj, arrival_at_adj, adj_destination);
@@ -178,9 +179,9 @@ int main(int argc, char *argv[]) {
     }
 
     std::cin >> start_time >> begin >> destination;
-    auto [is_possible, departure, arrival] =
-        Scheduler(cities, trains, start_time, begin, destination)
-            .FindEarliestArrival();
+    auto[is_possible, departure, arrival] =
+    Scheduler(cities, trains, start_time, begin, destination)
+        .FindEarliestArrival();
     if (is_possible) {
       std::cout << std::setfill('0') << std::setw(4) << departure << ' '
                 << std::setfill('0') << std::setw(4) << arrival << std::endl;

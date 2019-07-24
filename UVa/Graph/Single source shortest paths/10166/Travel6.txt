@@ -1,0 +1,19 @@
+5
+Hamburg
+Frankfurt
+Darmstadt
+T1
+T2
+2
+2
+0900 Hamburg
+1100 Darmstadt
+4
+0910 Hamburg
+0930 T1
+1000 T2
+1100 Darmstadt
+0800
+Hamburg
+Darmstadt
+0

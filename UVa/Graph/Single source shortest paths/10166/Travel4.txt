@@ -1,0 +1,148 @@
+3
+Liuzhou
+Guilin
+Xian
+3
+2
+0900 Liuzhou
+1200 Guilin
+2
+1200 Guilin
+2200 Xian
+3
+0900 Liuzhou
+1200 Guilin
+2300 Xian
+0800
+Liuzhou
+Xian
+3
+Liuzhou
+Guilin
+Xian
+1
+3
+0900 Liuzhou
+1200 Guilin
+2300 Xian
+1000
+Liuzhou
+Xian
+5
+Hamburg
+Frankfurt
+Darmstadt
+T1
+T2
+2
+2
+0900 Hamburg
+1100 Darmstadt
+4
+0910 Hamburg
+1100 Darmstadt
+1000 T2
+0930 T1
+0800
+Hamburg
+Darmstadt
+5
+A
+B
+C
+D
+Z
+4
+2
+0800 A
+2300 Z
+2
+0900 A
+2300 Z
+2
+0759 A
+2300 Z
+2
+0952 A
+2300 Z
+0730
+A
+Z
+5
+A
+B
+C
+D
+Z
+4
+2
+0800 A
+2300 Z
+2
+0900 A
+2300 Z
+2
+0759 A
+2300 Z
+2
+0952 A
+2300 Z
+0730
+C
+Z
+15
+A
+B
+C
+D
+Z
+E
+F
+G
+H
+J
+I
+L
+K
+Q
+S
+8
+2
+0800 A
+2300 Z
+2
+0900 A
+2300 Z
+2
+0759 A
+2300 Z
+2
+0952 A
+2300 Z
+4
+1015 A
+1020 E
+1030 F
+2300 Z
+7
+1019 A
+1020 G
+1030 H
+1040 J
+1060 K
+1120 L
+2258 Z
+6
+1021 A
+1022 I
+1040 J
+1050 K
+1120 Q
+2258 Z
+2
+1350 J
+1400 S
+0730
+G
+S
+0

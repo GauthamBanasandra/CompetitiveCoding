@@ -7,6 +7,7 @@
 #include <queue>
 #include <tuple>
 #include <unordered_map>
+#include <unordered_set>
 #include <vector>
 
 namespace uva_10603 {
@@ -20,7 +21,7 @@ public:
   std::pair<ll, ll> GetShortestDistance() const;
 
 private:
-  void BuildGraph(int a, int b, int c, ll parent);
+  void BuildGraph(int a, int b, int c, std::unordered_set<ll> &lineage);
   void InitializeDestinations();
 
   static ll GetHash(ll a, ll b, ll c);
@@ -39,7 +40,9 @@ Mixer::Mixer(const int max_a, const int max_b, const int max_c,
              const int target)
     : max_a_(max_a), max_b_(max_b), max_c_(max_c), target_(target),
       source_(GetHash(0, 0, max_c)) {
-  BuildGraph(0, 0, max_c, infinity_ll);
+  std::unordered_set<ll> lineage;
+  lineage.insert(GetHash(0, 0, max_c_));
+  BuildGraph(0, 0, max_c_, lineage);
   InitializeDestinations();
 }
 
@@ -88,22 +91,22 @@ std::pair<ll, ll> Mixer::GetShortestDistance() const {
   return std::make_pair((*min_cost.find(min_cost_dst)).second, target_);
 }
 
-void Mixer::BuildGraph(const int a, const int b, const int c, const ll parent) {
+void Mixer::BuildGraph(const int a, const int b, const int c,
+                       std::unordered_set<ll> &lineage) {
   nodes_.emplace_back(a, b, c);
   const auto node = GetHash(a, b, c);
-  if (adj_list_.find(node) != adj_list_.end()) {
-    return;
-  }
 
   if (a > 0 && b < max_b_) {
     const auto rem_b = max_b_ - b;
     const auto new_a = a <= rem_b ? 0 : a - rem_b;
     const auto new_b = a <= rem_b ? a + b : max_b_;
     const auto adj_node = GetHash(new_a, new_b, c);
-    if (adj_node != parent) {
-      assert(adj_list_[node].find(adj_node) == adj_list_[node].end());
-      adj_list_[node][adj_node] = a - new_a;
-      BuildGraph(new_a, new_b, c, node);
+
+    if (lineage.find(adj_node) == lineage.end()) {
+      lineage.insert(adj_node);
+      adj_list_[node][adj_node] = adj_list_[adj_node][node] = a - new_a;
+      BuildGraph(new_a, new_b, c, lineage);
+      lineage.erase(adj_node);
     }
   }
 
@@ -112,10 +115,12 @@ void Mixer::BuildGraph(const int a, const int b, const int c, const ll parent) {
     const auto new_a = a <= rem_c ? 0 : a - rem_c;
     const auto new_c = a <= rem_c ? a + c : max_c_;
     const auto adj_node = GetHash(new_a, b, new_c);
-    if (adj_node != parent) {
-      assert(adj_list_[node].find(adj_node) == adj_list_[node].end());
-      adj_list_[node][adj_node] = a - new_a;
-      BuildGraph(new_a, b, new_c, node);
+
+    if (lineage.find(adj_node) == lineage.end()) {
+      lineage.insert(adj_node);
+      adj_list_[node][adj_node] = adj_list_[adj_node][node] = a - new_a;
+      BuildGraph(new_a, b, new_c, lineage);
+      lineage.erase(adj_node);
     }
   }
 
@@ -124,10 +129,12 @@ void Mixer::BuildGraph(const int a, const int b, const int c, const ll parent) {
     const auto new_b = b <= rem_a ? 0 : b - rem_a;
     const auto new_a = b <= rem_a ? b + a : max_a_;
     const auto adj_node = GetHash(new_a, new_b, c);
-    if (adj_node != parent) {
-      assert(adj_list_[node].find(adj_node) == adj_list_[node].end());
-      adj_list_[node][adj_node] = b - new_b;
-      BuildGraph(new_a, new_b, c, node);
+
+    if (lineage.find(adj_node) == lineage.end()) {
+      lineage.insert(adj_node);
+      adj_list_[node][adj_node] = adj_list_[adj_node][node] = b - new_b;
+      BuildGraph(new_a, new_b, c, lineage);
+      lineage.erase(adj_node);
     }
   }
 
@@ -136,10 +143,12 @@ void Mixer::BuildGraph(const int a, const int b, const int c, const ll parent) {
     const auto new_b = b <= rem_c ? 0 : b - rem_c;
     const auto new_c = b <= rem_c ? b + c : max_c_;
     const auto adj_node = GetHash(a, new_b, new_c);
-    if (adj_node != parent) {
-      assert(adj_list_[node].find(adj_node) == adj_list_[node].end());
-      adj_list_[node][adj_node] = b - new_b;
-      BuildGraph(a, new_b, new_c, node);
+
+    if (lineage.find(adj_node) == lineage.end()) {
+      lineage.insert(adj_node);
+      adj_list_[node][adj_node] = adj_list_[adj_node][node] = b - new_b;
+      BuildGraph(a, new_b, new_c, lineage);
+      lineage.erase(adj_node);
     }
   }
 
@@ -148,10 +157,12 @@ void Mixer::BuildGraph(const int a, const int b, const int c, const ll parent) {
     const auto new_c = c <= rem_a ? 0 : c - rem_a;
     const auto new_a = c <= rem_a ? c + a : max_a_;
     const auto adj_node = GetHash(new_a, b, new_c);
-    if (adj_node != parent) {
-      assert(adj_list_[node].find(adj_node) == adj_list_[node].end());
-      adj_list_[node][adj_node] = c - new_c;
-      BuildGraph(new_a, b, new_c, node);
+
+    if (lineage.find(adj_node) == lineage.end()) {
+      lineage.insert(adj_node);
+      adj_list_[node][adj_node] = adj_list_[adj_node][node] = c - new_c;
+      BuildGraph(new_a, b, new_c, lineage);
+      lineage.erase(adj_node);
     }
   }
 
@@ -160,10 +171,12 @@ void Mixer::BuildGraph(const int a, const int b, const int c, const ll parent) {
     const auto new_c = c <= rem_b ? 0 : c - rem_b;
     const auto new_b = c <= rem_b ? c + b : max_b_;
     const auto adj_node = GetHash(a, new_b, new_c);
-    if (adj_node != parent) {
-      assert(adj_list_[node].find(adj_node) == adj_list_[node].end());
-      adj_list_[node][adj_node] = c - new_c;
-      BuildGraph(a, new_b, new_c, node);
+
+    if (lineage.find(adj_node) == lineage.end()) {
+      lineage.insert(adj_node);
+      adj_list_[node][adj_node] = adj_list_[adj_node][node] = c - new_c;
+      BuildGraph(a, new_b, new_c, lineage);
+      lineage.erase(adj_node);
     }
   }
 }

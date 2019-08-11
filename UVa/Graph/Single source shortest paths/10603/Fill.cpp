@@ -9,6 +9,7 @@
 #include <unordered_map>
 #include <vector>
 
+namespace uva_10603 {
 using ll = long long;
 const auto infinity = std::numeric_limits<int>::max();
 const auto infinity_ll = std::numeric_limits<ll>::max();
@@ -19,7 +20,7 @@ public:
   std::pair<ll, ll> GetShortestDistance() const;
 
 private:
-  void BuildGraph(int a, int b, int c, const ll parent);
+  void BuildGraph(int a, int b, int c, ll parent);
   void InitializeDestinations();
 
   static ll GetHash(ll a, ll b, ll c);
@@ -198,6 +199,7 @@ ll Mixer::GetHash(const ll a, const ll b, const ll c) {
   hash += c;
   return hash;
 }
+} // namespace uva_10603
 
 int main(int argc, char *argv[]) {
   size_t t = 0;
@@ -206,7 +208,7 @@ int main(int argc, char *argv[]) {
   std::cin >> t;
   while (t--) {
     std::cin >> a >> b >> c >> d;
-    auto [cost, target] = Mixer(a, b, c, d).GetShortestDistance();
+    auto [cost, target] = uva_10603::Mixer(a, b, c, d).GetShortestDistance();
     std::cout << cost << ' ' << target << std::endl;
   }
   return 0;

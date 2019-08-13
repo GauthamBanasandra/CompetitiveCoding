@@ -1,0 +1,1 @@
+.build\Debug\Lift_hopping.exe < "Graph\Single source shortest paths\10801\Lift hopping.txt"

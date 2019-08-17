@@ -1,0 +1,13 @@
+3
+english spanish
+english french ahmad
+french arabic omar
+arabic spanish amer
+5
+english arabic
+english french ahmad
+french arabic amer
+english spanish wahed
+spanish german esmo
+german french tweel
+0

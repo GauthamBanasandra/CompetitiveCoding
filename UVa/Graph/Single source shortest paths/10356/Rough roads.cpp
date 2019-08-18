@@ -1,31 +1,40 @@
-// WA
-
-#include <algorithm>
+#include <ios>
 #include <iostream>
 #include <limits>
 #include <queue>
 #include <tuple>
 #include <vector>
 
-using PQItem = std::tuple<int, size_t, size_t>;
-const auto infinity = std::numeric_limits<int>::max();
+namespace uva_10356 {
+using Node = size_t;
+using Cost = int;
+
+const auto infinity = std::numeric_limits<Cost>::max();
 
 class RouteGuide {
 public:
   RouteGuide(size_t num_nodes,
              const std::vector<std::tuple<size_t, size_t, int>> &edge_list);
 
-  int GetShortestPathLen() const;
+  Cost GetShortestPath() const;
+
+  enum Mode {
+    kWalk,
+    kCycle,
+    Count // Not a Mode
+  };
 
 private:
   const size_t num_nodes_;
-  std::vector<std::vector<std::pair<size_t, int>>> adj_list_;
+  const Node source_{0};
+  const Node destination_;
+  std::vector<std::vector<std::pair<Node, Cost>>> adj_list_;
 };
 
 RouteGuide::RouteGuide(
     const size_t num_nodes,
-    const std::vector<std::tuple<size_t, size_t, int>> &edge_list)
-    : num_nodes_(num_nodes) {
+    const std::vector<std::tuple<Node, Node, Cost>> &edge_list)
+    : num_nodes_{num_nodes}, destination_{num_nodes_ - 1} {
   adj_list_.resize(num_nodes_);
   for (const auto &[u, v, cost] : edge_list) {
     adj_list_[u].emplace_back(v, cost);
@@ -34,55 +43,61 @@ RouteGuide::RouteGuide(
 }
 
 struct Comparator {
-  bool operator()(const PQItem &a, const PQItem &b) const {
+  bool operator()(const std::tuple<Cost, Node, RouteGuide::Mode> &a,
+                  const std::tuple<Cost, Node, RouteGuide::Mode> &b) const {
     return std::get<0>(a) > std::get<0>(b);
   }
 };
 
-int RouteGuide::GetShortestPathLen() const {
-  std::priority_queue<PQItem, std::vector<PQItem>, Comparator> order;
-  std::vector<int> min_cost(num_nodes_, infinity);
-  auto min_cost_even_hops = infinity;
-  order.emplace(0, 0, 0);
-  min_cost[0] = 0;
+Cost RouteGuide::GetShortestPath() const {
+  // Keep track of also the mode(by walking or cycling) by which the destination
+  // node was reached
+  std::vector<std::vector<Cost>> min_cost(
+      num_nodes_, std::vector<Cost>(Mode::Count, infinity));
+  std::priority_queue<std::tuple<Cost, Node, Mode>,
+                      std::vector<std::tuple<Cost, Node, Mode>>, Comparator>
+      order;
+
+  min_cost[source_][Mode::kCycle] = 0;
+  order.emplace(0, source_, Mode::kCycle);
 
   while (!order.empty()) {
-    const auto [current_cost, node, hops] = order.top();
+    auto [current_cost, node, mode] = order.top();
     order.pop();
 
-    if (current_cost > min_cost[node]) {
+    if (current_cost > min_cost[node][mode]) {
       continue;
     }
 
     for (const auto &[adj_node, adj_cost] : adj_list_[node]) {
-      const auto cost = min_cost[node] + adj_cost;
-      if (cost < min_cost[adj_node]) {
-        order.emplace(cost, adj_node, hops + 1);
-        min_cost[adj_node] = cost;
+      auto cost = min_cost[node][mode] + adj_cost;
+      if (cost < min_cost[adj_node][1 - mode]) {
+        min_cost[adj_node][1 - mode] = cost;
+        order.emplace(cost, adj_node, static_cast<Mode>(1 - mode));
       }
-      min_cost_even_hops = adj_node == num_nodes_ - 1 && ((hops + 1) & 1) == 0
-                               ? std::min(min_cost_even_hops, cost)
-                               : min_cost_even_hops;
     }
   }
-  return min_cost_even_hops;
+  return min_cost[destination_][Mode::kCycle];
 }
+} // namespace uva_10356
 
 int main(int argc, char *argv[]) {
-  size_t num_nodes = 0, num_edges = 0, u = 0, v = 0, t = 0;
-  auto cost = 0;
+  std::ios::sync_with_stdio(false);
+
+  size_t num_nodes = 0, num_edges = 0, t = 0;
 
   while (std::cin >> num_nodes >> num_edges, !std::cin.eof()) {
     std::vector<std::tuple<size_t, size_t, int>> edge_list;
-    edge_list.reserve(num_edges);
+    edge_list.resize(num_edges);
     for (size_t i = 0; i < num_edges; ++i) {
-      std::cin >> u >> v >> cost;
-      edge_list.emplace_back(u, v, cost);
+      std::cin >> std::get<0>(edge_list[i]) >> std::get<1>(edge_list[i]) >>
+          std::get<2>(edge_list[i]);
     }
 
     std::cout << "Set #" << ++t << std::endl;
-    const auto min_cost = RouteGuide(num_nodes, edge_list).GetShortestPathLen();
-    if (min_cost == infinity) {
+    const auto min_cost =
+        uva_10356::RouteGuide(num_nodes, edge_list).GetShortestPath();
+    if (min_cost == uva_10356::infinity) {
       std::cout << '?' << std::endl;
     } else {
       std::cout << min_cost << std::endl;

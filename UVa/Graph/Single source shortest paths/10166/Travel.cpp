@@ -1,8 +1,6 @@
-// WA
-
-#include <algorithm>
 #include <cassert>
 #include <iomanip>
+#include <ios>
 #include <iostream>
 #include <limits>
 #include <queue>
@@ -11,27 +9,42 @@
 #include <unordered_map>
 #include <vector>
 
-const auto infinity = std::numeric_limits<int>::max();
-const auto neg_infinity = std::numeric_limits<int>::min();
+namespace uva_10166 {
+using Time = int;
+using Node = size_t;
+using EdgeMetadata = std::pair<Time, Time>;
+const auto infinity = std::numeric_limits<Time>::max();
+
+struct Comparator {
+  bool operator()(const std::pair<EdgeMetadata, Node> &a,
+                  const std::pair<EdgeMetadata, Node> &b) const {
+    return a.first.second > b.first.second;
+  }
+};
 
 class Scheduler {
+  using EarliestArrivalPriorityQueue =
+      std::priority_queue<std::pair<EdgeMetadata, Node>,
+                          std::vector<std::pair<EdgeMetadata, Node>>,
+                          Comparator>;
+
 public:
   Scheduler(const std::vector<std::string> &nodes,
             const std::vector<std::vector<std::pair<int, std::string>>> &paths,
             int start_time, const std::string &journey_begin,
             const std::string &journey_end);
 
-  std::tuple<bool, int, int> FindEarliestArrival() const;
+  std::tuple<bool, Time, Time> GetBestSchedule();
 
 private:
-  int GetFirstDepartureTime(const std::vector<size_t> &parent,
-                            std::vector<std::pair<int, int>> &min_cost) const;
+  Time GetEarliestArrival(std::vector<Time> &min_cost,
+                          EarliestArrivalPriorityQueue &order);
 
   const size_t num_nodes_;
-  const int start_time_;
-  size_t journey_begin_{0};
-  size_t journey_end_{0};
-  std::vector<std::vector<std::tuple<int, int, size_t>>> adj_list_;
+  const int arrival_time_at_source_;
+  size_t source_{0};
+  size_t destination_{0};
+  std::vector<std::vector<std::pair<Node, EdgeMetadata>>> adj_list_;
 };
 
 Scheduler::Scheduler(
@@ -39,7 +52,7 @@ Scheduler::Scheduler(
     const std::vector<std::vector<std::pair<int, std::string>>> &paths,
     const int start_time, const std::string &journey_begin,
     const std::string &journey_end)
-    : num_nodes_(nodes.size()), start_time_(start_time) {
+    : num_nodes_(nodes.size()), arrival_time_at_source_(start_time) {
   size_t i_node = 0;
   std::unordered_map<std::string, size_t> node_index;
   for (const auto &node : nodes) {
@@ -48,11 +61,11 @@ Scheduler::Scheduler(
 
   auto find_it = node_index.find(journey_begin);
   assert(find_it != node_index.end());
-  journey_begin_ = find_it->second;
+  source_ = find_it->second;
 
   find_it = node_index.find(journey_end);
   assert(find_it != node_index.end());
-  journey_end_ = find_it->second;
+  destination_ = find_it->second;
 
   adj_list_.resize(num_nodes_);
   for (const auto &path : paths) {
@@ -70,95 +83,80 @@ Scheduler::Scheduler(
       assert(find_it != node_index.end());
       const auto v = find_it->second;
 
-      adj_list_[u].emplace_back(u_time, v_time, v);
+      adj_list_[u].emplace_back(std::piecewise_construct,
+                                std::forward_as_tuple(v),
+                                std::forward_as_tuple(u_time, v_time));
     }
-  }
-
-  for (auto &items : adj_list_) {
-    std::sort(items.begin(), items.end(),
-              [](const std::tuple<int, int, size_t> &p1,
-                 const std::tuple<int, int, size_t> &p2) -> bool {
-                return std::get<0>(p1) < std::get<0>(p2);
-              });
   }
 }
 
-struct Comparator {
-  bool operator()(const std::tuple<int, int, size_t> &p1,
-                  const std::tuple<int, int, size_t> &p2) const {
-    if (std::get<1>(p1) == std::get<1>(p2)) {
-      return std::get<0>(p1) < std::get<0>(p2);
-    }
-    return std::get<1>(p1) > std::get<1>(p2);
-  }
-};
+std::tuple<bool, Time, Time> Scheduler::GetBestSchedule() {
+  Time max_departure = 0;
+  Time min_arrival = infinity;
 
-std::tuple<bool, int, int> Scheduler::FindEarliestArrival() const {
-  std::vector<std::pair<int, int>> min_cost(num_nodes_,
-                                            {neg_infinity, infinity});
-  std::vector<size_t> parent(num_nodes_, infinity);
-  std::priority_queue<std::tuple<int, int, size_t>,
-                      std::vector<std::tuple<int, int, size_t>>, Comparator>
-      order;
-  order.emplace(neg_infinity, start_time_, journey_begin_);
-
-  while (!order.empty()) {
-    const auto [departure, arrival, destination] = order.top();
-    order.pop();
-
-    if (arrival > min_cost[destination].second ||
-        (arrival == min_cost[destination].second &&
-         departure < min_cost[destination].first)) {
+  // Just run Dijkstra for separately for each edge emanating from the source
+  // node
+  // This is the key to solving this problem
+  // If we don't do this, Dijkstra won't explore the cases when we start late at
+  // the source node, yet arrive at the earliest at the final destination
+  for (const auto &[node, edge] : adj_list_[source_]) {
+    if (edge.first < arrival_time_at_source_) {
       continue;
     }
 
-    const auto least_it = std::upper_bound(
-        adj_list_[destination].rbegin(), adj_list_[destination].rend(), arrival,
-        [](const int arrival, const std::tuple<int, int, size_t> &item)
-            -> bool { return std::get<0>(item) > arrival; });
+    std::vector<Time> min_cost(num_nodes_, infinity);
+    EarliestArrivalPriorityQueue order;
 
-    for (auto it = adj_list_[destination].rbegin();
-         /*it != least_it*/ it != adj_list_[destination].rend(); ++it) {
-      const auto [departure_to_adj, arrival_at_adj, adj_destination] = *it;
-      if (departure_to_adj < arrival) {
-        continue;
-      }
+    min_cost[source_] = arrival_time_at_source_;
+    min_cost[node] = edge.second;
+    order.emplace(edge, node);
 
-      if (arrival_at_adj < min_cost[adj_destination].second ||
-          (arrival_at_adj == min_cost[adj_destination].second &&
-           departure_to_adj > min_cost[adj_destination].first)) {
-        min_cost[adj_destination] = {departure_to_adj, arrival_at_adj};
-        parent[adj_destination] = destination;
-        order.emplace(departure_to_adj, arrival_at_adj, adj_destination);
-      }
+    // At each node, we try to choose the edge which takes us to the destination
+    // at the earliest
+    const auto arrival = GetEarliestArrival(min_cost, order);
+    if (arrival < min_arrival) {
+      min_arrival = arrival;
+      max_departure = edge.first;
+
+      // However, if there are multiple trains which arrives at the final
+      // destination at the same time, we would rather take the one which starts
+      // as late as possible
+    } else if (arrival == min_arrival && edge.first > max_departure) {
+      max_departure = edge.first;
     }
   }
-  if (min_cost[journey_end_].second == infinity) {
+
+  if (min_arrival == infinity) {
     return {false, -1, -1};
   }
-  return {true, GetFirstDepartureTime(parent, min_cost),
-          min_cost[journey_end_].second};
+  return {true, max_departure, min_arrival};
 }
 
-int Scheduler::GetFirstDepartureTime(
-    const std::vector<size_t> &parent_node,
-    std::vector<std::pair<int, int>> &min_cost) const {
-  for (auto node = journey_end_; node != journey_begin_;
-       node = parent_node[node]) {
-    const auto parent = parent_node[node];
-    for (const auto &[departure, arrival, destination] : adj_list_[parent]) {
-      if (destination != node || arrival != min_cost[node].second ||
-          departure < min_cost[node].first) {
-        continue;
-      }
-      min_cost[node].first = std::max(min_cost[node].first, departure);
+Time Scheduler::GetEarliestArrival(std::vector<Time> &min_cost,
+                                   EarliestArrivalPriorityQueue &order) {
+  while (!order.empty()) {
+    auto [edge, node] = order.top();
+    order.pop();
+
+    if (edge.second > min_cost[node]) {
+      continue;
     }
-    min_cost[parent].second = min_cost[node].first;
+
+    for (const auto &[adj_node, adj_edge] : adj_list_[node]) {
+      if (adj_edge.first >= edge.second &&
+          adj_edge.second < min_cost[adj_node]) {
+        min_cost[adj_node] = adj_edge.second;
+        order.emplace(adj_edge, adj_node);
+      }
+    }
   }
-  return min_cost[journey_begin_].second;
+  return min_cost[destination_];
 }
+} // namespace uva_10166
 
 int main(int argc, char *argv[]) {
+  std::ios::sync_with_stdio(false);
+
   size_t c = 0, t = 0, ti = 0, tc = 0;
   auto start_time = 0;
   std::string city, begin, destination;
@@ -186,8 +184,8 @@ int main(int argc, char *argv[]) {
 
     std::cin >> start_time >> begin >> destination;
     auto [is_possible, departure, arrival] =
-        Scheduler(cities, trains, start_time, begin, destination)
-            .FindEarliestArrival();
+        uva_10166::Scheduler(cities, trains, start_time, begin, destination)
+            .GetBestSchedule();
     if (is_possible) {
       std::cout << std::setfill('0') << std::setw(4) << departure << ' '
                 << std::setfill('0') << std::setw(4) << arrival << std::endl;

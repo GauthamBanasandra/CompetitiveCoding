@@ -1,0 +1,26 @@
+2
+Dime
+Debel
+1
+2
+0800 Dime
+0000 Debel
+0700
+Dime
+Debel
+5
+Cevel
+Mebel
+Koj
+E
+Debel
+1
+5
+0005 Cevel
+0004 Mebel
+0003 Koj
+0002 E
+0001 Debel
+0000
+Cevel Debel
+0

@@ -66,7 +66,7 @@ Cost Selector::GetHighestCost() const {
     }
 
     for (const auto &[adj_node, adj_cost] : adj_list_[node]) {
-      auto cost = max_cost[node] + adj_cost;
+      auto cost = current_cost + adj_cost;
       if (cost < capital_) {
         continue;
       }

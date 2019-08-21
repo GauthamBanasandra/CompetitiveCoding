@@ -387,3 +387,5 @@ include(UseJava)
                 add_executable(Babel "Graph/Single source shortest paths/11492/Babel.cpp")
                 add_executable(Route_change "Graph/Single source shortest paths/11833/Route change.cpp")
                 add_executable(Highest_paid_toll "Graph/Single source shortest paths/12047/Highest paid toll.cpp")
+                # On negative weight cycle : Bellman Ford
+                add_executable(Wormholes "Graph/Single source shortest paths/558/Wormholes.cpp")

@@ -390,3 +390,4 @@ include(UseJava)
                 # On negative weight cycle : Bellman Ford
                 add_executable(Wormholes "Graph/Single source shortest paths/558/Wormholes.cpp")
                 add_executable(Traffic "Graph/Single source shortest paths/10449/Traffic.cpp")
+                add_executable(Xyzzy "Graph/Single source shortest paths/10557/Xyzzy.cpp")

@@ -1,0 +1,1 @@
+.build\Debug\Xyzzy.exe < "Graph\Single source shortest paths\10557\Xyzzy.txt"

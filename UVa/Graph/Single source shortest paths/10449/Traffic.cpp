@@ -1,15 +1,17 @@
-// WIP
+// TLE
 
 #include <algorithm>
 #include <iostream>
 #include <limits>
 #include <tuple>
+#include <unordered_set>
 #include <vector>
 
 using Node = size_t;
 using Cost = long long;
 
 const auto infinity = std::numeric_limits<Cost>::max();
+const auto unvisited = -1;
 
 class Selector {
 public:
@@ -19,14 +21,21 @@ public:
   Cost GetMinTotalCost(Node destination);
 
 private:
+  void MarkAsUnReachableNodes(Node node);
+
   const size_t num_nodes_;
   std::vector<Cost> min_cost_;
+  std::vector<int> visited_;
   std::vector<std::tuple<Node, Node, Cost>> edge_list_;
+  std::vector<std::vector<Node>> adj_list_;
 };
 
 Selector::Selector(const size_t num_nodes, const std::vector<Cost> &business,
                    const std::vector<std::pair<Node, Node>> &edge_list)
     : num_nodes_(num_nodes + 1), min_cost_(num_nodes + 1, infinity) {
+  if (num_nodes == 0) {
+    return;
+  }
   edge_list_.resize(edge_list.size());
   std::transform(edge_list.begin(), edge_list.end(), edge_list_.begin(),
                  [&business](const std::pair<Node, Node> &edge)
@@ -36,6 +45,12 @@ Selector::Selector(const size_t num_nodes, const std::vector<Cost> &business,
                    return {u, v, value * value * value};
                  });
 
+  adj_list_.resize(num_nodes_);
+  visited_.resize(num_nodes_, unvisited);
+  for (const auto &[u, v] : edge_list) {
+    adj_list_[u].emplace_back(v);
+  }
+
   min_cost_[1] = 0;
   for (size_t i = 0; i < num_nodes_ - 1; ++i) {
     for (const auto &[u, v, cost] : edge_list_) {
@@ -44,19 +59,38 @@ Selector::Selector(const size_t num_nodes, const std::vector<Cost> &business,
                          : std::min(min_cost_[v], min_cost_[u] + cost);
     }
   }
+
+  for (const auto &[u, v, cost] : edge_list_) {
+    if (min_cost_[u] == infinity) {
+      continue;
+    }
+
+    if (min_cost_[v] > min_cost_[u] + cost) {
+      MarkAsUnReachableNodes(v);
+    }
+  }
 }
 
 Cost Selector::GetMinTotalCost(const Node destination) {
-  for (const auto &[u, v, cost] : edge_list_) {
-    if (min_cost_[u] == infinity && u == destination) {
-      return infinity;
-    }
-
-    if (min_cost_[v] > min_cost_[u] + cost && v == destination) {
-      return infinity;
-    }
+  if (destination > num_nodes_) {
+    return infinity;
   }
   return min_cost_[destination];
+}
+
+void Selector::MarkAsUnReachableNodes(const Node node) {
+  if (visited_[node] != unvisited) {
+    return;
+  }
+
+  visited_[node] = 1;
+  min_cost_[node] = infinity;
+
+  for (const auto &adj_node : adj_list_[node]) {
+    if (visited_[adj_node] == unvisited) {
+      MarkAsUnReachableNodes(adj_node);
+    }
+  }
 }
 
 int main(int argc, char *argv[]) {

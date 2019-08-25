@@ -24,3 +24,5 @@ include(UseJava)
 # 2019
         # Round A
         add_executable(Training "2019/Round A/A/Training.cpp")
+        # Round E
+        add_executable(Cherries_mesh "2019/Round A/E/Cherries mesh.cpp")

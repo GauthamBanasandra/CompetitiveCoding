@@ -1,0 +1,1 @@
+.build\Debug\Cherries_mesh.exe < "2019\Round A\E\Cherries mesh.txt"

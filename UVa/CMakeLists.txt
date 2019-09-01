@@ -391,3 +391,6 @@ include(UseJava)
                 add_executable(Wormholes "Graph/Single source shortest paths/558/Wormholes.cpp")
                 add_executable(Traffic "Graph/Single source shortest paths/10449/Traffic.cpp")
                 add_executable(Xyzzy "Graph/Single source shortest paths/10557/Xyzzy.cpp")
+        # All pairs shortest paths
+                # Floyd Warshall's standard application
+                add_executable(Non_stop_travel "Graph/All pairs shortest paths/341/Non stop travel.cpp")

@@ -6,7 +6,7 @@
 namespace uva_341 {
 using Node = size_t;
 using Cost = int;
-using AdjacencyMatrix = std::vector<std::vector<Cost>>;
+template <typename T> using AdjacencyMatrix = std::vector<std::vector<T>>;
 using AdjacencyList = std::vector<std::vector<std::pair<Node, Cost>>>;
 
 const auto infinity = std::numeric_limits<Cost>::max();
@@ -18,12 +18,11 @@ public:
   std::pair<std::vector<Node>, Cost> GetMinPathWithCost(Node u, Node v);
 
 private:
-  static void GetPath(Node u, Node v,
-                      const std::vector<std::vector<Node>> &parent,
+  static void GetPath(Node u, Node v, const AdjacencyMatrix<Node> &parent,
                       std::vector<Node> &path);
 
   size_t num_nodes_;
-  AdjacencyMatrix adj_matrix_;
+  AdjacencyMatrix<Cost> adj_matrix_;
 };
 
 Navigator::Navigator(const size_t num_nodes, const AdjacencyList &adj_list)
@@ -38,7 +37,7 @@ Navigator::Navigator(const size_t num_nodes, const AdjacencyList &adj_list)
 
 std::pair<std::vector<Node>, Cost> Navigator::GetMinPathWithCost(const Node u,
                                                                  const Node v) {
-  std::vector<std::vector<Node>> parent(num_nodes_);
+  AdjacencyMatrix<Node> parent(num_nodes_);
   for (size_t i = 1; i < num_nodes_; ++i) {
     parent[i].resize(num_nodes_, i);
   }
@@ -65,7 +64,7 @@ std::pair<std::vector<Node>, Cost> Navigator::GetMinPathWithCost(const Node u,
 }
 
 void Navigator::GetPath(const Node u, Node v,
-                        const std::vector<std::vector<Node>> &parent,
+                        const AdjacencyMatrix<Node> &parent,
                         std::vector<Node> &path) {
   if (u != v) {
     GetPath(u, parent[u][v], parent, path);

@@ -394,3 +394,4 @@ include(UseJava)
         # All pairs shortest paths
                 # Floyd Warshall's standard application
                 add_executable(Non_stop_travel "Graph/All pairs shortest paths/341/Non stop travel.cpp")
+                add_executable(Interstar_transport "Graph/All pairs shortest paths/1247/Interstar transport.cpp")

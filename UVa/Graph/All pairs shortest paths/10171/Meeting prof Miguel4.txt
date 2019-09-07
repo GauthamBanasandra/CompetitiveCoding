@@ -1,0 +1,7 @@
+4
+Y B A B 2
+Y B A D 2
+M B C D 2
+M B C B 2
+A C
+0

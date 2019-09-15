@@ -18,13 +18,25 @@ public class Arbitrage {
             }
         }
 
+        int[][] hops = new int[numNodes][numNodes];
+        for (int i = 1; i < numNodes; i++) {
+            for (int j = 1; j < numNodes; j++) {
+                hops[i][j] = Integer.MAX_VALUE;
+            }
+        }
+
         for (int k = 1; k < numNodes; k++) {
             for (int i = 1; i < numNodes; i++) {
                 for (int j = 1; j < numNodes; j++) {
                     BigDecimal cost = adjacencyMatrix[i][k].multiply(adjacencyMatrix[k][j]);
-                    if (cost.compareTo(adjacencyMatrix[i][j]) > 0) {
+                    if (cost.compareTo(BigDecimal.ONE) > 0) {
+                        if (hops[k][j] != Integer.MAX_VALUE &&
+                                (hops[k][j] >= hops[i][j] || hops[k][j] + 1 > numNodes)) {
+                            continue;
+                        }
                         adjacencyMatrix[i][j] = cost;
                         parent[i][j] = parent[k][j];
+                        hops[i][j] = hops[k][j] == Integer.MAX_VALUE ? 1 : hops[k][j] + 1;
                     }
                 }
             }

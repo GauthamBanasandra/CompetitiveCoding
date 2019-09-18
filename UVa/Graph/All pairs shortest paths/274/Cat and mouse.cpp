@@ -2,7 +2,6 @@
 
 #include <algorithm>
 #include <iostream>
-#include <limits>
 #include <sstream>
 #include <string>
 #include <unordered_set>
@@ -27,6 +26,7 @@ private:
                                              const Node source) const;
   static bool IsPossibleToMeet(const std::unordered_set<Node> &cat_reachable,
                                const std::unordered_set<Node> &mouse_reachable);
+  bool IsMouseCyclePossible(const std::unordered_set<Node> &cat_reachable);
 
   const size_t num_nodes_;
   const Node cat_src_;
@@ -45,10 +45,11 @@ Navigator::Navigator(const size_t num_nodes, const Node cat_src,
 
 std::pair<bool, bool> Navigator::GetResult() {
   ConnectTransitiveRoutes(cat_adj_matrix_);
-  ConnectTransitiveRoutes(mouse_adj_matrix_);
+  auto mouse_transitive_paths = mouse_adj_matrix_;
+  ConnectTransitiveRoutes(mouse_transitive_paths);
 
   auto cat_reachable = GetReachableNodes(cat_adj_matrix_, cat_src_);
-  auto mouse_reachable = GetReachableNodes(mouse_adj_matrix_, mouse_src_);
+  auto mouse_reachable = GetReachableNodes(mouse_transitive_paths, mouse_src_);
   return {IsPossibleToMeet(cat_reachable, mouse_reachable), false};
 }
 
@@ -92,6 +93,25 @@ bool Navigator::IsPossibleToMeet(
     }
   }
   return false;
+}
+
+bool Navigator::IsMouseCyclePossible(
+    const std::unordered_set<Node> &cat_reachable) {
+  mouse_adj_matrix_[mouse_src_][mouse_src_] = 0;
+  for (Node k = 1; k < num_nodes_; ++k) {
+    for (Node i = 1; i < num_nodes_; ++i) {
+      for (Node j = 1; j < num_nodes_; ++j) {
+        if (cat_reachable.find(j) != cat_reachable.end() ||
+            cat_reachable.find(k) != cat_reachable.end()) {
+          continue;
+        }
+        mouse_adj_matrix_[i][j] =
+            std::max(mouse_adj_matrix_[i][j],
+                     mouse_adj_matrix_[i][k] + mouse_adj_matrix_[k][j]);
+      }
+    }
+  }
+  return mouse_adj_matrix_[mouse_src_][mouse_src_] > 2;
 }
 
 int main(int argc, char *argv[]) {

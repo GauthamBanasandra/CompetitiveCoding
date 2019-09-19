@@ -1,12 +1,12 @@
-// WIP
-
 #include <algorithm>
+#include <ios>
 #include <iostream>
 #include <sstream>
 #include <string>
 #include <unordered_set>
 #include <vector>
 
+namespace uva_274 {
 using Node = size_t;
 using AdjacencyMatrix = std::vector<std::vector<int>>;
 using EdgeList = std::vector<std::pair<Node, Node>>;
@@ -48,9 +48,11 @@ std::pair<bool, bool> Navigator::GetResult() {
   auto mouse_transitive_paths = mouse_adj_matrix_;
   ConnectTransitiveRoutes(mouse_transitive_paths);
 
-  auto cat_reachable = GetReachableNodes(cat_adj_matrix_, cat_src_);
-  auto mouse_reachable = GetReachableNodes(mouse_transitive_paths, mouse_src_);
-  return {IsPossibleToMeet(cat_reachable, mouse_reachable), false};
+  const auto cat_reachable = GetReachableNodes(cat_adj_matrix_, cat_src_);
+  const auto mouse_reachable =
+      GetReachableNodes(mouse_transitive_paths, mouse_src_);
+  return {IsPossibleToMeet(cat_reachable, mouse_reachable),
+          IsMouseCyclePossible(cat_reachable)};
 }
 
 void Navigator::InitializeAdjacencyMatrix(AdjacencyMatrix &adj_matrix,
@@ -97,12 +99,28 @@ bool Navigator::IsPossibleToMeet(
 
 bool Navigator::IsMouseCyclePossible(
     const std::unordered_set<Node> &cat_reachable) {
+  // What we want to do here is to find the longest cycle starting and ending at
+  // mouse's home node, while avoiding those nodes that are reachable by the
+  // cat. Then we check if such a cycle exists and its length is at least 2
+  // We do this by setting mouse's home node to a low value and run Floyd
+  // Warshall
+  // We don't need to tweak Floyd Warshall to achieve this. By the
+  // nature of Floyd Warshall algorithm, it will optimize every path and
+  // therefore it will try to find the longest possible path (cycle) to go from
+  // mouse_src to mouse_src
   mouse_adj_matrix_[mouse_src_][mouse_src_] = 0;
   for (Node k = 1; k < num_nodes_; ++k) {
     for (Node i = 1; i < num_nodes_; ++i) {
       for (Node j = 1; j < num_nodes_; ++j) {
+        // We need to check if either the intermediate vertex k or the
+        // destination vertex j are reachable by cat and avoid going there.
         if (cat_reachable.find(j) != cat_reachable.end() ||
-            cat_reachable.find(k) != cat_reachable.end()) {
+            cat_reachable.find(k) != cat_reachable.end() ||
+            // Also, we need to avoid if the intermediate vertex k is the same
+            // as mouse's home node
+            k == mouse_src_ ||
+            // And also avoid paths were either i->k or k->j is missing
+            mouse_adj_matrix_[i][k] == 0 || mouse_adj_matrix_[k][j] == 0) {
           continue;
         }
         mouse_adj_matrix_[i][j] =
@@ -111,13 +129,16 @@ bool Navigator::IsMouseCyclePossible(
       }
     }
   }
-  return mouse_adj_matrix_[mouse_src_][mouse_src_] > 2;
+  return mouse_adj_matrix_[mouse_src_][mouse_src_] >= 2;
 }
+} // namespace uva_274
 
 int main(int argc, char *argv[]) {
+  std::ios::sync_with_stdio(false);
+
   int u, v;
   size_t t, num_nodes;
-  Node cat_src, mouse_src;
+  uva_274::Node cat_src, mouse_src;
   std::string line;
 
   std::getline(std::cin, line);
@@ -125,12 +146,12 @@ int main(int argc, char *argv[]) {
   t_tokenizer >> t;
   std::getline(std::cin, line);
 
-  while (t--) {
+  for (size_t i = 0; i < t; ++i) {
     std::getline(std::cin, line);
     std::istringstream ncm_tokenizer(line);
     ncm_tokenizer >> num_nodes >> cat_src >> mouse_src;
 
-    EdgeList cat_edge_list, mouse_edge_list;
+    uva_274::EdgeList cat_edge_list, mouse_edge_list;
     auto cat = true;
     while (std::getline(std::cin, line), !line.empty()) {
       std::istringstream uv_tokenizer(line);
@@ -146,10 +167,14 @@ int main(int argc, char *argv[]) {
       }
     }
 
-    auto result =
-        Navigator(num_nodes, cat_src, mouse_src, cat_edge_list, mouse_edge_list)
-            .GetResult();
-    std::cout << result.first << result.second << std::endl;
+    auto result = uva_274::Navigator(num_nodes, cat_src, mouse_src,
+                                     cat_edge_list, mouse_edge_list)
+                      .GetResult();
+    if (i > 0) {
+      std::cout << std::endl;
+    }
+    std::cout << (result.first ? 'Y' : 'N') << " "
+              << (result.second ? 'Y' : 'N') << std::endl;
   }
   return 0;
 }

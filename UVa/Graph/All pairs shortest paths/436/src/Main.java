@@ -3,7 +3,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.util.HashMap;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
 class Edge {

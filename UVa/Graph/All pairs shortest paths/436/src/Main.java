@@ -1,5 +1,3 @@
-// TLE
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -44,14 +42,6 @@ class Arbitrage {
             nodeIdx.put(nodes[i], i);
         }
 
-        for (Edge edge : edgeList) {
-            int u = nodeIdx.get(edge.getFrom());
-            int v = nodeIdx.get(edge.getTo());
-
-            adjacencyMatrix[u][v] = edge.getCost();
-//            adjacencyMatrix[v][u] = BigDecimal.ONE.divide(edge.getCost(), divisionScale, RoundingMode.UP);
-        }
-
         for (int i = 0; i < this.numNodes; i++) {
             for (int j = 0; j < this.numNodes; j++) {
                 if (i == j) {
@@ -61,12 +51,24 @@ class Arbitrage {
                 }
             }
         }
+
+        for (Edge edge : edgeList) {
+            int u = nodeIdx.get(edge.getFrom());
+            int v = nodeIdx.get(edge.getTo());
+
+            adjacencyMatrix[u][v] = edge.getCost();
+        }
     }
 
     public boolean IsPossible() {
         for (int k = 0; k < numNodes; k++) {
             for (int i = 0; i < numNodes; i++) {
                 for (int j = 0; j < numNodes; j++) {
+                    // We don't want to optimize self loops
+                    if (i == k || k == j) {
+                        continue;
+                    }
+
                     BigDecimal cost = adjacencyMatrix[i][k].multiply(adjacencyMatrix[k][j]);
                     if (cost.compareTo(adjacencyMatrix[i][j]) > 0) {
                         adjacencyMatrix[i][j] = cost;
@@ -85,13 +87,11 @@ class Arbitrage {
 
     private final int numNodes;
     private BigDecimal[][] adjacencyMatrix;
-    private static final int divisionScale = 19;
 }
 
 public class Main {
     public static void main(String[] args) throws IOException {
         int numNodes, numEdges, t = 0;
-        Scanner scanner = new Scanner(System.in);
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         while ((numNodes = Integer.parseInt(reader.readLine())) != 0) {

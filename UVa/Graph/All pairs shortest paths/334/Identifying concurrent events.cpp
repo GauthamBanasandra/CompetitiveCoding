@@ -1,7 +1,4 @@
-// WIP
-
-#include <algorithm>
-#include <cassert>
+#include <ios>
 #include <iostream>
 #include <ostream>
 #include <string>
@@ -10,22 +7,8 @@
 #include <utility>
 #include <vector>
 
+namespace uva_334 {
 using Node = size_t;
-
-struct UniquePairs {
-  UniquePairs(const std::unordered_map<Node, std::string> &idx_node)
-      : idx_node_{idx_node} {}
-
-  void Add(Node u, Node v);
-  std::vector<std::pair<std::string, std::string>> Get() const {
-    return pairs_;
-  }
-
-private:
-  const std::unordered_map<Node, std::string> &idx_node_;
-  std::unordered_set<std::string> unique_;
-  std::vector<std::pair<std::string, std::string>> pairs_;
-};
 
 class Scheduler {
 
@@ -40,20 +23,6 @@ private:
   std::vector<std::vector<int>> adj_matrix_;
   std::unordered_map<Node, std::string> idx_node_;
 };
-
-void UniquePairs::Add(const Node u, const Node v) {
-  const auto hash =
-      std::to_string(std::min(u, v)) + " " + std::to_string(std::max(u, v));
-  if (unique_.find(hash) == unique_.end()) {
-    unique_.insert(hash);
-
-    const auto find_u_it = idx_node_.find(u);
-    assert(find_u_it != idx_node_.end());
-    const auto find_v_it = idx_node_.find(v);
-    assert(find_v_it != idx_node_.end());
-    pairs_.emplace_back(find_u_it->second, find_v_it->second);
-  }
-}
 
 Scheduler::Scheduler(
     const std::vector<std::vector<std::string>> &sequences,
@@ -107,18 +76,23 @@ Scheduler::GetConcurrentEvents() {
     }
   }
 
-  UniquePairs unique_pairs(idx_node_);
+  std::vector<std::pair<std::string, std::string>> concurrent_pairs;
   for (Node i = 0; i < num_nodes_; ++i) {
-    for (Node j = 0; j < num_nodes_; ++j) {
-      if (i != j && adj_matrix_[i][j] == 0) {
-        unique_pairs.Add(i, j);
+    for (auto j = i + 1; j < num_nodes_; ++j) {
+      // The events are concurrent only if path doesn't exist between them in
+      // both the directions
+      if (adj_matrix_[i][j] == 0 && adj_matrix_[j][i] == 0) {
+        concurrent_pairs.emplace_back(idx_node_[i], idx_node_[j]);
       }
     }
   }
-  return unique_pairs.Get();
+  return concurrent_pairs;
 }
+} // namespace uva_334
 
 int main(int argc, char *argv[]) {
+  std::ios::sync_with_stdio(false);
+
   size_t num_sequences, sequence_len, num_messages, t = 0;
   std::vector<std::vector<std::string>> sequences;
   std::vector<std::pair<std::string, std::string>> messages;
@@ -142,17 +116,15 @@ int main(int argc, char *argv[]) {
     std::cout << "Case " << ++t << ", ";
 
     auto concurrent_events =
-        Scheduler(sequences, messages).GetConcurrentEvents();
+        uva_334::Scheduler(sequences, messages).GetConcurrentEvents();
     if (concurrent_events.empty()) {
       std::cout << "no concurrent events." << std::endl;
     } else {
       std::cout << concurrent_events.size()
                 << " concurrent events:" << std::endl;
-      auto separator = "";
       auto num_concurrent_events = 0;
       for (const auto &[e1, e2] : concurrent_events) {
-        std::cout << separator << '(' << e1 << ',' << e2 << ')';
-        separator = " ";
+        std::cout << '(' << e1 << ',' << e2 << ") ";
         ++num_concurrent_events;
         if (num_concurrent_events >= 2) {
           break;

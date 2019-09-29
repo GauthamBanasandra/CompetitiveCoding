@@ -405,3 +405,6 @@ include(UseJava)
                 add_executable(Identifying_concurrent_events "Graph/All pairs shortest paths/334/Identifying concurrent events.cpp")
                 add_executable(No_more_prerequisites_please "Graph/All pairs shortest paths/925/No more prerequisites please.cpp")
                 add_executable(Degrees_of_separation "Graph/All pairs shortest paths/1056/Degrees of separation.cpp")
+        # Network flow
+                # Standard max flow problem (Edmonds Karp's)
+                add_executable(Software_allocation "Graph/Network flow/259/Software allocation.cpp")

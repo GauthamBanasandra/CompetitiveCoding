@@ -1,10 +1,8 @@
-// WIP
-
 #include <algorithm>
 #include <cassert>
+#include <ios>
 #include <iostream>
 #include <limits>
-#include <ostream>
 #include <queue>
 #include <sstream>
 #include <string>
@@ -13,6 +11,7 @@
 #include <utility>
 #include <vector>
 
+namespace uva_259 {
 using Node = size_t;
 using Capacity = int;
 using Application = char;
@@ -27,16 +26,21 @@ public:
       const std::vector<std::tuple<Application, int, std::vector<Computer>>>
           &job_descriptions);
 
-  Capacity GetAllocations();
+  std::pair<bool, std::string> GetAllocations();
 
 private:
   Capacity Augment(const std::vector<Node> &parent);
   std::pair<bool, std::vector<Node>> FindAugmentingPath();
+  std::pair<bool, std::string> GetAllocations(const Capacity max_flow) const;
 
   const size_t num_nodes_;
   const Node source_{0};
   const Node sink_;
+  int num_requests_{0};
   std::unordered_map<Node, Application> id_app_;
+  // The adjacency list is a bipartite graph containing applications(1...n) and
+  // 10 computers(n+1...n+10) and 2 nodes (source_, sink_) - technically, it's
+  // tripartite
   std::vector<std::unordered_map<Node, Capacity>> adj_list_;
 };
 
@@ -50,6 +54,7 @@ FlowNetwork::FlowNetwork(
   Node id = 1;
   std::unordered_map<Application, Node> app_id;
   for (const auto &[app, num_requests, computers] : job_descriptions) {
+    num_requests_ += num_requests;
     if (app_id.find(app) == app_id.end()) {
       id_app_[id] = app;
       app_id[app] = id++;
@@ -70,19 +75,25 @@ FlowNetwork::FlowNetwork(
   }
 }
 
-Capacity FlowNetwork::GetAllocations() {
+// We apply Edmonds Karp's algorithm here
+// In each iteration, use BFS and find an augmenting path, augment it to the
+// graph to form the intermediate graph called residual graph
+// Keep doing the above till no more augmenting paths are left
+std::pair<bool, std::string> FlowNetwork::GetAllocations() {
   auto max_flow = 0, flow = 0;
   do {
     auto [is_reachable, bfs_spanning_tree] = FindAugmentingPath();
     if (!is_reachable) {
-      return max_flow;
+      return GetAllocations(max_flow);
     }
     flow = Augment(bfs_spanning_tree);
     max_flow += flow;
   } while (flow != 0);
-  return max_flow;
+  return std::make_pair(false, "");
 }
 
+// Find the min_capacity from sink_ to source_ and decrement all the forward
+// edges by min_capacity and increase the backward edges by min_capacity
 Capacity FlowNetwork::Augment(const std::vector<Node> &parent) {
   auto min_capacity = infinity;
   for (auto node = sink_; node != source_; node = parent[node]) {
@@ -95,6 +106,9 @@ Capacity FlowNetwork::Augment(const std::vector<Node> &parent) {
   return min_capacity;
 }
 
+// An augmenting path is a path from source_ to sink_ where each edge on the
+// path has capacity > 0
+// The return value is a BFS spanning tree, in the form of parents of each node
 std::pair<bool, std::vector<Node>> FlowNetwork::FindAugmentingPath() {
   std::vector<int> visited(num_nodes_, unvisited);
   std::vector<Node> parent(num_nodes_, std::numeric_limits<Node>::max());
@@ -120,26 +134,56 @@ std::pair<bool, std::vector<Node>> FlowNetwork::FindAugmentingPath() {
   return std::make_pair(false, std::move(parent));
 }
 
+std::pair<bool, std::string>
+FlowNetwork::GetAllocations(const Capacity max_flow) const {
+  // The max_flow represents the allocation and must be equal to the total
+  // number of requests that need to be satisfied
+  if (max_flow != num_requests_) {
+    return std::make_pair(false, "");
+  }
+
+  // Here, we just look at the back edges on computer nodes to application to
+  // determine which computer was allocation to an application
+  std::string allocations(10, '_');
+  for (Node i = sink_ - 10, j = 0; i < sink_; ++i, ++j) {
+    for (const auto &[node_id, capacity] : adj_list_[i]) {
+      if (node_id < sink_ - 10 && capacity == 1) {
+        auto find_it = id_app_.find(node_id);
+        assert(find_it != id_app_.end());
+        allocations[j] = find_it->second;
+        break;
+      }
+    }
+  }
+  return std::make_pair(true, std::move(allocations));
+}
+} // namespace uva_259
+
 int main(int argc, char *argv[]) {
+  std::ios::sync_with_stdio(false);
+
   std::string line;
   int num_requests;
-  Application app;
-  Computer computer;
+  uva_259::Application app;
+  uva_259::Computer computer;
 
   while (std::getline(std::cin, line), !std::cin.eof()) {
-    std::vector<std::tuple<Application, int, std::vector<Computer>>>
+    std::vector<
+        std::tuple<uva_259::Application, int, std::vector<uva_259::Computer>>>
         job_descriptions;
     while (!line.empty()) {
       std::istringstream tokenizer(line);
       tokenizer >> app >> num_requests;
-      std::vector<Computer> computers;
+      std::vector<uva_259::Computer> computers;
       while (tokenizer >> computer, computer != ';') {
         computers.emplace_back(computer);
       }
       job_descriptions.emplace_back(app, num_requests, computers);
       std::getline(std::cin, line);
     }
-    std::cout << FlowNetwork(job_descriptions).GetAllocations() << std::endl;
+    auto [is_possible, allocations] =
+        uva_259::FlowNetwork(job_descriptions).GetAllocations();
+    std::cout << (is_possible ? allocations : "!") << std::endl;
   }
   return 0;
 }

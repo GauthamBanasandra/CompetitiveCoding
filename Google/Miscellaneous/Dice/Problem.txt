@@ -1,0 +1,2 @@
+Each face of the dice has a letter [A-Z]. There are n such dice.
+Given a string of n characters [A-Z], determine if this string can be formed from the letters on the dice. A dice can be used only once.

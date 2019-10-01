@@ -408,3 +408,4 @@ include(UseJava)
         # Network flow
                 # Standard max flow problem (Edmonds Karp's)
                 add_executable(Software_allocation "Graph/Network flow/259/Software allocation.cpp")
+                add_executable(My_T_shirt_suits_me "Graph/Network flow/11045/My T shirt suits me.cpp")

@@ -1,0 +1,2 @@
+REM .build\Debug\Clever_naming_patterns.exe < "Graph\Network flow\11418\Clever naming patterns.txt"
+.build\Debug\Clever_naming_patterns.exe < "Graph\Network flow\11418\Clever naming patterns.1.txt" | clip

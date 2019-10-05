@@ -11,6 +11,6 @@ steps:
   path: projects
 - task: CMake@1
   inputs:
-    workingDirectory: 'projects'
+    workingDirectory: 'projects/CompetitiveCoding/UVa'
     cmakeArgs: '..'
     

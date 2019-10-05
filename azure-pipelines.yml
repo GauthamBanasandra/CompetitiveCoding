@@ -9,7 +9,8 @@ pool:
 steps:
 - script: ls -lrth
 - script: pwd
+- script: mkdir build
 - task: CMake@1
   inputs:    
-    cmakeArgs: '.'
+    cmakeArgs: '..'
     

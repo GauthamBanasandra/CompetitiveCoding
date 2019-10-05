@@ -7,10 +7,8 @@ pool:
   vmImage: 'Ubuntu 16.04'
 
 steps:
-- checkout: self
-  path: projects
 - task: CMake@1
   inputs:
-    workingDirectory: 'projects/CompetitiveCoding/UVa'
-    cmakeArgs: '..'
+    workingDirectory: 'CompetitiveCoding'
+    cmakeArgs: '.'
     

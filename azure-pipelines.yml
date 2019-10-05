@@ -8,6 +8,7 @@ pool:
 
 steps:
 - script: ls -lrth
+- script: pwd
 - task: CMake@1
   inputs:    
     cmakeArgs: '.'

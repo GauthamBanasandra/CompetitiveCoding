@@ -11,4 +11,6 @@ steps:
 - task: CMake@1
   inputs:    
     cmakeArgs: '..'
+- script: pwd
+- script: ls -lrth
 - script: cmake --build .

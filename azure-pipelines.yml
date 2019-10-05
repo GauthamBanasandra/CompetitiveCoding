@@ -8,7 +8,6 @@ pool:
 
 steps:
 - task: CMake@1
-  inputs:
-    workingDirectory: 'CompetitiveCoding'
+  inputs:    
     cmakeArgs: '.'
     

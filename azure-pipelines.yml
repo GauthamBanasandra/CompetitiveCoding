@@ -7,10 +7,8 @@ pool:
   vmImage: 'Ubuntu 16.04'
 
 steps:
-- script: ls -lrth
-- script: pwd
 - script: mkdir build
 - task: CMake@1
   inputs:    
     cmakeArgs: '..'
-    
+- script: cmake --build .

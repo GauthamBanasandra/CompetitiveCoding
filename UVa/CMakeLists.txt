@@ -410,3 +410,5 @@ include(UseJava)
                 add_executable(Software_allocation "Graph/Network flow/259/Software allocation.cpp")
                 add_executable(My_T_shirt_suits_me "Graph/Network flow/11045/My T shirt suits me.cpp")
                 add_executable(Clever_naming_patterns "Graph/Network flow/11418/Clever naming patterns.cpp")
+                # Variants
+                add_executable(Power_transmission "Graph/Network flow/10330/Power transmission.cpp")

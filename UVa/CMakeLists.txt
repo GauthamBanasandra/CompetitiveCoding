@@ -412,3 +412,4 @@ include(UseJava)
                 add_executable(Clever_naming_patterns "Graph/Network flow/11418/Clever naming patterns.cpp")
                 # Variants
                 add_executable(Power_transmission "Graph/Network flow/10330/Power transmission.cpp")
+                add_executable(Sabotage "Graph/Network flow/10480/Sabotage.cpp")

@@ -41,3 +41,7 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(Expansion_coefficient_of_the_array "Compete/Round 559/B/Expansion coefficient of the array.cpp")
     # Round 562
     add_executable(Circle_metro "Compete/Round 562/A/Circle metro.cpp")
+
+# Practice
+    # Round 464
+    add_executable(Love_triangle "Practice/Roundd 464/A/Love triangle.cpp")

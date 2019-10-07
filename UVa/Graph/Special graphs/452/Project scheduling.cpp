@@ -68,10 +68,9 @@ Scheduler::Scheduler(
 }
 
 Cost Scheduler::FindLongestPathCost() const {
-  auto order = TopologicalSort();
   std::vector<Cost> max_cost(num_nodes_);
   max_cost[source_] = node_cost_[source_];
-  for (const auto &node : order) {
+  for (const auto &node : TopologicalSort()) {
     for (const auto &adj_node : adj_list_[node]) {
       max_cost[adj_node] =
           std::max(max_cost[adj_node], max_cost[node] + node_cost_[adj_node]);
@@ -119,6 +118,9 @@ int main(int argc, char *argv[]) {
 
   for (size_t c = 0; c < t; ++c) {
     std::vector<std::tuple<char, uva_452::Cost, std::string>> graph;
+    // Had gone wrong here initially
+    // To handle the case with multiple initial nodes, we will connect all
+    // initial nodes to a dummy node with cost 0
     graph.emplace_back('\0', 0, "");
     while (std::getline(std::cin, line), !line.empty()) {
       std::istringstream graph_tokenizer(line);

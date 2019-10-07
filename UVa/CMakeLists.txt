@@ -416,3 +416,4 @@ include(UseJava)
         # Special graphs
                 # Single source shortest/longest path on DAG
                 add_executable(Stacking_boxes "Graph/Special graphs/103/Stacking boxes.cpp")
+                add_executable(Project_scheduling "Graph/Special graphs/452/Project scheduling.cpp")

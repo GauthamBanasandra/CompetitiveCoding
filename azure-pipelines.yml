@@ -7,10 +7,7 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
-- script: mkdir build
-- task: CMake@1
-  inputs:    
-    cmakeArgs: '..'
 - script: |
-    cd build
+    mkdir UVa/build
+    cd UVa/build
     cmake --build .

@@ -413,3 +413,6 @@ include(UseJava)
                 # Variants
                 add_executable(Power_transmission "Graph/Network flow/10330/Power transmission.cpp")
                 add_executable(Sabotage "Graph/Network flow/10480/Sabotage.cpp")
+        # Special graphs
+                # Single source shortest/longest path on DAG
+                add_executable(Stacking_boxes "Graph/Special graphs/103/Stacking boxes.cpp")

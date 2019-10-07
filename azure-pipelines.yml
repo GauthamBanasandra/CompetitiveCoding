@@ -10,4 +10,5 @@ steps:
 - script: |
     mkdir UVa/build
     cd UVa/build
+    cmake ..
     cmake --build .

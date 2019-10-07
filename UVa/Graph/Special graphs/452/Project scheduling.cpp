@@ -1,7 +1,6 @@
-// WIP
-
 #include <algorithm>
 #include <cassert>
+#include <ios>
 #include <iostream>
 #include <ostream>
 #include <sstream>
@@ -11,6 +10,7 @@
 #include <utility>
 #include <vector>
 
+namespace uva_452 {
 using Node = size_t;
 using Cost = int;
 
@@ -102,10 +102,13 @@ void Scheduler::TopologicalSortImpl(Node node, std::vector<Node> &order,
   }
   order.emplace_back(node);
 }
+} // namespace uva_452
 
 int main(int argc, char *argv[]) {
+  std::ios::sync_with_stdio(false);
+
   char node;
-  Cost cost;
+  uva_452::Cost cost;
   std::string adj_nodes;
   size_t t;
   std::string line;
@@ -115,24 +118,22 @@ int main(int argc, char *argv[]) {
   std::getline(std::cin, line);
 
   for (size_t c = 0; c < t; ++c) {
-    std::vector<std::tuple<char, Cost, std::string>> graph;
-
-    std::getline(std::cin, line);
-    std::istringstream graph_tokenizer(line);
-    graph_tokenizer >> node >> cost;
-    adj_nodes.clear();
-    graph.emplace_back(node, cost, adj_nodes);
-
+    std::vector<std::tuple<char, uva_452::Cost, std::string>> graph;
+    graph.emplace_back('\0', 0, "");
     while (std::getline(std::cin, line), !line.empty()) {
-      std::istringstream tokenizer(line);
-      tokenizer >> node >> cost >> adj_nodes;
+      std::istringstream graph_tokenizer(line);
+      adj_nodes.clear();
+      graph_tokenizer >> node >> cost >> adj_nodes;
+      if (adj_nodes.empty()) {
+        adj_nodes.push_back('\0');
+      }
       graph.emplace_back(node, cost, adj_nodes);
     }
 
     if (c > 0) {
       std::cout << std::endl;
     }
-    std::cout << Scheduler(graph).FindLongestPathCost() << std::endl;
+    std::cout << uva_452::Scheduler(graph).FindLongestPathCost() << std::endl;
   }
   return 0;
 }

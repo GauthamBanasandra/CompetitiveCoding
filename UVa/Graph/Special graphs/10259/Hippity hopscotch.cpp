@@ -1,11 +1,11 @@
-// WIP
-
 #include <algorithm>
+#include <ios>
 #include <iostream>
 #include <ostream>
 #include <utility>
 #include <vector>
 
+namespace uva_10259 {
 using Node = size_t;
 using Cost = long long;
 
@@ -20,8 +20,8 @@ private:
   void TopologicalSortImpl(Node node, std::vector<int> &visited,
                            std::vector<Node> &order) const;
 
-  static Node GetNode(const size_t i, const size_t j, const size_t n) {
-    return i * n + j;
+  static Node GetNode(const size_t row, const size_t column, const size_t len) {
+    return row * len + column;
   }
 
   const size_t num_nodes_;
@@ -43,6 +43,15 @@ Scheduler::Scheduler(const std::vector<std::vector<Cost>> &grid,
         }
         if (i + k < len && grid[i][j] < grid[i + k][j]) {
           adj_list_[u].emplace_back(GetNode(i + k, j, len), grid[i + k][j]);
+        }
+        // I initially went wrong by not considering these directions
+        if (static_cast<int>(j) - static_cast<int>(k) >= 0 &&
+            grid[i][j] < grid[i][j - k]) {
+          adj_list_[u].emplace_back(GetNode(i, j - k, len), grid[i][j - k]);
+        }
+        if (static_cast<int>(i) - static_cast<int>(k) >= 0 &&
+            grid[i][j] < grid[i - k][j]) {
+          adj_list_[u].emplace_back(GetNode(i - k, j, len), grid[i - k][j]);
         }
       }
     }
@@ -83,10 +92,13 @@ void Scheduler::TopologicalSortImpl(Node node, std::vector<int> &visited,
   }
   order.emplace_back(node);
 }
+} // namespace uva_10259
 
 int main(int argc, char *argv[]) {
+  std::ios::sync_with_stdio(false);
+
   size_t t, num_nodes, max_steps;
-  std::vector<std::vector<Cost>> grid;
+  std::vector<std::vector<uva_10259::Cost>> grid;
 
   std::cin >> t;
   for (size_t c = 0; c < t; ++c) {
@@ -102,7 +114,8 @@ int main(int argc, char *argv[]) {
     if (c > 0) {
       std::cout << std::endl;
     }
-    std::cout << Scheduler(grid, max_steps).GetMaxCost() << std::endl;
+    std::cout << uva_10259::Scheduler(grid, max_steps).GetMaxCost()
+              << std::endl;
   }
   return 0;
 }

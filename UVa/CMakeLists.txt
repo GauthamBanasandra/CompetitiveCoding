@@ -418,3 +418,5 @@ include(UseJava)
                 add_executable(Stacking_boxes "Graph/Special graphs/103/Stacking boxes.cpp")
                 add_executable(Project_scheduling "Graph/Special graphs/452/Project scheduling.cpp")
                 add_executable(Hippity_hopscotch "Graph/Special graphs/10259/Hippity hopscotch.cpp")
+                # Counting paths in DAG
+                add_executable(Walking_on_the_safe_side "Graph/Special graphs/825/Walking on the safe side.cpp")

@@ -24,7 +24,7 @@ include(UseJava)
     add_executable(Beautiful_pairs "Practice/Greedy/16828/Beautiful pairs.cpp")
     add_executable(Marcs_cakewalk "Practice/Greedy/Marcs cakewalk/Marcs cakewalk.cpp")
     # Dyanmic programming
-    add_executable(Coin_change "Practice/Dynamic_programming/Coin change/Coin change.cpp")
+    add_executable(Hackerrank_Coin_change "Practice/Dynamic_programming/Coin change/Coin change.cpp")
     add_executable(The_coin_change_problem "Practice/Dynamic_programming/The coin change problem/The coin change problem.cpp")
     add_executable(Sherlock_and_cost "Practice/Dynamic_programming/Sherlock and cost/Sherlock and cost.cpp")
     add_executable(Sam_and_substrings "Practice/Dynamic_programming/Sam and substrings/Sam and substrings.cpp")

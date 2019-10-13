@@ -265,6 +265,7 @@ include(UseJava)
         add_executable(Is_bigger_smarter "Problem solving paradigms/Dynamic programming/Longest increasing subsequence/10131/Is bigger smarter.cpp")
         add_executable(Wavio_sequence "Problem solving paradigms/Dynamic programming/Longest increasing subsequence/10534/Wavio sequence.cpp"
                 "utils/print.cpp")
+        add_executable(The_tower_of_babylon "Problem solving paradigms/Dynamic programming/Longest increasing subsequence/437/The tower of babylon.cpp")
         # 0-1 Knapsack
         add_executable(Dividing_coins "Problem solving paradigms/Dynamic programming/0-1 Knapsack/562/Dividing coins.cpp"
                 utils/print.cpp)
@@ -420,3 +421,4 @@ include(UseJava)
                 add_executable(Hippity_hopscotch "Graph/Special graphs/10259/Hippity hopscotch.cpp")
                 # Counting paths in DAG
                 add_executable(Walking_on_the_safe_side "Graph/Special graphs/825/Walking on the safe side.cpp")
+                

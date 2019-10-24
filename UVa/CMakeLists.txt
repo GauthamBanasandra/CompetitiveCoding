@@ -422,3 +422,4 @@ include(UseJava)
                 # Counting paths in DAG
                 add_executable(Walking_on_the_safe_side "Graph/Special graphs/825/Walking on the safe side.cpp")
                 add_executable(Many_paths_one_destination "Graph/Special graphs/988/Many paths one destination.cpp")
+                add_executable(Injured_queen_problem "Graph/Special graphs/10401/Injured queen problem.cpp")

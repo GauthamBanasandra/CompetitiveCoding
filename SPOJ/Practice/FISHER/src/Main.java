@@ -5,14 +5,14 @@ import java.util.PriorityQueue;
 import java.util.Scanner;
 
 class Item {
-    public Item(int cost, int id, int fromId, int time) {
+    public Item(long cost, int id, int fromId, long time) {
         this.cost = cost;
         this.id = id;
         this.fromId = fromId;
         this.time = time;
     }
 
-    public int getCost() {
+    public long getCost() {
         return cost;
     }
 
@@ -24,39 +24,40 @@ class Item {
         return fromId;
     }
 
-    public int getTime() {
+    public long getTime() {
         return time;
     }
 
-    private int cost, id, fromId, time;
+    private long cost, time;
+    private int id, fromId;
 }
 
 class SortByCost implements Comparator<Item> {
     @Override
     public int compare(Item a, Item b) {
-        return Integer.compare(a.getCost(), b.getCost());
+        return Long.compare(a.getCost(), b.getCost());
     }
 }
 
 class CostAndTime {
-    public CostAndTime(int cost, int time) {
+    public CostAndTime(long cost, long time) {
         this.cost = cost;
         this.time = time;
     }
 
-    public int getCost() {
+    public long getCost() {
         return cost;
     }
 
-    public int getTime() {
+    public long getTime() {
         return time;
     }
 
-    private int cost, time;
+    private long cost, time;
 }
 
 class Scheduler {
-    public Scheduler(int[][] costAdjMatrix, int[][] timeAdjMatrix, int timeLimit) {
+    public Scheduler(long[][] costAdjMatrix, long[][] timeAdjMatrix, long timeLimit) {
         this.costAdjMatrix = costAdjMatrix;
         this.timeAdjMatrix = timeAdjMatrix;
         this.timeLimit = timeLimit;
@@ -85,8 +86,8 @@ class Scheduler {
                     continue;
                 }
 
-                int adjCost = min[node.getFromId()][node.getId()].getCost() + costAdjMatrix[node.getId()][adjNodeId];
-                int adjTime = min[node.getFromId()][node.getId()].getTime() + timeAdjMatrix[node.getId()][adjNodeId];
+                long adjCost = min[node.getFromId()][node.getId()].getCost() + costAdjMatrix[node.getId()][adjNodeId];
+                long adjTime = min[node.getFromId()][node.getId()].getTime() + timeAdjMatrix[node.getId()][adjNodeId];
                 if (adjCost < min[node.getId()][adjNodeId].getCost() && adjTime < timeLimit) {
                     min[node.getId()][adjNodeId] = new CostAndTime(adjCost, adjTime);
                     order.add(new Item(adjCost, adjNodeId, node.getId(), adjTime));
@@ -123,8 +124,8 @@ class Scheduler {
         return minCostAndTime;
     }
 
-    private final int[][] costAdjMatrix, timeAdjMatrix;
-    private final int timeLimit;
+    private final long[][] costAdjMatrix, timeAdjMatrix;
+    private final long timeLimit;
     private final int source = 0;
     private final int destination;
     private final int numNodes;
@@ -141,8 +142,8 @@ public class Main {
                 return;
             }
 
-            int[][] timeAdjMatrix = new int[numNodes][numNodes];
-            int[][] costAdjMatrix = new int[numNodes][numNodes];
+            long[][] timeAdjMatrix = new long[numNodes][numNodes];
+            long[][] costAdjMatrix = new long[numNodes][numNodes];
             for (int i = 0; i < numNodes; i++) {
                 for (int j = 0; j < numNodes; j++) {
                     timeAdjMatrix[i][j] = scanner.nextInt();

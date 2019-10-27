@@ -3,6 +3,9 @@ project(Codeforces)
 
 set(CMAKE_CXX_STANDARD 17)
 
+find_package(Java REQUIRED)
+include(UseJava)
+
 # Compete
     # Round 540
     add_executable(Water_buying "Compete/Round 540/A/Water buying.cpp")
@@ -44,4 +47,4 @@ set(CMAKE_CXX_STANDARD 17)
 
 # Practice
     # Round 464
-    add_executable(Love_triangle "Practice/Round 464/A/Love triangle.cpp")
+    add_jar(Love_triangle "Practice/Round 464/A/Love triangle.cpp")

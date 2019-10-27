@@ -44,4 +44,4 @@ set(CMAKE_CXX_STANDARD 17)
 
 # Practice
     # Round 464
-    add_executable(Love_triangle "Practice/Roundd 464/A/Love triangle.cpp")
+    add_executable(Love_triangle "Practice/Round 464/A/Love triangle.cpp")

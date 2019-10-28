@@ -47,4 +47,5 @@ include(UseJava)
 
 # Practice
     # Round 464
-    add_jar(Love_triangle "Practice/Round 464/A/Love triangle.cpp")
+    add_executable(Love_triangle "Practice/Round 464/A/Love triangle.cpp")
+    add_executable(Party "Practice/Round 87/A/Party.cpp")

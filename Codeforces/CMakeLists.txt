@@ -52,3 +52,7 @@ include(UseJava)
     add_executable(Party "Practice/Round 87/A/Party.cpp")
     # Round 368
     add_executable(Bakery "Practice/Round 368/B/Bakery.cpp")
+    # Round 503
+    add_jar(Badge "Practice/Round 503/B/src/Solution.java")
+    # 8VC venture cup 2017 elimination round
+    add_jar(PolandBall_and_forest "Practice/8VC venture cup 2017 elimination round/C/src/Solution.java")

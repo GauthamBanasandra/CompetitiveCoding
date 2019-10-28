@@ -48,4 +48,7 @@ include(UseJava)
 # Practice
     # Round 464
     add_executable(Love_triangle "Practice/Round 464/A/Love triangle.cpp")
+    # Round 87
     add_executable(Party "Practice/Round 87/A/Party.cpp")
+    # Round 368
+    add_executable(Bakery "Practice/Round 368/B/Bakery.cpp")

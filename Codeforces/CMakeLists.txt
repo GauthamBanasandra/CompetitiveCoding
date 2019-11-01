@@ -58,3 +58,5 @@ include(UseJava)
     add_jar(PolandBall_and_forest "Practice/8VC venture cup 2017 elimination round/C/src/Solution.java")
     # Round 452
     add_executable(Dividing_the_numbers "Practice/Round 452/C/Dividing the numbers.cpp")
+    # Round 295
+    add_executable(Two_buttons "Practice/Round 295/B/Two buttons.cpp")

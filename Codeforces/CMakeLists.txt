@@ -62,3 +62,5 @@ include(UseJava)
     add_executable(Two_buttons "Practice/Round 295/B/Two buttons.cpp")
     # Round 435
     add_executable(Mahmoud_and_ehab_and_the_bipartiteness "Practice/Round 435/B/Mahmoud and ehab and the bipartiteness.cpp")
+    # Edu round 65
+    add_executable(News_distribution "Practice/Edu round 65/C/News distribution.cpp")

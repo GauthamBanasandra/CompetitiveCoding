@@ -55,6 +55,7 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(Lru_cache "Practice/Medium/146/Lru cache.cpp")
     add_executable(Evaluate_reverse_polish_notation "Practice/Medium/150/Evaluate reverse polish notation.cpp")
     add_executable(Sentence_similarity_II "Practice/Medium/737/Sentence similarity II.cpp")
+    add_executable(Decode_ways "Practice/Medium/91/Decode ways.cpp")
     # Hard
     add_executable(Merge_k_sorted_lists "Practice/Hard/23/Merge k sorted lists.cpp")
     add_executable(First_missing_positive "Practice/Hard/41/First missing positive.cpp")

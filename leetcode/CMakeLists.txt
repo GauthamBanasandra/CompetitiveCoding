@@ -64,6 +64,7 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(Binary_tree_maximum_path_sum "Practice/Hard/124/Binary tree maximum path sum.cpp")
     add_executable(Longest_consecutive_sequence "Practice/Hard/128/Longest consecutive sequence.cpp")
     add_executable(Optimize_water_distribution_in_a_village "Practice/Hard/1168/Optimize water distribution in a village.cpp")
+    add_executable(String_transforms_into_another_string "Practice/Hard/1153/String transforms into another string.cpp")
 
 # Compete
     # Weekly contest 135

@@ -1,0 +1,1 @@
+.build\Debug\Nested_dolls.exe < "Problem solving paradigms\Dynamic programming\Longest increasing subsequence\11368\Nested dolls.txt"

@@ -63,6 +63,7 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(Minimum_window_substring "Practice/Hard/76/Minimum window substring.cpp")
     add_executable(Binary_tree_maximum_path_sum "Practice/Hard/124/Binary tree maximum path sum.cpp")
     add_executable(Longest_consecutive_sequence "Practice/Hard/128/Longest consecutive sequence.cpp")
+    add_executable(Optimize_water_distribution_in_a_village "Practice/Hard/1168/Optimize water distribution in a village.cpp")
 
 # Compete
     # Weekly contest 135

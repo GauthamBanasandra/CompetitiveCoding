@@ -6,6 +6,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
+namespace lc_1153 {
 class Graph {
 public:
   Graph(const std::string &s1, const std::string &s2);
@@ -89,12 +90,14 @@ bool Graph::HasCycle(const char node, std::unordered_set<char> &stack) const {
   stack.erase(node);
   return false;
 }
+} // namespace lc_1153
 
 int main(int argc, char *argv[]) {
-  std::cout << Solution().canConvert("aabcc", "ccdee") << std::endl;
-  std::cout << Solution().canConvert("leetcode", "codeleet") << std::endl;
-  std::cout << Solution().canConvert("abcdefghijklmnopqrstuvwxyz",
-                                     "bcdefghijklmnopqrstuvwxyza")
+  std::cout << lc_1153::Solution().canConvert("aabcc", "ccdee") << std::endl;
+  std::cout << lc_1153::Solution().canConvert("leetcode", "codeleet")
+            << std::endl;
+  std::cout << lc_1153::Solution().canConvert("abcdefghijklmnopqrstuvwxyz",
+                                              "bcdefghijklmnopqrstuvwxyza")
             << std::endl;
   return 0;
 }

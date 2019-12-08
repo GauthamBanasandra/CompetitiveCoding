@@ -18,7 +18,7 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(Best_time_to_buy_and_sell_stock "Practice/Easy/121/Best time to buy and sell stock.cpp")
     add_executable(Single_number "Practice/Easy/136/Single number.cpp")
     add_executable(Longest_word_in_dictionary "Practice/Easy/720/Longest word in dictionary.cpp")
-    
+
     # Medium
     add_executable(maximum_binary_tree "Practice/Medium/654/Maximum binary tree.cpp")
     add_executable(add_two_numbers "Practice/Medium/2/Add two numbers.cpp")
@@ -58,6 +58,8 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(Evaluate_reverse_polish_notation "Practice/Medium/150/Evaluate reverse polish notation.cpp")
     add_executable(Sentence_similarity_II "Practice/Medium/737/Sentence similarity II.cpp")
     add_executable(Decode_ways "Practice/Medium/91/Decode ways.cpp")
+    add_executable(Top_k_frequent_words "Practice/Medium/692/Top k frequent words.cpp")
+
     # Hard
     add_executable(Merge_k_sorted_lists "Practice/Hard/23/Merge k sorted lists.cpp")
     add_executable(First_missing_positive "Practice/Hard/41/First missing positive.cpp")

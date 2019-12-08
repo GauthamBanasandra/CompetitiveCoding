@@ -114,6 +114,7 @@ std::string Graph::TopologicalSort() const {
   std::string order;
   std::unordered_set<char> visited;
   DFS('\0', order, visited);
+  // Remove the dummy start node from topological sorting
   order.pop_back();
   std::reverse(order.begin(), order.end());
   return order;

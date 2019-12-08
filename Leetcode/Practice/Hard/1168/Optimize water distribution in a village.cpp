@@ -7,6 +7,7 @@
 #include <unordered_set>
 #include <vector>
 
+namespace lc_1168 {
 class Ufds {
 public:
   explicit Ufds(const size_t num_nodes);
@@ -68,12 +69,6 @@ private:
   std::unordered_map<size_t, int> component_cost_;
 };
 
-class Solution {
-public:
-  int minCostToSupplyWater(int n, std::vector<int> &wells,
-                           std::vector<std::vector<int>> &pipes);
-};
-
 Graph::Graph(const size_t num_nodes, const std::vector<int> &nodes,
              const std::vector<std::vector<int>> &edge_list)
     : num_nodes_{num_nodes}, nodes_{nodes} {
@@ -116,10 +111,17 @@ int Graph::MinConnectionCost() {
   }
   return total_cost;
 }
+} // namespace lc_1168
+
+class Solution {
+public:
+  int minCostToSupplyWater(int n, std::vector<int> &wells,
+                           std::vector<std::vector<int>> &pipes);
+};
 
 int Solution::minCostToSupplyWater(int n, std::vector<int> &wells,
                                    std::vector<std::vector<int>> &pipes) {
-  return Graph(n, wells, pipes).MinConnectionCost();
+  return lc_1168::Graph(n, wells, pipes).MinConnectionCost();
 }
 
 int main(int argc, char *argv[]) {

@@ -66,6 +66,7 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(Optimize_water_distribution_in_a_village "Practice/Hard/1168/Optimize water distribution in a village.cpp")
     add_executable(String_transforms_into_another_string "Practice/Hard/1153/String transforms into another string.cpp")
     add_executable(Alien_dictionary "Practice/Hard/269/Alien dictionary.cpp")
+    add_executable(Redundant_connection_II "Practice/Hard/685/Redundant connection II.cpp")
 
 # Compete
     # Weekly contest 135

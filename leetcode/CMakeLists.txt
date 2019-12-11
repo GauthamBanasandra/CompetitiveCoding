@@ -18,6 +18,7 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(Best_time_to_buy_and_sell_stock "Practice/Easy/121/Best time to buy and sell stock.cpp")
     add_executable(Single_number "Practice/Easy/136/Single number.cpp")
     add_executable(Longest_word_in_dictionary "Practice/Easy/720/Longest word in dictionary.cpp")
+    add_executable(Two_sum_less_than_k "Practice/Easy/1099/Two sum less than k.cpp")
 
     # Medium
     add_executable(maximum_binary_tree "Practice/Medium/654/Maximum binary tree.cpp")

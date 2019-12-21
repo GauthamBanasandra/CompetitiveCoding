@@ -61,6 +61,7 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(Sentence_similarity_II "Practice/Medium/737/Sentence similarity II.cpp")
     add_executable(Decode_ways "Practice/Medium/91/Decode ways.cpp")
     add_executable(Top_k_frequent_words "Practice/Medium/692/Top k frequent words.cpp")
+    add_executable(Daily_temperatures "Practice/Medium/739/Daily temperatures.cpp")
 
     # Hard
     add_executable(Merge_k_sorted_lists "Practice/Hard/23/Merge k sorted lists.cpp")

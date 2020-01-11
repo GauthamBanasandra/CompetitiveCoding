@@ -99,3 +99,4 @@ set(CMAKE_CXX_STANDARD 17)
     # Bi-weekly contest
     add_executable(Decompress_run_length_encoded_list "Compete/Bi-weekly contest/5143/Decompress run length encoded list.cpp")
     add_executable(Matrix_block_sum "Compete/Bi-weekly contest/5144/Matrix block sum.cpp")
+    add_executable(Sum_of_nodes_with_even_valued_grandparent "Compete/Bi-weekly contest/5145/Sum of nodes with even valued grandparent.cpp")

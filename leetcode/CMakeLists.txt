@@ -20,6 +20,7 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(Longest_word_in_dictionary "Practice/Easy/720/Longest word in dictionary.cpp")
     add_executable(Two_sum_less_than_k "Practice/Easy/1099/Two sum less than k.cpp")
     add_executable(Diameter_of_binary_tree "Practice/Easy/543/Diameter of binary tree.cpp")
+    add_executable(Replace_element_with_greatest_element_on_right_side "Practice/Easy/1299/Replace element with greatest element on right side.cpp")
 
     # Medium
     add_executable(maximum_binary_tree "Practice/Medium/654/Maximum binary tree.cpp")

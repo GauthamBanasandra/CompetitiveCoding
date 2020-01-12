@@ -97,6 +97,6 @@ set(CMAKE_CXX_STANDARD 17)
     # Weekly contest 139
     add_executable(Flip_columns_for_maximum_number_of_equal_rows "Compete/Weekly contest/139/1072/Flip Columns For Maximum Number of Equal Rows.cpp")
     # Bi-weekly contest
-    add_executable(Decompress_run_length_encoded_list "Compete/Bi-weekly contest/5143/Decompress run length encoded list.cpp")
-    add_executable(Matrix_block_sum "Compete/Bi-weekly contest/5144/Matrix block sum.cpp")
-    add_executable(Sum_of_nodes_with_even_valued_grandparent "Compete/Bi-weekly contest/5145/Sum of nodes with even valued grandparent.cpp")
+    add_executable(Decompress_run_length_encoded_list "Compete/Bi-weekly contest/17/5143/Decompress run length encoded list.cpp")
+    add_executable(Matrix_block_sum "Compete/Bi-weekly contest/17/5144/Matrix block sum.cpp")
+    add_executable(Sum_of_nodes_with_even_valued_grandparent "Compete/Bi-weekly contest/17/5145/Sum of nodes with even valued grandparent.cpp")

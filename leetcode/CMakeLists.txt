@@ -65,6 +65,7 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(Daily_temperatures "Practice/Medium/739/Daily temperatures.cpp")
     add_executable(Sum_of_mutated_array_close_to_target "Practice/Medium/1300/Sum of mutated array close to target.cpp")
     add_executable(Deepest_leaves_sum "Practice/Medium/1302/Deepest leaves sum.cpp")
+    add_executable(Number_of_operations_to_make_network_connected "Practice/Medium/1319/Number of operations to make network connected.cpp")
 
     # Hard
     add_executable(Merge_k_sorted_lists "Practice/Hard/23/Merge k sorted lists.cpp")

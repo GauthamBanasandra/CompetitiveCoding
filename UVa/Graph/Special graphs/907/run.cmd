@@ -1,0 +1,2 @@
+REM .\.build\Debug\Winterim_backpacking_trip.exe < "Graph\Special graphs\907\Winterim backpacking trip.txt"
+.\.build\Debug\Winterim_backpacking_trip.exe < "Graph\Special graphs\907\Winterim backpacking trip1.txt" | clip

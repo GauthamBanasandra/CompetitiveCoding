@@ -1,0 +1,8303 @@
+7
+A F C -
+B B E -
+C E C -
+D A C -
+E A E -
+F B G -
+G G F -
+30
+
+23
+A E I -
+B C C x
+C K R -
+D S L x
+E P K -
+F O J -
+G H V x
+H K U -
+I M P -
+J E I x
+K E B x
+L V B x
+M A F -
+N E P -
+O T F -
+P K H -
+Q I W -
+R D N x
+S L R x
+T O C -
+U E R -
+V H D -
+W M L x
+23
+
+15
+A M A x
+B K E -
+C C N -
+D L H -
+E F E -
+F L I -
+G G K -
+H J O x
+I H I -
+J C E x
+K K D -
+L L I -
+M L J -
+N I A -
+O D K x
+11
+
+17
+A G M -
+B C Q -
+C A B x
+D H H -
+E K G x
+F H N -
+G O L -
+H G N x
+I K E -
+J O J -
+K E E x
+L H K -
+M J I -
+N M G -
+O Q E -
+P L K x
+Q P I -
+28
+
+25
+A H Y -
+B U V x
+C H A -
+D X J -
+E T P -
+F N X -
+G Q M -
+H B J -
+I K O -
+J Q N -
+K D S -
+L F O -
+M S C x
+N O W -
+O O V -
+P H F -
+Q O J -
+R M E -
+S C J -
+T Q U -
+U P R x
+V J V -
+W E S -
+X K P -
+Y Q S -
+25
+
+12
+A B C x
+B J J -
+C J I x
+D B G -
+E K L -
+F B G -
+G G B -
+H G A -
+I J K -
+J I G -
+K K F -
+L F G x
+25
+
+17
+A A F -
+B M A -
+C A P x
+D B B x
+E J B -
+F H Q -
+G P K -
+H O Q -
+I P J -
+J O J x
+K Q D -
+L I P x
+M D L -
+N Q L x
+O K O -
+P F E -
+Q C O -
+22
+
+14
+A M N -
+B B K -
+C G L -
+D L B x
+E F F x
+F G D x
+G J G x
+H K J -
+I H A -
+J C K -
+K D D x
+L F K x
+M F I -
+N C H -
+15
+
+13
+A D K -
+B M M -
+C E F -
+D C C -
+E D G -
+F A E -
+G E C -
+H C C -
+I A L x
+J L A -
+K H D -
+L L K -
+M I F -
+13
+
+22
+A G V -
+B H K -
+C D B -
+D C S x
+E R A x
+F B R -
+G O I -
+H A R x
+I Q V x
+J I K -
+K E C -
+L S C x
+M E C x
+N U V -
+O C R -
+P C B -
+Q B B -
+R A M -
+S I C -
+T F N -
+U H R -
+V V A x
+25
+
+5
+A A A x
+B B B -
+C D A -
+D B D -
+E D E -
+24
+
+15
+A O G -
+B H F -
+C F H -
+D C E -
+E N H x
+F K D -
+G D E x
+H E D x
+I M B -
+J O E -
+K D G -
+L B I -
+M B E x
+N L H -
+O J O -
+2
+
+16
+A M C -
+B F H -
+C L K -
+D J I -
+E A I -
+F M B x
+G A G -
+H M C -
+I N K -
+J N P -
+K I N x
+L K I -
+M J I x
+N I A -
+O L K x
+P B K -
+25
+
+16
+A O L x
+B H G x
+C D M -
+D E K -
+E N D -
+F P M -
+G I C -
+H H G -
+I L O x
+J J A x
+K E K -
+L G K -
+M B I -
+N H K -
+O F J -
+P H I -
+27
+
+14
+A H D x
+B N E -
+C A C x
+D K L -
+E I J -
+F J C x
+G J L -
+H N G -
+I A G -
+J H M -
+K F G -
+L M H x
+M K B -
+N J C -
+5
+
+18
+A D H -
+B K P -
+C L C x
+D M J -
+E G Q x
+F I B x
+G D H x
+H D H -
+I J D -
+J K H -
+K Q P -
+L P D x
+M R Q -
+N B R -
+O O C -
+P B I -
+Q F J -
+R J J x
+6
+
+25
+A E C -
+B S P x
+C F J -
+D K Q x
+E E L -
+F B K x
+G J D -
+H T X -
+I P C x
+J B M -
+K N B -
+L H X -
+M N D x
+N U F -
+O K S -
+P D A -
+Q G S -
+R J F x
+S F N -
+T P I -
+U H P -
+V X Y -
+W N X -
+X H A x
+Y H I -
+30
+
+23
+A G T -
+B A C -
+C P D x
+D V F -
+E N A -
+F P S x
+G J M x
+H S M x
+I L W -
+J B V -
+K A R -
+L I O -
+M N O -
+N C V x
+O U G x
+P Q I -
+Q Q Q -
+R S C x
+S G R -
+T B C x
+U J A -
+V P J -
+W P W -
+14
+
+3
+A A C -
+B B A -
+C A A -
+12
+
+8
+A B E -
+B G G x
+C D B -
+D F G -
+E F F -
+F B A x
+G F C x
+H B F -
+27
+
+17
+A A E -
+B E Q x
+C I K -
+D P O -
+E K Q -
+F L G -
+G F B -
+H F O -
+I Q H -
+J K Q -
+K A K x
+L K J x
+M M A -
+N Q K -
+O O A -
+P K P -
+Q N H -
+14
+
+12
+A C E -
+B E D -
+C B K x
+D K B -
+E F G -
+F C G x
+G H J -
+H E H x
+I J F -
+J K I x
+K H J -
+L K I x
+23
+
+1
+A A A -
+17
+
+3
+A B C x
+B A B x
+C A C -
+11
+
+1
+A A A -
+15
+
+22
+A I O -
+B R N -
+C F D -
+D M A -
+E A P x
+F N M -
+G D J x
+H Q L -
+I S D -
+J L G -
+K S S x
+L T F -
+M N C -
+N U S -
+O D S -
+P M Q -
+Q D I x
+R J Q -
+S L I x
+T R Q x
+U D I -
+V K G x
+12
+
+13
+A H K x
+B K L -
+C L L -
+D L D -
+E B C x
+F E D x
+G I C -
+H H C -
+I I A -
+J H H x
+K E L x
+L F D -
+M J I -
+4
+
+6
+A F D -
+B E A -
+C C A -
+D F F -
+E D B -
+F A B x
+30
+
+15
+A M G x
+B F I -
+C E A x
+D D N -
+E C I -
+F F M -
+G E K -
+H N E -
+I B C x
+J A K -
+K D G -
+L G K -
+M F E -
+N M B x
+O M F x
+26
+
+23
+A F G -
+B K V x
+C N C x
+D W V x
+E O B x
+F G E -
+G B B x
+H G J x
+I S O -
+J R F -
+K V U -
+L S V x
+M G F -
+N I F -
+O A A x
+P A M -
+Q U D -
+R F J -
+S N F -
+T Q E -
+U C A x
+V K C -
+W S G -
+17
+
+7
+A G F -
+B A G -
+C C B -
+D C F -
+E D A -
+F D B -
+G F A -
+2
+
+24
+A W C x
+B J V -
+C I A -
+D H K x
+E T W x
+F A V -
+G H Q -
+H I K -
+I E F -
+J W U -
+K I U x
+L U V x
+M S U -
+N I H -
+O K J x
+P I J -
+Q H L -
+R D A x
+S R E x
+T B T -
+U B W -
+V U G -
+W A V x
+X S X -
+11
+
+1
+A A A x
+11
+
+8
+A G H -
+B D G -
+C E G -
+D A E -
+E E G -
+F C F -
+G F D -
+H F B -
+17
+
+1
+A A A x
+16
+
+12
+A F H -
+B A I x
+C F J -
+D F C -
+E H B x
+F F F -
+G I G -
+H G D -
+I E K x
+J A B -
+K K H -
+L H E -
+21
+
+25
+A T A -
+B E M x
+C I A x
+D Y Q x
+E O I -
+F H A x
+G L N -
+H V T -
+I W L -
+J N E x
+K Y R -
+L T R x
+M E N -
+N T G -
+O V U -
+P C E -
+Q V T -
+R V D -
+S R B -
+T R X x
+U B E -
+V A C -
+W V Q -
+X K J -
+Y C N -
+14
+
+15
+A K N x
+B D G -
+C N B x
+D A L -
+E G O x
+F C I -
+G B N -
+H C N -
+I A L -
+J L M -
+K L E -
+L O H -
+M M G x
+N H A x
+O F H -
+30
+
+4
+A D B -
+B B D -
+C A D -
+D A A -
+9
+
+12
+A A K -
+B F D -
+C L K x
+D C L -
+E I D -
+F F D -
+G D H -
+H I K -
+I G J x
+J H E -
+K A I -
+L H E -
+11
+
+20
+A H C -
+B L T -
+C F O x
+D G J -
+E J A -
+F L M x
+G E E -
+H A L x
+I B I -
+J D H x
+K P D -
+L K G -
+M D I -
+N M R -
+O R P -
+P S K -
+Q A A -
+R N N -
+S J B -
+T B A x
+30
+
+26
+A L V x
+B V J -
+C R K -
+D Y U -
+E R U x
+F C O -
+G V S -
+H B Q -
+I I R -
+J X F x
+K K D x
+L W N -
+M L V -
+N O I -
+O V V -
+P R I x
+Q E I x
+R K E -
+S R T -
+T K A -
+U N I -
+V K K -
+W V A -
+X J I -
+Y D P -
+Z P R x
+13
+
+15
+A F K -
+B M L x
+C F K -
+D K E x
+E H L -
+F D F x
+G A C -
+H I J -
+I E G -
+J F N x
+K J B -
+L J O -
+M E G -
+N M L x
+O N O -
+17
+
+13
+A A H -
+B C B x
+C B B -
+D J G -
+E D H -
+F A G -
+G C K x
+H I M x
+I K G -
+J F C -
+K C A x
+L H J x
+M E L x
+23
+
+3
+A A C x
+B A B x
+C A C x
+16
+
+24
+A H X -
+B G U -
+C E R -
+D X D -
+E B R x
+F J E -
+G S D -
+H E W x
+I R R -
+J E K -
+K Q X -
+L P L -
+M H F x
+N N T -
+O P O -
+P F X x
+Q W W x
+R O O -
+S K S -
+T B X -
+U T G -
+V L T x
+W O T -
+X I D -
+28
+
+12
+A A H -
+B F L -
+C B E x
+D F L -
+E D H x
+F H E -
+G G G -
+H I E -
+I B J -
+J L E -
+K H C x
+L L F -
+28
+
+19
+A D M x
+B R P -
+C D D -
+D M A -
+E K A -
+F G D x
+G N E -
+H J H -
+I Q N -
+J P N -
+K G F -
+L R M -
+M D M -
+N P S -
+O O K -
+P A D x
+Q G F x
+R E C -
+S F E -
+13
+
+26
+A A T x
+B T E x
+C I R x
+D Y E x
+E D S x
+F D Z x
+G U M x
+H W B x
+I S C x
+J L O x
+K L E x
+L E J x
+M T N x
+N C D x
+O Z Z x
+P J C x
+Q Y O x
+R Y T x
+S V Y x
+T X G x
+U J B x
+V B T x
+W B F x
+X B Q x
+Y H M x
+Z S G x
+17
+
+14
+A G L -
+B H D -
+C A M -
+D H C -
+E M L -
+F H K -
+G C K x
+H G M -
+I H H -
+J I D x
+K N D -
+L L E x
+M H A -
+N I K x
+11
+
+7
+A D G -
+B E D -
+C A E x
+D D C -
+E C F -
+F B E x
+G G B -
+29
+
+23
+A I F -
+B H P x
+C B E -
+D P E x
+E D O x
+F H V -
+G C A -
+H C C -
+I P W x
+J C R -
+K T P -
+L C M x
+M V F -
+N K O -
+O K M -
+P P P -
+Q E N -
+R M S -
+S Q A -
+T S O -
+U S F -
+V P P -
+W I W -
+21
+
+7
+A A F -
+B B F -
+C B B x
+D D G -
+E D C x
+F C G -
+G F C -
+19
+
+20
+A H Q -
+B R L x
+C M D -
+D M P -
+E J P -
+F B B -
+G E P -
+H A J x
+I L J -
+J S H -
+K B S -
+L E S -
+M D F -
+N S E x
+O G D x
+P L D x
+Q H S -
+R C D x
+S C E -
+T J Q -
+7
+
+25
+A M E -
+B V U -
+C I E -
+D H E -
+E U M -
+F J F -
+G B O -
+H I O -
+I U G -
+J B G -
+K I M -
+L U J -
+M O O -
+N D X x
+O I T x
+P J E x
+Q P A -
+R S P x
+S X K x
+T R T -
+U B B -
+V O U -
+W C G -
+X S A x
+Y P K -
+2
+
+20
+A F S x
+B J Q -
+C N B -
+D O T -
+E L N -
+F G S x
+G P I -
+H K N x
+I R D -
+J K F -
+K M J x
+L R K -
+M D J -
+N M O -
+O I A -
+P G I x
+Q A G -
+R F N -
+S G F -
+T C K x
+21
+
+24
+A R R -
+B O E -
+C R B -
+D A P -
+E N B -
+F U O -
+G U U -
+H P D x
+I A Q -
+J B B -
+K W I -
+L J A -
+M M M -
+N Q V -
+O F V -
+P K J -
+Q G P x
+R E N x
+S I M x
+T Q K -
+U J P x
+V A A -
+W A S -
+X N V -
+1
+
+1
+A A A -
+6
+
+5
+A A A -
+B E D -
+C C C -
+D A D -
+E A D -
+4
+
+24
+A P I -
+B Q T -
+C I K -
+D U M x
+E I W x
+F Q P x
+G C A x
+H U R -
+I T I -
+J H O x
+K W R x
+L W L -
+M P V x
+N N E -
+O O L -
+P J O -
+Q H D x
+R R D -
+S H T -
+T J J -
+U J E -
+V I B x
+W O W -
+X L K -
+24
+
+10
+A G I x
+B H J -
+C E D -
+D F C -
+E G D x
+F C B x
+G A I -
+H E F -
+I J F x
+J E J x
+28
+
+3
+A C B -
+B B A -
+C C C -
+12
+
+5
+A D C -
+B E D -
+C B A -
+D C B -
+E B A -
+18
+
+26
+A Z J -
+B A Y -
+C K V -
+D L G -
+E Y F x
+F Y K -
+G Y V x
+H C T -
+I Y G -
+J K D x
+K D I -
+L E H -
+M L E x
+N R H -
+O U L x
+P D T -
+Q E R x
+R X O -
+S U U -
+T L J x
+U G T x
+V H E -
+W F O -
+X G Q -
+Y A D -
+Z T M -
+5
+
+19
+A A B x
+B B J x
+C D J x
+D I D x
+E B E -
+F C H -
+G P H x
+H R P x
+I H F -
+J L N x
+K B M x
+L Q R -
+M M G -
+N Q B -
+O D D -
+P A Q -
+Q K L x
+R C G x
+S R R -
+8
+
+18
+A J P x
+B C E -
+C E M -
+D R C -
+E Q C -
+F I A -
+G D F -
+H L N -
+I E M -
+J Q N -
+K J G -
+L J O x
+M L H -
+N M F -
+O K O x
+P G F x
+Q I B -
+R E I -
+22
+
+18
+A N K -
+B Q B -
+C M J x
+D H D -
+E B J -
+F R G -
+G R Q -
+H F P -
+I A K -
+J P D -
+K D K x
+L C Q -
+M B D -
+N G D -
+O P D -
+P G P -
+Q K K x
+R E C -
+6
+
+21
+A A C -
+B F C -
+C G H -
+D E P -
+E L N -
+F N I x
+G S P -
+H U G -
+I R K -
+J E E -
+K G T -
+L G S -
+M U N -
+N B C -
+O C T -
+P K G -
+Q F M -
+R E O x
+S L M x
+T I B -
+U A A -
+17
+
+12
+A F L x
+B B E x
+C H I x
+D L D x
+E C B x
+F J E -
+G D F x
+H B F x
+I L J x
+J J C -
+K G E -
+L A K x
+13
+
+9
+A F C x
+B F F x
+C H C x
+D D E x
+E F B x
+F D B x
+G E G x
+H A E x
+I I F x
+3
+
+16
+A D K -
+B K H -
+C E G x
+D A J x
+E F P -
+F L H x
+G D N -
+H L F x
+I E A -
+J F L x
+K K O -
+L I J -
+M L O x
+N L C -
+O A O x
+P A P -
+20
+
+4
+A D A x
+B C C -
+C B A -
+D D B -
+4
+
+18
+A B A x
+B B H -
+C N J -
+D D N x
+E M A -
+F H I -
+G N P -
+H E M -
+I L N -
+J L K -
+K L K -
+L O G -
+M M M -
+N D E x
+O J O -
+P Q P -
+Q L N -
+R Q C -
+23
+
+4
+A A B -
+B C D -
+C D A -
+D D C -
+6
+
+1
+A A A x
+25
+
+16
+A B A x
+B F K x
+C E C -
+D B P -
+E E H -
+F F J -
+G J P -
+H K N -
+I J J -
+J E A x
+K M B x
+L A M -
+M P C x
+N G O -
+O E L x
+P J K x
+23
+
+24
+A I A x
+B Q P x
+C J J -
+D L L -
+E G L -
+F J E -
+G H L -
+H Q K -
+I X N x
+J A O -
+K C H -
+L X D -
+M R F -
+N F U x
+O T M -
+P D K -
+Q K B -
+R T P -
+S E M x
+T G X -
+U L X x
+V J R -
+W B D -
+X U A x
+16
+
+10
+A G D x
+B F I x
+C C D -
+D G J -
+E J D -
+F B B -
+G I B x
+H B J x
+I J J x
+J F I x
+3
+
+13
+A I I -
+B B D -
+C H M -
+D M I x
+E F J -
+F A L x
+G I A x
+H L L x
+I H K -
+J D L -
+K A B x
+L K J -
+M J H -
+21
+
+10
+A A C x
+B J D -
+C C A -
+D B J x
+E D H x
+F J D -
+G J F x
+H B J -
+I F B x
+J J D -
+12
+
+8
+A F G -
+B A E -
+C H F -
+D D E -
+E A A -
+F A G -
+G E B x
+H B E -
+18
+
+25
+A H L x
+B H P -
+C C M -
+D K G -
+E Y V -
+F Y N -
+G M M -
+H O B x
+I Q A -
+J C B x
+K P E -
+L J D -
+M Q T -
+N T G -
+O Y P x
+P C L -
+Q I A -
+R I Y -
+S O F -
+T R N x
+U M O x
+V O X -
+W B N -
+X L F -
+Y Q H -
+30
+
+22
+A C F -
+B C I x
+C Q M -
+D M P x
+E J S -
+F R Q -
+G J P x
+H V Q -
+I A A -
+J A F -
+K R R -
+L R Q -
+M C P x
+N U J -
+O H E x
+P U C x
+Q M F -
+R A K -
+S P E -
+T G M x
+U A G -
+V V A x
+2
+
+7
+A F D -
+B B C -
+C G E -
+D E E x
+E A C -
+F D B -
+G B B -
+27
+
+8
+A C H -
+B A C -
+C G F x
+D G E -
+E A B x
+F D D -
+G A G x
+H G D x
+13
+
+9
+A I B -
+B I D x
+C A E x
+D H D -
+E H D -
+F G G x
+G I C -
+H F F -
+I E C -
+7
+
+15
+A A F x
+B D L x
+C B G x
+D B G -
+E N C -
+F C A x
+G C A -
+H L L -
+I F F -
+J H B -
+K J F -
+L O J x
+M J H -
+N F J -
+O B H -
+8
+
+25
+A I C -
+B P W -
+C Y K -
+D O Q x
+E Q W -
+F W Y -
+G P N -
+H G X -
+I C X -
+J N L x
+K A S -
+L N W -
+M M W -
+N C M x
+O C O -
+P G N -
+Q N M -
+R P E -
+S M C -
+T N R -
+U O O x
+V G I -
+W I X -
+X X J -
+Y Q W -
+19
+
+5
+A D B x
+B C C -
+C C D -
+D D D -
+E D B -
+16
+
+3
+A A A x
+B A B x
+C C B x
+11
+
+21
+A K S -
+B U L -
+C D O -
+D I Q -
+E S K -
+F B P -
+G L C -
+H C G -
+I L B -
+J R T -
+K R T -
+L A H -
+M F F -
+N G T -
+O H E -
+P O K -
+Q E S -
+R N Q -
+S U E x
+T D N -
+U G P -
+27
+
+25
+A Q S -
+B V H -
+C S S -
+D Q C x
+E B M -
+F L I x
+G N F -
+H B P -
+I I K x
+J U G x
+K W O -
+L G B -
+M L G -
+N K P -
+O Y Y -
+P S K -
+Q R X -
+R U R -
+S K V x
+T O O -
+U G Y x
+V O V -
+W T L -
+X L W x
+Y Y E -
+20
+
+1
+A A A -
+27
+
+5
+A D A -
+B A D -
+C A B -
+D A D -
+E C A -
+22
+
+22
+A N S -
+B Q T -
+C Q D -
+D D B -
+E P J -
+F E C -
+G V T x
+H D A -
+I D I x
+J L E -
+K Q O x
+L H V -
+M F S -
+N G K -
+O N G x
+P T S -
+Q A J -
+R F V -
+S K U -
+T C C -
+U B P -
+V H M -
+24
+
+13
+A M J x
+B J J -
+C G G -
+D L E -
+E F B -
+F G E -
+G B L -
+H K G -
+I M D x
+J M A -
+K E L -
+L D B -
+M E E -
+15
+
+11
+A C H -
+B C A -
+C C J x
+D C J -
+E D I x
+F K I -
+G D I x
+H C E -
+I J F -
+J B I x
+K F C -
+10
+
+26
+A V W -
+B T M -
+C K K x
+D A H -
+E Q L -
+F B M -
+G I Q -
+H C S -
+I B D -
+J P R -
+K E O -
+L T T x
+M R U -
+N H S -
+O L F x
+P X N x
+Q J T -
+R Q C -
+S M H -
+T X G x
+U R N -
+V Y T x
+W C S -
+X Y O x
+Y M I -
+Z A T x
+26
+
+22
+A Q R -
+B E V -
+C I P x
+D Q A -
+E T L x
+F E R x
+G J U -
+H P H -
+I F K -
+J J C -
+K A E -
+L D U -
+M F K x
+N H G -
+O E A -
+P T U x
+Q U A -
+R G R -
+S E V x
+T E E -
+U B U -
+V L K x
+27
+
+17
+A K J x
+B P F -
+C L H -
+D G G -
+E Q Q -
+F A B -
+G O Q -
+H B B -
+I G O -
+J D B -
+K K K -
+L K P -
+M N D -
+N A D x
+O J H -
+P A Q x
+Q H A -
+17
+
+5
+A C D x
+B D E -
+C E A -
+D E C -
+E A B -
+3
+
+12
+A K C x
+B D G x
+C B K x
+D C A x
+E K H -
+F A F -
+G D H -
+H J K -
+I F C -
+J E E -
+K J D -
+L A D -
+20
+
+23
+A R B -
+B P M -
+C M B x
+D P N -
+E N O -
+F H H x
+G U V -
+H G L -
+I M C -
+J Q C x
+K M E -
+L R D -
+M W W x
+N W E -
+O B G -
+P P I -
+Q R W x
+R L W x
+S B C -
+T I D -
+U R A -
+V B A x
+W Q D -
+25
+
+14
+A E C x
+B N D -
+C L G x
+D N A -
+E H H -
+F A C x
+G F E -
+H H H x
+I M E -
+J F A -
+K L K -
+L A N -
+M N L x
+N I H x
+11
+
+7
+A B G -
+B D F -
+C F B -
+D E E -
+E B B -
+F A C -
+G F C -
+23
+
+15
+A N G -
+B C J -
+C A B x
+D B L -
+E C I -
+F K H -
+G M D -
+H O M -
+I J H -
+J L H -
+K B N x
+L J J -
+M I G -
+N I D -
+O D A -
+26
+
+3
+A A B -
+B B A -
+C B C x
+11
+
+18
+A N K x
+B F J -
+C E H -
+D Q B x
+E J G -
+F N N -
+G Q D -
+H R G -
+I H O -
+J D R x
+K R B -
+L Q A -
+M H F -
+N F G -
+O Q D -
+P B H x
+Q C G -
+R E P -
+14
+
+4
+A C B -
+B A D -
+C A C -
+D D A -
+10
+
+16
+A M E x
+B B I -
+C I O -
+D F O -
+E K C -
+F D L -
+G B O -
+H I D -
+I P H -
+J O C x
+K H L x
+L H B -
+M A C -
+N D B -
+O L F x
+P O F -
+5
+
+2
+A B A -
+B B B -
+11
+
+18
+A L O -
+B M K -
+C O N -
+D G N x
+E H J -
+F A L x
+G C P -
+H Q D -
+I G P x
+J J I -
+K B E -
+L B B -
+M Q O x
+N B G -
+O L I x
+P E M x
+Q C M -
+R Q I -
+7
+
+15
+A A D x
+B K K x
+C A A x
+D M D x
+E L A x
+F B M x
+G N G x
+H C N x
+I J I x
+J E B x
+K J B x
+L J F x
+M D C x
+N N K x
+O F K x
+26
+
+21
+A O F x
+B H J -
+C Q D -
+D B R -
+E C I x
+F A D x
+G L C -
+H Q M -
+I S L -
+J D I -
+K F R -
+L E L -
+M N M -
+N P H x
+O S B x
+P T H x
+Q Q C x
+R U Q -
+S N K -
+T A S -
+U R M -
+2
+
+12
+A G I x
+B I A x
+C I K x
+D K C -
+E L L x
+F L A -
+G C J -
+H H A -
+I E L x
+J I H -
+K C D -
+L E F -
+5
+
+7
+A G E -
+B E F -
+C E E x
+D F F -
+E C B -
+F A B -
+G E A x
+14
+
+7
+A D C -
+B B G -
+C D D -
+D D B -
+E D G -
+F A F -
+G F C -
+14
+
+4
+A C D -
+B A A -
+C D C x
+D D D -
+11
+
+2
+A A B -
+B B B -
+28
+
+3
+A A C -
+B A A -
+C A B -
+17
+
+26
+A P O -
+B J S -
+C F L -
+D X X x
+E D X -
+F W W -
+G C Z -
+H V U -
+I M C -
+J S U -
+K C N -
+L P O -
+M A R -
+N A J -
+O A X x
+P I M x
+Q T U x
+R T T -
+S N C -
+T Z J -
+U B D x
+V X L -
+W O W x
+X H N -
+Y X M -
+Z Q D -
+20
+
+26
+A W Y x
+B G I x
+C U A -
+D H U -
+E I Z -
+F A E -
+G U K x
+H U G -
+I N H x
+J C Q x
+K Y X x
+L N P -
+M Q Y -
+N R A -
+O N Y -
+P N R -
+Q N T x
+R Q L x
+S W V -
+T F X -
+U U G x
+V A F -
+W M A -
+X Z R x
+Y U Y -
+Z F R -
+14
+
+18
+A A K x
+B N F x
+C F D x
+D M C x
+E G I -
+F M N -
+G M N -
+H Q B x
+I J F x
+J L E x
+K N B x
+L P C -
+M A O -
+N K L -
+O B M -
+P Q E -
+Q J G -
+R P R -
+21
+
+11
+A K F x
+B B F x
+C G H x
+D F G x
+E H J x
+F F H x
+G I D x
+H B G x
+I H A x
+J F J x
+K G F x
+23
+
+22
+A G S -
+B N H -
+C O Q -
+D V A -
+E P J -
+F N L -
+G L T -
+H G D x
+I N D -
+J V B x
+K S J x
+L L R -
+M C R -
+N P E -
+O Q V x
+P J U -
+Q T F x
+R B L -
+S N L -
+T U V x
+U H K -
+V D B x
+14
+
+10
+A H B -
+B H C -
+C B G x
+D E D -
+E F C -
+F B D -
+G D C -
+H F J -
+I J C x
+J F B x
+14
+
+17
+A I O x
+B Q K -
+C M H x
+D B J -
+E K N -
+F I M -
+G K J x
+H H H -
+I E B -
+J G F -
+K C Q -
+L A I x
+M L O -
+N O E x
+O H L -
+P Q Q -
+Q I P -
+4
+
+11
+A K D -
+B C A x
+C F I -
+D A D -
+E A H x
+F I H x
+G E I -
+H I C -
+I B E -
+J F F x
+K E F x
+11
+
+1
+A A A -
+11
+
+1
+A A A -
+12
+
+13
+A M M -
+B K J -
+C B J x
+D D B x
+E D H -
+F M J x
+G M J x
+H B G -
+I H E -
+J F H -
+K H H -
+L D G x
+M E D -
+11
+
+11
+A E F -
+B F K x
+C F E -
+D C I -
+E F E -
+F D E -
+G I A -
+H J G x
+I I C -
+J A C -
+K C G x
+7
+
+14
+A K C x
+B L H -
+C M A x
+D E H -
+E G E -
+F G N x
+G D C -
+H H M -
+I L D -
+J F D -
+K M E x
+L C L -
+M M C x
+N A G -
+28
+
+21
+A Q G x
+B Q E -
+C I M -
+D E J -
+E M Q x
+F H G x
+G N G -
+H B P x
+I E C x
+J D G -
+K J R -
+L C L -
+M K T -
+N R L -
+O T U -
+P C B x
+Q J T -
+R B K -
+S G M -
+T S E -
+U G D -
+28
+
+3
+A C B x
+B C B x
+C A B x
+26
+
+17
+A Q N -
+B J J -
+C E F -
+D H B -
+E B D x
+F A L x
+G A F -
+H F J -
+I O B -
+J K K x
+K O F -
+L I J -
+M D A x
+N A J -
+O B C x
+P L H x
+Q N B x
+6
+
+5
+A D C -
+B A D -
+C A E -
+D A D -
+E A D -
+17
+
+6
+A C E x
+B E F -
+C F F -
+D E E -
+E F F -
+F A C x
+4
+
+8
+A A D x
+B A C -
+C D B x
+D G A -
+E E A -
+F A H x
+G B H -
+H G B -
+20
+
+25
+A L J -
+B P C -
+C X M x
+D Y G x
+E G S x
+F E E -
+G I F -
+H B C x
+I S V -
+J G Q -
+K O X x
+L Q T -
+M F O -
+N B H -
+O S D x
+P L N -
+Q M D x
+R H S -
+S A M -
+T C N -
+U N H x
+V V V x
+W X L -
+X U Q -
+Y I M x
+17
+
+17
+A F G x
+B P G x
+C P N x
+D Q E -
+E L Q x
+F C L -
+G C D -
+H L E -
+I J L -
+J M G -
+K Q E -
+L C F -
+M I B x
+N J L -
+O Q I -
+P P E x
+Q G E -
+19
+
+26
+A V I -
+B P U -
+C F O -
+D U A -
+E D I -
+F T C -
+G U T x
+H O B x
+I E M -
+J I R x
+K O W -
+L X C -
+M J E -
+N U L x
+O T P x
+P G K -
+Q D O -
+R F Z -
+S M D -
+T O M -
+U Z O -
+V Q R x
+W P E x
+X X L x
+Y G U x
+Z K M x
+1
+
+15
+A F G -
+B D H -
+C N A x
+D L I -
+E D N -
+F K M -
+G H I x
+H J K -
+I C O -
+J N A x
+K D O x
+L C B x
+M I C -
+N L C x
+O E E -
+15
+
+22
+A L M x
+B I O x
+C U E -
+D P N -
+E I V x
+F N D -
+G J J x
+H C F -
+I V L -
+J M L -
+K I E -
+L M J -
+M S M -
+N U S x
+O D M -
+P H A -
+Q H H -
+R B G -
+S L T x
+T S O x
+U A M -
+V F R -
+20
+
+15
+A B G -
+B L E -
+C M G -
+D F K x
+E F A -
+F M O -
+G A H -
+H G O -
+I F K -
+J A K x
+K A H -
+L A E -
+M F A -
+N J G -
+O I D -
+20
+
+20
+A F F -
+B G H -
+C N T -
+D O N -
+E C N x
+F G D -
+G F E -
+H G O -
+I A D -
+J E S -
+K L R -
+L E C -
+M Q K -
+N K P -
+O K R -
+P T D -
+Q Q N -
+R Q C -
+S I F -
+T Q E -
+27
+
+24
+A I D -
+B E S x
+C M J -
+D U G -
+E M M x
+F B X -
+G R I -
+H B A x
+I K G -
+J I O x
+K L I -
+L M F -
+M A P -
+N B X x
+O C U x
+P O W -
+Q A G -
+R J R x
+S C S -
+T L G -
+U O P -
+V X F -
+W N R x
+X V K x
+9
+
+14
+A J M -
+B K A -
+C G C x
+D D I -
+E A D -
+F J F -
+G E H -
+H C L -
+I D G -
+J C L -
+K L J x
+L N I -
+M M D x
+N G C x
+8
+
+14
+A M J -
+B E D -
+C L H -
+D H N -
+E N L -
+F E B -
+G A J -
+H J A -
+I B D -
+J E N x
+K C D -
+L N N -
+M J N -
+N C C -
+13
+
+11
+A K D -
+B F K -
+C D G -
+D J E -
+E H K -
+F B A -
+G F J -
+H K E -
+I I G -
+J D J -
+K J G -
+9
+
+16
+A L O x
+B M N x
+C I E -
+D I M x
+E K H -
+F B H -
+G E P x
+H L G -
+I K G x
+J D J -
+K H A x
+L L A x
+M H F -
+N K G -
+O B B -
+P A B -
+16
+
+17
+A B Q x
+B O N x
+C O O x
+D I J x
+E K C x
+F O J x
+G C P x
+H E F x
+I G K x
+J A B x
+K N O x
+L O I x
+M M E x
+N Q O x
+O A P x
+P B H x
+Q P H x
+0
+
+3
+A B C -
+B B C -
+C B A x
+20
+
+1
+A A A x
+18
+
+25
+A C T -
+B P L -
+C T V -
+D E N -
+E T M x
+F I B -
+G Y L -
+H J L -
+I U W -
+J N X -
+K S K -
+L A M x
+M G C x
+N U H -
+O G N x
+P J K x
+Q I G x
+R O G -
+S U K -
+T W J x
+U U I -
+V O V -
+W N C -
+X W P x
+Y A I -
+25
+
+19
+A Q R -
+B K A -
+C M J -
+D Q M x
+E H O -
+F B I -
+G F S -
+H E L -
+I G A -
+J P N -
+K H C -
+L Q P -
+M J O x
+N L S x
+O N L x
+P O I -
+Q I J -
+R G H -
+S R Q -
+16
+
+9
+A I E -
+B C D -
+C D I -
+D G G -
+E G B -
+F E H -
+G C G x
+H D E x
+I B I -
+16
+
+12
+A B K x
+B J D x
+C E A -
+D J F -
+E G I -
+F I J x
+G B F -
+H G E -
+I F H x
+J A K x
+K E K x
+L D B -
+23
+
+19
+A S C -
+B C F x
+C E M -
+D R K -
+E D N x
+F Q G -
+G O N -
+H D C -
+I M F -
+J P S -
+K F K -
+L A F -
+M G E -
+N J H -
+O S B -
+P K C -
+Q R F -
+R I F -
+S A R x
+19
+
+19
+A Q M -
+B H D -
+C E A x
+D A D -
+E P R -
+F S L x
+G P S -
+H P Q x
+I B E x
+J E Q -
+K C F -
+L E P -
+M R O -
+N A Q x
+O I F -
+P P C x
+Q K L -
+R D Q x
+S F N x
+15
+
+4
+A C D -
+B C B x
+C A D -
+D B A x
+11
+
+12
+A B B -
+B F H -
+C A L -
+D J C -
+E E D x
+F C D -
+G D I x
+H C I -
+I I G -
+J A D -
+K I A x
+L K C x
+12
+
+14
+A F J -
+B A D -
+C K G -
+D B F x
+E L I x
+F E H -
+G H I -
+H H E -
+I E I -
+J N I -
+K F J -
+L F H -
+M A I -
+N J J -
+7
+
+15
+A L O x
+B H M x
+C B L x
+D A B x
+E B K x
+F J E x
+G A F x
+H D A x
+I H A x
+J K F x
+K A E x
+L D A x
+M A I x
+N C F x
+O K F x
+26
+
+1
+A A A x
+27
+
+26
+A R E -
+B S F -
+C V R -
+D H H -
+E Z F -
+F F L -
+G O M x
+H R V -
+I D L -
+J G I x
+K K K -
+L L K x
+M S M -
+N P V -
+O G G -
+P K D -
+Q H I x
+R Y C x
+S R F x
+T K G -
+U V J x
+V Y C -
+W H J -
+X S Q -
+Y R S -
+Z A G -
+11
+
+14
+A C F x
+B A J -
+C L I -
+D N L x
+E G B -
+F M C -
+G K A -
+H F L -
+I G A x
+J A C x
+K I F -
+L M A -
+M J J -
+N G A -
+19
+
+5
+A E E -
+B A D -
+C D E -
+D E A -
+E C A -
+2
+
+11
+A C D -
+B K A -
+C J A -
+D J K x
+E I B -
+F D G -
+G K C x
+H A I -
+I G K -
+J B J -
+K I H -
+26
+
+2
+A A A -
+B A A -
+29
+
+16
+A C A -
+B O L -
+C L H x
+D A L x
+E N N x
+F H J -
+G E E -
+H P L -
+I C E x
+J J J -
+K P L x
+L K N -
+M A F -
+N A L -
+O F J x
+P N D -
+1
+
+7
+A B C -
+B G C -
+C F A -
+D E B x
+E F E x
+F D C x
+G G C -
+12
+
+13
+A I L -
+B H F x
+C E D x
+D C C -
+E K C -
+F L K -
+G L G -
+H L G -
+I F D -
+J I D -
+K E A -
+L G A x
+M D L x
+24
+
+1
+A A A x
+27
+
+1
+A A A x
+20
+
+12
+A B H -
+B L G -
+C D G -
+D A B x
+E L A -
+F I E x
+G H K x
+H E J -
+I G I -
+J C C -
+K F B x
+L F D x
+26
+
+16
+A M H x
+B E L x
+C O B -
+D N M x
+E N O -
+F P D -
+G G E -
+H F C x
+I G O -
+J O C -
+K O K -
+L F E -
+M F B -
+N L N -
+O O L x
+P G E x
+5
+
+20
+A N J -
+B B R -
+C S C -
+D Q L x
+E F R x
+F D H x
+G K F -
+H C F -
+I L M x
+J R J x
+K R K -
+L D N x
+M I K -
+N I K x
+O J E x
+P S L x
+Q P J -
+R A K -
+S J H -
+T L Q x
+26
+
+26
+A W Q x
+B A W -
+C A O -
+D K D -
+E G B x
+F I N -
+G K L -
+H H L -
+I D I -
+J Q E x
+K W V x
+L I Y -
+M F H x
+N Z F -
+O N A -
+P Z Z -
+Q O J -
+R Y H -
+S V C -
+T A Q -
+U F F x
+V G P -
+W H H -
+X D X -
+Y H V -
+Z D P -
+7
+
+20
+A A S -
+B P K -
+C J F x
+D F K -
+E M B -
+F C C -
+G T F -
+H K C -
+I D K x
+J B A -
+K J Q -
+L I H -
+M J J -
+N N F x
+O T A -
+P O Q -
+Q F G -
+R R P x
+S A M -
+T R J -
+18
+
+1
+A A A x
+4
+
+17
+A K M -
+B A J -
+C K A x
+D M H -
+E A L x
+F P C -
+G D J -
+H E P x
+I P M x
+J O A x
+K N E -
+L G O -
+M L H -
+N H O -
+O B M -
+P D D -
+Q C C -
+22
+
+15
+A L G -
+B M A x
+C L M -
+D N D -
+E I D x
+F H L -
+G O E -
+H O F -
+I F L x
+J M J -
+K F M x
+L A E -
+M E C -
+N H N -
+O D J -
+2
+
+22
+A F G -
+B R U -
+C U F -
+D P S x
+E C E -
+F I B x
+G P G -
+H F D -
+I G E -
+J T I -
+K A V -
+L C F -
+M A H x
+N B A -
+O K Q -
+P I A -
+Q H T -
+R B I x
+S Q L x
+T P P -
+U I U -
+V H J x
+9
+
+12
+A B G -
+B E C x
+C J A x
+D L C x
+E D C -
+F F J -
+G C F -
+H L G -
+I K F -
+J J D -
+K K E -
+L E K -
+15
+
+19
+A H L -
+B B L -
+C I C -
+D B N -
+E O R -
+F S I x
+G K E -
+H B F x
+I R B -
+J S G x
+K G I -
+L E A -
+M L Q x
+N J H -
+O K C -
+P B M -
+Q I A x
+R I H -
+S B I x
+1
+
+2
+A A B -
+B B A -
+10
+
+6
+A D E x
+B A C x
+C E E x
+D C C x
+E C C x
+F C E x
+14
+
+22
+A I C x
+B J C -
+C I T -
+D E V -
+E L Q -
+F C P x
+G R J -
+H H C -
+I J S -
+J H N x
+K B I x
+L D N -
+M P O x
+N L H -
+O C J -
+P U U -
+Q U T -
+R N K -
+S I C -
+T E G -
+U D H -
+V E B x
+5
+
+5
+A B A -
+B A D x
+C C E x
+D C C -
+E D A -
+5
+
+6
+A F C x
+B E F x
+C E E -
+D F D x
+E C B -
+F A F -
+17
+
+10
+A D H -
+B C A -
+C G E -
+D F G -
+E G G -
+F B H -
+G J I -
+H C F -
+I D E -
+J C I -
+14
+
+23
+A G V -
+B F U x
+C D O -
+D S D x
+E O S x
+F W I -
+G I G -
+H L B x
+I N T -
+J O Q -
+K I C -
+L I U -
+M J U x
+N P U -
+O A I -
+P B G x
+Q K O -
+R E V x
+S C M -
+T C U -
+U I N x
+V V U -
+W L O x
+14
+
+16
+A J K -
+B F F -
+C D C -
+D P I x
+E C H -
+F C P -
+G J P -
+H G G -
+I E I -
+J C H x
+K H K x
+L I I -
+M G D -
+N L A -
+O O H -
+P A F -
+30
+
+15
+A H C -
+B A I -
+C C C x
+D I D -
+E H B -
+F M E -
+G D F -
+H N G x
+I A D -
+J K N -
+K J G -
+L D K x
+M N N -
+N D E -
+O H M x
+18
+
+24
+A L C -
+B J M -
+C N R -
+D V T -
+E V C -
+F W M x
+G R D x
+H H F -
+I V C -
+J D M -
+K Q T x
+L R X x
+M F W -
+N C E -
+O I C -
+P O Q -
+Q U H -
+R I K -
+S C C -
+T W O x
+U N D x
+V F R -
+W X T x
+X K R x
+26
+
+21
+A L L -
+B O J -
+C I S -
+D F L -
+E S P -
+F B A -
+G N M -
+H C F -
+I Q M -
+J P S -
+K B S -
+L M P x
+M U Q -
+N Q O -
+O I K x
+P T I -
+Q R M -
+R L Q x
+S U O -
+T A N -
+U O R x
+30
+
+3
+A B A -
+B A B -
+C B A x
+18
+
+25
+A O E -
+B X T x
+C M K -
+D V M x
+E N L -
+F B J x
+G L T -
+H V G -
+I P Y -
+J M R x
+K L Y -
+L E L -
+M S D x
+N K G -
+O P T -
+P N F -
+Q K O -
+R D I -
+S R N x
+T H B -
+U C F x
+V V M -
+W N H -
+X X U x
+Y C V x
+5
+
+13
+A J K x
+B D M -
+C A K -
+D I J -
+E M G x
+F E E x
+G B C -
+H C B -
+I A M -
+J B F -
+K F J -
+L K K -
+M C J x
+17
+
+1
+A A A -
+6
+
+14
+A M N -
+B J N x
+C D L -
+D D C -
+E B C -
+F J C x
+G H I x
+H B A -
+I N G x
+J G M -
+K L H -
+L D H -
+M K K -
+N J J -
+16
+
+8
+A A C -
+B G E x
+C H B -
+D C E -
+E E H x
+F B A x
+G C G -
+H B F x
+3
+
+16
+A D A x
+B G N -
+C I E x
+D B O -
+E P M -
+F F L x
+G K F x
+H B A x
+I F L -
+J G G -
+K F F -
+L N J -
+M L K -
+N A K -
+O F C -
+P A I -
+0
+
+20
+A T G -
+B F S x
+C N F x
+D L F x
+E B N -
+F C O x
+G I A x
+H B B -
+I A E -
+J F E -
+K L N -
+L A T -
+M M G -
+N T H -
+O D H -
+P L N -
+Q P G -
+R H F x
+S M J -
+T D D x
+5
+
+17
+A P N -
+B D N x
+C P H x
+D G C -
+E M E -
+F B D x
+G M D -
+H I G -
+I N J -
+J J L -
+K F I x
+L A B -
+M M G -
+N N C -
+O M Q -
+P J P -
+Q G O x
+27
+
+10
+A H C x
+B A E -
+C G C -
+D A F -
+E C E -
+F I H -
+G B F -
+H J E -
+I B G -
+J C I -
+17
+
+1
+A A A x
+21
+
+13
+A F A -
+B F B -
+C B K -
+D C I -
+E B I -
+F J A -
+G I L -
+H E F -
+I E I x
+J F C x
+K I J x
+L F F x
+M E B -
+26
+
+22
+A Q O -
+B P M -
+C O K -
+D E S x
+E E L -
+F Q J x
+G N T -
+H R L x
+I H F x
+J B K x
+K C T x
+L A S -
+M O U x
+N F D -
+O G F -
+P N P x
+Q V K -
+R A N -
+S Q F -
+T B G x
+U T D -
+V M F x
+15
+
+2
+A B A x
+B B A x
+25
+
+2
+A B B -
+B A B -
+22
+
+11
+A K A -
+B G G x
+C C F -
+D H G -
+E F E x
+F A I -
+G D J x
+H G G -
+I H D -
+J C J -
+K E J x
+16
+
+21
+A M O -
+B O E -
+C L I x
+D H E -
+E A I x
+F F O x
+G O U -
+H I A -
+I G R -
+J N G -
+K F C x
+L U R -
+M U B -
+N B H -
+O E S -
+P M L -
+Q J E x
+R L P -
+S F Q -
+T A Q x
+U E C x
+21
+
+25
+A Q K -
+B O W -
+C H G x
+D G M -
+E I Y x
+F M P -
+G I P -
+H B U -
+I V A -
+J U H -
+K O H x
+L O T x
+M S M x
+N F E -
+O B V -
+P V L -
+Q B W -
+R Y O -
+S T B -
+T T Q x
+U H F x
+V E K x
+W Y O x
+X N F -
+Y T T -
+0
+
+8
+A G C -
+B C D -
+C G F -
+D B A -
+E F D x
+F C A x
+G E B x
+H C F -
+11
+
+20
+A L O -
+B O A -
+C C R -
+D H H x
+E Q Q -
+F H C -
+G H J -
+H P Q -
+I H K x
+J F S -
+K G N -
+L J C -
+M D B -
+N J J -
+O D O x
+P A A -
+Q H O -
+R L L -
+S F A x
+T A M -
+13
+
+19
+A O E x
+B C R x
+C B H x
+D C J x
+E F F x
+F J S x
+G M H x
+H D O x
+I G B x
+J P S x
+K M A x
+L E O x
+M C K x
+N J H x
+O O N x
+P D E x
+Q G C x
+R E N x
+S H I x
+22
+
+17
+A L B -
+B J D -
+C G A -
+D K I x
+E M M -
+F I B -
+G E B -
+H I H x
+I Q G x
+J H D -
+K E J -
+L P F -
+M N J -
+N P D -
+O H Q -
+P D Q x
+Q C N -
+0
+
+23
+A O G -
+B B N -
+C J N -
+D O C -
+E L D -
+F H R -
+G P F -
+H T V x
+I T K -
+J T F x
+K B V x
+L G R -
+M H V -
+N U O -
+O T J -
+P L F -
+Q S R -
+R B L -
+S G C -
+T A P -
+U O L -
+V Q M -
+W U A -
+23
+
+3
+A A C x
+B B A x
+C A C x
+11
+
+5
+A D D x
+B C E -
+C A E -
+D C E -
+E A B -
+1
+
+1
+A A A x
+23
+
+23
+A J E -
+B P R -
+C G U x
+D L G x
+E V V -
+F L V x
+G H J -
+H M G -
+I A R -
+J G P -
+K O R x
+L W N -
+M F K -
+N L H -
+O E O x
+P S W x
+Q M C -
+R H T -
+S P B -
+T G A -
+U U W -
+V W S -
+W A H -
+18
+
+25
+A D Y x
+B A W x
+C H D x
+D N F -
+E R V -
+F P N -
+G K I -
+H Q I -
+I G O -
+J K K -
+K M O -
+L U G -
+M V P -
+N G B x
+O V B -
+P H V -
+Q P V -
+R B D -
+S B H -
+T P D -
+U Q K -
+V R I -
+W F X x
+X L C -
+Y J I -
+2
+
+13
+A G B x
+B J H -
+C G C x
+D A D x
+E K G -
+F L B -
+G C K x
+H B G -
+I C M x
+J H D -
+K H A -
+L G F -
+M I K x
+7
+
+16
+A K G -
+B F O -
+C N B -
+D N H x
+E B B -
+F I I x
+G K C -
+H B M -
+I E B -
+J P A x
+K B L -
+L B O x
+M D L x
+N P O -
+O H E -
+P K F -
+15
+
+11
+A D B x
+B J E -
+C E D -
+D C I -
+E H B -
+F D D -
+G G J x
+H C H -
+I C E x
+J E B -
+K B A x
+2
+
+3
+A B A -
+B A B -
+C A A -
+7
+
+14
+A N G -
+B A F -
+C M K -
+D M M -
+E N A x
+F J N -
+G F M -
+H G N -
+I M A x
+J N K x
+K L I -
+L A A -
+M E I -
+N N H x
+19
+
+13
+A L M x
+B K C x
+C J L x
+D H A x
+E F J x
+F A E x
+G A L x
+H F J x
+I C C x
+J H G x
+K E A x
+L G M x
+M M M x
+13
+
+5
+A C A -
+B A A -
+C E C -
+D A C x
+E B B x
+5
+
+24
+A S T x
+B Q M -
+C U U x
+D M W -
+E I J -
+F X J x
+G P M x
+H F A -
+I S W -
+J R F -
+K L A -
+L N I x
+M J F x
+N F G -
+O G Q -
+P G G -
+Q P G -
+R G D -
+S B I -
+T A O -
+U U B -
+V L X -
+W V W -
+X T A x
+11
+
+23
+A B V x
+B O G -
+C O N x
+D M I -
+E V Q -
+F U L -
+G D K -
+H O F -
+I T D -
+J L U -
+K C U -
+L V F x
+M E I -
+N U N -
+O V L -
+P I N -
+Q T S x
+R N I x
+S A U -
+T S D -
+U S M x
+V I A x
+W G P -
+4
+
+3
+A B C -
+B B A x
+C A B -
+22
+
+7
+A E E -
+B F C x
+C C G x
+D D A x
+E A E -
+F G F x
+G G A -
+13
+
+14
+A A I -
+B G G -
+C M F -
+D A C -
+E A L -
+F N M -
+G B A -
+H A F -
+I I F x
+J E J -
+K K F -
+L K C x
+M C D -
+N I G -
+12
+
+23
+A Q S x
+B G N x
+C T H x
+D C R -
+E M L -
+F H N x
+G E U x
+H D M -
+I K Q -
+J W K -
+K M R -
+L W U -
+M S V -
+N I E -
+O I U -
+P W U -
+Q E K -
+R E C -
+S B D -
+T W E x
+U P E -
+V N B -
+W B N x
+25
+
+1
+A A A -
+3
+
+4
+A D B x
+B A B x
+C D C x
+D C A x
+0
+
+19
+A L J -
+B K O -
+C N D -
+D K F x
+E O E -
+F P H -
+G K A x
+H O E -
+I Q O x
+J L G -
+K I S -
+L R R x
+M K G -
+N I J -
+O F K -
+P I L x
+Q I N x
+R F Q -
+S S C -
+7
+
+5
+A B E -
+B B C -
+C B B -
+D C C x
+E B C -
+21
+
+10
+A A J -
+B B E -
+C J F -
+D D B -
+E J G -
+F J F -
+G B B -
+H J C x
+I F D -
+J C B -
+15
+
+2
+A B B -
+B A B -
+28
+
+20
+A I J x
+B G G -
+C R Q x
+D L R -
+E F A -
+F N L -
+G L C -
+H D F -
+I D B x
+J T T -
+K C I -
+L O H -
+M I T x
+N B P x
+O A G x
+P J G -
+Q C I x
+R B Q x
+S E O -
+T F L -
+24
+
+26
+A C D -
+B X K -
+C M R -
+D E I -
+E N B x
+F C J -
+G R O x
+H X W -
+I G I -
+J X A -
+K C U -
+L E P x
+M Y G -
+N Z G -
+O R A -
+P E L -
+Q R V -
+R A R x
+S C Y -
+T F Z x
+U G K -
+V E P x
+W Z W -
+X M F -
+Y M J -
+Z R F x
+28
+
+13
+A A I x
+B G G x
+C F I x
+D L F x
+E G K x
+F F H x
+G A D x
+H A L x
+I F B x
+J F J x
+K D F x
+L L M x
+M C K x
+6
+
+22
+A S V -
+B N O -
+C R B x
+D J M -
+E T K -
+F L N -
+G F V -
+H N S -
+I G V -
+J A E x
+K H F -
+L N A x
+M F A -
+N C B x
+O N K -
+P I A x
+Q M V x
+R Q Q -
+S R H -
+T B U -
+U G L x
+V C H -
+26
+
+12
+A A J -
+B D D -
+C C C -
+D K I -
+E G L x
+F I B -
+G F B -
+H H H -
+I C B -
+J I D -
+K A K -
+L I B x
+29
+
+8
+A E D -
+B D A -
+C E A -
+D A H -
+E G C -
+F A D -
+G B A -
+H H E -
+24
+
+26
+A N H -
+B C C -
+C J K -
+D L O -
+E J Y -
+F Y I -
+G Y U -
+H L O x
+I N V x
+J W K -
+K K V x
+L B R -
+M M Z -
+N I R -
+O M M -
+P S J -
+Q V O x
+R I X -
+S B O x
+T F R -
+U V C x
+V U V -
+W W H -
+X P U -
+Y J Q -
+Z W B -
+16
+
+21
+A Q Q x
+B P N -
+C C D x
+D U G x
+E M G -
+F H G x
+G U R x
+H Q B -
+I K H -
+J H C -
+K I N -
+L R U x
+M T Q x
+N P H -
+O E A -
+P P N x
+Q O H -
+R N I x
+S F N x
+T D A x
+U K E x
+25
+
+10
+A A J -
+B B G x
+C B I x
+D G D -
+E D F -
+F H E x
+G G G -
+H J G x
+I C A x
+J F F -
+10
+
+20
+A B N -
+B T P -
+C T Q -
+D M F -
+E M C -
+F P F -
+G Q T -
+H H R -
+I K D x
+J D D -
+K B C x
+L D O -
+M N O -
+N D R -
+O T F -
+P S M -
+Q H E -
+R F T x
+S O O -
+T F K -
+24
+
+11
+A I H x
+B C A x
+C J F x
+D A B -
+E B B -
+F H J -
+G J I -
+H B E x
+I I I x
+J I H -
+K B B x
+0
+
+17
+A M G -
+B C A -
+C D G x
+D O N x
+E G O -
+F H K x
+G M I x
+H E D x
+I K L -
+J A F -
+K F L x
+L B B -
+M M J -
+N G O -
+O P G x
+P B H x
+Q K G x
+23
+
+2
+A B A -
+B B A -
+12
+
+21
+A H U -
+B I I -
+C U O -
+D T N -
+E E O -
+F E A -
+G D H x
+H M J -
+I O B x
+J M K x
+K G S x
+L O T x
+M O G x
+N A S -
+O Q G x
+P U C -
+Q N O -
+R A B x
+S T P x
+T D J x
+U K S -
+20
+
+2
+A B B -
+B B B -
+13
+
+14
+A A F x
+B H M x
+C G N -
+D F E x
+E M L -
+F I F -
+G L D -
+H B A x
+I G J -
+J M L x
+K K E x
+L A F x
+M L C x
+N J J -
+14
+
+26
+A I X -
+B F F -
+C W X -
+D Q T x
+E C V x
+F L B -
+G F U x
+H W D -
+I O N x
+J Y P x
+K B S -
+L N E -
+M N S -
+N N Y -
+O D H x
+P N A -
+Q S S x
+R A Z x
+S I K -
+T P D x
+U P J -
+V Y J x
+W A L x
+X O E -
+Y X O -
+Z T J x
+17
+
+24
+A J J -
+B A I -
+C B K x
+D P W -
+E V T -
+F W K -
+G E R -
+H M L -
+I X G x
+J L P x
+K G V -
+L T D -
+M I U x
+N P P x
+O V O -
+P X K x
+Q V P x
+R K K x
+S U O x
+T V C x
+U V E -
+V H W -
+W O E x
+X A K -
+27
+
+25
+A H I -
+B F M -
+C J S -
+D Q S -
+E T K -
+F N U -
+G U B -
+H L A -
+I B X -
+J W F -
+K E F -
+L L D -
+M V R -
+N Y K -
+O Q M x
+P Q L x
+Q G C -
+R R G -
+S B H -
+T U S -
+U I Y -
+V Y T -
+W K X -
+X S T -
+Y Q K -
+15
+
+1
+A A A -
+16
+
+7
+A C B x
+B B F -
+C C A -
+D A E x
+E F G x
+F E G x
+G C B -
+7
+
+7
+A A G x
+B C D -
+C G D -
+D E G -
+E G B -
+F F A x
+G B E -
+14
+
+13
+A M I x
+B E D x
+C C A -
+D G I x
+E D J -
+F K H -
+G B C x
+H L H -
+I F I -
+J B I x
+K F D -
+L M K x
+M G D x
+17
+
+5
+A B B -
+B E C -
+C D C -
+D E A -
+E E C x
+10
+
+16
+A C F -
+B E E x
+C N G -
+D K I -
+E P G x
+F L J -
+G I G x
+H L B -
+I P M -
+J J O x
+K D J -
+L B M x
+M G A -
+N A B -
+O F C -
+P F C x
+20
+
+3
+A C B x
+B A A x
+C B C x
+10
+
+17
+A A P -
+B C A -
+C J A -
+D A A -
+E G E x
+F B F x
+G N O -
+H L C -
+I L O -
+J B L x
+K M B -
+L E M -
+M L E -
+N J K x
+O K Q x
+P P O x
+Q C K -
+17
+
+7
+A B G x
+B G F -
+C D D -
+D E G -
+E D E x
+F A D -
+G B D -
+15
+
+5
+A C B -
+B B C x
+C E D -
+D A D -
+E C D -
+7
+
+11
+A G H x
+B K F x
+C F K x
+D I K -
+E B I -
+F G K -
+G H J -
+H C F x
+I K F x
+J B C -
+K F F -
+10
+
+5
+A A D -
+B E C -
+C E D x
+D D B x
+E C C x
+9
+
+9
+A H F -
+B C G -
+C D F -
+D G G -
+E G F x
+F B H -
+G F I x
+H B C x
+I D D -
+2
+
+4
+A C D -
+B D A -
+C D B -
+D A B -
+29
+
+5
+A B C x
+B E A x
+C B C x
+D D D x
+E A D x
+18
+
+17
+A I P -
+B Q G -
+C A P -
+D G H -
+E J P x
+F O Q x
+G L I x
+H F K x
+I C P -
+J B P x
+K E D x
+L A L x
+M I G -
+N G P -
+O B I -
+P K J -
+Q A D x
+28
+
+24
+A Q F -
+B S N x
+C W R -
+D B P x
+E R S x
+F J M x
+G A V -
+H M V -
+I H A -
+J G S x
+K Q A -
+L F F -
+M V C -
+N X E -
+O S H x
+P L L x
+Q Q S -
+R I H x
+S X E x
+T O T -
+U D S x
+V I C -
+W F A x
+X K I -
+6
+
+10
+A I H -
+B J A -
+C I D x
+D I F -
+E F B -
+F F F -
+G A B -
+H E H -
+I A D x
+J F H -
+0
+
+15
+A D L -
+B O E x
+C A O -
+D D K -
+E F F -
+F I I -
+G G H -
+H H F -
+I K M -
+J H C -
+K F H x
+L C A -
+M J O -
+N K J x
+O K E x
+6
+
+14
+A M F -
+B B F -
+C L L x
+D N G x
+E N F x
+F L J x
+G C H -
+H F D x
+I C L -
+J H K -
+K D B x
+L E L x
+M H G -
+N A A -
+24
+
+8
+A B A -
+B A C -
+C H A -
+D H F -
+E G A x
+F B F x
+G C F x
+H E D x
+2
+
+21
+A H I -
+B C I -
+C B T x
+D G M x
+E G C x
+F O B -
+G N R -
+H F E x
+I F S x
+J M U -
+K J N x
+L S L -
+M Q U x
+N E D x
+O M K -
+P M K x
+Q J U -
+R P M x
+S I H -
+T G L -
+U D P x
+30
+
+15
+A L M -
+B O B x
+C C J x
+D I K -
+E A O x
+F N N -
+G B J x
+H A D x
+I M J -
+J A C x
+K F H -
+L K G x
+M D I x
+N A C -
+O F O x
+4
+
+6
+A C D -
+B A C -
+C A B -
+D C C -
+E E D -
+F E C -
+20
+
+13
+A A H x
+B E F x
+C F F x
+D G M -
+E D F -
+F G B -
+G H A -
+H K G x
+I J H x
+J H J -
+K E L -
+L M A -
+M I M x
+27
+
+8
+A E F x
+B H A -
+C B G x
+D C E -
+E H H -
+F A G -
+G B G x
+H F D x
+25
+
+23
+A T A x
+B D L x
+C G F -
+D K W -
+E F W -
+F P E -
+G D C x
+H R G x
+I M A -
+J B N -
+K K Q -
+L F N -
+M B D x
+N B K -
+O E K -
+P P M -
+Q G E -
+R C E -
+S V L -
+T B N -
+U I P x
+V K G -
+W O V x
+20
+
+5
+A B B -
+B B A -
+C C A -
+D A B -
+E C A x
+21
+
+11
+A F B -
+B E K x
+C F F -
+D D E -
+E D E -
+F H E x
+G E G x
+H A C x
+I B F -
+J I C -
+K I B -
+6
+
+11
+A I E -
+B G H -
+C A A x
+D E J -
+E I G x
+F B I -
+G I E -
+H B C -
+I K F -
+J K J -
+K H C -
+18
+
+9
+A B A -
+B A B x
+C C C -
+D G I -
+E E H x
+F G D -
+G B H -
+H C H -
+I I H x
+29
+
+25
+A K R -
+B W N -
+C Y T -
+D Y F x
+E W K x
+F T H -
+G Y K x
+H A K -
+I S N -
+J U X -
+K L G x
+L F W -
+M D K x
+N E Q -
+O O A -
+P O K x
+Q V K x
+R I W -
+S U R -
+T A O -
+U S D x
+V D G -
+W W C -
+X H X x
+Y M P -
+18
+
+15
+A J N x
+B G L x
+C K H x
+D M F x
+E M B x
+F A N x
+G E C x
+H F A x
+I E L x
+J G H x
+K J M x
+L O O x
+M L O x
+N K C x
+O L J x
+22
+
+22
+A D N -
+B O K -
+C D G x
+D R T x
+E O O -
+F I F -
+G F J -
+H I B -
+I V E -
+J S P -
+K R B x
+L M N -
+M J I -
+N L G -
+O S T x
+P C P -
+Q S U -
+R F F x
+S S J -
+T I E -
+U M F x
+V A L x
+2
+
+8
+A H C -
+B D E x
+C G H -
+D D C x
+E C D -
+F C G -
+G C B -
+H B E -
+7
+
+13
+A D K -
+B L K x
+C K C -
+D J J x
+E E G -
+F B H -
+G C C -
+H I D -
+I L H -
+J I F -
+K J I -
+L L L -
+M M F x
+10
+
+2
+A B A -
+B A B -
+10
+
+14
+A D N -
+B F K -
+C M G -
+D C I x
+E F M -
+F L A -
+G F N x
+H M I -
+I B C -
+J F J -
+K M G -
+L L M -
+M J C x
+N G K -
+12
+
+17
+A B E -
+B M B -
+C Q I -
+D G M -
+E M M -
+F O Q -
+G A D -
+H M P x
+I H G -
+J Q M x
+K I M -
+L H Q -
+M B A x
+N O B -
+O F D -
+P D N x
+Q H A -
+16
+
+25
+A O Q -
+B K P -
+C T G -
+D T P x
+E R H -
+F U U -
+G V M -
+H O R x
+I C E -
+J L Y -
+K G H -
+L Y B -
+M M R x
+N P D -
+O J C x
+P R N x
+Q O A -
+R N W -
+S J R -
+T X L -
+U O V x
+V B H x
+W A K -
+X E V -
+Y H F -
+25
+
+8
+A A E -
+B B C -
+C F G x
+D H B -
+E D C x
+F C G -
+G G F x
+H H H x
+1
+
+20
+A P J x
+B D Q -
+C T S -
+D S T x
+E M C -
+F T J x
+G O F -
+H F J -
+I F M -
+J A K -
+K C K -
+L D P x
+M L T x
+N A D x
+O G J -
+P T I -
+Q E J x
+R N K -
+S M S x
+T P Q -
+14
+
+20
+A K F -
+B S K -
+C S D -
+D C A -
+E O I -
+F N I x
+G G B x
+H C R -
+I O D -
+J K F x
+K R N -
+L E T x
+M G N -
+N H A -
+O T L x
+P E J x
+Q A N -
+R K R -
+S Q A x
+T Q J -
+14
+
+19
+A D J -
+B H O -
+C A G x
+D Q O -
+E H K x
+F H D x
+G F S x
+H Q M x
+I J F -
+J B M x
+K K I -
+L L I -
+M A E -
+N K I x
+O B N -
+P I N x
+Q K G x
+R J N -
+S J M x
+2
+
+6
+A B C -
+B B B -
+C E E -
+D F B -
+E C D -
+F A A -
+7
+
+6
+A A F -
+B A C x
+C C D -
+D B A x
+E B F -
+F C F -
+0
+
+21
+A A B x
+B D S -
+C R J -
+D J Q x
+E J H x
+F R L -
+G L J -
+H G A x
+I J T -
+J U P x
+K K O -
+L C I -
+M G N -
+N Q T x
+O O C x
+P S E -
+Q M J x
+R O B -
+S H M -
+T D D -
+U K R -
+6
+
+23
+A B M -
+B R S x
+C H D -
+D M N -
+E N E x
+F L D -
+G J L -
+H L F -
+I L N -
+J G C x
+K R T -
+L C M x
+M M I -
+N T H x
+O L F -
+P K L x
+Q J D x
+R V B x
+S I Q -
+T P G x
+U D E -
+V K U -
+W D M -
+4
+
+22
+A E E -
+B H D -
+C T S -
+D I E -
+E G B -
+F Q C x
+G G K x
+H L F -
+I L D x
+J U L x
+K J G -
+L I R x
+M G F x
+N Q D x
+O E R -
+P J D -
+Q B J x
+R K M x
+S J U x
+T M H -
+U J O -
+V C G -
+18
+
+7
+A B B x
+B G C -
+C C A -
+D G B x
+E A F -
+F A D -
+G E A x
+23
+
+14
+A M E -
+B I J -
+C K M x
+D M G x
+E A J -
+F D E -
+G J B -
+H I A -
+I I B -
+J D J -
+K C A -
+L E L -
+M D C -
+N M B -
+5
+
+11
+A E G -
+B D E -
+C B C -
+D D K -
+E D D -
+F E A -
+G C F x
+H D C -
+I E F -
+J D A -
+K F G -
+13
+
+6
+A E A -
+B D B -
+C F F -
+D D E -
+E A A x
+F E C x
+9
+
+14
+A I G x
+B G L x
+C H N -
+D B A x
+E B D -
+F M A -
+G M E -
+H B G x
+I D M -
+J A M -
+K H M -
+L A B -
+M N I x
+N N C -
+28
+
+2
+A A A -
+B B B -
+11
+
+19
+A P O x
+B P O x
+C Q I x
+D G R x
+E J S x
+F Q P x
+G N M x
+H E R x
+I B G x
+J R K x
+K J E x
+L S M x
+M B S x
+N B G x
+O N O x
+P J K x
+Q P B x
+R Q M x
+S D M x
+2
+
+23
+A T K -
+B I K x
+C P E -
+D W C -
+E R W -
+F I Q -
+G G A -
+H L T -
+I E F -
+J V V -
+K H W x
+L O K -
+M M A -
+N N K x
+O W O -
+P O R -
+Q P C -
+R T B -
+S W S x
+T B N x
+U B H -
+V P H x
+W K B x
+22
+
+19
+A F D -
+B D D -
+C M I -
+D F F x
+E O O -
+F B S -
+G D F -
+H J Q -
+I P Q -
+J O G -
+K R P -
+L B L -
+M S K -
+N H H -
+O A L -
+P L C x
+Q P B -
+R C P -
+S C J x
+22
+
+3
+A B B -
+B B B x
+C B C -
+21
+
+15
+A E M -
+B C C x
+C K G -
+D F L x
+E K D -
+F A J x
+G B M -
+H D O -
+I G F -
+J J M -
+K A O x
+L H O x
+M A O -
+N G D -
+O B E x
+23
+
+22
+A A M x
+B N L x
+C D V -
+D D N -
+E R G x
+F O N x
+G M F x
+H V M x
+I L B x
+J L C -
+K J D -
+L L H -
+M M K -
+N D N x
+O A H -
+P D P -
+Q G N -
+R M I -
+S U P -
+T I M -
+U M G x
+V L I -
+3
+
+14
+A M E x
+B M J x
+C J A -
+D C F x
+E G F -
+F A C x
+G H D -
+H A D -
+I N E -
+J H L -
+K K I -
+L J N -
+M M K x
+N A G -
+24
+
+22
+A F B -
+B I K x
+C R O -
+D C O -
+E E P x
+F B T -
+G O S -
+H I R x
+I S L -
+J U N x
+K E K -
+L T V -
+M V M x
+N K G -
+O D E -
+P E U x
+Q U Q -
+R N P -
+S H K -
+T O M -
+U O C x
+V E V -
+19
+
+20
+A Q G x
+B G Q x
+C C C -
+D Q P -
+E H N -
+F A K -
+G K R x
+H S Q -
+I R A -
+J R T x
+K O F x
+L N N -
+M D R -
+N A O -
+O H Q -
+P Q K -
+Q E C -
+R F J -
+S J D -
+T E J -
+30
+
+22
+A K J -
+B A E -
+C F A x
+D F D -
+E A T -
+F C N -
+G H O -
+H E N x
+I F N x
+J D F -
+K R E -
+L P C x
+M O O -
+N L K -
+O L C x
+P R V -
+Q E L -
+R M I -
+S G A -
+T N S -
+U C E -
+V B F x
+15
+
+15
+A F K -
+B N B -
+C H E -
+D N G x
+E I L -
+F J N -
+G O A x
+H D E -
+I D N x
+J B H -
+K C O -
+L M A -
+M I L x
+N K M x
+O A L -
+0
+
+14
+A D M -
+B A N x
+C A A -
+D D J -
+E G H x
+F F N -
+G F A -
+H M K -
+I E G x
+J H D x
+K F F -
+L I E -
+M G I -
+N L N x
+26
+
+24
+A B G x
+B Q Q x
+C T Q x
+D L T x
+E X L x
+F A J x
+G P J x
+H R G x
+I Q F x
+J V G x
+K K J x
+L G N x
+M X V x
+N N N x
+O C I x
+P E D x
+Q C T x
+R V S x
+S X U x
+T S N x
+U V B x
+V F P x
+W G H x
+X Q F x
+14
+
+14
+A C A x
+B J H -
+C K H -
+D B N -
+E G G x
+F H B -
+G N G x
+H H F -
+I M F -
+J D A -
+K E N -
+L E J x
+M G B -
+N N E -
+17
+
+10
+A E J x
+B C D x
+C D E -
+D E F -
+E F B -
+F G H -
+G C H -
+H I J -
+I H B -
+J F A -
+24
+
+1
+A A A x
+16
+
+3
+A C A -
+B B B -
+C A B -
+1
+
+3
+A C C x
+B C A x
+C C C x
+24
+
+7
+A C G -
+B F G -
+C G F x
+D E G x
+E D B -
+F E B x
+G B D -
+20
+
+16
+A P K x
+B G M -
+C G O -
+D N H x
+E B K -
+F N J -
+G L E -
+H G A x
+I H F x
+J G D x
+K C N -
+L C N -
+M F J x
+N C E -
+O J K -
+P O G -
+5
+
+5
+A D D -
+B A C -
+C B C -
+D A C -
+E E A -
+14
+
+4
+A D D -
+B D B -
+C C C -
+D A B -
+8
+
+19
+A F E -
+B H C x
+C K C -
+D I G x
+E F I -
+F P L -
+G O I -
+H L L -
+I A A x
+J E I -
+K L D x
+L O N x
+M D I x
+N S O -
+O O R -
+P G J -
+Q L M -
+R G L -
+S O M -
+28
+
+12
+A L G x
+B L E -
+C F B -
+D H B -
+E L J -
+F I E x
+G G E x
+H E K -
+I I K x
+J E F x
+K E L x
+L C D -
+17
+
+1
+A A A -
+18
+
+26
+A V U -
+B U C -
+C M C -
+D F E -
+E Y V -
+F G J -
+G Z W -
+H U W -
+I B M -
+J A F -
+K T P -
+L X D -
+M B F -
+N K O -
+O Z R x
+P R F x
+Q H W -
+R V N -
+S G Q x
+T Z Y x
+U F O -
+V A E x
+W O G x
+X F J -
+Y C B -
+Z U B -
+19
+
+11
+A B C x
+B I F x
+C J I x
+D D I x
+E F H x
+F J C x
+G C E x
+H G E x
+I E F x
+J G H x
+K K G x
+3
+
+15
+A A F -
+B H J -
+C D D x
+D C I -
+E I L -
+F I D x
+G M J -
+H G B x
+I H C -
+J N J -
+K N M -
+L K E x
+M N C -
+N L G -
+O K F x
+9
+
+8
+A E F -
+B A D -
+C H F -
+D F C x
+E B C -
+F C D -
+G D H x
+H E D -
+5
+
+21
+A M N x
+B U U -
+C M S -
+D U R x
+E Q I -
+F L H -
+G U D -
+H P J -
+I G H -
+J M Q -
+K D U x
+L E C -
+M F M -
+N L G -
+O U H x
+P P C -
+Q B G -
+R I D -
+S H M -
+T Q O x
+U J L x
+6
+
+7
+A E D x
+B D D -
+C D D x
+D B G -
+E B F -
+F B F x
+G E E -
+25
+
+20
+A K I -
+B J C x
+C O S -
+D N I -
+E A P -
+F J T -
+G R I x
+H C G -
+I O E x
+J O Q -
+K H N -
+L T T -
+M D B -
+N L O -
+O S I -
+P J P -
+Q P F x
+R B F -
+S J R -
+T G L -
+24
+
+11
+A A B -
+B D I -
+C D A -
+D A H -
+E F G x
+F A I -
+G F J -
+H K D x
+I C D x
+J G I x
+K J A -
+4
+
+10
+A I I -
+B A F -
+C H G x
+D I A -
+E H B -
+F J F -
+G F D x
+H D D x
+I J D -
+J H E -
+6
+
+17
+A E J -
+B N P -
+C E O -
+D B A -
+E H E x
+F D E -
+G F F -
+H L D x
+I D N -
+J F B x
+K C F -
+L E C -
+M L B -
+N C D -
+O G F -
+P G G x
+Q P H -
+5
+
+1
+A A A -
+9
+
+3
+A B B -
+B C C -
+C A C x
+13
+
+15
+A I B -
+B K C x
+C I E -
+D B N -
+E J E -
+F N D -
+G K N x
+H N J -
+I L E x
+J O O -
+K O I -
+L M D -
+M B I -
+N J J -
+O A O -
+20
+
+5
+A D C -
+B E D -
+C C A -
+D C C -
+E E C -
+21
+
+12
+A D G x
+B I J -
+C I C -
+D C L -
+E K C -
+F B C -
+G D F -
+H F D x
+I E H x
+J B B x
+K I A x
+L I A x
+19
+
+15
+A G G x
+B F M -
+C D I x
+D H K -
+E J K -
+F L B x
+G A G -
+H N E -
+I L K -
+J B J -
+K D I -
+L I J x
+M C I -
+N C H -
+O G L x
+3
+
+14
+A N M -
+B F K -
+C D K -
+D J B x
+E D K -
+F G D x
+G L D -
+H N L x
+I H C -
+J K J -
+K I D x
+L C B -
+M B M x
+N A M x
+18
+
+3
+A C A -
+B A A x
+C B C -
+7
+
+8
+A F D -
+B B F -
+C G F x
+D H D -
+E A A -
+F C C -
+G B F -
+H B C -
+3
+
+10
+A E B -
+B D G -
+C J J -
+D G G -
+E A I -
+F I J -
+G I D -
+H F A -
+I G E -
+J A E x
+1
+
+10
+A C H -
+B H A -
+C E C x
+D H I -
+E J B -
+F I F -
+G E J -
+H J J x
+I E F -
+J I F -
+15
+
+26
+A W X -
+B L X -
+C J T -
+D I S x
+E X D -
+F V D -
+G N R -
+H U O -
+I X I -
+J T H -
+K R L x
+L J P -
+M J R -
+N W Z -
+O W D -
+P N W -
+Q A C -
+R W X -
+S P H -
+T S W x
+U U G -
+V S Z -
+W H B -
+X Y N -
+Y V G -
+Z G W x
+28
+
+22
+A H T -
+B A G -
+C E P -
+D A F x
+E S J -
+F E S x
+G J U -
+H N T -
+I U G x
+J J J -
+K M H -
+L V A x
+M E R x
+N K F x
+O S S -
+P K V -
+Q M N -
+R H A x
+S N I -
+T L E -
+U S K -
+V L I -
+3
+
+19
+A E Q -
+B S H -
+C I M -
+D L S -
+E J Q x
+F A D -
+G M Q -
+H B P -
+I D Q -
+J G B -
+K J K -
+L L N -
+M H O -
+N O F -
+O S M -
+P I K x
+Q R A -
+R A O -
+S C F -
+26
+
+14
+A A L x
+B D J -
+C C F -
+D A D -
+E J L x
+F F K -
+G H N -
+H I A -
+I E M x
+J K H x
+K I J -
+L M K -
+M D N -
+N K N -
+11
+
+25
+A B D x
+B I L -
+C W O -
+D R M x
+E N V -
+F E E -
+G T D x
+H M R x
+I O D -
+J R O -
+K K V -
+L O V -
+M L F x
+N I O -
+O K B x
+P M C x
+Q H O x
+R T K x
+S A R x
+T K I -
+U V I -
+V J E x
+W A P -
+X N E -
+Y U U -
+21
+
+26
+A P F -
+B E O -
+C H Q -
+D G W -
+E C H x
+F S W -
+G K D -
+H D Q x
+I L E -
+J L I x
+K E C -
+L V F -
+M A F x
+N Z H x
+O N N -
+P V E x
+Q M O -
+R F H -
+S J W -
+T P O -
+U R E x
+V O M -
+W I V -
+X Y X x
+Y F U -
+Z O L x
+2
+
+24
+A I B -
+B K D -
+C C N x
+D F V -
+E I O -
+F M S -
+G N V -
+H K M x
+I R X x
+J E I -
+K G D x
+L O D -
+M M M x
+N U O -
+O B S -
+P D A x
+Q O P -
+R G E -
+S S B -
+T X T -
+U E P -
+V B R -
+W D L x
+X U L x
+16
+
+8
+A F F -
+B C B x
+C B D -
+D E A -
+E D F -
+F E G -
+G B G -
+H H H -
+20
+
+5
+A D D -
+B A C -
+C E C -
+D C B x
+E D D -
+8
+
+19
+A N M -
+B C E x
+C F S -
+D H E -
+E F L -
+F G L -
+G F M -
+H M D -
+I D S x
+J G B x
+K R G -
+L G J x
+M O B -
+N P B x
+O N M x
+P S E -
+Q A E -
+R M O -
+S H Q -
+22
+
+1
+A A A x
+22
+
+15
+A B E -
+B A K x
+C O M x
+D I M -
+E A F x
+F D I -
+G E J -
+H C M -
+I O O -
+J C F -
+K D O x
+L D L -
+M A D -
+N A N -
+O M J x
+2
+
+2
+A B B -
+B B A -
+24
+
+20
+A T C -
+B G P x
+C L D -
+D D Q -
+E F K -
+F N J x
+G F D -
+H N M -
+I H S -
+J P T -
+K Q S x
+L D D -
+M M F -
+N R G -
+O R I -
+P G R x
+Q F H -
+R H J -
+S L L -
+T R R -
+10
+
+17
+A E P -
+B F P x
+C J L -
+D F L -
+E K I x
+F G L -
+G D B -
+H D C x
+I L D -
+J G P x
+K C P x
+L B P -
+M M O -
+N I N x
+O Q J -
+P I L -
+Q O H -
+15
+
+13
+A I B x
+B C E -
+C C I -
+D I E -
+E B L -
+F H D x
+G F J x
+H I I -
+I L F -
+J F B x
+K D L x
+L A M -
+M C D -
+9
+
+2
+A A A -
+B B A -
+8
+
+11
+A I C x
+B C E -
+C G D -
+D B F -
+E F H x
+F C B -
+G I K x
+H D D -
+I C C -
+J A I -
+K D I -
+20
+
+26
+A J K x
+B Z I -
+C B Z x
+D Q N x
+E Z U -
+F I L -
+G Q H -
+H K S x
+I H Q -
+J K Y -
+K D Y -
+L O F x
+M U H -
+N D X x
+O C H -
+P Z N x
+Q A V -
+R Q R x
+S Q U -
+T G P -
+U P Y -
+V O G -
+W G O -
+X H W -
+Y O J -
+Z G T -
+13
+
+13
+A D M -
+B K E -
+C K A -
+D A B -
+E A L -
+F E I x
+G E J -
+H I B -
+I L H -
+J C H -
+K C L x
+L C B x
+M M L -
+9
+
+17
+A G A x
+B H E -
+C A A -
+D A A -
+E L D -
+F M A -
+G N L -
+H O H x
+I O I -
+J O N -
+K G P x
+L N F -
+M O L -
+N E O -
+O B P x
+P M I -
+Q P A -
+2
+
+25
+A A O x
+B M N x
+C G Q x
+D X L x
+E G T -
+F N F -
+G Y H -
+H X U -
+I S V -
+J A Y -
+K V E -
+L V E x
+M D I -
+N L P -
+O D B x
+P I Q -
+Q W P -
+R V W x
+S J H -
+T S E -
+U P P -
+V W S x
+W Q D -
+X J D x
+Y B Q x
+12
+
+15
+A O B -
+B M B -
+C F B x
+D B L -
+E D N x
+F E N x
+G I N x
+H C I -
+I E E x
+J C F -
+K J L -
+L L F x
+M E L -
+N G N -
+O N O x
+28
+
+17
+A C D -
+B O G -
+C L Q -
+D I Q x
+E G F -
+F P G -
+G I I x
+H P D -
+I L M -
+J J P -
+K P K -
+L A E -
+M G L x
+N G C -
+O Q M x
+P O Q -
+Q D A -
+29
+
+9
+A E C x
+B G B x
+C B G x
+D D F -
+E C A -
+F C B -
+G H H -
+H G C x
+I A G -
+15
+
+21
+A M B -
+B R F x
+C R D x
+D J L x
+E M A -
+F F E x
+G C K -
+H H K -
+I A U -
+J N T -
+K D P x
+L K N x
+M N U -
+N U P x
+O H K x
+P J O -
+Q N K -
+R S T x
+S B J -
+T G L -
+U M T -
+28
+
+10
+A A H x
+B C I -
+C H G -
+D J G -
+E A B -
+F I H -
+G I F -
+H G C -
+I I A -
+J J H x
+29
+
+26
+A R B x
+B M Q -
+C U N x
+D D K -
+E N D -
+F U E -
+G C M -
+H V R -
+I U Y x
+J N T x
+K L Q -
+L C D -
+M P E -
+N U C -
+O I H -
+P P U x
+Q I I -
+R U J -
+S H Q -
+T A S -
+U V Z -
+V N I x
+W J Y x
+X I F -
+Y Q Y -
+Z X I -
+1
+
+2
+A B B -
+B B B -
+12
+
+22
+A E F x
+B S U -
+C J J x
+D C L -
+E T G -
+F M J -
+G P L -
+H E O -
+I P M -
+J A N -
+K S K -
+L S B -
+M R Q -
+N V S x
+O K F -
+P G T x
+Q Q M -
+R J A -
+S O O -
+T F G -
+U F E -
+V P H -
+24
+
+19
+A B D -
+B E D x
+C F F x
+D K H -
+E R B -
+F I M x
+G M F -
+H A P -
+I O C -
+J J P -
+K I K -
+L Q K x
+M L P -
+N C R x
+O O G x
+P G A -
+Q D E x
+R Q G -
+S L C -
+15
+
+22
+A G T -
+B T A -
+C Q D -
+D F F -
+E O A -
+F I S -
+G U S -
+H U F -
+I B D -
+J A Q -
+K R A -
+L J S -
+M S J -
+N P M x
+O S V x
+P J B -
+Q F F x
+R B T x
+S D P -
+T G T -
+U F U -
+V G T -
+13
+
+25
+A G Y -
+B P K -
+C K N -
+D X J x
+E S F x
+F W H x
+G G S x
+H A A x
+I R T x
+J I B -
+K C Q -
+L I L -
+M F U -
+N W G -
+O T N -
+P L F x
+Q D N x
+R G W x
+S I B -
+T R F -
+U Y C -
+V S E -
+W D C -
+X I I -
+Y T F -
+3
+
+26
+A P P x
+B Q E -
+C M O x
+D X R -
+E K E -
+F R T x
+G V O -
+H I F x
+I L G x
+J H I -
+K B D x
+L X J -
+M Q H x
+N G Q -
+O K C x
+P I T -
+Q D C -
+R A Y x
+S N E -
+T H T -
+U G F x
+V E U -
+W T U -
+X N T -
+Y T S x
+Z U S -
+10
+
+6
+A E E -
+B D A -
+C D E x
+D B A -
+E A B -
+F B B -
+0
+
+3
+A B A x
+B C A x
+C B C -
+8
+
+26
+A B H x
+B R J -
+C U A -
+D O S x
+E C I -
+F Y I x
+G G T x
+H X G x
+I C I x
+J O C -
+K Q T -
+L W G -
+M J H -
+N Z V -
+O R S -
+P M S -
+Q F B -
+R M J x
+S W G -
+T E E -
+U S S x
+V U Q -
+W K B -
+X O Z -
+Y X Q -
+Z W R -
+17
+
+1
+A A A -
+29
+
+21
+A T P -
+B M K x
+C E K -
+D T N -
+E F J -
+F C N x
+G P M -
+H N F x
+I U J x
+J T L x
+K B Q x
+L M S -
+M T H -
+N A Q -
+O O L x
+P F H x
+Q Q G x
+R C K -
+S O U x
+T B G -
+U K F -
+9
+
+11
+A G J x
+B I I -
+C D G -
+D B A -
+E G E -
+F C D -
+G H J -
+H G I -
+I C F -
+J C A -
+K B I -
+15
+
+24
+A I M -
+B R P -
+C L W x
+D U K -
+E E C -
+F T K x
+G U T -
+H F T x
+I V X -
+J H V -
+K K U -
+L G L -
+M V M -
+N P E -
+O N A -
+P K P x
+Q P I -
+R K Q x
+S E C -
+T F J -
+U V M -
+V H C -
+W K W x
+X D I -
+6
+
+22
+A N J -
+B F D x
+C F O -
+D P R -
+E J V -
+F I U x
+G D C -
+H O G x
+I L F -
+J I R -
+K E B -
+L N H x
+M B A -
+N M V x
+O H N x
+P H F -
+Q D O -
+R J G x
+S J U -
+T S K -
+U E L x
+V F D -
+10
+
+17
+A E O -
+B H A x
+C A D -
+D C C x
+E O G -
+F M J -
+G D B x
+H K I -
+I P I x
+J Q N x
+K J N -
+L A G -
+M O Q -
+N M L -
+O J B x
+P D N -
+Q C Q -
+6
+
+14
+A G M -
+B J F x
+C B M -
+D E H -
+E M D -
+F K H -
+G F M -
+H I N -
+I C L x
+J K B x
+K N C -
+L B C -
+M N J -
+N A C -
+25
+
+21
+A A D -
+B R L -
+C P A x
+D K H -
+E B A x
+F J D -
+G A D -
+H H B -
+I N M x
+J B G -
+K T G -
+L E L -
+M I J x
+N H B -
+O T Q x
+P I U x
+Q G M -
+R A K x
+S O M -
+T U K -
+U L D -
+6
+
+23
+A A F -
+B O I x
+C L A -
+D L M -
+E E I -
+F T C x
+G I W x
+H Q G -
+I F D -
+J A D x
+K S C x
+L T M -
+M Q J x
+N O R -
+O R D -
+P L J -
+Q R A -
+R O P -
+S L K -
+T W Q -
+U R G -
+V C V -
+W C P -
+30
+
+11
+A K J x
+B K D x
+C I E x
+D F B x
+E B B -
+F H K -
+G B I x
+H A B -
+I I H -
+J J E -
+K A E -
+3
+
+18
+A A J x
+B A E x
+C A K x
+D J I x
+E R L -
+F E A -
+G C H -
+H D F -
+I K O -
+J J M -
+K R M -
+L J I -
+M K M x
+N O P -
+O J G -
+P H B -
+Q C L x
+R L Q x
+7
+
+13
+A F E -
+B H L -
+C F H x
+D A A -
+E B H -
+F K B -
+G K A -
+H M M x
+I B D -
+J B M -
+K I K -
+L D D -
+M C G -
+6
+
+16
+A F D -
+B B P x
+C E G -
+D F L -
+E H G -
+F G A x
+G D N -
+H O N -
+I F F -
+J M A -
+K D G -
+L H I x
+M E C x
+N A H -
+O I D -
+P F A -
+16
+
+3
+A A C -
+B B B x
+C B C -
+29
+
+14
+A H J -
+B N K -
+C E A -
+D N E -
+E L D -
+F E B x
+G F E -
+H F F -
+I L C x
+J A A -
+K N C -
+L M M -
+M K D -
+N G J -
+14
+
+4
+A C D -
+B A D -
+C B A -
+D D C -
+5
+
+14
+A H I -
+B D C -
+C E E x
+D F H -
+E K I -
+F H K -
+G D G -
+H H G -
+I K E -
+J L B -
+K F B -
+L C I -
+M I A -
+N F H -
+9
+
+17
+A L J x
+B H K x
+C A D -
+D B H x
+E C D -
+F D D -
+G H P x
+H I E x
+I E D -
+J G L x
+K L O -
+L C P -
+M F A -
+N Q C -
+O N L x
+P P D x
+Q D F -
+22
+
+4
+A A D x
+B B C x
+C A A x
+D B B x
+29
+
+21
+A G T -
+B G T -
+C Q I x
+D O Q x
+E T B -
+F P F -
+G M F -
+H O K -
+I U T -
+J D H -
+K J T x
+L O H -
+M H L -
+N E N -
+O U J -
+P C O -
+Q H Q x
+R O I x
+S L N x
+T R H -
+U L N x
+2
+
+15
+A D O x
+B O M -
+C K F -
+D N A -
+E L H -
+F L N -
+G I I x
+H I A -
+I M M -
+J J A x
+K E I x
+L F I -
+M N O x
+N M C -
+O D E -
+5
+
+6
+A B A x
+B C E -
+C C F -
+D A A x
+E E C -
+F B C x
+2
+
+16
+A D H x
+B E E x
+C E N -
+D E C -
+E B D x
+F F C -
+G M N -
+H O L -
+I C C x
+J L K -
+K F J -
+L F D x
+M K I x
+N C G -
+O J O x
+P I K -
+22
+
+22
+A Q F x
+B G N -
+C L P -
+D F C -
+E Q T -
+F A C -
+G K V x
+H D J x
+I B J -
+J N B -
+K M G -
+L T P -
+M I I -
+N K B x
+O M D -
+P M R x
+Q D O x
+R J P -
+S L S -
+T Q S x
+U P B -
+V C Q -
+20
+
+20
+A C P -
+B H P x
+C J K -
+D R F -
+E B O -
+F T Q x
+G D R -
+H C S -
+I D J -
+J H O x
+K J E -
+L R J -
+M P F x
+N K M x
+O L B -
+P D J -
+Q I G -
+R G G -
+S D B x
+T K E x
+19
+
+17
+A F K x
+B K P -
+C D L -
+D E I -
+E K G x
+F F B x
+G Q O -
+H M P x
+I A C x
+J F O -
+K L A -
+L M K -
+M G G -
+N B I -
+O C B -
+P E O -
+Q C N -
+14
+
+11
+A E C -
+B D E x
+C A C -
+D J I -
+E H F -
+F C J -
+G E I -
+H E F -
+I A C x
+J K F -
+K B J -
+29
+
+10
+A I G -
+B H D -
+C J G -
+D C J -
+E E J -
+F G A -
+G E A -
+H B H x
+I A I x
+J I E x
+29
+
+25
+A I Y -
+B W T -
+C D M -
+D G Y -
+E U B -
+F L I -
+G Y T x
+H J A x
+I K U -
+J K U -
+K L C -
+L A Y x
+M H P -
+N C C -
+O Q U x
+P P R -
+Q S B -
+R I K x
+S W D -
+T A O -
+U T I x
+V P N -
+W S L x
+X Q F x
+Y W X x
+16
+
+24
+A Q L -
+B W T -
+C V J -
+D K K x
+E U P x
+F M H -
+G K Q -
+H L G x
+I K U x
+J V A -
+K D U x
+L L I -
+M P F -
+N D K x
+O M C -
+P X B -
+Q D M -
+R U K -
+S J I -
+T U Q -
+U C V -
+V M W -
+W E R -
+X F F -
+22
+
+7
+A C A -
+B B C -
+C D B -
+D B E -
+E B F -
+F D C -
+G A C -
+10
+
+6
+A C D x
+B E D x
+C E A x
+D B D x
+E F B -
+F C A -
+24
+
+18
+A L N x
+B M G -
+C L C -
+D O N x
+E O L x
+F C J -
+G G I -
+H B C -
+I H J -
+J E M -
+K N Q -
+L H G x
+M D A -
+N C H -
+O Q R x
+P M R x
+Q L F -
+R O G -
+4
+
+3
+A C C -
+B A B -
+C B A x
+1
+
+16
+A H B -
+B G H -
+C P N -
+D G P -
+E L J -
+F C N x
+G K C x
+H I H -
+I O F -
+J C H -
+K O K -
+L H B -
+M I G x
+N D F x
+O D N -
+P L G x
+27
+
+3
+A A B x
+B A C -
+C A A -
+15
+
+13
+A K M -
+B I E x
+C K I -
+D J L -
+E I A -
+F G M -
+G B M -
+H G G -
+I E K -
+J J K -
+K J E x
+L M M -
+M L C -
+10
+
+16
+A I P -
+B G D x
+C L H -
+D B E -
+E K E -
+F O E -
+G F A -
+H H O -
+I H C x
+J B A -
+K L E -
+L E L -
+M H K -
+N F E -
+O M J -
+P I G -
+16
+
+7
+A G G x
+B F E -
+C B A -
+D F F -
+E D C -
+F D G -
+G C E -
+27
+
+16
+A H K -
+B O H x
+C A B -
+D K O -
+E A D -
+F G L -
+G E D -
+H H L x
+I F L -
+J P H -
+K A N -
+L J H x
+M N K -
+N M C x
+O L I -
+P D E -
+20
+
+18
+A J I -
+B M O -
+C P J -
+D Q G -
+E Q F -
+F G K x
+G C K -
+H E E x
+I R Q x
+J I P -
+K D R -
+L Q O -
+M B B -
+N L I -
+O D C -
+P D C x
+Q D I -
+R A F -
+19
+
+3
+A A C -
+B C A x
+C B C x
+23
+
+18
+A F P x
+B B B -
+C C L x
+D G H x
+E O R x
+F E H x
+G I K -
+H N L -
+I E G x
+J B R -
+K K E x
+L P A x
+M K D -
+N M E -
+O R O x
+P I N -
+Q R N -
+R Q J x
+8
+
+16
+A N L x
+B O P -
+C M J x
+D E K -
+E K P -
+F J O x
+G D O -
+H O E -
+I N O -
+J P D -
+K I O x
+L N N -
+M B D -
+N B H -
+O L N -
+P F J -
+4
+
+8
+A C F -
+B A F -
+C D C -
+D H D -
+E F B x
+F G G x
+G A C -
+H H B -
+26
+
+12
+A L A -
+B D F -
+C F K -
+D C K -
+E C C -
+F G C -
+G C H -
+H E H -
+I C B -
+J A D x
+K J F x
+L I B -
+23
+
+16
+A A M -
+B F O -
+C E G -
+D A F -
+E A I -
+F L A x
+G N K -
+H C C -
+I L K x
+J G H -
+K I L x
+L N F -
+M I C -
+N P B -
+O A F x
+P M A -
+12
+
+2
+A B B x
+B A B x
+8
+
+16
+A P G x
+B C O -
+C J D -
+D C F -
+E J M -
+F H F -
+G L I -
+H B P -
+I P G -
+J I C -
+K P I x
+L N F -
+M F O -
+N J E -
+O H M -
+P K D x
+29
+
+21
+A M P x
+B I R x
+C R U x
+D J M x
+E F A x
+F J N x
+G K D x
+H U H -
+I T K x
+J T S -
+K N P x
+L C M -
+M K B x
+N D S -
+O J D -
+P D N -
+Q Q L -
+R A B -
+S P G -
+T F R x
+U G N x
+18
+
+15
+A M L -
+B C L -
+C H A x
+D C A x
+E A M x
+F N C x
+G B E x
+H N I x
+I E D -
+J A L x
+K C O -
+L C B -
+M H F -
+N N I -
+O N N -
+29
+
+23
+A I T -
+B B N x
+C K W x
+D C D -
+E A N -
+F Q N -
+G Q P -
+H W Q -
+I S J x
+J U W -
+K U K -
+L I F x
+M T W x
+N U P -
+O E T -
+P K N x
+Q S S x
+R D U -
+S J C -
+T C L -
+U P G -
+V Q V -
+W C T -
+18
+
+5
+A D A x
+B B C x
+C B B x
+D D B x
+E B C x
+24
+
+25
+A S K -
+B K R -
+C H H x
+D E E -
+E F X x
+F X R -
+G S E x
+H C N -
+I A E -
+J J F x
+K K F -
+L T W -
+M N O x
+N E H -
+O R V -
+P G H x
+Q G F x
+R U I x
+S W S x
+T W M -
+U S R x
+V A Y x
+W S M -
+X X R -
+Y E I -
+19
+
+2
+A B B -
+B A A -
+10
+
+8
+A F D -
+B G H -
+C D H -
+D B A x
+E C H x
+F A B -
+G D B -
+H G H -
+3
+
+13
+A C D -
+B H D x
+C A M -
+D B J -
+E A J -
+F E A -
+G K L -
+H B B x
+I F E -
+J K M -
+K D K x
+L C E -
+M A I -
+1
+
+1
+A A A x
+0
+
+9
+A B E -
+B G C x
+C H D -
+D E A -
+E G F -
+F I E x
+G B D -
+H F H -
+I G A -
+0
+
+24
+A E S -
+B M S -
+C H X -
+D N K x
+E C Q -
+F X B -
+G C X -
+H F N x
+I E J x
+J N F x
+K F X x
+L T Q -
+M X M -
+N C H -
+O H A -
+P R M -
+Q B C x
+R D K -
+S V K -
+T J H -
+U E D -
+V L R -
+W M S -
+X C N -
+20
+
+1
+A A A -
+2
+
+13
+A F M -
+B A F x
+C B E -
+D A G -
+E K B x
+F H H -
+G E G -
+H B K -
+I B C -
+J A F -
+K B G x
+L D B -
+M I C x
+25
+
+9
+A D D -
+B E H -
+C F C -
+D B E -
+E B I x
+F B F -
+G G I x
+H D B x
+I E H -
+28
+
+9
+A G F x
+B C D -
+C H D -
+D H A x
+E B H -
+F C B -
+G I B x
+H C I x
+I H F x
+27
+
+15
+A H I -
+B H A -
+C I B -
+D B K -
+E E I -
+F E K x
+G M D -
+H M E -
+I B D -
+J L H x
+K O M x
+L F H -
+M O I -
+N O I x
+O N B x
+8
+
+18
+A K R -
+B Q K x
+C M K -
+D K P -
+E J I -
+F R C x
+G C N -
+H L Q -
+I O F -
+J P C -
+K C C -
+L K K -
+M L E -
+N A R x
+O F M -
+P N I x
+Q F A x
+R L K -
+25
+
+15
+A K I -
+B H A x
+C N E -
+D C L -
+E E B -
+F O E -
+G F M -
+H H B -
+I J E -
+J O L -
+K M N x
+L E B x
+M C D -
+N O N -
+O A H x
+28
+
+6
+A B F x
+B E C x
+C C C x
+D F C x
+E F A x
+F C D x
+24
+
+19
+A K J -
+B D E -
+C C A x
+D G O -
+E E C -
+F B M -
+G Q B -
+H L I -
+I G R -
+J O L -
+K Q Q -
+L F O x
+M M D -
+N Q C -
+O G B -
+P M H -
+Q O D -
+R O F x
+S S J -
+26
+
+6
+A B A -
+B E C -
+C E A -
+D B D -
+E E B x
+F B B -
+6
+
+20
+A O R -
+B A M -
+C T A x
+D H D -
+E H C -
+F F G x
+G R B -
+H N L -
+I O E -
+J K A x
+K Q P -
+L N K x
+M T O -
+N R L -
+O F O x
+P E P -
+Q P M x
+R C D x
+S R O -
+T E K -
+30
+
+11
+A J D -
+B I E -
+C H E -
+D H C -
+E D J -
+F J B -
+G B E x
+H C K -
+I J H x
+J E I x
+K H F -
+0
+
+23
+A J E -
+B O L -
+C T S -
+D U O x
+E L V -
+F I D -
+G R E -
+H H V -
+I R G -
+J U P x
+K V R -
+L S L -
+M I M -
+N M R x
+O U S x
+P B W -
+Q F V -
+R M L -
+S Q J x
+T R V -
+U E K x
+V Q K -
+W G G -
+7
+
+21
+A C A -
+B R O -
+C A C x
+D Q C x
+E O I x
+F D M x
+G O N -
+H F H -
+I A T x
+J N A -
+K C H -
+L R F -
+M T S x
+N I C -
+O U E x
+P S N -
+Q B J -
+R I E -
+S F C x
+T H L -
+U P L -
+15
+
+21
+A B G -
+B G E x
+C D F -
+D Q S x
+E H Q -
+F B D -
+G L E -
+H S P -
+I B H x
+J M K -
+K D E -
+L O F -
+M F O -
+N E H -
+O P U x
+P N U -
+Q Q P -
+R L A -
+S C A x
+T B J -
+U T D x
+19
+
+19
+A A K -
+B I D -
+C S N -
+D Q S -
+E E A -
+F S O x
+G J I x
+H P S x
+I G S -
+J B P x
+K S A -
+L C K x
+M H O -
+N A H -
+O H Q -
+P A S -
+Q K H -
+R N M -
+S A S x
+29
+
+12
+A K B -
+B I D -
+C D F -
+D L H -
+E A I -
+F I I x
+G B I -
+H B B x
+I B H -
+J D A x
+K J I -
+L D L -
+18
+
+22
+A Q O -
+B O T x
+C H T -
+D M L x
+E P C x
+F B V -
+G Q P -
+H D R -
+I H O -
+J U P -
+K U G -
+L Q V -
+M O L -
+N A N x
+O P H x
+P U J -
+Q K V -
+R I D -
+S R R -
+T S P x
+U R K x
+V M J -
+27
+
+6
+A A B -
+B F E -
+C E C x
+D F D x
+E A F -
+F D E -
+18
+
+22
+A R K -
+B R L x
+C F C -
+D V H -
+E U J -
+F L D x
+G N B x
+H F D x
+I E C -
+J T P -
+K M E -
+L F M x
+M V L -
+N U S x
+O B B -
+P K G x
+Q F T -
+R L T -
+S G S -
+T P Q -
+U F R x
+V F R -
+3
+
+24
+A Q H x
+B C A x
+C C C -
+D E B -
+E B X -
+F B F x
+G D G -
+H Q B -
+I H L -
+J R D -
+K P T -
+L Q B -
+M T T -
+N B R x
+O V L -
+P W G -
+Q F O -
+R U M -
+S R M -
+T N U -
+U S J -
+V N T -
+W D G -
+X V U -
+18
+
+16
+A B B x
+B G I -
+C D L -
+D N K x
+E B L x
+F G L x
+G J E x
+H H B -
+I I E -
+J F H -
+K K J -
+L M K -
+M J F x
+N P N x
+O J N -
+P N K x
+21
+
+17
+A N C -
+B E H -
+C O J -
+D F N x
+E I A -
+F K F -
+G M G -
+H F F -
+I N E x
+J J B -
+K B C -
+L D D x
+M A I x
+N I P x
+O Q A -
+P E K x
+Q A F -
+23
+
+18
+A D N x
+B P B x
+C Q E -
+D M L x
+E M K x
+F N H -
+G A P x
+H E R -
+I D D x
+J B C -
+K P B -
+L F B x
+M I F -
+N I N -
+O L E x
+P O L -
+Q N R -
+R G P -
+10
+
+5
+A D A -
+B E D -
+C A E -
+D C C -
+E C C x
+27
+
+16
+A J C x
+B K A -
+C P J -
+D J N -
+E D M -
+F N F -
+G N G -
+H I I x
+I P C -
+J J P x
+K C P -
+L J N -
+M L D -
+N O J -
+O H D -
+P P G -
+18
+
+22
+A R R -
+B H A x
+C S G -
+D M P -
+E G R -
+F U C -
+G F A x
+H J C -
+I P C x
+J B L x
+K F S -
+L K D x
+M J C -
+N J Q -
+O U S -
+P T U x
+Q S B -
+R L G -
+S Q Q -
+T U E -
+U D I -
+V V A x
+24
+
+14
+A F N x
+B A N x
+C E B x
+D C D x
+E A F x
+F I K x
+G F B x
+H E E x
+I J F x
+J B A x
+K N E x
+L A N x
+M G C x
+N N H x
+26
+
+9
+A C H -
+B I H -
+C E H x
+D B I -
+E B E x
+F F I -
+G C D x
+H H A -
+I E B -
+7
+
+22
+A J T -
+B V J -
+C I M -
+D E I x
+E J P x
+F V J -
+G V B -
+H K N -
+I R S -
+J A J -
+K O V x
+L T F -
+M B D -
+N J I -
+O K G x
+P N G -
+Q H K x
+R L R -
+S F G x
+T T U x
+U J B -
+V M F x
+14
+
+15
+A A L -
+B J M x
+C J H -
+D E N x
+E A A x
+F B F -
+G G A -
+H K M x
+I H B x
+J C J -
+K H G x
+L G J -
+M C L x
+N F A x
+O C A -
+27
+
+23
+A P T -
+B R V -
+C I W -
+D B H -
+E O Q -
+F O H -
+G C W -
+H D K -
+I L U -
+J W F -
+K P I -
+L F D -
+M L M x
+N D F -
+O N H -
+P M P -
+Q S W -
+R B S x
+S W W -
+T F K x
+U R R -
+V T L x
+W L H x
+16
+
+25
+A Y N x
+B O V -
+C T H -
+D X J -
+E U H x
+F J D -
+G B Y x
+H A S -
+I Q T -
+J A G -
+K K J -
+L N L -
+M F L -
+N I Q x
+O M B -
+P W X -
+Q B R -
+R X J -
+S P Q -
+T T U -
+U T R -
+V S O -
+W B I x
+X F R x
+Y N C x
+18
+
+5
+A D E -
+B A B -
+C D E x
+D D D -
+E C B -
+1
+
+17
+A C H -
+B D B -
+C A A -
+D P A -
+E J B -
+F G I x
+G H I -
+H M G -
+I D Q -
+J C D -
+K B F -
+L I B -
+M C O x
+N K P x
+O K B x
+P D P x
+Q H N -
+24
+
+15
+A G H x
+B M G x
+C E K -
+D A G -
+E L A -
+F C H -
+G N C -
+H N A -
+I O B -
+J F L x
+K B E -
+L O M -
+M M A -
+N G N -
+O H H -
+5
+
+15
+A A F -
+B L E -
+C L G x
+D E J -
+E K O x
+F J F -
+G J B -
+H M E -
+I I O -
+J E B x
+K J M -
+L K N -
+M K B -
+N N J -
+O B H x
+7
+
+19
+A R D -
+B B J x
+C R H -
+D R L -
+E C P -
+F Q N -
+G E J -
+H D P -
+I B Q -
+J K H -
+K K E x
+L P K x
+M C E x
+N G B -
+O A S x
+P L L -
+Q C A x
+R N G -
+S M H x
+0
+
+4
+A D D -
+B B D x
+C C B -
+D D C x
+14

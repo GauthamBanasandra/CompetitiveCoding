@@ -426,3 +426,4 @@ include(UseJava)
                 # Converting general graph to DAG
                 add_executable(Always_on_the_run "Graph/Special graphs/590/Always on the run.cpp")
                 add_executable(Winterim_backpacking_trip "Graph/Special graphs/907/Winterim backpacking trip.cpp")
+                add_executable(TV_game "Graph/Special graphs/910/TV game.cpp")

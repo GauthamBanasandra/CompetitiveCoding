@@ -1,0 +1,2 @@
+REM .\.build\Debug\Traveling_politician.exe < "Graph\Special graphs\10543\Traveling politician.txt"
+.\.build\Debug\Traveling_politician.exe < "Graph\Special graphs\10543\Traveling politician.1.txt" | clip

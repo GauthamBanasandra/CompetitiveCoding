@@ -1,7 +1,6 @@
-// WIP
-
 #include <algorithm>
 #include <cassert>
+#include <ios>
 #include <iostream>
 #include <limits>
 #include <utility>
@@ -35,6 +34,7 @@ private:
 
   Sum Maximize(Direction direction, std::pair<int, int> pos, int rem_neg);
   Sum MaximumSum(Sum a, Sum b) const;
+  static Sum Add(Sum a, Sum b);
 
   const int n_;
   const int rem_neg_;
@@ -51,7 +51,7 @@ Maximizer::Maximizer(const int n, const int rem_neg,
 }
 
 std::pair<bool, Sum> Maximizer::Maximize() {
-  auto sum = Maximize(Direction::kLeft, {0, 0}, rem_neg_);
+  auto sum = Maximize(Direction::kRight, {0, 0}, rem_neg_);
   return {sum != infinity, sum};
 }
 
@@ -78,7 +78,7 @@ Sum Maximizer::Maximize(const Direction direction, std::pair<int, int> pos,
   }
 
   auto down = Maximize(Direction::kDown, {pos.first + 1, pos.second}, rem_neg);
-  down = down == infinity ? infinity : down + 1;
+  down = Add(down, matrix_[pos.first][pos.second]);
 
   auto left_or_right = infinity;
   switch (direction) {
@@ -92,18 +92,20 @@ Sum Maximizer::Maximize(const Direction direction, std::pair<int, int> pos,
 
   case kLeft:
     left_or_right =
-        Maximize(Direction::kRight, {pos.first, pos.second + 1}, rem_neg);
+        Maximize(Direction::kLeft, {pos.first, pos.second - 1}, rem_neg);
     break;
 
   case kRight:
     left_or_right =
-        Maximize(Direction::kLeft, {pos.first, pos.second - 1}, rem_neg);
+        Maximize(Direction::kRight, {pos.first, pos.second + 1}, rem_neg);
     break;
 
   case Count:
   default:
     assert(false);
   }
+
+  left_or_right = Add(left_or_right, matrix_[pos.first][pos.second]);
   return memo = MaximumSum(down, left_or_right);
 }
 
@@ -119,9 +121,15 @@ Sum Maximizer::MaximumSum(const Sum a, const Sum b) const {
   }
   return infinity;
 }
+
+Sum Maximizer::Add(const Sum a, const Sum b) {
+  return a == infinity || b == infinity ? infinity : a + b;
+}
 } // namespace uva_10913
 
 int main(int argc, char *argv[]) {
+  std::ios::sync_with_stdio(false);
+
   int n;
   int rem_neg;
   size_t c = 0;

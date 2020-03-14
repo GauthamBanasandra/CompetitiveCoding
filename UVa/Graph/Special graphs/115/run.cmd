@@ -1,0 +1,1 @@
+.\out\build\x64-Debug\Debug\Climbing_trees.exe < "Graph\Special graphs\115\Climbing trees.txt"

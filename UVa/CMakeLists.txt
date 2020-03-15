@@ -434,3 +434,4 @@ include(UseJava)
                 add_executable(Gathering_food "Graph/Special graphs/11487/Gathering food.cpp")
                 # Trees
                 add_executable(Climbing_trees "Graph/Special graphs/115/Climbing trees.cpp")
+                add_executable(Tree_recovery "Graph/Special graphs/536/Tree recovery.cpp")

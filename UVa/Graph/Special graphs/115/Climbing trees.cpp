@@ -113,6 +113,15 @@ void RelationFinder::FindRoots() {
   }
 }
 
+// I had initially attempted it by having a reference to relation in the caller
+// and passing a reference to relation as a parameter to this function
+// Since it's globally visible across the traversal, it became hard when I tried
+// to increment the ancestor count for node1 and node2 (see the "if" block just
+// above the return statement)
+// Thus, I came about returning the relation instead of having it as a
+// parameter. This is done with the help of unique_ptr in such a way that the
+// relation is allocated only twice (once for node1 and another for node2) for
+// the entire traversal
 std::unique_ptr<Relation> RelationFinder::FindRelation(const NodeID node,
                                                        const NodeID node1,
                                                        const NodeID node2) {

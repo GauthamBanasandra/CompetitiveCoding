@@ -1,8 +1,9 @@
-// WIP
-
 #include <algorithm>
+#include <cassert>
+#include <ios>
 #include <iostream>
 #include <limits>
+#include <memory>
 #include <numeric>
 #include <ostream>
 #include <sstream>
@@ -28,13 +29,15 @@ public:
 
 private:
   void FindRoots();
-  void FindRelation(NodeID node, NodeID node1, NodeID node2,
-                    Relation &relation);
-  std::string GetRelationDescription(const Relation &relation,
+  std::unique_ptr<Relation> FindRelation(NodeID node, NodeID node1,
+                                         NodeID node2);
+  std::string GetRelationDescription(const std::unique_ptr<Relation> &relation,
                                      const NodeID &node1,
                                      const NodeID &node2) const;
   static std::string Concatenate(const std::vector<std::string> &words,
                                  const std::string &delimiter = " ");
+  static void MergeRelations(std::unique_ptr<Relation> &target,
+                             std::unique_ptr<Relation> &source);
 
   std::vector<std::vector<NodeID>> adj_list_;
   std::vector<NodeID> parent_;
@@ -79,9 +82,8 @@ std::string RelationFinder::Find(const std::string &p, const std::string &q) {
   const auto node2 = find_it->second;
 
   for (const auto &root : roots_) {
-    Relation relation;
-    FindRelation(root, node1, node2, relation);
-    if (relation.size() == 2) {
+    auto relation = FindRelation(root, node1, node2);
+    if (relation != nullptr && relation->size() == 2) {
       return GetRelationDescription(relation, node1, node2);
     }
   }
@@ -111,29 +113,35 @@ void RelationFinder::FindRoots() {
   }
 }
 
-void RelationFinder::FindRelation(const NodeID node, const NodeID node1,
-                                  const NodeID node2, Relation &relation) {
+std::unique_ptr<Relation> RelationFinder::FindRelation(const NodeID node,
+                                                       const NodeID node1,
+                                                       const NodeID node2) {
+  std::unique_ptr<Relation> relation;
   if (node == node1 || node == node2) {
-    relation[node] = -1;
+    relation = std::make_unique<Relation>();
+    (*relation)[node] = -1;
   }
 
   for (const auto &child : adj_list_[node]) {
-    FindRelation(child, node1, node2, relation);
-    if (relation.size() == 2) {
-      return;
+    auto child_rel = FindRelation(child, node1, node2);
+    MergeRelations(relation, child_rel);
+
+    if (relation != nullptr && relation->size() == 2) {
+      return relation;
     }
   }
 
-  if (relation.size() == 1) {
-    ++relation.begin()->second;
+  if (relation != nullptr && relation->size() == 1) {
+    ++relation->begin()->second;
   }
+  return relation;
 }
 
-std::string RelationFinder::GetRelationDescription(const Relation &relation,
-                                                   const NodeID &node1,
-                                                   const NodeID &node2) const {
-  const auto k1 = relation.at(node1);
-  const auto k2 = relation.at(node2);
+std::string RelationFinder::GetRelationDescription(
+    const std::unique_ptr<Relation> &relation, const NodeID &node1,
+    const NodeID &node2) const {
+  const auto k1 = relation->at(node1);
+  const auto k2 = relation->at(node2);
 
   std::vector<std::string> desc_words;
   auto add_prefix = [&desc_words](const int k) {
@@ -181,9 +189,32 @@ std::string RelationFinder::Concatenate(const std::vector<std::string> &words,
   }
   return result.str();
 }
+
+void RelationFinder::MergeRelations(std::unique_ptr<Relation> &target,
+                                    std::unique_ptr<Relation> &source) {
+  if (source == nullptr) {
+    return;
+  }
+  if (target == nullptr) {
+    target = std::move(source);
+    return;
+  }
+  // This is possible only for C++17 and above
+  // Seems like UVa doesn't have it and hence coding it manually
+  // target->merge(*source);
+
+  for (const auto &key_value : *source) {
+    target->emplace(key_value);
+  }
+  source->clear();
+
+  assert(source->empty());
+}
 } // namespace uva_115
 
 int main(int argc, char *argv[]) {
+  std::ios::sync_with_stdio(false);
+
   std::string person1;
   std::string person2;
   std::unordered_set<std::string> people;

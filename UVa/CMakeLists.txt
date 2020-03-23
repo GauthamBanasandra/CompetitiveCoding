@@ -435,3 +435,4 @@ include(UseJava)
                 # Trees
                 add_executable(Climbing_trees "Graph/Special graphs/115/Climbing trees.cpp")
                 add_executable(Tree_recovery "Graph/Special graphs/536/Tree recovery.cpp")
+                add_executable(The_falling_leaves "Graph/Special graphs/699/The falling leaves.cpp")

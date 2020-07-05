@@ -352,6 +352,8 @@ include(UseJava)
                 add_executable(Street_directions "Graph/Graph traversal/Finding articulation points, bridges/610/Street directions.cpp")
                 add_executable(Critical_links "Graph/Graph traversal/Finding articulation points, bridges/796/Critical links.cpp")
                 add_executable(Doves_and_bombs "Graph/Graph traversal/Finding articulation points, bridges/10765/Doves and bombs.cpp")
+                # Finding strongly connected components
+                add_executable(Calling_circles "Graph/Graph traversal/Finding strongly connected components/247/Calling circles.cpp")
         # Minimum spanning tree
                 # Standard
                 add_executable(Re-connecting_computer_sites "Graph/Minimum spanning tree/Standard/908/Re-connecting computer sites.cpp")

@@ -1,5 +1,8 @@
 // WIP
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
 
 class Constants {
@@ -25,41 +28,63 @@ class Node {
     }
 }
 
+class ObjectIndex<T> {
+    private final Map<T, Integer> index;
+    private final Map<Integer, T> reverseIndex;
+    private int id;
+
+    public ObjectIndex() {
+        id = -1;
+        index = new HashMap<>();
+        reverseIndex = new HashMap<>();
+    }
+
+    public int add(T word) {
+        id = Math.max(id, index.getOrDefault(word, id + 1));
+        index.putIfAbsent(word, id);
+        reverseIndex.putIfAbsent(id, word);
+        return id;
+    }
+
+    public T get(int id) {
+        return reverseIndex.get(id);
+    }
+}
+
 class SubDictionaryFinder {
     private final List<List<Integer>> adjacencyList;
-    private final Map<Integer, String> reverseIndex;
+    private final ObjectIndex<String> wordIndex;
 
     public SubDictionaryFinder(List<DictionaryEntry> rawAdjacencyList) {
-        reverseIndex = new HashMap<>();
+        wordIndex = new ObjectIndex<>();
         adjacencyList = new ArrayList<>(rawAdjacencyList.size());
         for (int i = 0; i < rawAdjacencyList.size(); i++) {
             adjacencyList.add(new ArrayList<>());
         }
 
-        int id = 0;
-        Map<String, Integer> index = new HashMap<>();
         for (DictionaryEntry entry : rawAdjacencyList) {
-            int keyId = index.getOrDefault(entry.word, id + 1);
-            id = Math.max(id, keyId);
-            index.putIfAbsent(entry.word, keyId);
-            reverseIndex.putIfAbsent(keyId, entry.word);
-
-            List<Integer> adjacentNodes = adjacencyList.get(keyId);
+            List<Integer> adjacentNodes = adjacencyList.get(wordIndex.add(entry.word));
             for (String value : entry.description) {
-                int valueId = index.getOrDefault(value, id + 1);
-                id = Math.max(id, valueId);
-                index.putIfAbsent(value, valueId);
-                reverseIndex.putIfAbsent(valueId, value);
-                adjacentNodes.add(valueId);
+                adjacentNodes.add(wordIndex.add(value));
             }
         }
     }
 
-    /*public List<String> find() {
-        Integer currentVisitIndex = 0;
+    public List<String> find() {
+        Integer currentVisitIndex = new Integer(0);
+        Stack<Integer> visitOrder = new Stack<>();
+        List<List<String>> components = new ArrayList<>();
         List<Node> nodes = new ArrayList<>(adjacencyList.size());
+        for (int i = 0; i < adjacencyList.size(); i++) {
+            nodes.add(new Node());
+        }
 
-    }*/
+        for (int nodeId = 0; nodeId < adjacencyList.size(); nodeId++) {
+            findScc(nodeId, currentVisitIndex, nodes, visitOrder, components);
+        }
+
+        return components.get(0);
+    }
 
     private void findScc(final int nodeId, Integer currentVisitIndex, List<Node> nodes,
                          Stack<Integer> visitOrder, List<List<String>> components) {
@@ -83,7 +108,7 @@ class SubDictionaryFinder {
             while (true) {
                 int adjacentNodeId = visitOrder.pop();
                 nodes.get(adjacentNodeId).isExplored = false;
-                component.add(reverseIndex.get(adjacentNodeId));
+                component.add(wordIndex.get(adjacentNodeId));
 
                 if (nodeId == adjacentNodeId) {
                     break;
@@ -95,4 +120,30 @@ class SubDictionaryFinder {
 }
 
 public class Main {
+    public static void main(String[] args) throws IOException {
+        int numDictionaryWords;
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        while ((numDictionaryWords = Integer.parseInt(reader.readLine())) != 0) {
+            List<DictionaryEntry> rawAdjacencyList = new ArrayList<>();
+            for (int i = 0; i < numDictionaryWords; i++) {
+                StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
+                DictionaryEntry entry = new DictionaryEntry();
+
+                entry.word = tokenizer.nextToken();
+                while (tokenizer.hasMoreTokens()) {
+                    entry.description.add(tokenizer.nextToken());
+                }
+                rawAdjacencyList.add(entry);
+            }
+
+            String separator = "";
+            List<String> words = new SubDictionaryFinder(rawAdjacencyList).find();
+            System.out.println(words.size());
+            for (String word : words) {
+                System.out.printf("%s%s", separator, word);
+                separator = " ";
+            }
+        }
+    }
 }

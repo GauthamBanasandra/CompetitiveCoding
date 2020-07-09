@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 class Constants {
     public static final int UNVISITED = Integer.MAX_VALUE;
@@ -34,16 +36,18 @@ class ObjectIndex<T> {
     private int id;
 
     public ObjectIndex() {
-        id = -1;
         index = new HashMap<>();
         reverseIndex = new HashMap<>();
     }
 
     public int add(T word) {
-        id = Math.max(id, index.getOrDefault(word, id + 1));
-        index.putIfAbsent(word, id);
-        reverseIndex.putIfAbsent(id, word);
-        return id;
+        Integer existingId = index.get(word);
+        if (existingId == null) {
+            index.put(word, id);
+            reverseIndex.put(id, word);
+            existingId = id++;
+        }
+        return existingId;
     }
 
     public T get(int id) {
@@ -71,7 +75,7 @@ class SubDictionaryFinder {
     }
 
     public List<String> find() {
-        Integer currentVisitIndex = new Integer(0);
+        AtomicInteger currentVisitIndex = new AtomicInteger(0);
         Stack<Integer> visitOrder = new Stack<>();
         List<List<String>> components = new ArrayList<>();
         List<Node> nodes = new ArrayList<>(adjacencyList.size());
@@ -83,13 +87,16 @@ class SubDictionaryFinder {
             findScc(nodeId, currentVisitIndex, nodes, visitOrder, components);
         }
 
-        return components.get(0);
+        return components.stream().filter(e -> e.size() > 1)
+                .map(e -> e.stream().sorted().collect(Collectors.toList()))
+                .min(Comparator.comparingInt(List::size)).get();
     }
 
-    private void findScc(final int nodeId, Integer currentVisitIndex, List<Node> nodes,
+    private void findScc(final int nodeId, AtomicInteger currentVisitIndex, List<Node> nodes,
                          Stack<Integer> visitOrder, List<List<String>> components) {
         Node node = nodes.get(nodeId);
-        node.visitIndex = node.leastVisitIndex = currentVisitIndex++;
+        node.visitIndex = node.leastVisitIndex = currentVisitIndex.get();
+        currentVisitIndex.incrementAndGet();
         node.isExplored = true;
         visitOrder.push(nodeId);
 
@@ -144,6 +151,7 @@ public class Main {
                 System.out.printf("%s%s", separator, word);
                 separator = " ";
             }
+            System.out.println();
         }
     }
 }

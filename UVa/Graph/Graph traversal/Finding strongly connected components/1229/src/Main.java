@@ -77,7 +77,7 @@ class SubDictionaryFinder {
     public List<String> find() {
         AtomicInteger currentVisitIndex = new AtomicInteger(0);
         Stack<Integer> visitOrder = new Stack<>();
-        List<List<String>> components = new ArrayList<>();
+        List<List<Integer>> components = new ArrayList<>();
         List<Node> nodes = new ArrayList<>(adjacencyList.size());
         for (int i = 0; i < adjacencyList.size(); i++) {
             nodes.add(new Node());
@@ -87,13 +87,38 @@ class SubDictionaryFinder {
             findScc(nodeId, currentVisitIndex, nodes, visitOrder, components);
         }
 
-        return components.stream().filter(e -> e.size() > 1)
-                .map(e -> e.stream().sorted().collect(Collectors.toList()))
-                .min(Comparator.comparingInt(List::size)).get();
+        Set<Integer> sccNodeIds = components.stream()
+                .filter(e -> e.size() > 1)
+                .flatMap(Collection::stream).collect(Collectors.toSet());
+
+        return findConnectedNodes(sccNodeIds).stream()
+                .map(wordIndex::get)
+                .sorted()
+                .collect(Collectors.toList());
+    }
+
+    private Set<Integer> findConnectedNodes(Set<Integer> nodeIds) {
+        Set<Integer> visitedNodeIds = new HashSet<>();
+        for (int nodeId : nodeIds) {
+            if (!visitedNodeIds.contains(nodeId)) {
+                traverse(nodeId, visitedNodeIds);
+            }
+        }
+        return visitedNodeIds;
+    }
+
+    private void traverse(int nodeId, Set<Integer> visitedNodeIds) {
+        visitedNodeIds.add(nodeId);
+
+        for (int adjacentNodeId : adjacencyList.get(nodeId)) {
+            if (!visitedNodeIds.contains(adjacentNodeId)) {
+                traverse(adjacentNodeId, visitedNodeIds);
+            }
+        }
     }
 
     private void findScc(final int nodeId, AtomicInteger currentVisitIndex, List<Node> nodes,
-                         Stack<Integer> visitOrder, List<List<String>> components) {
+                         Stack<Integer> visitOrder, List<List<Integer>> components) {
         Node node = nodes.get(nodeId);
         node.visitIndex = node.leastVisitIndex = currentVisitIndex.get();
         currentVisitIndex.incrementAndGet();
@@ -111,11 +136,11 @@ class SubDictionaryFinder {
         }
 
         if (node.visitIndex == node.leastVisitIndex) {
-            List<String> component = new ArrayList<>();
+            List<Integer> component = new ArrayList<>();
             while (true) {
                 int adjacentNodeId = visitOrder.pop();
                 nodes.get(adjacentNodeId).isExplored = false;
-                component.add(wordIndex.get(adjacentNodeId));
+                component.add(adjacentNodeId);
 
                 if (nodeId == adjacentNodeId) {
                     break;

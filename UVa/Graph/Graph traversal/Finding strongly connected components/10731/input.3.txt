@@ -1,0 +1,6 @@
+4
+A B X Y Z A
+B C D L M B
+C A P Q R C
+D A S T U D
+0

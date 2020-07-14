@@ -1,14 +1,17 @@
 #include <algorithm>
+#include <cassert>
 #include <iostream>
 #include <limits>
 #include <ostream>
 #include <stack>
+#include <unordered_set>
 #include <utility>
 #include <vector>
 
 namespace uva_11504 {
 using NodeId = size_t;
 using EdgeList = std::vector<std::pair<NodeId, NodeId>>;
+using Component = std::vector<NodeId>;
 
 const auto unvisited = std::numeric_limits<NodeId>::max();
 
@@ -27,18 +30,21 @@ public:
 private:
   void FindScc(NodeId node_id, size_t &current_visit_index,
                std::vector<Node> &nodes, std::stack<NodeId> &visit_order,
-               std::vector<std::vector<NodeId>> &components) const;
+               std::vector<Component> &components) const;
 
   void Traverse(NodeId node_id, std::vector<size_t> &visited) const;
+  std::vector<std::unordered_set<NodeId>>
+  BuildDag(const std::vector<Component> &components) const;
 
   const size_t num_nodes_;
+  const EdgeList &edge_list_;
   std::vector<std::vector<NodeId>> adj_list_;
 };
 
 KnockCounter::KnockCounter(const size_t num_nodes, const EdgeList &edge_list)
-    : num_nodes_{num_nodes} {
+    : num_nodes_{num_nodes}, edge_list_{edge_list} {
   adj_list_.resize(num_nodes_);
-  for (const auto &[u, v] : edge_list) {
+  for (const auto &[u, v] : edge_list_) {
     adj_list_[u].emplace_back(v);
   }
 }
@@ -47,7 +53,7 @@ size_t KnockCounter::Count() const {
   size_t current_visit_index{0};
   std::vector<Node> nodes(num_nodes_);
   std::stack<NodeId> visit_order;
-  std::vector<std::vector<NodeId>> components;
+  std::vector<Component> components;
   components.reserve(num_nodes_);
 
   for (NodeId node_id = 0; node_id < num_nodes_; ++node_id) {
@@ -56,28 +62,20 @@ size_t KnockCounter::Count() const {
     }
   }
 
-  std::sort(
-      components.begin(), components.end(),
-      [](const std::vector<NodeId> &a, const std::vector<NodeId> &b) -> bool {
-        return a.size() > b.size();
-      });
+  std::sort(components.begin(), components.end(),
+            [](const Component &a, const Component &b) -> bool {
+              return a.size() > b.size();
+            });
 
   size_t knock_count{0};
-  std::vector<size_t> visited(num_nodes_, unvisited);
-  for (const auto &component : components) {
-    const auto &node_id = component.front();
-    if (visited[node_id] == unvisited) {
-      Traverse(node_id, visited);
-      ++knock_count;
-    }
-  }
+  auto dag = BuildDag(components);
   return knock_count;
 }
 
 void KnockCounter::FindScc(NodeId node_id, size_t &current_visit_index,
                            std::vector<Node> &nodes,
                            std::stack<NodeId> &visit_order,
-                           std::vector<std::vector<NodeId>> &components) const {
+                           std::vector<Component> &components) const {
   auto &node = nodes[node_id];
   node.visit_index = node.least_visit_index = current_visit_index++;
   node.is_explored = true;
@@ -95,7 +93,7 @@ void KnockCounter::FindScc(NodeId node_id, size_t &current_visit_index,
   }
 
   if (node.visit_index == node.least_visit_index) {
-    std::vector<NodeId> component;
+    Component component;
     while (true) {
       const auto adj_node_id = visit_order.top();
       visit_order.pop();
@@ -119,6 +117,33 @@ void KnockCounter::Traverse(const NodeId node_id,
       Traverse(adj_node_id, visited);
     }
   }
+}
+
+std::vector<std::unordered_set<NodeId>>
+KnockCounter::BuildDag(const std::vector<Component> &components) const {
+  const auto num_components = components.size();
+  std::vector<NodeId> node_component(num_nodes_);
+  assert(num_components <= num_nodes_);
+
+  size_t num_nodes{0};
+  for (size_t i = 0; i < num_components; ++i) {
+    for (const auto &node_id : components[i]) {
+      node_component[node_id] = i;
+      ++num_nodes;
+    }
+  }
+  assert(num_nodes == num_nodes_);
+
+  std::vector<std::unordered_set<NodeId>> dag(num_components);
+  for (const auto &[u, v] : edge_list_) {
+    const auto &u_dag_node = node_component[u];
+    const auto &v_dag_node = node_component[v];
+
+    if (u_dag_node != v_dag_node) {
+      dag[u_dag_node].insert(v_dag_node);
+    }
+  }
+  return dag;
 }
 } // namespace uva_11504
 

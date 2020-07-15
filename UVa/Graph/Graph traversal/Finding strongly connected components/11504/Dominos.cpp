@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <cassert>
+#include <ios>
 #include <iostream>
 #include <limits>
 #include <ostream>
@@ -28,13 +29,25 @@ public:
   size_t Count() const;
 
 private:
-  void FindScc(NodeId node_id, size_t &current_visit_index,
-               std::vector<Node> &nodes, std::stack<NodeId> &visit_order,
-               std::vector<Component> &components) const;
+  std::vector<Component> FindScc() const;
+  void FindSccImpl(NodeId node_id, size_t &current_visit_index,
+                   std::vector<Node> &nodes, std::stack<NodeId> &visit_order,
+                   std::vector<Component> &components) const;
 
-  void Traverse(NodeId node_id, std::vector<size_t> &visited) const;
+  static void Traverse(NodeId node_id,
+                       const std::vector<std::unordered_set<NodeId>> &adj_list,
+                       std::vector<size_t> &visited);
   std::vector<std::unordered_set<NodeId>>
   BuildDag(const std::vector<Component> &components) const;
+  std::vector<NodeId>
+  TopologicalSort(const std::vector<std::unordered_set<NodeId>> &dag) const;
+  static void
+  TopologicalSortImpl(NodeId node_id,
+                      const std::vector<std::unordered_set<NodeId>> &dag,
+                      std::vector<NodeId> &visited, std::vector<NodeId> &order);
+  static size_t
+  CountImpl(const std::vector<NodeId> &order,
+            const std::vector<std::unordered_set<NodeId>> &adj_list);
 
   const size_t num_nodes_;
   const EdgeList &edge_list_;
@@ -50,6 +63,13 @@ KnockCounter::KnockCounter(const size_t num_nodes, const EdgeList &edge_list)
 }
 
 size_t KnockCounter::Count() const {
+  const auto components = FindScc();
+  const auto dag = BuildDag(components);
+  const auto topological_sort = TopologicalSort(dag);
+  return CountImpl(topological_sort, dag);
+}
+
+std::vector<Component> KnockCounter::FindScc() const {
   size_t current_visit_index{0};
   std::vector<Node> nodes(num_nodes_);
   std::stack<NodeId> visit_order;
@@ -58,24 +78,16 @@ size_t KnockCounter::Count() const {
 
   for (NodeId node_id = 0; node_id < num_nodes_; ++node_id) {
     if (nodes[node_id].visit_index == unvisited) {
-      FindScc(node_id, current_visit_index, nodes, visit_order, components);
+      FindSccImpl(node_id, current_visit_index, nodes, visit_order, components);
     }
   }
-
-  std::sort(components.begin(), components.end(),
-            [](const Component &a, const Component &b) -> bool {
-              return a.size() > b.size();
-            });
-
-  size_t knock_count{0};
-  auto dag = BuildDag(components);
-  return knock_count;
+  return components;
 }
 
-void KnockCounter::FindScc(NodeId node_id, size_t &current_visit_index,
-                           std::vector<Node> &nodes,
-                           std::stack<NodeId> &visit_order,
-                           std::vector<Component> &components) const {
+void KnockCounter::FindSccImpl(NodeId node_id, size_t &current_visit_index,
+                               std::vector<Node> &nodes,
+                               std::stack<NodeId> &visit_order,
+                               std::vector<Component> &components) const {
   auto &node = nodes[node_id];
   node.visit_index = node.least_visit_index = current_visit_index++;
   node.is_explored = true;
@@ -84,7 +96,8 @@ void KnockCounter::FindScc(NodeId node_id, size_t &current_visit_index,
   for (const auto &adj_node_id : adj_list_[node_id]) {
     auto &adj_node = nodes[adj_node_id];
     if (adj_node.visit_index == unvisited) {
-      FindScc(adj_node_id, current_visit_index, nodes, visit_order, components);
+      FindSccImpl(adj_node_id, current_visit_index, nodes, visit_order,
+                  components);
     }
     if (adj_node.is_explored) {
       node.least_visit_index =
@@ -108,13 +121,15 @@ void KnockCounter::FindScc(NodeId node_id, size_t &current_visit_index,
   }
 }
 
-void KnockCounter::Traverse(const NodeId node_id,
-                            std::vector<size_t> &visited) const {
+void KnockCounter::Traverse(
+    const NodeId node_id,
+    const std::vector<std::unordered_set<NodeId>> &adj_list,
+    std::vector<size_t> &visited) {
   visited[node_id] = 1;
 
-  for (const auto &adj_node_id : adj_list_[node_id]) {
+  for (const auto &adj_node_id : adj_list[node_id]) {
     if (visited[adj_node_id] == unvisited) {
-      Traverse(adj_node_id, visited);
+      Traverse(adj_node_id, adj_list, visited);
     }
   }
 }
@@ -145,9 +160,61 @@ KnockCounter::BuildDag(const std::vector<Component> &components) const {
   }
   return dag;
 }
+
+std::vector<NodeId> KnockCounter::TopologicalSort(
+    const std::vector<std::unordered_set<NodeId>> &dag) const {
+  const auto dag_len = dag.size();
+  std::vector<NodeId> order;
+  std::vector<NodeId> visited(dag_len, unvisited);
+  order.reserve(dag_len);
+
+  for (NodeId node_id = 0; node_id < dag_len; ++node_id) {
+    TopologicalSortImpl(node_id, dag, visited, order);
+  }
+
+  std::reverse(order.begin(), order.end());
+  return order;
+}
+
+void KnockCounter::TopologicalSortImpl(
+    NodeId node_id, const std::vector<std::unordered_set<NodeId>> &dag,
+    std::vector<NodeId> &visited, std::vector<NodeId> &order) {
+  if (visited[node_id] == 1) {
+    return;
+  }
+
+  visited[node_id] = 1;
+
+  for (const auto &adj_node_id : dag[node_id]) {
+    if (visited[adj_node_id] == unvisited) {
+      TopologicalSortImpl(adj_node_id, dag, visited, order);
+    }
+  }
+
+  order.emplace_back(node_id);
+}
+
+size_t KnockCounter::CountImpl(
+    const std::vector<NodeId> &order,
+    const std::vector<std::unordered_set<NodeId>> &adj_list) {
+  assert(order.size() == adj_list.size());
+
+  size_t knock_count{0};
+  std::vector<NodeId> visited(adj_list.size(), unvisited);
+
+  for (const auto &node_id : order) {
+    if (visited[node_id] == unvisited) {
+      Traverse(node_id, adj_list, visited);
+      ++knock_count;
+    }
+  }
+  return knock_count;
+}
 } // namespace uva_11504
 
 int main(int argc, char *argv[]) {
+  std::ios::sync_with_stdio(false);
+
   size_t t{0};
   size_t num_nodes{0};
   size_t num_edges{0};

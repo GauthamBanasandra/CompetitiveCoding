@@ -357,6 +357,7 @@ include(UseJava)
                 add_jar(Sub_dictionary "Graph/Graph traversal/Finding strongly connected components/1229/src/Main.java")
                 add_executable(Test "Graph/Graph traversal/Finding strongly connected components/10731/Test.cpp")
                 add_executable(Dominos "Graph/Graph traversal/Finding strongly connected components/11504/Dominos.cpp")
+                add_executable(Trust_groups "Graph/Graph traversal/Finding strongly connected components/11709/Trust groups.cpp")
         # Minimum spanning tree
                 # Standard
                 add_executable(Re-connecting_computer_sites "Graph/Minimum spanning tree/Standard/908/Re-connecting computer sites.cpp")

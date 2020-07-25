@@ -1,0 +1,3 @@
+REM out\build\x64-Debug\Debug\Travel_restrictions.exe < "2020\Qualification round\Travel restrictions\input.txt"
+REM out\build\x64-Debug\Debug\Travel_restrictions.exe < "2020\Qualification round\Travel restrictions\travel_restrictions_validation_input.txt" > "2020\Qualification round\Travel restrictions\travel_restrictions_validation_output.txt"
+out\build\x64-Debug\Debug\Travel_restrictions.exe < "2020\Qualification round\Travel restrictions\travel_restrictions_input.txt" > "2020\Qualification round\Travel restrictions\travel_restrictions_output.txt"

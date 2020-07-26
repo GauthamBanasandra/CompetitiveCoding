@@ -12,3 +12,4 @@ set(CMAKE_CXX_STANDARD 11)
 # 2020
 	# Qualification round
 	add_executable(Travel_restrictions "2020/Qualification round/Travel restrictions/Travel restrictions.cpp")
+	add_executable(Timber "2020/Qualification round/Timber/Timber.cpp")

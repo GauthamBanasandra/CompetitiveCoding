@@ -32,13 +32,16 @@ public:
   ll FindLongestCombined();
 
 private:
-  ll Combine(ll node_id);
+  enum EdgeType { kNonZero, kZero, kCount };
+
+  ll Combine(ll node_id, EdgeType edge_type, std::vector<ll> &parent);
+
+  static EdgeType GetEdgeType(ll value);
 
   const std::vector<Tree> &trees_;
   std::unordered_map<ll, std::vector<Node>> adj_list_;
   std::unordered_map<ll, size_t> in_degree_;
-  std::vector<ll> memo_;
-  std::vector<int> visited_;
+  std::vector<std::vector<ll>> memo_;
   ll global_id_{0};
 };
 
@@ -93,39 +96,52 @@ IntervalFinder::IntervalFinder(const std::vector<Tree> &trees) : trees_{trees} {
     }
   }
 
-  memo_.resize(global_id_, unvisited);
-  visited_.resize(global_id_, unvisited);
+  memo_.resize(EdgeType::kCount, std::vector<ll>(global_id_, unvisited));
 }
 
 ll IntervalFinder::FindLongestCombined() {
   ll max_value{0};
+  std::vector<ll> parent(global_id_, unvisited);
+
   for (const auto &[id, in_degree] : in_degree_) {
     assert(id < global_id_);
 
-    if (in_degree == 1 && visited_[id] == unvisited) {
-      auto value = Combine(id);
+    if (in_degree == 1 && parent[id] == unvisited) {
+      auto value = Combine(id, EdgeType::kNonZero, parent);
       max_value = std::max(max_value, value);
     }
   }
   return max_value;
 }
 
-ll IntervalFinder::Combine(const ll node_id) {
-  auto &memo = memo_[node_id];
+ll IntervalFinder::Combine(const ll node_id, const EdgeType edge_type,
+                           std::vector<ll> &parent) {
+  auto &memo = memo_[edge_type][node_id];
   if (memo != unvisited) {
     return memo;
   }
 
-  visited_[node_id] = 1;
   ll max_value{0L};
   for (const auto &adj_node : adj_list_[node_id]) {
-    if (visited_[adj_node.id] == unvisited) {
-      auto value = Combine(adj_node.id) + adj_node.value;
-      max_value = std::max(max_value, value);
+    if (parent[node_id] == adj_node.id ||
+        edge_type == EdgeType::kZero && adj_node.value == 0) {
+      continue;
     }
+
+    parent[adj_node.id] = node_id;
+    auto value = Combine(adj_node.id, GetEdgeType(adj_node.value), parent) +
+                 adj_node.value;
+    max_value = std::max(max_value, value);
   }
 
   return memo = max_value;
+}
+
+IntervalFinder::EdgeType IntervalFinder::GetEdgeType(const ll value) {
+  if (value == 0) {
+    return kZero;
+  }
+  return kNonZero;
 }
 } // namespace fb_qualification_round_2020
 

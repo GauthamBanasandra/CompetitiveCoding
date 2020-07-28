@@ -1,80 +1,131 @@
 // WA
 
 #include <algorithm>
+#include <cassert>
 #include <iostream>
-#include <limits>
 #include <ostream>
+#include <tuple>
 #include <unordered_map>
+#include <utility>
 #include <vector>
 
 namespace fb_qualification_round_2020 {
 using ll = long long;
-const auto neg_infinity = std::numeric_limits<ll>::min();
+const auto unvisited = -1;
 
 struct Tree {
   ll position{0};
   ll height{0};
 };
 
+struct Node {
+  ll id{0};
+  ll value{0};
+
+  Node(const ll id, const ll value) : id{id}, value{value} {}
+};
+
 class IntervalFinder {
 public:
-  explicit IntervalFinder(std::vector<Tree> &trees);
+  explicit IntervalFinder(const std::vector<Tree> &trees);
 
   ll FindLongestCombined();
 
 private:
-  ll Find(size_t tree_idx, ll combined_endpoint);
+  ll Combine(ll node_id);
 
-  std::vector<Tree> &trees_;
-  std::unordered_map<size_t, std::unordered_map<ll, ll>> memo_;
+  const std::vector<Tree> &trees_;
+  std::unordered_map<ll, std::vector<Node>> adj_list_;
+  std::unordered_map<ll, size_t> in_degree_;
+  std::vector<ll> memo_;
+  std::vector<int> visited_;
+  ll global_id_{0};
 };
 
-IntervalFinder::IntervalFinder(std::vector<Tree> &trees) : trees_{trees} {
-  std::sort(trees_.begin(), trees_.end(),
-            [](const Tree &a, const Tree &b) -> bool {
-              return a.position < b.position;
-            });
-}
+IntervalFinder::IntervalFinder(const std::vector<Tree> &trees) : trees_{trees} {
+  const auto len = trees_.size();
+  std::unordered_map<ll, std::vector<std::tuple<Node, Node, ll>>>
+      interval_bucket;
 
-ll IntervalFinder::FindLongestCombined() {
-  const auto &first_tree = trees_.front();
-  const auto len_no_action = Find(1, first_tree.position);
-  const auto len_left = Find(1, first_tree.position) + first_tree.height;
-  const auto len_right =
-      Find(1, first_tree.position + first_tree.height) + first_tree.height;
-  return std::max(len_no_action, std::max(len_left, len_right));
-}
+  for (ll tree_idx = 0; tree_idx < static_cast<ll>(len); ++tree_idx) {
+    const auto &tree = trees[tree_idx];
+    auto lx = tree.position - tree.height;
+    auto ly = tree.position;
+    auto rx = tree.position;
+    auto ry = tree.position + tree.height;
+    auto lx_id = global_id_++;
+    auto ly_id = global_id_++;
+    auto rx_id = global_id_++;
+    auto ry_id = global_id_++;
 
-ll IntervalFinder::Find(const size_t tree_idx, const ll combined_endpoint) {
-  if (tree_idx >= trees_.size()) {
-    return 0;
+    std::tuple<Node, Node, ll> t1({lx_id, lx}, {ly_id, ly}, tree_idx);
+    interval_bucket[lx].emplace_back(t1);
+    std::tuple<Node, Node, ll> t2({rx_id, rx}, {ry_id, ry}, tree_idx);
+    interval_bucket[rx].emplace_back(t2);
+
+    adj_list_[lx_id].emplace_back(ly_id, tree.height);
+    adj_list_[ly_id].emplace_back(lx_id, tree.height);
+    adj_list_[rx_id].emplace_back(ry_id, tree.height);
+    adj_list_[ry_id].emplace_back(rx_id, tree.height);
+    ++in_degree_[lx_id];
+    ++in_degree_[ly_id];
+    ++in_degree_[rx_id];
+    ++in_degree_[ry_id];
   }
 
-  auto tree_idx_it = memo_.find(tree_idx);
-  if (tree_idx_it != memo_.end()) {
-    const auto endpoint_it = tree_idx_it->second.find(combined_endpoint);
-    if (endpoint_it != tree_idx_it->second.end()) {
-      return endpoint_it->second;
+  for (const auto &[_, bucket] : interval_bucket) {
+    for (const auto &[u, v, tree_idx] : bucket) {
+      auto find_it = interval_bucket.find(v.value);
+      if (find_it == interval_bucket.end()) {
+        continue;
+      }
+
+      for (const auto &[adj_u, adj_v, adj_tree_idx] : find_it->second) {
+        if (tree_idx == adj_tree_idx) {
+          continue;
+        }
+
+        adj_list_[v.id].emplace_back(adj_u.id, 0L);
+        adj_list_[adj_u.id].emplace_back(v.id, 0L);
+        ++in_degree_[adj_u.id];
+        ++in_degree_[v.id];
+      }
     }
   }
 
-  const auto &tree = trees_[tree_idx];
+  memo_.resize(global_id_, unvisited);
+  visited_.resize(global_id_, unvisited);
+}
 
-  const auto len_no_action = Find(tree_idx + 1, combined_endpoint);
+ll IntervalFinder::FindLongestCombined() {
+  ll max_value{0};
+  for (const auto &[id, in_degree] : in_degree_) {
+    assert(id < global_id_);
 
-  auto len_left{neg_infinity};
-  if (combined_endpoint == tree.position - tree.height) {
-    len_left = Find(tree_idx + 1, tree.position) + tree.height;
+    if (in_degree == 1 && visited_[id] == unvisited) {
+      auto value = Combine(id);
+      max_value = std::max(max_value, value);
+    }
+  }
+  return max_value;
+}
+
+ll IntervalFinder::Combine(const ll node_id) {
+  auto &memo = memo_[node_id];
+  if (memo != unvisited) {
+    return memo;
   }
 
-  auto len_right{neg_infinity};
-  if (combined_endpoint == tree.position) {
-    len_right = Find(tree_idx + 1, tree.position + tree.height) + tree.height;
+  visited_[node_id] = 1;
+  ll max_value{0L};
+  for (const auto &adj_node : adj_list_[node_id]) {
+    if (visited_[adj_node.id] == unvisited) {
+      auto value = Combine(adj_node.id) + adj_node.value;
+      max_value = std::max(max_value, value);
+    }
   }
 
-  const auto max_len = std::max(len_no_action, std::max(len_left, len_right));
-  memo_[tree_idx][combined_endpoint] = max_len;
-  return max_len;
+  return memo = max_value;
 }
 } // namespace fb_qualification_round_2020
 

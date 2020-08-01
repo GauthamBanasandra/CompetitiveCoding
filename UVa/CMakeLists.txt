@@ -444,3 +444,5 @@ include(UseJava)
                 add_executable(The_falling_leaves "Graph/Special graphs/699/The falling leaves.cpp")
                 add_executable(Roads_in_the_north "Graph/Special graphs/10308/Roads in the north.cpp")
                 add_executable(Family_tree "Graph/Special graphs/11615/Family tree.cpp")
+                # Eulerian graph
+                add_executable(The_postal_worker_rings_once "Graph/Special graphs/117/The postal worker rings once.cpp")

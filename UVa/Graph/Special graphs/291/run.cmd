@@ -1,0 +1,1 @@
+out\build\x64-Debug\Debug\The_house_of_santa_claus.exe | clip

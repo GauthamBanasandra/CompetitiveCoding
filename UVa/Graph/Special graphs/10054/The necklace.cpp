@@ -1,6 +1,8 @@
 #include <algorithm>
 #include <cassert>
+#include <ios>
 #include <iostream>
+#include <list>
 #include <ostream>
 #include <unordered_map>
 #include <unordered_set>
@@ -9,7 +11,8 @@
 
 namespace uva_10054 {
 using NodeId = size_t;
-using EdgeList = std::vector<std::pair<NodeId, NodeId>>;
+using Edge = std::pair<NodeId, NodeId>;
+using EdgeList = std::vector<Edge>;
 
 struct Node {
   NodeId id{0};
@@ -24,10 +27,11 @@ class PathFinder {
 public:
   PathFinder(const EdgeList &edge_list);
 
-  EdgeList FindEulerian();
+  std::list<Edge> FindEulerian();
 
 private:
-  void Find(NodeId node_id, EdgeList &tour);
+  void Find(NodeId node_id, std::list<Edge> &tour,
+            const std::list<Edge>::iterator &tour_it);
 
   std::unordered_map<NodeId, size_t> in_degree_;
   AdjacencyList adj_list_;
@@ -44,7 +48,7 @@ PathFinder::PathFinder(const EdgeList &edge_list) : edge_list_{edge_list} {
   }
 }
 
-EdgeList PathFinder::FindEulerian() {
+std::list<Edge> PathFinder::FindEulerian() {
   const auto num_odd_degree_nodes = std::count_if(
       in_degree_.begin(), in_degree_.end(),
       [](const std::pair<const NodeId, size_t> &node_id_in_degree) -> bool {
@@ -54,17 +58,20 @@ EdgeList PathFinder::FindEulerian() {
     return {};
   }
 
-  EdgeList tour;
-  tour.reserve(edge_list_.size());
-  Find(edge_list_.front().first, tour);
+  const auto start_node = edge_list_.front().first;
+  std::list<Edge> tour;
+  Find(start_node, tour, tour.begin());
 
   if (tour.size() != edge_list_.size()) {
     return {};
   }
+
+  std::reverse(tour.begin(), tour.end());
   return tour;
 }
 
-void PathFinder::Find(NodeId node_id, EdgeList &tour) {
+void PathFinder::Find(NodeId node_id, std::list<Edge> &tour,
+                      const std::list<Edge>::iterator &tour_it) {
   for (auto &adj_node : adj_list_.at(node_id)) {
     if (!adj_node.use_edge) {
       continue;
@@ -78,13 +85,14 @@ void PathFinder::Find(NodeId node_id, EdgeList &tour) {
       }
     }
 
-    tour.emplace_back(node_id, adj_node.id);
-    Find(adj_node.id, tour);
+    Find(adj_node.id, tour, tour.emplace(tour_it, node_id, adj_node.id));
   }
 }
 } // namespace uva_10054
 
 int main(int argc, char *argv[]) {
+  std::ios::sync_with_stdio(false);
+
   size_t t{0};
   size_t num_beads{0};
   uva_10054::EdgeList beads;

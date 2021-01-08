@@ -28,6 +28,8 @@ include(UseJava)
     add_executable(The_coin_change_problem "Practice/Dynamic_programming/The coin change problem/The coin change problem.cpp")
     add_executable(Sherlock_and_cost "Practice/Dynamic_programming/Sherlock and cost/Sherlock and cost.cpp")
     add_executable(Sam_and_substrings "Practice/Dynamic_programming/Sam and substrings/Sam and substrings.cpp")
+    # Dictionaries and hashmaps
+    add_jar(Frequency_queries "Practice/Dictionaries and hashmaps/Frequency queries/src/main/java/Solution.java")
 
 # Compete
     # Week of code

@@ -102,4 +102,5 @@ set(CMAKE_CXX_STANDARD 17)
     add_executable(Matrix_block_sum "Compete/Bi-weekly contest/17/5144/Matrix block sum.cpp")
     add_executable(Sum_of_nodes_with_even_valued_grandparent "Compete/Bi-weekly contest/17/5145/Sum of nodes with even valued grandparent.cpp")
     # February LeetCoding Challenge 2021
-    add_executable(The_k_weakest_rows_in_a_matrix "Compete/Februrary LeetCoding Challenge 2021/Week 3/The k weakest rows in a matrix.cpp")
+    add_executable(The_k_weakest_rows_in_a_matrix "Compete/Februrary LeetCoding Challenge 2021/Week 3/The k weakest rows in a matrix/The k weakest rows in a matrix.cpp")
+    add_executable(Letter_case_permutation "Compete/Februrary LeetCoding Challenge 2021/Week 3/Letter case permutation/Letter case permutation.cpp")

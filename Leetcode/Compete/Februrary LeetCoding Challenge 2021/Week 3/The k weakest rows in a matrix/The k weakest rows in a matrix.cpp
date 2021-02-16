@@ -49,15 +49,11 @@ std::vector<int> WeakInfoProvider::GetTopKWeakRowIndexes(const size_t k) const {
     size_t weak_score = 0;
     const auto pos_order =
         std::upper_bound(order_.begin(), order_.end(), ones_count_[i]);
-    weak_score = num_rows_ - (pos_order == order_.end()
-                                  ? num_rows_
-                                  : std::distance(order_.begin(), pos_order));
+    weak_score = num_rows_ - std::distance(order_.begin(), pos_order);
 
     const auto &pos = indexes_.at(ones_count_[i]);
     const auto pos_index = std::upper_bound(pos.begin(), pos.end(), i);
-    weak_score += pos.size() - (pos_index == pos.end()
-                                    ? pos.size()
-                                    : std::distance(pos.begin(), pos_index));
+    weak_score += pos.size() - std::distance(pos.begin(), pos_index);
 
     weakest_rows.emplace_back(i, weak_score);
   }

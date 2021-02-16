@@ -448,3 +448,7 @@ include(UseJava)
                 add_executable(The_postal_worker_rings_once "Graph/Special graphs/117/The postal worker rings once.cpp")
                 add_executable(The_house_of_santa_claus "Graph/Special graphs/291/The house of santa claus.cpp")
                 add_executable(The_necklace "Graph/Special graphs/10054/The necklace.cpp")
+
+# Mathematics
+    # Ad hoc Mathematics problems
+    add_executable(Etruscan_warriors_never_play_chess "Mathematics/Ad hoc mathematics problems/11614/Etruscan warriors never play chess.cpp")

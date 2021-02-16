@@ -1,0 +1,1 @@
+.\out\build\x64-Debug\Debug\Etruscan_warriors_never_play_chess.exe < "Mathematics\Ad hoc mathematics problems\11614\Etruscan warriors never play chess.txt"

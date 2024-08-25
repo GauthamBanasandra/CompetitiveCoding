@@ -105,3 +105,6 @@ set(CMAKE_CXX_STANDARD 17)
     # February LeetCoding Challenge 2021
     add_executable(The_k_weakest_rows_in_a_matrix "Compete/Februrary LeetCoding Challenge 2021/Week 3/The k weakest rows in a matrix/The k weakest rows in a matrix.cpp")
     add_executable(Letter_case_permutation "Compete/Februrary LeetCoding Challenge 2021/Week 3/Letter case permutation/Letter case permutation.cpp")
+
+# Explore
+    add_executable(Max_consecutive_ones "Explore/Max consecutive ones/Max consecutive ones.cpp")

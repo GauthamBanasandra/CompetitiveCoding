@@ -108,3 +108,4 @@ set(CMAKE_CXX_STANDARD 17)
 
 # Explore
     add_executable(Max_consecutive_ones "Explore/Max consecutive ones/Max consecutive ones.cpp")
+    add_executable(Duplicate_zeros "Explore/Arrays 101/Inserting items into an array/Duplicate zeros/Duplicate zeros.cpp")

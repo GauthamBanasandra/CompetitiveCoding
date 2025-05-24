@@ -14,9 +14,7 @@ int Solution::removeDuplicates(std::vector<int> &numbers) {
 
   auto i_it = numbers.begin() + 1;
   for (auto j_it = i_it; j_it != numbers.end();) {
-    j_it = std::find_if_not(j_it, numbers.end(), [&i_it](const auto &e) {
-      return e == *(i_it - 1);
-    });
+    j_it = std::upper_bound(j_it, numbers.end(), *(i_it - 1));
     if (j_it != numbers.end()) {
       std::swap(*i_it++, *j_it++);
     }

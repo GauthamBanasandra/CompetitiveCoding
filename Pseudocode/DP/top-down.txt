@@ -1,0 +1,25 @@
+MAX_LIMIT
+CHOICE
+
+memo[MAX_LIMIT, choice]
+
+dp(cost, choice) {
+	if (cost < 0) {
+		return -inf;
+	}
+
+	if (choice >= CHOICE) {
+		return MAX_LIMIT - cost;
+	}
+
+	if (memo[cost, choice] != -1) { // -1 implies not found
+		return memo[cost, choice];
+	}
+
+	ans = -1
+	for (c : CHOICE[choice]) {
+		ans = max(ans, dp(cost - CHOICE[c], choice + 1));
+	}
+
+	return memo[cost, choice] = ans;
+}

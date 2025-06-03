@@ -1,0 +1,13 @@
+nums = [1, 2, 3...]
+sum = 0
+max = -inf
+
+for (num : nums) {
+	sum += num
+	max = max(max, sum)
+	if (sum < 0) {
+		sum = 0
+	}
+}
+
+max

@@ -1,0 +1,36 @@
+M[R, C]
+
+for (i = 0; i < R; ++i) {
+	for (j = 0; j < C; ++j) {
+		if (i > 0) {
+			M[i, j] += M[i - 1, j]
+		}
+		if (j > 0) {
+			M[i, j] += M[i, j - 1]
+		}
+		if (i > 0 and j > 0) {
+			M[i, j] -= M[i - 1, j - 1]
+		}
+	}
+}
+
+max = -inf
+for (i = 0; i < n; ++i) {
+	for (j = 0; j < n; ++j) {
+		for (k = i; k < n; ++k) {
+			for (l = j; l < n; ++l) {
+				sum = M[k][l]
+				if (i > 0) {
+					sum -= M[i - 1][l]
+				}
+				if (j > 0) {
+					sum -= M[k][j - 1]
+				}
+				if (i > 0 and j > 0) {
+					sum += M[i - 1][j - 1]
+				}
+				max = max(max, sum)
+			}
+		}
+	}
+}

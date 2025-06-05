@@ -1,0 +1,19 @@
+using Node = int
+using Weight = int
+
+vector<pair<pair<<Node, Node>>, Weight> edge_list
+ranges::sort(edge_list, [](const auto& a, const auto& b) { return a.second < b.second});
+
+UFDS ufds(num_vertices);
+
+cost = 0
+
+for (auto[w, uv] : edge_list) {
+	auto[u, v] = uv;
+	if(!ufds.IsSameSet(u, v)) {
+		cost += w
+		ufds.Union(u, v)
+	}
+}
+
+return cost;

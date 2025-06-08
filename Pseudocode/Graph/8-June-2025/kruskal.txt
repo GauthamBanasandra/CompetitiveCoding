@@ -1,0 +1,18 @@
+using Node = int
+using Weight = int
+using Edge = pair<Node, Node>
+
+size_t num_v
+vector<pair<Weight, Edge>> edge_list
+
+ranges::sort(edge_list)
+UFDS ufds(num_v)
+
+total_weight = 0
+for ([weight, edge] : edge_list) {
+	[u, v] = edge
+	if (!ufds.IsSameSet(u, v)) {
+		total_weight += weight
+		ufds.union(u, v)
+	}
+}

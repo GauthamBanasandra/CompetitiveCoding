@@ -1,0 +1,33 @@
+using Node = int
+using Weight = int
+using AdjList = unordered_map<Node, vector<pair<Node, Weight>>>
+
+Node source, destination // Given
+AdjList adj_list; // Given
+unordered_map<Node, Weight> min_distance
+priority_queue<pair<Weight, Node>, vector<pair<Weight, Node>>, greater<>> order
+
+for ([u, _] : adj_list) {
+	min_distance[u] = inf
+}
+
+min_distance[source] = 0
+order.emplace(0, source)
+
+while (!order.empty()) {
+	[du, u] = order.top()
+	order.pop()
+
+	if (min_distance[u] < du) {
+		continue;
+	}
+
+	for ([dv, v] : adj_list[u]) {
+		if (min_distance[u] + dv < min_distance[v]) {
+			min_distance[v] = min_distance[u] + dv
+			order.emplace(min_distance[v], v)
+		}
+	}
+}
+
+return min_distance[destination]

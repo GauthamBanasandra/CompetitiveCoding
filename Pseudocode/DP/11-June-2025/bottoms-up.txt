@@ -1,0 +1,24 @@
+MAX_LIMIT
+Choice[C, D]
+
+dp[C, MAX_LIMIT] = 0
+
+for (c : Choice[0]) {
+    if (MAX_LIMIT - c > 0) {
+        dp[0, MAX_LIMIT - c] = 1
+    }
+}
+
+for (i = 1; i < C; ++i) {
+    for (j = 0; j < MAX_LIMIT; ++j) {
+        if (dp[i - 1, j] == 1) {
+            for (k = 0; k < D; ++k) {
+                if (j - Choice[i, k] >= 0) {
+                    dp[i, j - Choice[i, k]] = 1
+                }
+            }
+        }
+    }
+}
+
+// print 1 closest to 0

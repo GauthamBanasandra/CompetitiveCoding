@@ -1,0 +1,44 @@
+class UFDS {
+    UFDS (num_v)
+
+    int FindParent(u)
+    bool IsSameSet(u, v)
+    void Union(u, v)
+
+    vector<int> parent
+    vector<int> rank
+}
+
+UFDS(num_v) {
+    parent.resize(num_v)
+    ranges::iota(parent, 0)
+
+    rank.resize(num_v)
+}
+
+int FindParent(u) {
+    if (parent[u] == u) {
+        return u
+    }
+
+    return parent[u] = FindParent(u)
+}
+
+bool IsSameSet(u, v) {
+    return FindParent(u) == FindParent(v)
+}
+
+void Union(u, v) {
+    if (!IsSameSet(u, v)) {
+        p_u = FindParent(u)
+        p_v = FindParent(v)
+        if (rank[p_u] > rank[p_v]) {
+            parent[v] = p_u
+        } else {
+            parent[u] = p_v
+            if (rank[p_u] == rank[p_v]) {
+                ++rank[p_v]
+            }
+        }
+    }
+}

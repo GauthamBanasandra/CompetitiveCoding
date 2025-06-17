@@ -1,0 +1,11 @@
+vector<int> numbers
+
+max_v = -inf
+sum = 0
+for (num : numbers) {
+    sum += num
+    max_v = max(max_v, sum)
+    if (sum < 0) {
+        sum = 0
+    }
+}

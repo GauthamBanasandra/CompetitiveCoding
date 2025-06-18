@@ -1,0 +1,9 @@
+M[R, C]
+
+for (k = 0; k < R; ++k) {
+    for (i = 0; i < C; ++i) {
+        for (j = 0; j < R; ++j) {
+            M[i, j] = min(M[i, j], M[i, k] + M[k, j])
+        }
+    }
+}

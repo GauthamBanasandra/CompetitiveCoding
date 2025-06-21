@@ -1,0 +1,21 @@
+using Node = int
+using Weight = int
+using Edge = pair<Node, Node>
+
+int num_v
+vector<pair<Weight, Edge>> edge_list
+UFDS ufds(num_v)
+
+// Mistake: I forgot to do this
+ranges::sort(edge_list)
+
+cost = 0
+for ([w, uv] : edge_list) {
+    [u, v] = uv
+    if (!ufds.IsSameSet(u, v)) {
+        cost += w
+        ufds.Union(u, v)
+    }
+}
+
+return cost

@@ -1,0 +1,20 @@
+using Node = int
+using Weight = int
+
+Node src
+unordered_map<Node, vector<pair<Node, Weight>>> adj_list
+unordered_map<Node, Weight> min_dist
+
+for ([u, _] : adj_list) {
+    min_dist[u] = inf
+}
+
+min_dist[src] = 0
+
+for (i = 0; i < adj_list.size() - 1; ++i) {
+    for ([u, u_neighbours] : adj_list) {
+        for ([v, w] : u_neighbours) {
+            min_dist[v] = min(min_dist[v], min_dist[u] + w)
+        }
+    }
+}

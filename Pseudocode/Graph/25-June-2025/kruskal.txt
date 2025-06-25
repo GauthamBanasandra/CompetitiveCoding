@@ -1,28 +1,26 @@
 class UFDS {
 public:
-    UFDS(int num_v)
+    UFDS(n)
     int FindParent(u)
     bool IsSameSet(u, v)
     void Union(u, v)
 
 private:
-    int num_v
     vector<int> parent
     vector<int> rank
-}
+};
 
-UFDS(int num_v) : num_v(num_v) {
-    parent.resize(num_v)
-    rank.resize(num_v)
-    iota(parent.begin(), parent.end(), 0)
+UFDS(n) {
+    parent.resize(n)
+    ranges::iota(parent, 0)
+    rank.resize(n)
 }
 
 int FindParent(u) {
-    if (parent[u] == u) {
+    if (u == parent[u]) {
         return u
     }
 
-    // Mistake: I had written parent[u] = u
     return parent[u] = FindParent(u)
 }
 
@@ -32,15 +30,15 @@ bool IsSameSet(u, v) {
 
 void Union(u, v) {
     if (!IsSameSet(u, v)) {
-        pu = FindParent(u)
-        pv = FindParent(v)
+        p_u = FindParent(u)
+        p_v = FindParent(v)
 
-        if (rank[pu] > rank[pv]) {
-            parent[v] = pu
+        if (rank[p_u] > rank[p_v]) {
+            parent[v] = p_u
         } else {
-            parent[u] = pv
-            if (rank[pu] == rank[pv]) {
-                ++rank[pv]
+            parent[u] = p_v
+            if (rank[p_u] == rank[p_v]) {
+                ++rank[p_v]
             }
         }
     }
@@ -50,6 +48,7 @@ using Node = int
 using Weight = int
 using Edge = pair<Node, Node>
 
+num_v
 vector<pair<Weight, Edge>> edge_list
 UFDS ufds(num_v)
 

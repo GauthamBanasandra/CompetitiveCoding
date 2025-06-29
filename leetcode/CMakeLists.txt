@@ -67,6 +67,7 @@ set(CMAKE_CXX_STANDARD 20)
     add_executable(Sum_of_mutated_array_close_to_target "Practice/Medium/1300/Sum of mutated array close to target.cpp")
     add_executable(Deepest_leaves_sum "Practice/Medium/1302/Deepest leaves sum.cpp")
     add_executable(Number_of_operations_to_make_network_connected "Practice/Medium/1319/Number of operations to make network connected.cpp")
+    add_executable(All_paths_from_source_to_target "Practice/Medium/797/All paths from source to target.cpp")
 
     # Hard
     add_executable(Merge_k_sorted_lists "Practice/Hard/23/Merge k sorted lists.cpp")

@@ -1,0 +1,13 @@
+This solution finds the lowest common ancestor (LCA) of two nodes in a binary tree using a smart two-pointer approach. We start by placing one pointer at node p and the other at node q. Both pointers move up the tree at each step by following their parent pointers. If a pointer reaches the root (i.e., its parent is None), it jumps to the other starting node. This process continues until the two pointers meet. The key idea is that by switching starting points after reaching the top, both pointers end up traveling the same total distance, even if p and q are at different depths. When they meet, that meeting point is their lowest common ancestor.
+
+The steps of the algorithm are as follows:
+
+Initialize two pointers: ptr1 starting at p and ptr2 starting at q.
+
+While ptr1 and ptr2 are not pointing to the same node:
+
+If ptr1 has a parent, move ptr1 to ptr1->parent; otherwise, set ptr1 = q.
+
+If ptr2 has a parent, move ptr2 to ptr2->parent; otherwise, set ptr2 = p.
+
+When ptr1 == ptr2, return ptr1. This node is the lowest common ancestor (LCA) of p and q.

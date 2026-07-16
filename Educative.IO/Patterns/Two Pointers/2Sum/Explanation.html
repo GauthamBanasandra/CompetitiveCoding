@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Two Sum — Why the Two-Pointer Sweep Works (on a Sorted Array)</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --panel: #1e293b;
+    --panel-2: #273449;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --accent: #38bdf8;
+    --l-color: #fb923c;       /* orange — left pointer */
+    --r-color: #2dd4bf;       /* teal   — right pointer */
+    --hit-color: #facc15;     /* yellow — found pair */
+    --miss-color: #f87171;    /* red    — no solution */
+    --cell-bg: #334155;
+    --cell-stroke: #64748b;
+    --l-trail: rgba(251, 146, 60, 0.30);
+    --r-trail: rgba(45, 212, 191, 0.30);
+    --discard: #1f2937;
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  header {
+    padding: 24px 32px 8px;
+    border-bottom: 1px solid #1e293b;
+  }
+  header h1 { margin: 0 0 6px; font-size: 26px; }
+  header p  { margin: 0; color: var(--muted); font-size: 14px; }
+
+  main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(320px, 0.9fr);
+    gap: 20px;
+    padding: 20px 32px 40px;
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+  @media (max-width: 1100px) {
+    main { grid-template-columns: 1fr; }
+  }
+
+  .panel {
+    background: var(--panel);
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  }
+
+  .controls {
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+    margin-top: 12px;
+  }
+  button, select, input[type="number"] {
+    background: var(--panel-2);
+    color: var(--text);
+    border: 1px solid #475569;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  input[type="number"] { width: 90px; cursor: text; }
+  button:hover { background: #364660; }
+  button:disabled { opacity: 0.45; cursor: not-allowed; }
+  .speed { display: flex; align-items: center; gap: 8px; margin-left: auto; color: var(--muted); font-size: 13px; }
+
+  svg { width: 100%; height: auto; display: block; background: #0b1424; border-radius: 8px; }
+
+  .legend {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    margin-top: 10px; font-size: 13px; color: var(--muted);
+  }
+  .legend-item { display: inline-flex; align-items: center; gap: 6px; }
+  .swatch { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+  .swatch.round { border-radius: 50%; }
+
+  .status-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  @media (max-width: 720px) {
+    .status-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .status-card {
+    background: var(--panel-2);
+    border-radius: 8px;
+    padding: 10px 12px;
+    border-left: 4px solid var(--accent);
+  }
+  .status-card.l { border-left-color: var(--l-color); }
+  .status-card.r { border-left-color: var(--r-color); }
+  .status-card.sum { border-left-color: var(--hit-color); }
+  .status-card .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); }
+  .status-card .value { font-size: 18px; font-weight: 600; margin-top: 2px; font-family: "JetBrains Mono", "Fira Code", Consolas, monospace; }
+  .status-card .value.cmp-eq { color: var(--hit-color); }
+  .status-card .value.cmp-lt { color: var(--l-color); }
+  .status-card .value.cmp-gt { color: var(--r-color); }
+
+  .step-line {
+    margin-top: 12px;
+    padding: 10px 12px;
+    background: #0b1424;
+    border-radius: 8px;
+    font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
+    font-size: 13px;
+    min-height: 44px;
+    color: var(--accent);
+  }
+
+  .explanation h2 { margin-top: 0; }
+  .explanation h3 { color: var(--accent); margin-bottom: 6px; }
+  .explanation p, .explanation li { line-height: 1.55; color: #cbd5e1; }
+  .explanation code {
+    background: #0b1424; padding: 1px 6px; border-radius: 4px;
+    font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
+    font-size: 13px; color: #f1f5f9;
+  }
+
+  .formula {
+    background: #0b1424;
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-x: auto;
+  }
+  .pill {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .pill.l   { background: rgba(251,146,60,0.2);  color: var(--l-color); }
+  .pill.r   { background: rgba(45,212,191,0.2);  color: var(--r-color); }
+  .pill.hit { background: rgba(250,204,21,0.2);  color: var(--hit-color); }
+  .pill.miss{ background: rgba(248,113,113,0.2); color: var(--miss-color); }
+
+  .result-banner {
+    margin-top: 12px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    display: none;
+  }
+  .result-banner.hit  { background: rgba(250, 204, 21, 0.12); border: 1px solid rgba(250, 204, 21, 0.4); color: var(--hit-color); }
+  .result-banner.miss { background: rgba(248, 113, 113, 0.12); border: 1px solid rgba(248, 113, 113, 0.4); color: var(--miss-color); }
+  .result-banner.show { display: block; }
+
+  /* SVG bits */
+  .cell rect { fill: var(--cell-bg); stroke: var(--cell-stroke); stroke-width: 2; transition: fill 0.25s, stroke 0.25s, opacity 0.25s; }
+  .cell text.val { fill: var(--text); font-weight: 600; font-size: 16px; text-anchor: middle; dominant-baseline: central; user-select: none; }
+  .cell text.idx { fill: var(--muted); font-size: 11px; text-anchor: middle; dominant-baseline: central; user-select: none; }
+
+  .cell.l-trail rect  { fill: var(--l-trail); }
+  .cell.r-trail rect  { fill: var(--r-trail); }
+  .cell.discarded rect { fill: var(--discard); opacity: 0.45; }
+  .cell.discarded text.val { fill: #64748b; text-decoration: line-through; }
+  .cell.is-hit rect  { fill: var(--hit-color); stroke: var(--hit-color); }
+  .cell.is-hit text.val { fill: #1f2937; }
+
+  .pointer {
+    transition: transform 0.55s cubic-bezier(0.45, 0.05, 0.4, 1.05);
+  }
+  .pointer-l { fill: var(--l-color); }
+  .pointer-r { fill: var(--r-color); }
+
+  .meet-pulse {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: pulse 1.4s ease-out infinite;
+  }
+  @keyframes pulse {
+    0%   { transform: scale(1);    opacity: 1;   }
+    70%  { transform: scale(1.55); opacity: 0;   }
+    100% { transform: scale(1.55); opacity: 0;   }
+  }
+
+  .vis-wrap { position: relative; }
+
+  .target-line {
+    margin: 4px 0 12px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .target-line strong { color: var(--hit-color); font-family: "JetBrains Mono", "Fira Code", Consolas, monospace; font-size: 16px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Two Sum (sorted array) — the Two-Pointer Sweep</h1>
+  <p>Why does shrinking the window from both ends actually find a pair that adds up to the target — and never miss one?</p>
+</header>
+
+<main>
+  <!-- ============ LEFT: Visualisation ============ -->
+  <section class="panel vis-wrap">
+    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+      <strong>Pick a scenario:</strong>
+      <select id="scenario"></select>
+    </div>
+
+    <div class="target-line">Target sum: <strong id="targetVal">–</strong></div>
+
+    <svg id="board" viewBox="0 0 820 220" aria-label="Sorted array two-pointer visualization"></svg>
+
+    <div class="legend">
+      <span class="legend-item"><span class="swatch" style="background:var(--l-color)"></span> L pointer (left, low end)</span>
+      <span class="legend-item"><span class="swatch" style="background:var(--r-color)"></span> R pointer (right, high end)</span>
+      <span class="legend-item"><span class="swatch" style="background:var(--hit-color)"></span> Pair found</span>
+      <span class="legend-item"><span class="swatch" style="background:var(--l-trail)"></span> Visited by L</span>
+      <span class="legend-item"><span class="swatch" style="background:var(--r-trail)"></span> Visited by R</span>
+      <span class="legend-item"><span class="swatch" style="background:var(--discard); opacity:0.6"></span> Discarded (proven irrelevant)</span>
+    </div>
+
+    <div class="controls">
+      <button id="btnPlay">▶ Play</button>
+      <button id="btnPause" disabled>⏸ Pause</button>
+      <button id="btnStep">⏭ Step</button>
+      <button id="btnReset">↺ Reset</button>
+      <span class="speed">
+        Speed
+        <input id="speed" type="range" min="200" max="1800" step="100" value="900" />
+      </span>
+    </div>
+
+    <div class="status-grid">
+      <div class="status-card l">
+        <div class="label">L = i, nums[L]</div>
+        <div class="value" id="lVal">–</div>
+      </div>
+      <div class="status-card r">
+        <div class="label">R = j, nums[R]</div>
+        <div class="value" id="rVal">–</div>
+      </div>
+      <div class="status-card sum">
+        <div class="label">sum  vs  target</div>
+        <div class="value" id="sumVal">–</div>
+      </div>
+      <div class="status-card">
+        <div class="label">Step #</div>
+        <div class="value" id="stepVal">0</div>
+      </div>
+      <div class="status-card">
+        <div class="label">Window size (R − L + 1)</div>
+        <div class="value" id="winVal">–</div>
+      </div>
+      <div class="status-card">
+        <div class="label">Steps until termination</div>
+        <div class="value" id="totalVal">–</div>
+      </div>
+    </div>
+
+    <div class="step-line" id="stepLine">Press <strong>Play</strong> to begin.</div>
+    <div class="result-banner" id="resultBanner"></div>
+  </section>
+
+  <!-- ============ RIGHT: Explanation ============ -->
+  <section class="panel explanation">
+    <h2>Why does the two-pointer sweep work?</h2>
+
+    <h3>The setup</h3>
+    <p>
+      We have a <em>sorted</em> array <code>nums</code> and a <code>target</code>. Place
+      <span class="pill l">L</span> at index <code>0</code> (smallest value) and
+      <span class="pill r">R</span> at index <code>n - 1</code> (largest value). At every
+      step compare <code>sum = nums[L] + nums[R]</code> against <code>target</code>:
+    </p>
+    <div class="formula">
+sum == target  →  return (L, R)        // done
+sum &lt;  target  →  L = L + 1            // need a bigger sum
+sum &gt;  target  →  R = R - 1            // need a smaller sum
+    </div>
+
+    <h3>The key invariant</h3>
+    <p>
+      At every iteration, <strong>the answer (if one exists) lies entirely inside the window
+      <code>[L, R]</code></strong>. Each move provably preserves this invariant by discarding
+      one element that cannot belong to any valid pair.
+    </p>
+
+    <h3>Why "L++" when sum is too small is safe</h3>
+    <p>
+      Suppose <code>nums[L] + nums[R] &lt; target</code>. Could <code>nums[L]</code> still pair
+      with some element in <code>[L+1, R-1]</code>? No — because the array is sorted,
+      every element in <code>[L+1, R-1]</code> is <code>≤ nums[R]</code>. Their sum with
+      <code>nums[L]</code> is at most <code>nums[L] + nums[R]</code>, which is already
+      <em>less than</em> <code>target</code>. So <code>nums[L]</code> can be eliminated:
+    </p>
+    <div class="formula">
+∀ k in [L+1, R-1]:  nums[L] + nums[k]  ≤  nums[L] + nums[R]  &lt;  target
+    </div>
+
+    <h3>Why "R--" when sum is too big is safe</h3>
+    <p>
+      Symmetric argument. If <code>nums[L] + nums[R] &gt; target</code>, then
+      <code>nums[R]</code> paired with anything in <code>[L+1, R-1]</code> gives a sum
+      <code>≥ nums[L] + nums[R] &gt; target</code>. So <code>nums[R]</code> can never be part of
+      a valid pair, and we drop it:
+    </p>
+    <div class="formula">
+∀ k in [L+1, R-1]:  nums[k] + nums[R]  ≥  nums[L] + nums[R]  &gt;  target
+    </div>
+
+    <h3>Why does it always terminate?</h3>
+    <p>
+      Each iteration either returns the answer or shrinks the window by exactly one.
+      Starting from a window of size <code>n</code>, the loop runs at most <code>n - 1</code>
+      times before <code>L</code> meets <code>R</code>. That's <span class="pill hit">O(n)</span>
+      time and <span class="pill hit">O(1)</span> extra space.
+    </p>
+
+    <h3>What if no pair exists?</h3>
+    <p>
+      The pointers eventually cross (<code>L ≥ R</code>) without ever satisfying
+      <code>sum == target</code>. Because every discarded element was provably useless,
+      crossing without a hit is a <em>proof</em> that no pair sums to the target.
+    </p>
+
+    <h3>Wait — isn't "Two Sum" usually solved with a hash map?</h3>
+    <p>
+      Yes! The famous LeetCode #1 ("Two Sum") works on an <em>unsorted</em> array, where the
+      typical O(n) solution stores complements in a hash map. The two-pointer sweep <em>requires</em>
+      the array to be sorted, which is exactly the condition of LeetCode #167 ("Two Sum II — Input
+      Array Is Sorted"). If you're handed an unsorted array, sorting it first costs <code>O(n log n)</code>,
+      so for the unsorted case the hash map is faster — but the two-pointer version uses
+      <strong>O(1) extra memory</strong>, which can matter in interviews and embedded settings.
+    </p>
+
+    <h3>The code (for reference)</h3>
+    <div class="formula">
+def two_sum_sorted(nums, target):
+    L, R = 0, len(nums) - 1
+    while L &lt; R:
+        s = nums[L] + nums[R]
+        if s == target:
+            return (L, R)
+        elif s &lt; target:
+            L += 1
+        else:
+            R -= 1
+    return None
+    </div>
+  </section>
+</main>
+
+<script>
+// ---------- Scenarios ----------
+const SCENARIOS = [
+  { name: "nums=[2,7,11,15], target=9   →  (0,1)",                 nums: [2, 7, 11, 15],            target: 9  },
+  { name: "nums=[1,2,3,4,6,8,11], target=10  →  (1,5)",            nums: [1, 2, 3, 4, 6, 8, 11],    target: 10 },
+  { name: "nums=[-3,-1,0,2,4,6], target=2   →  (2,3) [pointers converge in the middle]", nums: [-3, -1, 0, 2, 4, 6], target: 2 },
+  { name: "nums=[1,3,4,5,7,11], target=9   →  (2,3) [adjacent]",   nums: [1, 3, 4, 5, 7, 11],       target: 9  },
+  { name: "nums=[1,2,3,4,5], target=20  →  no solution",           nums: [1, 2, 3, 4, 5],           target: 20 },
+  { name: "nums=[1,2,3,4,5], target=3   →  (0,1) [only R moves]",  nums: [1, 2, 3, 4, 5],           target: 3  },
+  { name: "nums=[1,2,3,4,5], target=9   →  (3,4) [R never moves]", nums: [1, 2, 3, 4, 5], target: 9 },
+  { name: "nums=[-5,-2,0,1,3,8,12], target=11  →  (4,5)",          nums: [-5, -2, 0, 1, 3, 8, 12],  target: 11 },
+];
+
+// ---------- SVG layout ----------
+const svg = document.getElementById("board");
+const SVG_NS = "http://www.w3.org/2000/svg";
+const VIEW_W = 820;
+const VIEW_H = 220;
+const CELL_H = 60;
+const CELL_GAP = 6;
+const TOP_PAD = 70;     // space above cells for pointer arrows + labels
+const SIDE_PAD = 30;
+
+function clearSvg() { while (svg.firstChild) svg.removeChild(svg.firstChild); }
+
+// Compute cell width based on array length so the row fits the viewBox.
+function cellWidth(n) {
+  const usable = VIEW_W - 2 * SIDE_PAD - (n - 1) * CELL_GAP;
+  return Math.min(80, Math.max(38, usable / n));
+}
+function cellX(i, n) {
+  const w = cellWidth(n);
+  const totalW = n * w + (n - 1) * CELL_GAP;
+  const startX = (VIEW_W - totalW) / 2;
+  return startX + i * (w + CELL_GAP);
+}
+function cellCenterX(i, n) { return cellX(i, n) + cellWidth(n) / 2; }
+const CELL_TOP_Y = TOP_PAD;
+
+function drawArray(nums) {
+  clearSvg();
+  const n = nums.length;
+  const w = cellWidth(n);
+  for (let i = 0; i < n; i++) {
+    const g = document.createElementNS(SVG_NS, "g");
+    g.setAttribute("class", "cell");
+    g.setAttribute("data-idx", i);
+    g.setAttribute("transform", `translate(${cellX(i, n)},${CELL_TOP_Y})`);
+
+    const r = document.createElementNS(SVG_NS, "rect");
+    r.setAttribute("x", 0);
+    r.setAttribute("y", 0);
+    r.setAttribute("width", w);
+    r.setAttribute("height", CELL_H);
+    r.setAttribute("rx", 8);
+    g.appendChild(r);
+
+    const tv = document.createElementNS(SVG_NS, "text");
+    tv.setAttribute("class", "val");
+    tv.setAttribute("x", w / 2);
+    tv.setAttribute("y", CELL_H / 2);
+    tv.textContent = nums[i];
+    g.appendChild(tv);
+
+    const ti = document.createElementNS(SVG_NS, "text");
+    ti.setAttribute("class", "idx");
+    ti.setAttribute("x", w / 2);
+    ti.setAttribute("y", CELL_H + 14);
+    ti.textContent = `[${i}]`;
+    g.appendChild(ti);
+
+    svg.appendChild(g);
+  }
+}
+
+// ---------- Pointer rendering ----------
+let lPtrEl, rPtrEl;
+
+function makePointer(label, colorVar, side /* "L" or "R" */) {
+  const g = document.createElementNS(SVG_NS, "g");
+  g.setAttribute("class", side === "L" ? "pointer pointer-l" : "pointer pointer-r");
+  // Arrow points DOWN at the cell it sits above; place a small text label above.
+  // We position text either left or right of the arrow tip so L and R don't collide
+  // when they sit on the same/neighbouring cell.
+  const labelDX = side === "L" ? -14 : 14;
+  const labelAnchor = side === "L" ? "end" : "start";
+  g.innerHTML = `
+    <polygon points="-10,-30 10,-30 0,-10" fill="var(${colorVar})"/>
+    <text x="${labelDX}" y="-22" text-anchor="${labelAnchor}" font-size="13" font-weight="700" fill="var(${colorVar})">${label}</text>
+  `;
+  return g;
+}
+
+function drawPointers(L, R, n) {
+  lPtrEl = makePointer("L", "--l-color", "L");
+  rPtrEl = makePointer("R", "--r-color", "R");
+  movePointer(lPtrEl, L, n);
+  movePointer(rPtrEl, R, n);
+  svg.appendChild(lPtrEl);
+  svg.appendChild(rPtrEl);
+}
+
+function movePointer(el, idx, n) {
+  const x = cellCenterX(idx, n);
+  const y = CELL_TOP_Y;   // arrow tip sits at the top edge of cells
+  el.setAttribute("transform", `translate(${x},${y})`);
+}
+
+// ---------- Cell state styling ----------
+function clearCellStates() {
+  document.querySelectorAll(".cell").forEach(c => {
+    c.classList.remove("l-trail", "r-trail", "discarded", "is-hit");
+  });
+}
+function markVisited(idx, who /* "L" or "R" */) {
+  const g = svg.querySelector(`.cell[data-idx="${idx}"]`);
+  if (!g) return;
+  if (g.classList.contains("is-hit") || g.classList.contains("discarded")) return;
+  if (who === "L") g.classList.add("l-trail");
+  else             g.classList.add("r-trail");
+}
+function markDiscarded(idx) {
+  const g = svg.querySelector(`.cell[data-idx="${idx}"]`);
+  if (!g) return;
+  g.classList.remove("l-trail", "r-trail");
+  g.classList.add("discarded");
+}
+function markHit(L, R) {
+  [L, R].forEach(idx => {
+    const g = svg.querySelector(`.cell[data-idx="${idx}"]`);
+    if (!g) return;
+    g.classList.remove("l-trail", "r-trail", "discarded");
+    g.classList.add("is-hit");
+  });
+}
+function addPulseRing(idx, n) {
+  const g = svg.querySelector(`.cell[data-idx="${idx}"]`);
+  if (!g) return;
+  const w = cellWidth(n);
+  const ring = document.createElementNS(SVG_NS, "rect");
+  ring.setAttribute("x", -3);
+  ring.setAttribute("y", -3);
+  ring.setAttribute("width", w + 6);
+  ring.setAttribute("height", CELL_H + 6);
+  ring.setAttribute("rx", 10);
+  ring.setAttribute("fill", "none");
+  ring.setAttribute("stroke", "var(--hit-color)");
+  ring.setAttribute("stroke-width", 3);
+  ring.setAttribute("class", "meet-pulse");
+  g.appendChild(ring);
+}
+
+// ---------- Algorithm state ----------
+let state = null;
+
+function simulateTotal(nums, target) {
+  // Returns { steps, found, foundAtStep, hitL, hitR }
+  let L = 0, R = nums.length - 1, steps = 0;
+  while (L < R) {
+    const s = nums[L] + nums[R];
+    if (s === target) return { steps, found: true, foundAtStep: steps, hitL: L, hitR: R };
+    if (s < target) L++; else R--;
+    steps++;
+  }
+  return { steps, found: false, foundAtStep: -1, hitL: -1, hitR: -1 };
+}
+
+function initState(scenario) {
+  const { nums, target } = scenario;
+  const sim = simulateTotal(nums, target);
+  state = {
+    nums, target,
+    L: 0, R: nums.length - 1,
+    step: 0,
+    finished: nums.length < 2,
+    found: false,
+    sim,
+  };
+}
+
+// ---------- One simulation step ----------
+function stepOnce() {
+  if (!state || state.finished) return;
+  const { nums, target } = state;
+
+  // Mark current positions as visited before deciding the move.
+  markVisited(state.L, "L");
+  markVisited(state.R, "R");
+
+  const sum = nums[state.L] + nums[state.R];
+
+  if (sum === target) {
+    // Found! Highlight and stop.
+    state.found = true;
+    state.finished = true;
+    markHit(state.L, state.R);
+    addPulseRing(state.L, nums.length);
+    addPulseRing(state.R, nums.length);
+    state.step++;
+    updateStatus({ sum, action: "FOUND" });
+    showResultBanner(true);
+    setControlsRunning(false);
+    stopAuto();
+    return;
+  }
+
+  let action;
+  let discardedIdx;
+  if (sum < target) {
+    discardedIdx = state.L;
+    state.L++;
+    action = "L++";
+  } else {
+    discardedIdx = state.R;
+    state.R--;
+    action = "R--";
+  }
+  // Visually retire the element we just proved cannot be part of any answer.
+  markDiscarded(discardedIdx);
+
+  state.step++;
+
+  if (state.L >= state.R) {
+    // Crossed without finding — no solution.
+    state.finished = true;
+    // Mark the final position too (if still in range) as visited.
+    if (state.L < nums.length) markVisited(state.L, "L");
+    if (state.R >= 0)          markVisited(state.R, "R");
+    movePointer(lPtrEl, Math.min(state.L, nums.length - 1), nums.length);
+    movePointer(rPtrEl, Math.max(state.R, 0), nums.length);
+    updateStatus({ sum, action });
+    showResultBanner(false);
+    setControlsRunning(false);
+    stopAuto();
+    return;
+  }
+
+  movePointer(lPtrEl, state.L, nums.length);
+  movePointer(rPtrEl, state.R, nums.length);
+  updateStatus({ sum, action });
+}
+
+function updateStatus({ sum, action }) {
+  const { nums, target, L, R, step, sim } = state;
+  const inBounds = L < nums.length && R >= 0 && L <= R;
+
+  document.getElementById("lVal").textContent = inBounds
+    ? `L=${L},  nums[L]=${nums[L]}`
+    : `L=${L} (out)`;
+  document.getElementById("rVal").textContent = inBounds
+    ? `R=${R},  nums[R]=${nums[R]}`
+    : `R=${R} (out)`;
+
+  const sumEl = document.getElementById("sumVal");
+  if (action === "FOUND") {
+    sumEl.textContent = `${sum} == ${target}`;
+    sumEl.className = "value cmp-eq";
+  } else if (sum < target) {
+    sumEl.textContent = `${sum}  <  ${target}`;
+    sumEl.className = "value cmp-lt";
+  } else if (sum > target) {
+    sumEl.textContent = `${sum}  >  ${target}`;
+    sumEl.className = "value cmp-gt";
+  } else {
+    sumEl.textContent = `${sum} == ${target}`;
+    sumEl.className = "value cmp-eq";
+  }
+
+  document.getElementById("stepVal").textContent = step;
+  const winSize = Math.max(0, R - L + 1);
+  document.getElementById("winVal").textContent = winSize;
+  document.getElementById("totalVal").textContent = sim.found
+    ? `${sim.steps + 1}  (hit on step ${sim.steps + 1})`
+    : `${sim.steps + 1}  (no solution)`;
+
+  const sl = document.getElementById("stepLine");
+  if (action === "FOUND") {
+    sl.innerHTML = `Step ${step}:  sum = nums[${L}] + nums[${R}] = ${nums[L]} + ${nums[R]} = <strong>${sum}</strong> == target  →  <span style="color:var(--hit-color)">return (${L}, ${R})</span>`;
+  } else if (action === "L++") {
+    const prevL = L - 1;
+    sl.innerHTML = `Step ${step}:  sum = ${nums[prevL]} + ${nums[R]} = <strong>${sum}</strong> &lt; ${target}  →  <span style="color:var(--l-color)">L++</span> (discard nums[${prevL}]=${nums[prevL]}; it can't pair with anything left)`;
+  } else if (action === "R--") {
+    const prevR = R + 1;
+    sl.innerHTML = `Step ${step}:  sum = ${nums[L]} + ${nums[prevR]} = <strong>${sum}</strong> &gt; ${target}  →  <span style="color:var(--r-color)">R--</span> (discard nums[${prevR}]=${nums[prevR]}; it can't pair with anything left)`;
+  }
+}
+
+function showResultBanner(found) {
+  const b = document.getElementById("resultBanner");
+  b.classList.remove("hit", "miss", "show");
+  if (found) {
+    b.classList.add("hit", "show");
+    b.innerHTML = `🎯 Found a pair: indices (<strong>${state.sim.hitL}</strong>, <strong>${state.sim.hitR}</strong>) → values ${state.nums[state.sim.hitL]} + ${state.nums[state.sim.hitR]} = ${state.target}`;
+  } else {
+    b.classList.add("miss", "show");
+    b.innerHTML = `🚫 No pair sums to ${state.target}. The pointers crossed, which proves no valid pair exists.`;
+  }
+}
+
+// ---------- Driver / controls ----------
+let timer = null;
+function startAuto() {
+  if (state.finished) return;
+  setControlsRunning(true);
+  const speed = parseInt(document.getElementById("speed").value, 10);
+  timer = setInterval(stepOnce, speed);
+}
+function stopAuto() {
+  if (timer) { clearInterval(timer); timer = null; }
+  setControlsRunning(false);
+}
+function setControlsRunning(running) {
+  document.getElementById("btnPlay").disabled  = running || (state && state.finished);
+  document.getElementById("btnPause").disabled = !running;
+  document.getElementById("btnStep").disabled  = (state && state.finished);
+}
+
+function reset() {
+  stopAuto();
+  document.getElementById("resultBanner").classList.remove("show");
+  const sel = document.getElementById("scenario");
+  const sc = SCENARIOS[sel.value];
+  drawArray(sc.nums);
+  initState(sc);
+  drawPointers(state.L, state.R, sc.nums.length);
+  // Pre-mark the starting cells as visited.
+  markVisited(state.L, "L");
+  markVisited(state.R, "R");
+
+  document.getElementById("targetVal").textContent = sc.target;
+  document.getElementById("lVal").textContent = `L=${state.L},  nums[L]=${sc.nums[state.L]}`;
+  document.getElementById("rVal").textContent = `R=${state.R},  nums[R]=${sc.nums[state.R]}`;
+  const initSum = sc.nums[state.L] + sc.nums[state.R];
+  const sumEl = document.getElementById("sumVal");
+  if (initSum < sc.target)      { sumEl.textContent = `${initSum}  <  ${sc.target}`; sumEl.className = "value cmp-lt"; }
+  else if (initSum > sc.target) { sumEl.textContent = `${initSum}  >  ${sc.target}`; sumEl.className = "value cmp-gt"; }
+  else                          { sumEl.textContent = `${initSum} == ${sc.target}`;  sumEl.className = "value cmp-eq"; }
+  document.getElementById("stepVal").textContent = 0;
+  document.getElementById("winVal").textContent  = state.R - state.L + 1;
+  document.getElementById("totalVal").textContent = state.sim.found
+    ? `${state.sim.steps + 1}  (hit on step ${state.sim.steps + 1})`
+    : `${state.sim.steps + 1}  (no solution)`;
+
+  document.getElementById("stepLine").innerHTML =
+    `Starting:  L=<strong>0</strong>, R=<strong>${sc.nums.length - 1}</strong>, target=<strong>${sc.target}</strong>. Initial sum = ${sc.nums[0]} + ${sc.nums[sc.nums.length - 1]} = <strong>${initSum}</strong>.`;
+  setControlsRunning(false);
+}
+
+// ---------- Bootstrap ----------
+function init() {
+  const sel = document.getElementById("scenario");
+  SCENARIOS.forEach((s, i) => {
+    const opt = document.createElement("option");
+    opt.value = i; opt.textContent = s.name;
+    sel.appendChild(opt);
+  });
+  sel.addEventListener("change", reset);
+
+  document.getElementById("btnPlay").addEventListener("click", startAuto);
+  document.getElementById("btnPause").addEventListener("click", stopAuto);
+  document.getElementById("btnStep").addEventListener("click", () => { stopAuto(); stepOnce(); });
+  document.getElementById("btnReset").addEventListener("click", reset);
+  document.getElementById("speed").addEventListener("input", () => {
+    if (timer) { stopAuto(); startAuto(); }
+  });
+
+  reset();
+}
+
+window.addEventListener("DOMContentLoaded", init);
+</script>
+</body>
+</html>

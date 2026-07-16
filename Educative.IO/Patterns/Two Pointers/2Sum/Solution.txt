@@ -1,0 +1,27 @@
+1. This solution uses the two-pointer technique on a sorted array to find a pair of numbers that add up to a given target. We place one pointer (`L`) at the leftmost element (the smallest value) and another pointer (`R`) at the rightmost element (the largest value). At every step we look at `sum = nums[L] + nums[R]` and use the sortedness of the array to decide which pointer to move:
+
+2. - If `sum == target`, we have found the pair and return `(L, R)`.
+3. - If `sum < target`, the sum is too small; the only way to increase it without crossing `R` is to move `L` one step to the right (which can only pick a strictly larger or equal value).
+4. - If `sum > target`, the sum is too big; the only way to decrease it without crossing `L` is to move `R` one step to the left.
+
+5. We repeat this process until `L < R`. If the pointers cross, no such pair exists.
+
+6. Why is this correct? Each move discards exactly one element from further consideration, and that element is provably never part of the answer:
+
+7. - When `sum < target` and we move `L` right, we are saying "no pair using `nums[L]` and any element in `[L+1, R]` can ever reach `target`". This is true because `nums[R]` is already the largest available partner for `nums[L]`, and even that pairing falls short.
+8. - When `sum > target` and we move `R` left, we are saying "no pair using `nums[R]` and any element in `[L, R-1]` can ever reach `target`". This is true because `nums[L]` is already the smallest available partner for `nums[R]`, and even that pairing overshoots.
+
+9. So every iteration safely shrinks the search space by one, giving an O(n) time, O(1) space algorithm.
+
+10. The steps of the algorithm are as follows:
+
+11. Initialize two pointers: `L = 0` and `R = n - 1`.
+
+12. While `L < R`:
+
+13. - Let `sum = nums[L] + nums[R]`.
+14. - If `sum == target`, return `(L, R)`.
+15. - Else if `sum < target`, do `L = L + 1`.
+16. - Else, do `R = R - 1`.
+
+17. If the loop ends without returning, no valid pair exists.

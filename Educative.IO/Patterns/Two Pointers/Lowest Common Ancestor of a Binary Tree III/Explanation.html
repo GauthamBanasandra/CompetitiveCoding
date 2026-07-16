@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>LCA III — Why the Two-Pointer Swap Works</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --panel: #1e293b;
+    --panel-2: #273449;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --accent: #38bdf8;
+    --p-color: #fb923c;       /* orange — ptr1 starts at p */
+    --q-color: #2dd4bf;       /* teal   — ptr2 starts at q */
+    --lca-color: #facc15;     /* yellow — LCA highlight */
+    --node-bg: #334155;
+    --node-stroke: #64748b;
+    --edge: #475569;
+    --p-trail: rgba(251, 146, 60, 0.35);
+    --q-trail: rgba(45, 212, 191, 0.35);
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  header {
+    padding: 24px 32px 8px;
+    border-bottom: 1px solid #1e293b;
+  }
+  header h1 { margin: 0 0 6px; font-size: 26px; }
+  header p  { margin: 0; color: var(--muted); font-size: 14px; }
+
+  main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(320px, 0.9fr);
+    gap: 20px;
+    padding: 20px 32px 40px;
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+  @media (max-width: 1100px) {
+    main { grid-template-columns: 1fr; }
+  }
+
+  .panel {
+    background: var(--panel);
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  }
+
+  .controls {
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+    margin-top: 12px;
+  }
+  button, select {
+    background: var(--panel-2);
+    color: var(--text);
+    border: 1px solid #475569;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  button:hover { background: #364660; }
+  button:disabled { opacity: 0.45; cursor: not-allowed; }
+  .speed { display: flex; align-items: center; gap: 8px; margin-left: auto; color: var(--muted); font-size: 13px; }
+
+  svg { width: 100%; height: auto; display: block; background: #0b1424; border-radius: 8px; }
+
+  .legend {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    margin-top: 10px; font-size: 13px; color: var(--muted);
+  }
+  .legend-item { display: inline-flex; align-items: center; gap: 6px; }
+  .swatch { width: 14px; height: 14px; border-radius: 50%; display: inline-block; }
+
+  .status-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .status-card {
+    background: var(--panel-2);
+    border-radius: 8px;
+    padding: 10px 12px;
+    border-left: 4px solid var(--accent);
+  }
+  .status-card.p { border-left-color: var(--p-color); }
+  .status-card.q { border-left-color: var(--q-color); }
+  .status-card .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); }
+  .status-card .value { font-size: 18px; font-weight: 600; margin-top: 2px; }
+
+  .step-line {
+    margin-top: 12px;
+    padding: 10px 12px;
+    background: #0b1424;
+    border-radius: 8px;
+    font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
+    font-size: 13px;
+    min-height: 44px;
+    color: var(--accent);
+  }
+
+  .explanation h2 { margin-top: 0; }
+  .explanation h3 { color: var(--accent); margin-bottom: 6px; }
+  .explanation p, .explanation li { line-height: 1.55; color: #cbd5e1; }
+  .explanation code {
+    background: #0b1424; padding: 1px 6px; border-radius: 4px;
+    font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
+    font-size: 13px; color: #f1f5f9;
+  }
+
+  .formula {
+    background: #0b1424;
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-x: auto;
+  }
+  .pill {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .pill.p { background: rgba(251,146,60,0.2); color: var(--p-color); }
+  .pill.q { background: rgba(45,212,191,0.2); color: var(--q-color); }
+  .pill.lca { background: rgba(250,204,21,0.2); color: var(--lca-color); }
+
+  .meet-banner {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(250, 204, 21, 0.12);
+    border: 1px solid rgba(250, 204, 21, 0.4);
+    border-radius: 8px;
+    color: var(--lca-color);
+    font-weight: 600;
+    display: none;
+  }
+  .meet-banner.show { display: block; }
+
+  /* SVG bits */
+  .edge { stroke: var(--edge); stroke-width: 2; }
+  .node circle { fill: var(--node-bg); stroke: var(--node-stroke); stroke-width: 2; transition: fill 0.25s, stroke 0.25s; }
+  .node text { fill: var(--text); font-weight: 600; font-size: 14px; text-anchor: middle; dominant-baseline: central; user-select: none; }
+  .node.p-trail circle { fill: var(--p-trail); }
+  .node.q-trail circle { fill: var(--q-trail); }
+  .node.both-trail circle { fill: #4b5563; }
+  .node.is-lca circle { fill: var(--lca-color); stroke: var(--lca-color); }
+  .node.is-lca text { fill: #1f2937; }
+
+  .pointer {
+    transition: transform 0.55s cubic-bezier(0.45, 0.05, 0.4, 1.05);
+  }
+  .pointer.swap { transition: transform 0.55s cubic-bezier(0.5, -0.4, 0.5, 1.4); }
+  .pointer-p { fill: var(--p-color); }
+  .pointer-q { fill: var(--q-color); }
+
+  .meet-pulse {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: pulse 1.4s ease-out infinite;
+  }
+  @keyframes pulse {
+    0%   { transform: scale(1);    opacity: 1;   }
+    70%  { transform: scale(1.45); opacity: 0;   }
+    100% { transform: scale(1.45); opacity: 0;   }
+  }
+
+  .vis-wrap { position: relative; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Lowest Common Ancestor (Binary Tree III) — the Two-Pointer Swap Trick</h1>
+  <p>Why does walking up the tree and "jumping to the other node when you fall off the top" actually find the LCA?</p>
+</header>
+
+<main>
+  <!-- ============ LEFT: Visualisation ============ -->
+  <section class="panel vis-wrap">
+    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+      <strong>Pick a scenario:</strong>
+      <select id="scenario"></select>
+    </div>
+
+    <svg id="tree" viewBox="0 0 820 460" aria-label="Binary tree visualization"></svg>
+
+    <div class="legend">
+      <span class="legend-item"><span class="swatch" style="background:var(--p-color)"></span> ptr1 (started at p)</span>
+      <span class="legend-item"><span class="swatch" style="background:var(--q-color)"></span> ptr2 (started at q)</span>
+      <span class="legend-item"><span class="swatch" style="background:var(--lca-color)"></span> LCA (target)</span>
+      <span class="legend-item"><span class="swatch" style="background:var(--p-trail)"></span> ptr1 trail</span>
+      <span class="legend-item"><span class="swatch" style="background:var(--q-trail)"></span> ptr2 trail</span>
+    </div>
+
+    <div class="controls">
+      <button id="btnPlay">▶ Play</button>
+      <button id="btnPause" disabled>⏸ Pause</button>
+      <button id="btnStep">⏭ Step</button>
+      <button id="btnReset">↺ Reset</button>
+      <span class="speed">
+        Speed
+        <input id="speed" type="range" min="200" max="1800" step="100" value="900" />
+      </span>
+    </div>
+
+    <div class="status-grid">
+      <div class="status-card p">
+        <div class="label">ptr1 at</div>
+        <div class="value" id="ptr1Val">–</div>
+      </div>
+      <div class="status-card q">
+        <div class="label">ptr2 at</div>
+        <div class="value" id="ptr2Val">–</div>
+      </div>
+      <div class="status-card">
+        <div class="label">Step #</div>
+        <div class="value" id="stepVal">0</div>
+      </div>
+      <div class="status-card">
+        <div class="label">Steps until they meet</div>
+        <div class="value" id="totalVal">–</div>
+      </div>
+    </div>
+
+    <div class="step-line" id="stepLine">Press <strong>Play</strong> to begin.</div>
+    <div class="meet-banner" id="meetBanner">🎯 ptr1 == ptr2 — meeting node is the LCA!</div>
+  </section>
+
+  <!-- ============ RIGHT: Explanation ============ -->
+  <section class="panel explanation">
+    <h2>Why does the swap trick work?</h2>
+
+    <h3>The problem with just walking up</h3>
+    <p>
+      If <span class="pill p">p</span> and <span class="pill q">q</span> are at <em>different depths</em>,
+      walking up from each at the same speed never lines them up — the deeper one will always be
+      one step "behind" the shallower one. Two pointers walking up can pass right through the LCA at different times and never coincide.
+    </p>
+
+    <h3>The fix: equalize the path lengths</h3>
+    <p>Define three distances along the tree:</p>
+    <div class="formula">
+a = distance(p → LCA)<br>
+b = distance(q → LCA)<br>
+c = distance(LCA → root)
+    </div>
+    <p>So the full path from each node to the root is:</p>
+    <div class="formula">
+p → root  takes  a + c  edges<br>
+q → root  takes  b + c  edges
+    </div>
+    <p>These are unequal whenever <code>a ≠ b</code>. That's exactly why naive walking fails.</p>
+
+    <h3>The swap re-routes each pointer through the other</h3>
+    <p>When <code>ptr1</code> reaches root (its parent is <code>None</code>), we set <code>ptr1 = q</code> and continue. Same for <code>ptr2</code>. Now look at the <em>full</em> route each pointer takes before reaching the LCA:</p>
+    <div class="formula">
+ptr1:  p ─(a+c)→ root ─(swap)→ q ─(b)→ LCA<br>
+ptr2:  q ─(b+c)→ root ─(swap)→ p ─(a)→ LCA
+    </div>
+    <p>Add up the steps for each:</p>
+    <div class="formula">
+ptr1 total = (a + c) + 1 + b  =  <strong>a + b + c + 1</strong><br>
+ptr2 total = (b + c) + 1 + a  =  <strong>a + b + c + 1</strong>
+    </div>
+    <p>
+      <strong>Identical.</strong> Both pointers walk the same number of steps and arrive at the LCA on the
+      <em>same</em> iteration, which is exactly when the loop's <code>ptr1 == ptr2</code> check fires.
+      The swap is just a slick way to make each pointer "pay" the depth-difference once, so the
+      depths cancel out.
+    </p>
+
+    <h3>What if p is an ancestor of q?</h3>
+    <p>
+      Then LCA = p itself, so <code>a = 0</code>. <code>ptr1</code> starts <em>at</em> the LCA but immediately walks
+      away from it — that's fine. By the formula it returns to the LCA after <code>b + c + 1</code> steps,
+      which is exactly when <code>ptr2</code> arrives there too via the swap. The trick still works.
+    </p>
+
+    <h3>Why doesn't it loop forever?</h3>
+    <p>
+      Each pointer follows a fixed finite route of length <code>a + b + c + 1</code>. After that step both are at the LCA, so the loop terminates. There is no infinite cycling because each pointer swaps <em>at most once</em>.
+    </p>
+
+    <h3>What if p and q are at the same depth?</h3>
+    <p>
+      Then <code>a == b</code> and the two pointers actually meet at the LCA after just <code>a</code> steps,
+      <em>before</em> either one has to swap. The "+1 swap" detour is only needed to absorb a depth difference;
+      when there's no difference, the swap is never reached. The algorithm gracefully handles this without any special case.
+    </p>
+
+    <h3>The code (for reference)</h3>
+    <div class="formula">
+ptr1, ptr2 = p, q
+while ptr1 != ptr2:
+    ptr1 = ptr1.parent if ptr1.parent else q
+    ptr2 = ptr2.parent if ptr2.parent else p
+return ptr1
+    </div>
+  </section>
+</main>
+
+<script>
+// ---------- Tree definitions ----------
+// Each node: { id, x, y, parent }. The tree below is shared across scenarios;
+// scenarios just choose different p and q.
+const NODES = {
+  1: { id: 1, x: 410, y:  50, parent: null },
+  2: { id: 2, x: 230, y: 140, parent: 1 },
+  3: { id: 3, x: 590, y: 140, parent: 1 },
+  4: { id: 4, x: 130, y: 230, parent: 2 },
+  5: { id: 5, x: 320, y: 230, parent: 2 },
+  6: { id: 6, x: 500, y: 230, parent: 3 },
+  7: { id: 7, x: 690, y: 230, parent: 3 },
+  8: { id: 8, x:  70, y: 330, parent: 4 },
+  9: { id: 9, x: 195, y: 330, parent: 4 },
+ 10: { id:10, x: 645, y: 330, parent: 7 },
+ 11: { id:11, x: 740, y: 330, parent: 7 },
+ 12: { id:12, x:  35, y: 420, parent: 8 },
+ 13: { id:13, x: 105, y: 420, parent: 8 },
+};
+
+// Helper: find LCA via parent set (used to highlight target).
+function findLCA(pId, qId) {
+  const ancestors = new Set();
+  for (let n = pId; n !== null; n = NODES[n].parent) ancestors.add(n);
+  for (let n = qId; n !== null; n = NODES[n].parent) {
+    if (ancestors.has(n)) return n;
+  }
+  return null;
+}
+
+// ---------- Scenarios ----------
+const SCENARIOS = [
+  { name: "p=12, q=5  (different depths, LCA=2)",  p: 12, q: 5  },
+  { name: "p=8,  q=11 (different depths, LCA=1)",  p: 8,  q: 11 },
+  { name: "p=4,  q=5  (siblings, LCA=2)",          p: 4,  q: 5  },
+  { name: "p=12, q=4  (q is ancestor of p, LCA=4)",p: 12, q: 4  },
+  { name: "p=13, q=10 (deepest pair, LCA=1)",      p: 13, q: 10 },
+];
+
+// ---------- Render the static tree ----------
+const svg = document.getElementById("tree");
+const SVG_NS = "http://www.w3.org/2000/svg";
+
+function clearSvg() { while (svg.firstChild) svg.removeChild(svg.firstChild); }
+
+function drawTree() {
+  clearSvg();
+  // edges
+  for (const id in NODES) {
+    const n = NODES[id];
+    if (n.parent !== null) {
+      const par = NODES[n.parent];
+      const line = document.createElementNS(SVG_NS, "line");
+      line.setAttribute("x1", n.x); line.setAttribute("y1", n.y);
+      line.setAttribute("x2", par.x); line.setAttribute("y2", par.y);
+      line.setAttribute("class", "edge");
+      svg.appendChild(line);
+    }
+  }
+  // nodes
+  for (const id in NODES) {
+    const n = NODES[id];
+    const g = document.createElementNS(SVG_NS, "g");
+    g.setAttribute("class", "node");
+    g.setAttribute("data-id", id);
+    g.setAttribute("transform", `translate(${n.x},${n.y})`);
+
+    const c = document.createElementNS(SVG_NS, "circle");
+    c.setAttribute("r", 20);
+    g.appendChild(c);
+
+    const t = document.createElementNS(SVG_NS, "text");
+    t.textContent = id;
+    g.appendChild(t);
+    svg.appendChild(g);
+  }
+}
+
+// ---------- Pointer rendering ----------
+let ptr1El, ptr2El;
+function drawPointers(p, q) {
+  // ptr1 (left, orange triangle pointing down-right)
+  ptr1El = document.createElementNS(SVG_NS, "g");
+  ptr1El.setAttribute("class", "pointer pointer-p");
+  ptr1El.innerHTML = `
+    <polygon points="-12,-30 12,-30 0,-10" fill="var(--p-color)"/>
+    <text x="0" y="-38" text-anchor="middle" font-size="11" font-weight="700" fill="var(--p-color)">ptr1</text>
+  `;
+  // ptr2 (right, teal triangle)
+  ptr2El = document.createElementNS(SVG_NS, "g");
+  ptr2El.setAttribute("class", "pointer pointer-q");
+  ptr2El.innerHTML = `
+    <polygon points="-12,30 12,30 0,10" fill="var(--q-color)"/>
+    <text x="0" y="46" text-anchor="middle" font-size="11" font-weight="700" fill="var(--q-color)">ptr2</text>
+  `;
+  movePointer(ptr1El, NODES[p]);
+  movePointer(ptr2El, NODES[q]);
+  svg.appendChild(ptr1El);
+  svg.appendChild(ptr2El);
+}
+
+function movePointer(el, node, swap=false) {
+  el.classList.toggle("swap", swap);
+  el.setAttribute("transform", `translate(${node.x},${node.y})`);
+}
+
+// ---------- Trail handling ----------
+function clearTrails() {
+  document.querySelectorAll(".node").forEach(n => {
+    n.classList.remove("p-trail","q-trail","both-trail","is-lca");
+  });
+}
+function markTrail(nodeId, who) {
+  const g = svg.querySelector(`.node[data-id="${nodeId}"]`);
+  if (!g) return;
+  const hasP = g.classList.contains("p-trail") || g.classList.contains("both-trail");
+  const hasQ = g.classList.contains("q-trail") || g.classList.contains("both-trail");
+  g.classList.remove("p-trail","q-trail","both-trail");
+  const newP = hasP || who === "p";
+  const newQ = hasQ || who === "q";
+  if (newP && newQ) g.classList.add("both-trail");
+  else if (newP)   g.classList.add("p-trail");
+  else if (newQ)   g.classList.add("q-trail");
+}
+function highlightLCA(id) {
+  const g = svg.querySelector(`.node[data-id="${id}"]`);
+  if (g) {
+    g.classList.remove("p-trail","q-trail","both-trail");
+    g.classList.add("is-lca");
+  }
+}
+
+// ---------- Algorithm state ----------
+let state = null;
+function initState(scenario) {
+  const { p, q } = scenario;
+  const lca = findLCA(p, q);
+  // pre-compute distances for the totals card
+  function depth(id) { let d=0; while (NODES[id].parent!==null) { d++; id=NODES[id].parent; } return d; }
+  function distTo(id, ancId) { let d=0; while (id!==ancId) { d++; id=NODES[id].parent; } return d; }
+  const a = distTo(p, lca);
+  const b = distTo(q, lca);
+  const c = depth(lca);
+  state = {
+    p, q, lca,
+    ptr1: p, ptr2: q,
+    step: 0,
+    a, b, c,
+    finished: (p === q),
+    swappedP: false, swappedQ: false,
+  };
+  // Simulate to find the actual meeting step (handles the a==b symmetric case).
+  let sp = p, sq = q, n = 0;
+  while (sp !== sq && n < 10000) {
+    sp = NODES[sp].parent !== null ? NODES[sp].parent : q;
+    sq = NODES[sq].parent !== null ? NODES[sq].parent : p;
+    n++;
+  }
+  state.totalSteps = n;
+}
+
+// ---------- One simulation step ----------
+function stepOnce() {
+  if (!state || state.finished) return;
+  // before moving, mark current positions as trails (for visual)
+  markTrail(state.ptr1, "p");
+  markTrail(state.ptr2, "q");
+
+  let nextP, nextQ;
+  let swapP = false, swapQ = false;
+  if (NODES[state.ptr1].parent !== null) nextP = NODES[state.ptr1].parent;
+  else { nextP = state.q; swapP = true; state.swappedP = true; }
+
+  if (NODES[state.ptr2].parent !== null) nextQ = NODES[state.ptr2].parent;
+  else { nextQ = state.p; swapQ = true; state.swappedQ = true; }
+
+  state.ptr1 = nextP;
+  state.ptr2 = nextQ;
+  state.step++;
+
+  movePointer(ptr1El, NODES[state.ptr1], swapP);
+  movePointer(ptr2El, NODES[state.ptr2], swapQ);
+  if (swapP) flashSwapBanner("p");
+  if (swapQ) flashSwapBanner("q");
+
+  updateStatus(swapP, swapQ);
+
+  if (state.ptr1 === state.ptr2) {
+    state.finished = true;
+    highlightLCA(state.ptr1);
+    document.getElementById("meetBanner").classList.add("show");
+    addMeetPulse(state.ptr1);
+    setControlsRunning(false);
+    stopAuto();
+  }
+}
+
+function updateStatus(swapP, swapQ) {
+  document.getElementById("ptr1Val").textContent = state.ptr1;
+  document.getElementById("ptr2Val").textContent = state.ptr2;
+  document.getElementById("stepVal").textContent = state.step;
+  document.getElementById("totalVal").textContent =
+    `${state.totalSteps}  (a=${state.a}, b=${state.b}, c=${state.c})`;
+
+  const sl = document.getElementById("stepLine");
+  const parts = [];
+  parts.push(`Step ${state.step}:`);
+  if (swapP) parts.push(`ptr1 hit root → swap to q (=${state.q})`);
+  else       parts.push(`ptr1 → parent (now ${state.ptr1})`);
+  if (swapQ) parts.push(`; ptr2 hit root → swap to p (=${state.p})`);
+  else       parts.push(`; ptr2 → parent (now ${state.ptr2})`);
+  sl.textContent = parts.join(" ");
+}
+
+// ---------- Swap banner (SVG-internal, avoids layout coord conversion) ----------
+function flashSwapBanner(which) {
+  const node = which === "p" ? NODES[state.ptr1] : NODES[state.ptr2];
+  const color = which === "p" ? "#fb923c" : "#2dd4bf";
+  const otherLabel = which === "p" ? `q (=${state.q})` : `p (=${state.p})`;
+  const g = document.createElementNS(SVG_NS, "g");
+  g.setAttribute("transform", `translate(${node.x},${node.y - 50})`);
+  g.setAttribute("style", "pointer-events:none;");
+
+  const text = `SWAP → ${otherLabel}`;
+  const charW = 7;            // approx character width @ 12px
+  const padX = 10;
+  const w = text.length * charW + padX * 2;
+  const h = 22;
+
+  const rect = document.createElementNS(SVG_NS, "rect");
+  rect.setAttribute("x", -w / 2);
+  rect.setAttribute("y", -h / 2);
+  rect.setAttribute("width", w);
+  rect.setAttribute("height", h);
+  rect.setAttribute("rx", 11);
+  rect.setAttribute("fill", color);
+
+  const t = document.createElementNS(SVG_NS, "text");
+  t.setAttribute("text-anchor", "middle");
+  t.setAttribute("dominant-baseline", "central");
+  t.setAttribute("font-size", "12");
+  t.setAttribute("font-weight", "700");
+  t.setAttribute("fill", "#0f172a");
+  t.textContent = text;
+
+  g.appendChild(rect);
+  g.appendChild(t);
+  // fade-in then fade-out
+  g.setAttribute("opacity", "0");
+  svg.appendChild(g);
+  requestAnimationFrame(() => {
+    g.style.transition = "opacity 0.25s, transform 0.4s";
+    g.setAttribute("opacity", "1");
+    g.setAttribute("transform", `translate(${node.x},${node.y - 60})`);
+  });
+  setTimeout(() => {
+    g.style.opacity = "0";
+    setTimeout(() => g.remove(), 350);
+  }, 1000);
+}
+
+// ---------- Pulse on meet ----------
+function addMeetPulse(nodeId) {
+  const g = svg.querySelector(`.node[data-id="${nodeId}"]`);
+  if (!g) return;
+  const ring = document.createElementNS(SVG_NS, "circle");
+  ring.setAttribute("r", 22);
+  ring.setAttribute("fill", "none");
+  ring.setAttribute("stroke", "var(--lca-color)");
+  ring.setAttribute("stroke-width", 3);
+  ring.setAttribute("class", "meet-pulse");
+  g.appendChild(ring);
+}
+
+// ---------- Driver / controls ----------
+let timer = null;
+function startAuto() {
+  if (state.finished) return;
+  setControlsRunning(true);
+  const speed = parseInt(document.getElementById("speed").value, 10);
+  timer = setInterval(stepOnce, speed);
+}
+function stopAuto() {
+  if (timer) { clearInterval(timer); timer = null; }
+  setControlsRunning(false);
+}
+function setControlsRunning(running) {
+  document.getElementById("btnPlay").disabled  = running || (state && state.finished);
+  document.getElementById("btnPause").disabled = !running;
+}
+
+function reset() {
+  stopAuto();
+  document.getElementById("meetBanner").classList.remove("show");
+  const sel = document.getElementById("scenario");
+  const sc = SCENARIOS[sel.value];
+  drawTree();
+  clearTrails();
+  initState(sc);
+  drawPointers(sc.p, sc.q);
+  // mark p and q trails immediately
+  markTrail(sc.p, "p");
+  markTrail(sc.q, "q");
+  // status reset
+  document.getElementById("ptr1Val").textContent = state.ptr1;
+  document.getElementById("ptr2Val").textContent = state.ptr2;
+  document.getElementById("stepVal").textContent = 0;
+  document.getElementById("totalVal").textContent =
+    `${state.totalSteps}  (a=${state.a}, b=${state.b}, c=${state.c})`;
+  document.getElementById("stepLine").innerHTML =
+    `Starting: ptr1=<strong>${sc.p}</strong> (=p), ptr2=<strong>${sc.q}</strong> (=q). Target LCA=<strong>${state.lca}</strong>.`;
+  setControlsRunning(false);
+}
+
+// ---------- Bootstrap ----------
+function init() {
+  const sel = document.getElementById("scenario");
+  SCENARIOS.forEach((s, i) => {
+    const opt = document.createElement("option");
+    opt.value = i; opt.textContent = s.name;
+    sel.appendChild(opt);
+  });
+  sel.addEventListener("change", reset);
+
+  document.getElementById("btnPlay").addEventListener("click", startAuto);
+  document.getElementById("btnPause").addEventListener("click", stopAuto);
+  document.getElementById("btnStep").addEventListener("click", () => { stopAuto(); stepOnce(); });
+  document.getElementById("btnReset").addEventListener("click", reset);
+  document.getElementById("speed").addEventListener("input", () => {
+    if (timer) { stopAuto(); startAuto(); }
+  });
+
+  reset();
+}
+
+window.addEventListener("DOMContentLoaded", init);
+</script>
+</body>
+</html>

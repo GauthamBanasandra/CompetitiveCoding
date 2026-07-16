@@ -1,0 +1,11 @@
+1. You are given an array of integers `nums` that is sorted in non-decreasing order, and an integer `target`. Find two distinct indices `i` and `j` (with i < j) such that `nums[i] + nums[j] == target`. Return the pair of indices, or an indicator that no such pair exists.
+
+2. Note: This is the two-pointer variant of the classic "Two Sum" problem. The standard LeetCode #1 ("Two Sum") works on an unsorted array and is typically solved with a hash map in O(n) time and O(n) space. When the input is sorted (LeetCode #167, "Two Sum II — Input Array Is Sorted"), the two-pointer technique solves it in O(n) time using only O(1) extra space.
+
+3. Constraints:
+
+4. 1. 2 ≤ nums.length ≤ 10^5
+5. 2. -10^9 ≤ nums[i] ≤ 10^9
+6. 3. nums is sorted in non-decreasing order.
+7. 4. -10^9 ≤ target ≤ 10^9
+8. 5. The tests are generated such that there is exactly one solution (for the sorted variant). For the general case, return "not found" if no such pair exists.

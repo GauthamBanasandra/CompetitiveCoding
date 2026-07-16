@@ -1,0 +1,67 @@
+using Node = int
+using Weight = int
+using Edge = pair<Node, Node>
+
+class UFDS {
+public:
+    UFDS (n)
+    Union (u, v)
+    IsSameSet (u, v)
+
+private:
+    Parent (u)
+
+    size_t n_;
+    vector<int> parent_;
+    vector<int> rank_;
+}
+
+UFDS (n) : n_(n) {
+    rank_(n_);
+    parent_.resize(n_);
+    ranges::iota(parent_, 0);
+}
+
+Parent (u) {
+    if (parent_[u] == u) {
+        return u;
+    }
+    return parent_[u] = Parent(u);
+}
+
+IsSameSet (u, v) {
+    return Parent(u) == Parent(v);
+}
+
+Union (u, v) {
+    if (!IsSameSet(u, v)) {
+        pu = Parent(u)
+        pv = Parent(v)
+
+        if (rank_[pu] > rank_[pv]) {
+            parent_[v] = pu
+        } else {
+            parent_[u] = pv
+            if (rank_[pu] == rank_[pv]) {
+                ++rank_[pu];
+            }
+        }
+    }
+}
+
+size_t n
+UFDS ufds(n)
+vector<pair<Weight, Edge>> edge_list
+
+ranges::sort(edge_list)
+
+cost = 0
+for ([w, e] : edge_list) {
+    [u, v] = e
+    if (!ufds.IsSameSet(u, v)) {
+        ufds.Union(u, v)
+        cost += w
+    }
+}
+
+return cost
